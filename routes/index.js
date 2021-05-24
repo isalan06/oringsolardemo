@@ -43,15 +43,34 @@ router.post('/Information', function(req, res){
 		title: 'Oring Solar Demo - Information'
 	});
 });
+router.get('/Summary', function(req, res){
+	res.render('summary', {
+		title: 'Oring Solar Demo - Summary'
+	  });
+});
+router.post('/Summary' , function(req, res){
+	res.render('summary', {
+		title: 'Oring Solar Demo - Summary'
+	  });
+});
 
 router.post('/CheckUser', function(req, res){
   var organ = req.body['txtOrgan'],
   	user = req.body['txtUser'],
 	pass = req.body['txtPass'];
   if( organ === 'Test' && user === 'Test' && pass === 'Test'){
-  	res.render('summary', {
-		title: 'Oring Solar Demo - Summary'
-	  });
+	var request = require('request');
+	var options = {
+	  'method': 'GET',
+	  //'url': 'http://35.236.116.242:3000/Summary',
+	  'url': '/Summary',
+	  'headers': {
+	  }
+	};
+	request(options, function (error, response) {
+	  //if (error) throw new Error(error);
+	  //console.log(response.body);
+	});
   }
   else{
     //res.send('Check User Failure');
