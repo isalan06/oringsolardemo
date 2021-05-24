@@ -59,18 +59,7 @@ router.post('/CheckUser', function(req, res){
   	user = req.body['txtUser'],
 	pass = req.body['txtPass'];
   if( organ === 'Test' && user === 'Test' && pass === 'Test'){
-	var request = require('request');
-	var options = {
-	  'method': 'GET',
-	  //'url': 'http://35.236.116.242:3000/Summary',
-	  'url': '/Summary',
-	  'headers': {
-	  }
-	};
-	request(options, function (error, response) {
-	  //if (error) throw new Error(error);
-	  //console.log(response.body);
-	});
+	res.redirect('/information');
   }
   else{
     //res.send('Check User Failure');
