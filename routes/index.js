@@ -23,7 +23,7 @@ router.get('/', function(req, res) { //, next) {
 });
 
 router.get('/Test', function(req, res){
-  res.send('API Test');
+  res.send('API Test 2');
 });
 
 router.post('/PostTest', function(req, res){
