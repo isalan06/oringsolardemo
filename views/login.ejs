@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>太陽能系統Demo</title>
+    <link rel="stylesheet" href="stylesheets/login.css">
+  </head>
+  <body>
+    <h1><%= title %></h1>
+    <p>This is login testing page</p>
+
+    <div id="popup-box1" class="popup-position">
+      <div id="popup-wrapper">
+        <div id="popup-container">
+		<h3>註冊程序開發中</h3>
+		<p><a href="javascript:void(0)">Close</a></p>
+	</div>
+      </div>
+    </div>
+
+    <div id="login_frame">
+      <form class="form-signin", role="form" method="post" action="CheckUser">
+        <h2 class="form-signin-heading">登入<h2>
+        <input id="txtOrgan"  name="txtOrgan" type="text" class="form-control" placeholder="組織" required />
+	<input id="txtUser" name="txtUser" type="text" class="form-control" placeholder="使用者" required />
+	<input id="txtPass" name="txtPass" type="password" class="form-control" placeholder="密碼" required />
+	<p><label id="lblMessage" name="lblMessage" class="message-display"><%= showMessage %></label></p>
+	<p>
+	  <button id="btnLogin" name="btnLogin" class="form-click">送出</button>
+	  <a class="button-link" href="javascript:void(0)"  role="button">註冊</a>
+	  <a class="button-link" href="/Information" role="button">訊息</a>
+	</p>
+      </form>
+    </div>
+  </body>
+  <script src="javascripts/login.js"></script>
+</html>
