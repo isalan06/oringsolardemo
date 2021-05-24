@@ -39,7 +39,9 @@ router.post('/CheckUser', function(req, res){
   	user = req.body['txtUser'],
 	pass = req.body['txtPass'];
   if( organ === 'Test' && user === 'Test' && pass === 'Test'){
-  	res.send('Check User Success');
+  	res.render('main', {
+		title: 'Oring Solar Demo - Summary'
+	  });
   }
   else{
     //res.send('Check User Failure');
