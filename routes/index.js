@@ -33,6 +33,11 @@ router.post('/PostTest2', function(req, res){
   res.send('POST Test 2');
 });
 
+router.get('/Information', function(req, res){
+	res.render('information', {
+		title: 'Oring Solar Demo - Information'
+	});
+});
 router.post('/Information', function(req, res){
 	res.render('information', {
 		title: 'Oring Solar Demo - Information'
