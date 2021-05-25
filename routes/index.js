@@ -91,6 +91,7 @@ router.post('/Summary' , function(req, res){
 	online_count = 0;
 	total_count = 0;
 	today_energy = 0.0;
+	var data = [];
 	const conn = new mysql.createConnection(config);
 	conn.connect(  function(err){
 	  	if(err){
@@ -105,6 +106,7 @@ router.post('/Summary' , function(req, res){
 					rows[0].forEach( (row) => {
 						var online = Number(row['online']);
 						var energy = Number(row['today_energy']);
+						data.push(online);
 						if(online === 1) {
 							online_count++;
 							today_energy += energy
@@ -115,7 +117,7 @@ router.post('/Summary' , function(req, res){
 					);
 				
 					conn.end();
-					res.send('Get Data Success' + total_count + " - " + online_count + " - " + today_energy );
+					res.send('Get Data Success' + total_count + " - " + online_count + " - " + today_energy + " : " + data);
 					}
 			  	});
 				
