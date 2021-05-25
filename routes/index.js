@@ -113,7 +113,7 @@ router.post('/Summary' , function(req, res){
 					rows[0].forEach( (row) => {
 						var online = Number(row['Online']);
 						var energy = Number(row['today_energy']);
-						data.push(online);
+						data.push(row);
 						if(online === 1) {
 							online_count++;
 							today_energy += energy
@@ -124,8 +124,8 @@ router.post('/Summary' , function(req, res){
 					);
 				
 					conn.end();
-					//res.send('Get Data Success' + total_count + " - " + online_count + " - " + today_energy + " : " + data);
-					SetData(online_count, total_count, today_energy);
+					res.send('Get Data Success' + total_count + " - " + online_count + " - " + today_energy + " : " + data);
+					//SetData(online_count, total_count, today_energy);
 					}
 			  	});
 				
