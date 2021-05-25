@@ -52,7 +52,7 @@ router.get('/Summary', function(req, res){
 	total_count = 0;
 	today_energy = 0.0;
 
-	var data1, data2, data3;
+	let data1, data2, data3;
 	const conn = new mysql.createConnection(config);
 	conn.connect(  function(err){
 	  	if(err){
