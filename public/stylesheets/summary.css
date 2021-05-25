@@ -29,7 +29,7 @@
     display: inline-flex;
     top:0px;
     left: 640px;
-    width: 700px;
+    width: 1230px;
     height: 340px;
 }
 .InformationDisplay{
@@ -51,8 +51,8 @@
 }
 .InformationDisplay2{
     margin-left: 10px;
-    width: 1230px;
-    height: 330px;
+    width: 620px;
+    height: 150px;
     color:black;
     font-size: 16pt;
     background-color: cornsilk;
