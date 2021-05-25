@@ -21,6 +21,8 @@
 }
 .InverterDisplay{
     display: inline-block;
+    margin-top: 10px;
+    margin-left: 10px;
 }
 .InformationDisplay{
     display: inline-block;
@@ -40,6 +42,14 @@
     margin-left: 10px;
 }
 .InformationDisplay2{
+    margin-left: 10px;
+    width: 620px;
+    height: 150px;
+    color:black;
+    font-size: 16pt;
+    background-color: cornsilk;
+}
+.InformationDisplay3{
     margin-left: 10px;
     width: 620px;
     height: 150px;
