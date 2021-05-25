@@ -125,6 +125,7 @@ router.post('/Summary' , function(req, res){
 				
 					conn.end();
 					//res.send('Get Data Success' + total_count + " - " + online_count + " - " + today_energy + " : " + data);
+					SetData(online_count, total_count, today_energy);
 					}
 			  	});
 				
@@ -137,6 +138,12 @@ router.post('/Summary' , function(req, res){
 		title: 'Oring Solar Demo - Summary'
 	  });*/
 });
+
+function SetData(setonelinecount, settotalcount, settodayenergy){
+	online_count = setonelinecount;
+	total_count = settotalcount;
+	today_energy = settodayenergy;
+}
 
 router.post('/CheckUser', function(req, res){
   var organ = req.body['txtOrgan'],
