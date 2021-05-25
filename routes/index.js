@@ -75,7 +75,6 @@ router.get('/Summary', function(req, res){
 					);
 				
 					conn.end();
-					res.send(resultString);
 					}
 			  	});
 			}
