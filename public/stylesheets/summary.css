@@ -19,3 +19,23 @@
     height: 1000px;
     background-color: rgb(196, 212, 223);
 }
+.LocationInfo{
+    position:fixed;
+    top: 10px;
+    left: 10px;
+    width: 150px;
+    height: 100px;
+    color: black;
+    font-size: 20pt;
+    background-color: cornsilk;
+}
+.EQInformation{
+    position:fixed;
+    top: 10px;
+    left: 170px;
+    width: 150px;
+    height: 100px;
+    color: black;
+    font-size: 20pt;
+    background-color: cornsilk;
+}
