@@ -14,5 +14,6 @@
 .MainWindows{
     position: fixed;
     top: 120px;
-    background-color: cornsilk;
+    left: 200px;
+    background-color: rgb(196, 202, 203);
 }
