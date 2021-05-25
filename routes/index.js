@@ -104,7 +104,7 @@ router.post('/Summary' , function(req, res){
 				else{
 					rows[0].forEach( (row) => {
 						var online = Number(row['online']);
-						var energy = row['today_energy'];
+						var energy = Number(row['today_energy']);
 						if(online === 1) {
 							online_count++;
 							today_energy += energy
