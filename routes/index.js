@@ -86,7 +86,8 @@ router.get('/Summary', function(req, res){
 						title: 'Oring Solar Demo - Summary',
 						i_online_count: data1,
 						i_total_count: data2,
-						i_today_energy: data3
+						i_today_energy: data3,
+						i_data: rows
 					  });
 					}
 			  	});
