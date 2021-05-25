@@ -38,6 +38,12 @@
               <th>id</th>
               <th>online</th>
             </tr>
+            <% i_data[0].forEach( (row) => { %>
+              <tr>
+                <td><%= row['inverter_id'] %></td>
+                <td><%= row['Online'] %></td>
+              </tr>
+            <% }); %>
           </table>
         </div>
       </div>
