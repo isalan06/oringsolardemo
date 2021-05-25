@@ -133,7 +133,7 @@ router.post('/Summary' , function(req, res){
 	    }
   	);
 
-	  res.send('Get Data Success' + total_count + " - " + online_count + " - " + today_energy + " : " + data);  
+	  //res.send('Get Data Success' + total_count + " - " + online_count + " - " + today_energy + " : " + data);  
 	/*res.render('summary', {
 		title: 'Oring Solar Demo - Summary'
 	  });*/
