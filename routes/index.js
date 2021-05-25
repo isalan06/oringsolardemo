@@ -80,9 +80,10 @@ router.get('/Summary', function(req, res){
 			}
 	    }
   	);
+	let data1 = 10;
 	res.render('summary', {
 		title: 'Oring Solar Demo - Summary',
-		i_online_count: 10,
+		i_online_count: data1,
 		i_total_count: '20',
 		i_today_energy: today_energy
 	  });
