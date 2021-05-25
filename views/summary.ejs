@@ -4,6 +4,18 @@
     <meta charset="utf-8">
     <title>太陽能系統Demo</title>
     <link rel="stylesheet" href="stylesheets/summary.css">
+    <script src="http://maps.googleapis.com/maps/api/js"></script>
+    <script>
+      function initialize(){
+        var mapProp ={
+          center: new google.maps.LatLng(51.508742, -0.120850),
+          zoom: 5,
+          mapTypeId: google.maps.mapTypeId.ROADMAP
+        };
+        var map=new google.maps.Map(document.getElementById("googleMap"), mapProp);
+      }
+      google.maps.event.addDomListener(window, 'load', initialize);
+    </script>
   </head>
   <body>
     <h1><%= title %></h1>
@@ -33,22 +45,22 @@
       </div>
       <div class="InverterDisplay2">
         <div class="InformationDisplay3">
-          <table class="table-bordered">
-            <tr>
-              <th>id</th>
-              <th>online</th>
-            </tr>
-            <% i_data[0].forEach( (row) => { %>
-              <tr>
-                <td><%= row['inverter_id'] %></td>
-                <td><%= row['Online'] %></td>
-              </tr>
-            <% }); %>
-          </table>
+          <div id="googleMap" style="width:500px;height:380px;"></div>
         </div>
       </div>
       <div class="MapDisplay">
-        <p>map</p>
+        <table class="table-bordered">
+          <tr>
+            <th>id</th>
+            <th>online</th>
+          </tr>
+          <% i_data[0].forEach( (row) => { %>
+            <tr>
+              <td><%= row['inverter_id'] %></td>
+              <td><%= row['Online'] %></td>
+            </tr>
+          <% }); %>
+        </table>
       </div>
     </div>
     
