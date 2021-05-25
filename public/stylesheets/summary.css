@@ -27,8 +27,8 @@
 .InverterDisplay2{
     position: absolute;
     display: inline-flex;
-    top:10px;
-    left: 610px;
+    top:0px;
+    left: 640px;
     width: 700px;
     height: 340px;
 }
@@ -60,7 +60,7 @@
 .InformationDisplay3{
     margin-left: 10px;
     width: 620px;
-    height: 150px;
+    height: 340px;
     color:black;
     font-size: 16pt;
     background-color: cornsilk;
@@ -69,7 +69,7 @@
     position: absolute;
     display: inline-block;
     left: 10px;
-    top:720px;
+    top:360px;
     width: 300px;
     height: 150px;
     color: black;
