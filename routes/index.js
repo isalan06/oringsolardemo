@@ -124,7 +124,7 @@ router.post('/Summary' , function(req, res){
 					);
 				
 					conn.end();
-					res.send('Get Data Success' + total_count + " - " + online_count + " - " + today_energy + " : " + data);
+					res.send('Get Data Success' + total_count + " - " + online_count + " - " + today_energy + " : " + rows);
 					//SetData(online_count, total_count, today_energy);
 					}
 			  	});
