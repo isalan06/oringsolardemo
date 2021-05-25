@@ -20,22 +20,22 @@
     background-color: rgb(196, 212, 223);
 }
 .LocationInfo{
-    position:fixed;
+    position:relative;
     top: 10px;
     left: 10px;
     width: 150px;
-    height: 100px;
+    height: 200px;
     color: black;
-    font-size: 20pt;
+    font-size: 16pt;
     background-color: cornsilk;
 }
 .EQInformation{
-    position:fixed;
+    position:relative;
     top: 10px;
     left: 170px;
     width: 150px;
-    height: 100px;
+    height: 200px;
     color: black;
-    font-size: 20pt;
+    font-size: 16pt;
     background-color: cornsilk;
 }
