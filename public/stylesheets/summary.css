@@ -65,7 +65,7 @@
     color:black;
     font-size: 16pt;
     background-color: cornsilk;
-    overflow: hidden;
+    overflow: auto;
 }
 .MapDisplay{
     position: absolute;
