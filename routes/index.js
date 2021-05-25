@@ -95,9 +95,7 @@ router.get('/Summary', function(req, res){
 	  });
 });
 router.post('/Summary' , function(req, res){
-	online_count = 0;
-	total_count = 20;
-	today_energy = 0.0;
+
 	var data = [];
 	const conn = new mysql.createConnection(config);
 	conn.connect(  function(err){
