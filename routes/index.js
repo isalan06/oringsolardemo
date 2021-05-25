@@ -103,7 +103,7 @@ router.post('/Summary' , function(req, res){
 			  	if(err) res.send('Get Data Error');
 				else{
 					rows[0].forEach( (row) => {
-						var online = row['online'];
+						var online = Number(row['online']);
 						var energy = row['today_energy'];
 						if(online === 1) {
 							online_count++;
