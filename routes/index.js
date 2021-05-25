@@ -51,6 +51,8 @@ router.get('/Summary', function(req, res){
 	online_count = 0;
 	total_count = 0;
 	today_energy = 0.0;
+
+	var data1, data2, data3;
 	const conn = new mysql.createConnection(config);
 	conn.connect(  function(err){
 	  	if(err){
@@ -75,17 +77,21 @@ router.get('/Summary', function(req, res){
 					);
 				
 					conn.end();
+
+					data1 = online_count;
+					data2 = total_count;
+					data3 = today_energy;
 					}
 			  	});
 			}
 	    }
   	);
-	let data1 = 10;
+	
 	res.render('summary', {
 		title: 'Oring Solar Demo - Summary',
 		i_online_count: data1,
-		i_total_count: '20',
-		i_today_energy: today_energy
+		i_total_count: data2,
+		i_today_energy: data3
 	  });
 });
 router.post('/Summary' , function(req, res){
