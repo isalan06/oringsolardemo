@@ -72,9 +72,11 @@
     display: inline-block;
     left: 10px;
     top:360px;
-    width: 1000px;
+    width: 1500px;
     height: 600px;
     color: black;
     font-size: 16pt;
     background-color: cornsilk;
+    overflow: auto;
+}
 }

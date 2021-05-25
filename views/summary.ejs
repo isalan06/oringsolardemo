@@ -62,6 +62,7 @@
           <tr>
             <th>id</th>
             <th>連線狀態</th>
+            <th>今日發電量(kWh)</th>
           </tr>
           <% i_data[0].forEach( (row) => { %>
             <tr>
@@ -71,6 +72,7 @@
               <% } else { %>
                 <td>離線</td>
               <% } %>
+              <td><%= (row['today_energy] / 100.0) %></td>
             </tr>
           <% }); %>
         </table>
