@@ -1,9 +1,10 @@
 .LeftWindows{
     width: 200px;
     height:1000px;
-    background-color: lightblue;
+    background-color: rgb(196, 212, 223);
 }
 .PageItem{
+    margin-top: 10px;
     margin-left: 10px;
-    color:slategrey;
+    color:blue;
 }
