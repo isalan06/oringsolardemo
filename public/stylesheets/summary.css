@@ -1,4 +1,5 @@
 .LeftWindows{
+    position:fixed;
     top: 120px;
     width: 200px;
     height:1000px;
@@ -11,6 +12,7 @@
     font-size: 14pt;
 }
 .MainWindows{
+    position: fixed;
     top: 120px;
     background-color: cornsilk;
 }
