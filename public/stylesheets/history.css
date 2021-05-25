@@ -19,3 +19,12 @@
     height: 1000px;
     background-color: rgb(196, 212, 223);
 }
+.SelectOption{
+    margin-top: 10px;
+    margin-left: 10px;
+    width: 900px;
+    height: 200px;
+    color: black;
+    font-size: 16pt;
+    background-color: cornsilk;
+}
