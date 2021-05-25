@@ -88,9 +88,44 @@ router.get('/Summary', function(req, res){
 	  });
 });
 router.post('/Summary' , function(req, res){
-	res.render('summary', {
+	online_count = 0;
+	total_count = 0;
+	today_energy = 0.0;
+	const conn = new mysql.createConnection(config);
+	conn.connect(  function(err){
+	  	if(err){
+			conn.end();
+			res.send('Connect DB Error');
+			}
+		else
+		{
+		  	conn.query('CALL pro_get_summary();', function(err, rows){
+			  	if(err) res.send('Get Data Error');
+				else{
+					rows[0].forEach( (row) => {
+						var online = row['online'];
+						var energy = row['today_energy'];
+						if(online === 1) {
+							online_count++;
+							today_energy += energy
+						}
+						total_count++;
+						
+						}
+					);
+				
+					conn.end();
+					res.send('Get Data Success');
+					}
+			  	});
+				
+			}
+	    }
+  	);
+
+	/*res.render('summary', {
 		title: 'Oring Solar Demo - Summary'
-	  });
+	  });*/
 });
 
 router.post('/CheckUser', function(req, res){
