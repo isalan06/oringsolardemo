@@ -11,6 +11,10 @@ var config =
 		port: 3306
 	};
 
+var online_count = 0;
+var total_count = 0;
+var today_energy = 0.0;
+
 //const conn = new mysql.createConnection(config);
 
 /* GET home page. */
@@ -44,8 +48,44 @@ router.post('/Information', function(req, res){
 	});
 });
 router.get('/Summary', function(req, res){
+	online_count = 0;
+	total_count = 0;
+	today_energy = 0.0;
+	const conn = new mysql.createConnection(config);
+	conn.connect(  function(err){
+	  	if(err){
+			conn.end();
+			res.send('Connect DB Error');
+			}
+		else
+		{
+		  	conn.query('CALL pro_get_summary();', function(err, rows){
+			  	if(err) res.send('Get Data Error');
+				else{
+					rows[0].forEach( (row) => {
+						var online = row['online'];
+						var energy = row['today_energy'];
+						if(online === 1) {
+							online_count++;
+							today_energy += energy
+						}
+						total_count++;
+						
+						}
+					);
+				
+					conn.end();
+					res.send(resultString);
+					}
+			  	});
+			}
+	    }
+  	);
 	res.render('summary', {
-		title: 'Oring Solar Demo - Summary'
+		title: 'Oring Solar Demo - Summary',
+		online_count: online_count,
+		total_count: total_count,
+		today_energy: today_energy
 	  });
 });
 router.post('/Summary' , function(req, res){
