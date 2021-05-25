@@ -59,8 +59,9 @@
 }
 .InformationDisplay3{
     margin-left: 10px;
+    margin-top:10px;
     width: 620px;
-    height: 340px;
+    height: 320px;
     color:black;
     font-size: 16pt;
     background-color: cornsilk;
@@ -70,8 +71,8 @@
     display: inline-block;
     left: 10px;
     top:360px;
-    width: 300px;
-    height: 150px;
+    width: 1000px;
+    height: 600px;
     color: black;
     font-size: 16pt;
     background-color: cornsilk;
