@@ -20,7 +20,7 @@
     background-color: rgb(196, 212, 223);
 }
 .InverterDisplay{
-    display: inline;
+    display: inline-flex;
     width: 700px;
     height: 340px;
 }
