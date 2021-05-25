@@ -1,0 +1,21 @@
+.LeftWindows{
+    position:fixed;
+    top: 120px;
+    width: 200px;
+    height:1000px;
+    background-color: rgb(196, 212, 223);
+}
+.PageItem{
+    margin-top: 10px;
+    margin-left: 10px;
+    color:blue;
+    font-size: 14pt;
+}
+.MainWindows{
+    position: fixed;
+    top: 120px;
+    left: 208px;
+    width: 1700px;
+    height: 1000px;
+    background-color: rgb(196, 212, 223);
+}
