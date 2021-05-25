@@ -64,6 +64,10 @@
             <th>連線狀態</th>
             <th>設備狀態</th>
             <th>今日發電量(kWh)</th>
+            <th>今日運作時間(s)</th>
+            <th>周圍溫度(C)</th>
+            <th>升壓溫度(C)</th>
+            <th>設備溫度(C)</th>
           </tr>
           <% i_data[0].forEach( (row) => { %>
             <tr>
@@ -85,6 +89,10 @@
                 <td>Alarm</td>
               <% } %>
               <td><%= (row['today_energy'] / 100.0) %></td>
+              <td><%= row['today_runtime'] %></td>
+              <td><%= row['temperature_ambient'] %></td>
+              <td><%= row['temperature_boost'] %></td>
+              <td><%= row['temperature_inverter'] %></td>
             </tr>
           <% }); %>
         </table>
