@@ -82,9 +82,9 @@ router.get('/Summary', function(req, res){
   	);
 	res.render('summary', {
 		title: 'Oring Solar Demo - Summary',
-		online_count: online_count,
-		total_count: total_count,
-		today_energy: today_energy
+		i_online_count: online_count,
+		i_total_count: total_count,
+		i_today_energy: today_energy
 	  });
 });
 router.post('/Summary' , function(req, res){
