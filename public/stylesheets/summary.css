@@ -21,10 +21,8 @@
 }
 .InverterDisplay{
     display: inline-block;
-    margin-top: 10px;
-    margin-left: 10px;
     width: 700px;
-    height: 320px;
+    height: 340px;
 }
 .InformationDisplay{
     display: inline-block;
