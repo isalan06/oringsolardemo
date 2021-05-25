@@ -19,6 +19,9 @@
     height: 1000px;
     background-color: rgb(196, 212, 223);
 }
+.InverterDisplay{
+    display: inline-block;
+}
 .InformationDisplay{
     display: inline-block;
     width: 300px;
@@ -37,7 +40,7 @@
     margin-left: 10px;
 }
 .InformationDisplay2{
-    margin-top: 10px;
+    margin-left: 10px;
     width: 620px;
     height: 150px;
     color:black;
