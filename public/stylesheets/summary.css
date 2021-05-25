@@ -19,23 +19,23 @@
     height: 1000px;
     background-color: rgb(196, 212, 223);
 }
-.LocationInfo{
-    position:relative;
-    top: 10px;
-    left: 10px;
+.InformationDisplay{
+    display: inline-block;
     width: 150px;
     height: 200px;
     color: black;
     font-size: 16pt;
     background-color: cornsilk;
 }
-.EQInformation{
+#LocationInfo{
     position:relative;
     top: 10px;
-    left: 170px;
-    width: 150px;
-    height: 200px;
-    color: black;
-    font-size: 16pt;
-    background-color: cornsilk;
+    left: 10px;
+
+}
+#EQInformation{
+    position:relative;
+    top: 10px;
+    left: 10px;
+
 }
