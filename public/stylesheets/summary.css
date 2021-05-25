@@ -1,4 +1,5 @@
 .LeftWindows{
+    top: 120px;
     width: 200px;
     height:1000px;
     background-color: rgb(196, 212, 223);
@@ -7,4 +8,9 @@
     margin-top: 10px;
     margin-left: 10px;
     color:blue;
+    font-size: 14pt;
+}
+.MainWindows{
+    top: 120px;
+    background-color: cornsilk;
 }
