@@ -80,7 +80,7 @@ router.get('/Summary', function(req, res){
 
 					data1 = online_count;
 					data2 = total_count;
-					data3 = today_energy;
+					data3 = today_energy / 100.0;
 
 					res.render('summary', {
 						title: 'Oring Solar Demo - Summary',
