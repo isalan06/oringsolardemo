@@ -81,18 +81,20 @@ router.get('/Summary', function(req, res){
 					data1 = online_count;
 					data2 = total_count;
 					data3 = today_energy;
+
+					res.render('summary', {
+						title: 'Oring Solar Demo - Summary',
+						i_online_count: data1,
+						i_total_count: data2,
+						i_today_energy: data3
+					  });
 					}
 			  	});
 			}
 	    }
   	);
 	
-	res.render('summary', {
-		title: 'Oring Solar Demo - Summary',
-		i_online_count: data1,
-		i_total_count: data2,
-		i_today_energy: data3
-	  });
+	
 });
 router.post('/Summary' , function(req, res){
 
