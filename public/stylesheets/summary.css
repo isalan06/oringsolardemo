@@ -25,7 +25,8 @@
     height: 340px;
 }
 .InverterDisplay2{
-    display: fixed;
+    position: absolute;
+    display: inline-flexbox;
     top:130px;
     left: 918px;
     width: 700px;
