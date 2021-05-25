@@ -24,6 +24,11 @@
     width: 700px;
     height: 340px;
 }
+.InverterDisplay2{
+    display: inline-flex;
+    width: 700px;
+    height: 340px;
+}
 .InformationDisplay{
     display: inline-block;
     width: 300px;
