@@ -63,7 +63,7 @@ router.get('/Summary', function(req, res){
 			  	if(err) res.send('Get Data Error');
 				else{
 					rows[0].forEach( (row) => {
-						var online = row['online'];
+						var online = row['Online'];
 						var energy = row['today_energy'];
 						if(online === 1) {
 							online_count++;
@@ -104,7 +104,7 @@ router.post('/Summary' , function(req, res){
 			  	if(err) res.send('Get Data Error');
 				else{
 					rows[0].forEach( (row) => {
-						var online = Number(row['online']);
+						var online = Number(row['Online']);
 						var energy = Number(row['today_energy']);
 						data.push(online);
 						if(online === 1) {
