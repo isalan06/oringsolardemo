@@ -14,15 +14,16 @@
 .MainWindows{
     position: fixed;
     top: 120px;
-    left: 410px;
+    left: 208px;
     width: 1700px;
     height: 1000px;
     background-color: rgb(196, 212, 223);
 }
 .SelectOption{
-    margin-top: 10px;
-    margin-left: 10px;
-    width: 900px;
+    position:fixed;
+    top: 120px;
+    left: 410px;
+    width: 700px;
     height: 200px;
     color: black;
     font-size: 16pt;
