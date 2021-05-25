@@ -47,6 +47,11 @@ router.post('/Information', function(req, res){
 		title: 'Oring Solar Demo - Information'
 	});
 });
+router.get('/History', function(req, res){
+	res.render('history', {
+		title: 'Oring Solar Demo - History'
+	});
+});
 router.get('/Summary', function(req, res){
 	online_count = 0;
 	total_count = 0;
