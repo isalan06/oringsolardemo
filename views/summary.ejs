@@ -73,9 +73,9 @@
             <tr>
               <td><%= row['inverter_id'] %></td>
               <% if(row['Online'] === 1) { %>
-                <td color="green">連線</td>
+                <td><font color="green">連線</font></td>
               <% } else { %>
-                <td color="red">離線</td>
+                <td><font color="red">離線</font></td>
               <% } %>
               <% if(row['inverter_state'] === 0) { %>
                 <td>Standby</td>
