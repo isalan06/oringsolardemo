@@ -18,13 +18,20 @@
 
     <div class="MainWindows">
       <div class="InverterOption">
+        <p>選擇要顯示的Inverter</p>
         <% for (var i =1; i <=20;  i++ ) { %>
             <p><input type="checkbox" id="opt"<%= i %> name="check1">Inverter-<%= i %></input></p>
         <% } %> 
       </div>
       <div class="SelectOption">
-        
-        
+        <div class="SelectBox">
+            <p>選擇顯示類別</p>
+            <p><input type="radio">年</input><input type="radio">日</input></p>
+            <p><input type="radio">月</input><input type="radio">小時</input></p>
+        </div>
+        <div class="SelectBox">
+
+        </div>
       </div>
       
     </div>
