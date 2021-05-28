@@ -21,7 +21,6 @@
 }
 .SelectOption{
     position:fixed;
-    display: inline-block;
     top: 125px;
     left: 410px;
     width: 700px;
