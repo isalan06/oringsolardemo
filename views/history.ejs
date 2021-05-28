@@ -32,8 +32,8 @@
         <div class="SelectBox">
           <form>
             <p class="p1">選擇日期 <%= (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() %></p>
-            <p calss="p1"><input type="date" placeholder="Date" value=<%= new Date().getFullYear() + '-' + (new Date().getMonth() + 1) + 
-              "-" + new Date().getDate() %>></p>
+            <p calss="p1"><input type="date" placeholder="Date" value=<%= new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
+              "-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString() %>></p>
           </form>
         </div>
       </div>
