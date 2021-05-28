@@ -31,8 +31,9 @@
         </div>
         <div class="SelectBox">
           <form>
-            <p class="p1">選擇日期 <%= new Date().getFullYear(); %></p>
-            <p calss="p1"><input type="date" placeholder="Date" value="2021-05-28"></p>
+            <p class="p1">選擇日期</p>
+            <p calss="p1"><input type="date" placeholder="Date" value=<%= "\"" +  new Date().getFullYear() + '-' + new Date().getFullMonth() + 
+              "-" + new Date().getFullDay() + "\"" %>></p>
           </form>
         </div>
       </div>
