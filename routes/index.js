@@ -54,7 +54,7 @@ router.get('/History', function(req, res){
 		setchart: false
 	});
 });
-router.get('/History2?Type=:type', function(req, res){
+router.get('/History2?selectType=:type', function(req, res){
 	res.send('History2')
 });
 router.get('/Summary', function(req, res){
