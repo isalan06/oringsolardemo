@@ -57,7 +57,7 @@
             <p class="p1"><input class="RadioCheck" type="radio" name="selectType" value="Month">月<input class="RadioCheck" type="radio" name="selectType" value="Hour" checked>小時</p>
         </div>
         <div class="SelectBox">
-          <form action="/History2">
+          <form action="/History2?Type=3&Date=2021-05-29">
             <p class="p1">選擇日期</p>
             <p calss="p1"><input type="date" placeholder="Date" value=<%= new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
               "-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString() %>></p>
