@@ -50,8 +50,12 @@ router.post('/Information', function(req, res){
 });
 router.get('/History', function(req, res){
 	res.render('history', {
-		title: 'Oring Solar Demo - History'
+		title: 'Oring Solar Demo - History',
+		setchart: false
 	});
+});
+router.get('/History2', function(req, res){
+	res.send('History2')
 });
 router.get('/Summary', function(req, res){
 	online_count = 0;
