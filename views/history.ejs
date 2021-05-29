@@ -44,6 +44,7 @@
     
 
     <div class="MainWindows">
+      <form action="/History2">
       <div class="InverterOption">
         <p>選擇要顯示的Inverter</p>
         <% for (var i =1; i <=20;  i++ ) { %>
@@ -57,21 +58,22 @@
             <p class="p1"><input class="RadioCheck" type="radio" name="selectType" value="Month">月<input class="RadioCheck" type="radio" name="selectType" value="Hour" checked>小時</p>
         </div>
         <div class="SelectBox">
-          <form action="/History2?Type=3&Date=2021-05-29">
+          <form >
             <p class="p1">選擇日期</p>
             <p calss="p1"><input type="date" placeholder="Date" value=<%= new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
               "-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString() %>></p>
-            <button onclick="test">執行</button>
-          </form>
-        </div>
-        <div class="ChartBox">
-          <div id="piechart" width="400px" height="400px">
-            
-          </div>
+            <button>執行</button>
           
         </div>
+        
       </div>
-      
+    </form> 
+      <div class="ChartBox">
+        <div id="piechart" width="400px" height="400px">
+          
+        </div>
+        
+      </div>
       
     </div>
     
