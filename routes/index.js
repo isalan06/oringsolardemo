@@ -5,9 +5,9 @@ var Chart = require('chart.js');
 
 var config =
 	{
-		host: '34.80.153.164',
+		host: '127.0.0.1',
 		user: 'root',
-		password: '!QAZxsw2',
+		password: '12345678',
 		database: 'Solar_DB',
 		port: 3306
 	};
