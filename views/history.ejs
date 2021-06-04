@@ -53,7 +53,7 @@
             <p><input type="checkbox" id="opt"<%= i %> name="check"<%= i %>>Inverter-<%= i %></input></p>
         <% } %> 
       </div>
-      <form action="/History2" method="POST"></form>
+      <form action="/History2" method="POST">
       <div class="SelectOption">
         <div class="SelectBox">
             <p class="p1">選擇顯示類別</p>
@@ -61,12 +61,12 @@
             <p class="p1"><input class="RadioCheck" type="radio" name="selectType" value="Month">月<input class="RadioCheck" type="radio" name="selectType" value="Hour" checked>小時</p>
         </div>
         <div class="SelectBox">
-          <form >
             <p class="p1">選擇日期</p>
             <p calss="p1"><input type="date" name="pickDateTime" placeholder="Date" value=<%= new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
               "-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString() %>></p>
             <P class="p1"><intput type="checkbox" id="calcAllEnergy" name="calcAllEnergy" aria-checked="checked">合併所有Inverters</P>
             <button>執行</button>
+      </form>
             
           
         </div>
