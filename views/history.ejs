@@ -64,7 +64,7 @@
             <p class="p1">選擇日期</p>
             <p calss="p1"><input type="date" name="pickDateTime" placeholder="Date" value=<%= new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
               "-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString() %>></p>
-            <P class="p1"><intput class="CheckBox2" name="calcAllEnergy" type="checkbox" value="doCalcAllEnergy" checked>合併所有Inverters</intput></P>
+            <P class="p1"><intput id="calcAllEnergy" name="calcAllEnergy" type="checkbox" value="true" checked="true">合併所有Inverters</intput></P>
             <button>執行</button>
             
           
