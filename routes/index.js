@@ -56,7 +56,7 @@ router.get('/History', function(req, res){
 });
 router.post('/History2', function(req, res){
 	var selectType = req.body.selectType
-	var pickDateTime = req.body.pickDateTime
+	var pickDateTime = req.body.pickDateTime.value
 	res.send('History2-' + selectType + '-' + pickDateTime)
 });
 router.get('/Summary', function(req, res){
