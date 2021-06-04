@@ -57,7 +57,9 @@ router.get('/History', function(req, res){
 router.post('/History2', function(req, res){
 	var selectType = req.body.selectType;
 	var pickDateTime = req.body.pickDateTime;
-	var calcAllEnergy = req.body.calcAllEnergy;
+	var calcAllEnergy = 0
+
+	if(req.body.calcAllEnergy) calcAllEnergy = 1;
 	res.send('History2-' + selectType + '-' + pickDateTime + ' - ' + calcAllEnergy + ' - ' + check1)
 });
 router.get('/Summary', function(req, res){
