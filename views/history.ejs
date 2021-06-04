@@ -46,13 +46,14 @@
     
 
     <div class="MainWindows">
-      <form action="/History2" method="POST">
+      
       <div class="InverterOption">
         <p>選擇要顯示的Inverter</p>
         <% for (var i =1; i <=20;  i++ ) { %>
             <p><input type="checkbox" id="opt"<%= i %> name="check"<%= i %>>Inverter-<%= i %></input></p>
         <% } %> 
       </div>
+      <form action="/History2" method="POST"></form>
       <div class="SelectOption">
         <div class="SelectBox">
             <p class="p1">選擇顯示類別</p>
@@ -64,7 +65,7 @@
             <p class="p1">選擇日期</p>
             <p calss="p1"><input type="date" name="pickDateTime" placeholder="Date" value=<%= new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
               "-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString() %>></p>
-            <P><intput type="checkbox" id="calcAllEnergy" name="calcAllEnergy" checked="true" value="true">合併所有Inverters</P>
+            <P class="p1"><intput type="checkbox" id="calcAllEnergy" name="calcAllEnergy" checked="true" value="true">合併所有Inverters</P>
             <button>執行</button>
             
           
