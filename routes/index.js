@@ -59,6 +59,8 @@ router.post('/History2', function(req, res){
 	var pickDateTime = req.body.pickDateTime;
 	var calcAllEnergy = 0
 
+	console.log(req.body);
+
 	if(req.body.calcAllEnergy) calcAllEnergy = 1;
 	res.send('History2-' + selectType + '-' + pickDateTime + ' - ' + calcAllEnergy + ' - ' + check1)
 });
