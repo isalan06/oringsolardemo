@@ -55,7 +55,8 @@ router.get('/History', function(req, res){
 	});
 });
 router.post('/History2', function(req, res){
-	res.send('History2')
+	var selectType = req.body.selectType
+	res.send('History2-' + selectType)
 });
 router.get('/Summary', function(req, res){
 	online_count = 0;
