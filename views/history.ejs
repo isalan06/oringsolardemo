@@ -50,7 +50,7 @@
       <div class="InverterOption">
         <p>選擇要顯示的Inverter</p>
         <% for (var i =1; i <=20;  i++ ) { %>
-            <p><input type="checkbox" id="opt"<%= i %> name="check1">Inverter-<%= i %></input></p>
+            <p><input type="checkbox" id="opt"<%= i %> name="check"<%= i %>>Inverter-<%= i %></input></p>
         <% } %> 
       </div>
       <div class="SelectOption">
@@ -62,14 +62,15 @@
         <div class="SelectBox">
           <form >
             <p class="p1">選擇日期</p>
-            <p calss="p1"><input type="date" placeholder="Date" value=<%= new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
+            <p calss="p1"><input type="date" name="pickDateTime" placeholder="Date" value=<%= new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
               "-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString() %>></p>
             <button>執行</button>
+            <P class="p1"><intput class="CheckBox2" name="CalcAllEnergy" type="checkbox" checked>合併所有Inverters</P>
           
         </div>
         
         <div class="ChartBox">
-          <div id="piechart" width="400px" height="400px">
+          <div id="piechart" width="800px" height="700px">
             
           </div>
           
