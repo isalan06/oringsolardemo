@@ -57,7 +57,8 @@ router.get('/History', function(req, res){
 router.post('/History2', function(req, res){
 	var selectType = req.body.selectType
 	var pickDateTime = req.body.pickDateTime
-	res.send('History2-' + selectType + '-' + pickDateTime)
+	var calcAllEnergy = req.body.calcAllEnergy
+	res.send('History2-' + selectType + '-' + pickDateTime + ' - ' + calcAllEnergy)
 });
 router.get('/Summary', function(req, res){
 	online_count = 0;
