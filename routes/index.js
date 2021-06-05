@@ -49,6 +49,11 @@ router.post('/Information', function(req, res){
 	});
 });
 router.get('/History', function(req, res){
+	var currentDate = new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
+	"-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString();
+
+	console.log(currentDate);
+
 	res.render('history', {
 		title: 'Oring Solar Demo - History',
 		setchart: false
