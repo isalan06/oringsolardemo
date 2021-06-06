@@ -113,7 +113,14 @@ router.post('/History2', function(req, res){
 
 	console.log(req.body);
 
-	res.send('History2-' + selectType + '-' + pickDateTime + ' - ' + calcAllEnergy + ' - ')
+	if(calcAllEnergy == 'on'){
+		console.log('Get Total Energy');
+	}else{
+		console.log('Get Each Energy');
+	}
+
+	//res.send('History2-' + selectType + '-' + pickDateTime + ' - ' + calcAllEnergy + ' - ')
+
 });
 router.get('/Summary', function(req, res){
 	online_count = 0;
