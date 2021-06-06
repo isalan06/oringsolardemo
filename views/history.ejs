@@ -10,6 +10,11 @@
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
 
+      var g_data = null;
+      $(document).ready(function() { 
+        g_data = <%- title %>;
+      });
+
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
