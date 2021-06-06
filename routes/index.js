@@ -100,7 +100,7 @@ router.get('/History', function(req, res){
 
 	res.render('history', {
 		title: 'Oring Solar Demo - History',
-		setchart: false,
+		setcalcTotal: 1,
 		setchartdata: energyDataString,
 		setcharttitle: 'Total Energy Chart',
 		setchartsubtitle: 'Calculated on ' + currentDate,
@@ -110,18 +110,78 @@ router.get('/History', function(req, res){
 router.post('/History2', function(req, res){
 	var selectType = req.body.selectType;
 	var pickDateTime = req.body.pickDateTime;
-	var calcAllEnergy = req.body.testCheckbox
+	var calcAllEnergy = req.body.testCheckbox;
+	var checkInverter = req.body.checkInverter;
+
+	var currentDate = new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
+	"-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString();
+
+	var energyData = [];
+	var subtitle = 'Calculated on';
+	var caltotalenergy = 0;
 
 	console.log(req.body);
 
 	if(calcAllEnergy == 'on'){
 		console.log('Get Total Energy');
+		caltotalenergy = 1;
+		if(selectType == 'Hour'){
+			console.log('Get Hour Data');
+			subtitle += (' - ' + pickDateTime + ' by hour');
+			var commandString='CALL pro_get_totalenergy_hour(\'' + pickDateTime + '\');' 
+
+			var data = [0, 0, 0, 0, 0, 
+				0, 0, 0, 0, 0,
+				0, 0, 0, 0, 0,
+				0, 0, 0, 0, 0,
+				0, 0, 0, 0];
+	
+			var titleData= ['Hour', 'Energy'];
+			energyData.push(titleData);
+
+			const conn = new mysql.createConnection(config);
+			conn.connect(  function(err){
+	  		if(err){
+				conn.end();
+				res.send('Connect DB Error');
+			}
+			else
+			{
+		  		conn.query(commandString, function(err, rows){
+			  		if(err) res.send('Get Data Error');
+					else{
+						rows[0].forEach( (row) => {
+							var index = row['r_hour'];
+							data[index] = row['total_energy_hour'];
+							}
+					
+						);
+						conn.end();
+					}
+			  	});
+			}
+	    	});
+			for(i =0;i<data.length;i++){
+				var hourData = [i.toString(), data[i]];
+				energyData.push(hourData);
+			}
+		
+			var energyDataString = JSON.stringify(energyData)
+
+		}
 	}else{
 		console.log('Get Each Energy');
 	}
 
-	res.send('History2-' + selectType + '-' + pickDateTime + ' - ' + calcAllEnergy + ' - ')
-
+	//res.send('History2-' + selectType + '-' + pickDateTime + ' - ' + calcAllEnergy + ' - ')
+	res.render('history', {
+		title: 'Oring Solar Demo - History',
+		setcalcTotal: caltotalenergy,
+		setchartdata: energyDataString,
+		setcharttitle: 'Total Energy Chart',
+		setchartsubtitle: subtitle,
+		setInverterList: checkInverter
+	});
 });
 router.get('/Summary', function(req, res){
 	online_count = 0;
@@ -165,11 +225,10 @@ router.get('/Summary', function(req, res){
 						i_today_energy: data3,
 						i_data: rows
 					  });
-					}
-			  	});
-			}
-	    }
-  	);
+				}
+			});
+		}
+	});
 	
 	
 });
