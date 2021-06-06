@@ -101,7 +101,8 @@ router.get('/History', function(req, res){
 	res.render('history', {
 		title: 'Oring Solar Demo - History',
 		setchart: false,
-		setchartdata: energyData
+		setchartdata: energyData,
+		setcharttitle: 'Total Energy Chart'
 	});
 });
 router.post('/History2', function(req, res){
