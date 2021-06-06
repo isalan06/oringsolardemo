@@ -82,7 +82,8 @@ router.get('/History', function(req, res){
 					);
 					for(i =0;i<data.length;i++){
 						var hourData = [i.toString(), data[i]];
-						energyData.push(hourData)
+						console.log(hourData);
+						energyData.push(hourData);
 					}
 				
 					conn.end();
