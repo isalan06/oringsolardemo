@@ -94,7 +94,7 @@ router.get('/History', function(req, res){
 		energyData.push(hourData);
 	}
 
-	var energyDataString = JSON.parse(energyData)
+	var energyDataString = JSON.stringify(energyData)
 
 	console.log(energyDataString);
 
