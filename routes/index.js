@@ -174,6 +174,7 @@ router.post('/History2', function(req, res){
 	}
 
 	//res.send('History2-' + selectType + '-' + pickDateTime + ' - ' + calcAllEnergy + ' - ')
+	console.log(caltotalenergy + " - " + subtitle + " - " + checkInverter + " - " + energyDataString);
 	res.render('history', {
 		title: 'Oring Solar Demo - History',
 		setcalcTotal: caltotalenergy,
