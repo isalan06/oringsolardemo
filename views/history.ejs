@@ -69,11 +69,10 @@
             <% if(listindex >= setInverterList.length) break; else { %>
               <% if (setInverterList[listindex] == (j+1)) { listbuffer.push(1); listindex++; } else { listbuffer.push(0); } %>
             <% } %> 
-
           <% } %> 
 
           <% for (var i =1; i <=20;  i++ ) { %>
-              <p><input type="checkbox" name="checkInverter" value=<%= i %>>Inverter-<%= i %></p>
+              <p><input type="checkbox" name="checkInverter" value=<%= i %> <% if(listbuffer[i-1] == 1) { %>checked<% } %>>Inverter-<%= i %></p>
           <% } %> 
         </div>
         <div class="SelectOption">
