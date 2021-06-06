@@ -10,13 +10,6 @@
       google.charts.load('current', {'packages':['bar']});
       google.charts.setOnLoadCallback(drawChart);
 
-      var g_data = null;
-      $(document).ready(function() { 
-        console.log('Test');
-        g_data = '<%- title %>';
-        console.log(g_data);
-      });
-
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
@@ -27,7 +20,9 @@
           ['2017', 1030, 540, 350]
         ]);
 
-        
+        var data2 = google.visualization.arrayToDataTable(
+          '<%= setchartdata %>'
+        );
 
         var options = {
           chart: {
@@ -40,7 +35,7 @@
 
         var chart = new google.charts.Bar(document.getElementById('piechart'));
 
-        chart.draw(data, google.charts.Bar.convertOptions(options));
+        chart.draw(data2, google.charts.Bar.convertOptions(options));
       }
     </script>
 
