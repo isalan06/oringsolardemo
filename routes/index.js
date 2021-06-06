@@ -94,9 +94,9 @@ router.get('/History', function(req, res){
 		energyData.push(hourData);
 	}
 
-	console.log(currentDate);
-	console.log(data);
-	console.log(energyData);
+	var energyDataString = JSON.stringify(energyData)
+
+	console.log(energyDataString);
 
 	res.render('history', {
 		title: 'Oring Solar Demo - History',
