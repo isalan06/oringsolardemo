@@ -169,21 +169,23 @@ router.post('/History2', function(req, res){
 		
 			var energyDataString = JSON.stringify(energyData)
 
+			console.log(caltotalenergy + " - " + subtitle + " - " + checkInverter + " - " + energyDataString);
+			res.render('history', {
+				title: 'Oring Solar Demo - History',
+				setcalcTotal: caltotalenergy,
+				setchartdata: energyDataString,
+				setcharttitle: 'Total Energy Chart',
+				setchartsubtitle: subtitle,
+				setInverterList: checkInverter
+			});
+
 		}
 	}else{
 		console.log('Get Each Energy');
 	}
 
-	//res.send('History2-' + selectType + '-' + pickDateTime + ' - ' + calcAllEnergy + ' - ')
-	console.log(caltotalenergy + " - " + subtitle + " - " + checkInverter + " - " + energyDataString);
-	res.render('history', {
-		title: 'Oring Solar Demo - History',
-		setcalcTotal: caltotalenergy,
-		setchartdata: energyDataString,
-		setcharttitle: 'Total Energy Chart',
-		setchartsubtitle: subtitle,
-		setInverterList: checkInverter
-	});
+	res.send('History2-' + selectType + '-' + pickDateTime + ' - ' + calcAllEnergy + ' - ')
+	
 });
 router.get('/Summary', function(req, res){
 	online_count = 0;
