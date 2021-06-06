@@ -12,7 +12,9 @@
 
       var g_data = null;
       $(document).ready(function() { 
-        g_data = <%- title %>;
+        console.log('Test');
+        g_data = '<%- title %>';
+        console.log(g_data);
       });
 
       function drawChart() {
