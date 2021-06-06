@@ -58,6 +58,10 @@ router.get('/History', function(req, res){
 				0, 0, 0, 0, 0,
 				0, 0, 0, 0, 0,
 				0, 0, 0, 0];
+	
+	var energyData = []
+	var titleData= ['Hour', 'Energy']
+	energyData.push(titleData)
 
 	const conn = new mysql.createConnection(config);
 	conn.connect(  function(err){
@@ -73,10 +77,13 @@ router.get('/History', function(req, res){
 					rows[0].forEach( (row) => {
 						var index = row['r_hour'];
 						data[index] = row['total_energy_hour'];
-
-						
 						}
+					
 					);
+					for(i =0;i<data.length;i++){
+						var hourData = [i.toString(), data[i]];
+						energyData.push(hourData)
+					}
 				
 					conn.end();
 
@@ -88,6 +95,7 @@ router.get('/History', function(req, res){
 
 	console.log(currentDate);
 	console.log(data);
+	console.log(energyData);
 
 	res.render('history', {
 		title: 'Oring Solar Demo - History',
