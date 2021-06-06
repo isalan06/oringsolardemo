@@ -156,6 +156,7 @@ router.post('/History2', function(req, res){
 							}
 					
 						);
+						console.log(data);
 						conn.end();
 					}
 			  	});
