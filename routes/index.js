@@ -90,7 +90,7 @@ router.get('/History', function(req, res){
 
 	for(i =0;i<data.length;i++){
 		var hourData = [i.toString(), data[i]];
-		console.log(hourData);
+		//console.log(hourData);
 		energyData.push(hourData);
 	}
 
@@ -101,7 +101,7 @@ router.get('/History', function(req, res){
 	res.render('history', {
 		title: 'Oring Solar Demo - History',
 		setchart: false,
-		setchartdata: energyData,
+		setchartdata: energyDataString,
 		setcharttitle: 'Total Energy Chart'
 	});
 });
