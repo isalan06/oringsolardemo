@@ -103,7 +103,8 @@ router.get('/History', function(req, res){
 		setchart: false,
 		setchartdata: energyDataString,
 		setcharttitle: 'Total Energy Chart',
-		setchartsubtitle: 'Calculated on ' + currentDate
+		setchartsubtitle: 'Calculated on ' + currentDate,
+		setInverterList: [1, 2, 3, 4]
 	});
 });
 router.post('/History2', function(req, res){

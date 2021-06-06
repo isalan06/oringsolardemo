@@ -64,13 +64,16 @@
       <form action="/History2" method="POST">
         <div class="InverterOption">
           <p>選擇要顯示的Inverter</p>
-          <p><input type="checkbox" name="checkInverterT_1">Inverter Test - 1</p>
+          <% var listbuffer = []; var listindex = 0; %>
+          <% for (var j=0; j<20; j++) { %>
+          <% if(listindex >= setInverterList.length) break; else { %>
+          <% if (list[list] == (j+1)) { listbuffer.push(1) } else { listbuffer.push(1) } %>
+          <% } %>
+          <% } %>
+          
           <% for (var i =1; i <=20;  i++ ) { %>
               <p><input type="checkbox" name="checkInverter" value=<%= i %>>Inverter-<%= i %></p>
           <% } %> 
-          <% for (var j=1; j<=3; j++) { %>
-            <p><input type="checkbox" name="checkInverterT_A">Inverter Test A-<%= j %></p>
-          <% } %>
         </div>
         <div class="SelectOption">
         <div class="SelectBox">
