@@ -158,24 +158,25 @@ router.post('/History2', function(req, res){
 						);
 						console.log(data);
 						conn.end();
+						for(i =0;i<data.length;i++){
+							var hourData = [i.toString(), data[i]];
+							energyData.push(hourData);
+						}
+					
+						var energyDataString = JSON.stringify(energyData)
+			
+						console.log(caltotalenergy + " - " + subtitle + " - " + checkInverter + " - " + energyDataString);
+						res.render('history', {
+							title: 'Oring Solar Demo - History',
+							setcalcTotal: caltotalenergy,
+							setchartdata: energyDataString,
+							setcharttitle: 'Total Energy Chart',
+							setchartsubtitle: subtitle,
+							setInverterList: checkInverter
+						});
 					}
 			  	});
-				for(i =0;i<data.length;i++){
-					var hourData = [i.toString(), data[i]];
-					energyData.push(hourData);
-				}
-			
-				var energyDataString = JSON.stringify(energyData)
-	
-				console.log(caltotalenergy + " - " + subtitle + " - " + checkInverter + " - " + energyDataString);
-				res.render('history', {
-					title: 'Oring Solar Demo - History',
-					setcalcTotal: caltotalenergy,
-					setchartdata: energyDataString,
-					setcharttitle: 'Total Energy Chart',
-					setchartsubtitle: subtitle,
-					setInverterList: checkInverter
-				});
+				
 			}
 	    	});
 			
