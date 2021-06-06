@@ -80,12 +80,13 @@ router.get('/History', function(req, res){
 						}
 					
 					);
+					console.log('Transfer');
 					for(i =0;i<data.length;i++){
 						var hourData = [i.toString(), data[i]];
 						console.log(hourData);
 						energyData.push(hourData);
 					}
-				
+					console.log(energyData);
 					conn.end();
 
 					}
