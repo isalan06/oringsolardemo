@@ -36,7 +36,7 @@
             title: '<%= setcharttitle %>', //'Company Performance',
             subtitle: '<%= setchartsubtitle %>' //'Sales, Expenses, and Profit: 2014-2017',
           },
-          width: 1200,
+          width: 1400,
           hight: 700
         };
 
@@ -83,8 +83,7 @@
         </div>
         <div class="SelectBox">
             <p class="p1">選擇日期</p>
-            <p calss="p1"><input type="date" name="pickDateTime" placeholder="Date" value=<%= new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
-              "-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString() %>></p>
+            <p calss="p1"><input type="date" name="pickDateTime" placeholder="Date" value=<%= setSelectDate %>></p>
             <p class="p1"><input type="checkbox" name="testCheckbox" <% if(setcalcTotal==1) { %> checked <% } %>>計算所有發電量</p>
             <button>執行</button>
       </form>

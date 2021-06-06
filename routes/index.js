@@ -104,7 +104,8 @@ router.get('/History', function(req, res){
 		setchartdata: energyDataString,
 		setcharttitle: 'Total Energy Chart',
 		setchartsubtitle: 'Calculated on ' + currentDate,
-		setInverterList: ['1', '2', '3', '4']
+		setInverterList: ['1', '2', '3', '4'],
+		setSelectDate: currentDate
 	});
 });
 router.post('/History2', function(req, res){
@@ -172,7 +173,8 @@ router.post('/History2', function(req, res){
 							setchartdata: energyDataString,
 							setcharttitle: 'Total Energy Chart',
 							setchartsubtitle: subtitle,
-							setInverterList: checkInverter
+							setInverterList: checkInverter,
+							setSelectDate: pickDateTime
 						});
 					}
 			  	});
