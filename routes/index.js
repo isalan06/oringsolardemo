@@ -128,8 +128,8 @@ router.post('/History2', function(req, res){
 		if(selectType == 'Hour'){
 			console.log('Get Hour Data');
 			subtitle += (' - ' + pickDateTime + ' by hour');
-			var commandString='CALL pro_get_totalenergy_hour(\'' + pickDateTime + '\');' 
-
+			var commandString='CALL pro_get_totalenergy_hour(\'' + pickDateTime + '\');';
+			console.log(commandString);
 			var data = [0, 0, 0, 0, 0, 
 				0, 0, 0, 0, 0,
 				0, 0, 0, 0, 0,
