@@ -185,7 +185,7 @@ router.post('/History2', function(req, res){
 		console.log('Get Each Energy');
 	}
 
-	res.send('History2-' + selectType + '-' + pickDateTime + ' - ' + calcAllEnergy + ' - ')
+	//res.send('History2-' + selectType + '-' + pickDateTime + ' - ' + calcAllEnergy + ' - ')
 	
 });
 router.get('/Summary', function(req, res){
