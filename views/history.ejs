@@ -20,11 +20,13 @@
           ['2017', 1030, 540, 350]
         ]);
 
-        '<% console.log(\'Test\'); %>'
-
+        
+        var data_chart = JSON.stringify('<%- setchartdata %>');
         var data2 = google.visualization.arrayToDataTable(
-          '<%= setchartdata %>'
+          data_chart
         );
+
+        
 
         var options = {
           chart: {
