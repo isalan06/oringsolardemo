@@ -37,7 +37,10 @@
             subtitle: '<%= setchartsubtitle %>' //'Sales, Expenses, and Profit: 2014-2017',
           },
           width: 1400,
-          hight: 700
+          hight: 700,
+          vAxis: {
+            title: 'Energy (kWh)'
+          }
         };
 
         var chart = new google.charts.Bar(document.getElementById('piechart'));
