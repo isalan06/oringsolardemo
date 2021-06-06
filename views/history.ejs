@@ -20,6 +20,10 @@
           ['2017', 1030, 540, 350]
         ]);
 
+        var data2 = google.visualization.arrayToDataTable(
+          '<%- JSON.parse(setchartdata) %>'
+        );
+
         var options = {
           chart: {
             title: '<%= setcharttitle %>', //'Company Performance',
