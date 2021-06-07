@@ -410,8 +410,13 @@ router.post('/History2', function(req, res){
 					0, 0, 0, 0, 0,
 					0, 0, 0, 0, 0,
 					0, 0, 0, 0];
+				var datas = [];
 	
-				var titleData= ['Hour', 'Energy'];
+				var titleData= ['Hour'];
+				for(var i=0;i<inverternumbver;i++){
+					var inverter_title = 'inverter-' + checkInverter[i];
+					titleData.push(inverter_title);
+				}
 				energyData.push(titleData);
 
 				const conn = new mysql.createConnection(config);
@@ -422,29 +427,43 @@ router.post('/History2', function(req, res){
 				}
 				else
 				{
+					var inverter_no = -1;
 		  			conn.query(commandString, function(err, rows){
 			  			if(err) res.send('Get Data Error');
 						else{
 							rows[0].forEach( (row) => {
-								var index = row['r_hour'];
-								data[index] = row['total_energy_hour'];
+								var _inverter_id = row['inverter_id'];
+								if(_inverter_id != inverter_no){
+									if(inverter_no != -1) datas.push(data);
+									inverter_no = _inverter_id;
+									data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 								}
+
+								var index = row['r_hour'];
+								data[index] = row['energy_hour'];
+								}
+								
 					
 							);
-							//console.log(data);
+							datas.push(data);
+							console.log(datas);
 							conn.end();
-							for(i =0;i<data.length;i++){
-								var hourData = [i.toString(), data[i]];
+							for(i =0;i<24;i++){
+								var hourData = [i.toString()];
+								for(var j=0; j<inverternumbver;j++){
+									hourData.push(datas[j][i]);
+								}
 								energyData.push(hourData);
 							}
 					
-							var energyDataString = JSON.stringify(energyData)
+							var energyDataString = JSON.stringify(energyData);
+							console.log(energyDataString);
 			
 							res.render('history', {
 								title: 'Oring Solar Demo - History',
 								setcalcTotal: caltotalenergy,
 								setchartdata: energyDataString,
-								setcharttitle: 'Total Energy Chart',
+								setcharttitle: 'Selected Inverters Energy Chart',
 								setchartsubtitle: subtitle,
 								setInverterList: checkInverter,
 								setSelectDate: pickDateTime,
