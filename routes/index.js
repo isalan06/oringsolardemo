@@ -391,7 +391,12 @@ router.post('/History2', function(req, res){
 		caltotalenergy = 1;
 		console.log(checkInverter);
 		if(selectType == 'Hour'){
-			
+			if(checkInverter == undefined){
+				console.log('No Inverter Selected');
+				res.redirect('history');
+			}else{
+
+			}
 		}
 	}
 
