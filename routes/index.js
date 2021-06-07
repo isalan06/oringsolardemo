@@ -427,6 +427,7 @@ router.post('/History2', function(req, res){
 				}
 				else
 				{
+					res.send(commandString);
 					var inverter_no = -1;
 		  			conn.query(commandString, function(err, rows){
 			  			if(err) res.send('Get Data Error');
