@@ -414,7 +414,7 @@ router.post('/History2', function(req, res){
 	
 				var titleData= ['Hour'];
 				for(var i=0;i<inverternumbver;i++){
-					var inverter_title = 'inverter-' + checkInverter[i];
+					var inverter_title = 'INV-' + checkInverter[i];
 					titleData.push(inverter_title);
 				}
 				energyData.push(titleData);
@@ -432,7 +432,6 @@ router.post('/History2', function(req, res){
 		  			conn.query(commandString, function(err, rows){
 			  			if(err) res.send('Get Data Error');
 						else{
-							console.log(rows);
 							rows.forEach( (row) => {
 								console.log(debug_id++);
 								var _inverter_id = row['inverter_id'];
@@ -449,7 +448,6 @@ router.post('/History2', function(req, res){
 					
 							);
 							datas.push(data);
-							console.log(datas);
 							conn.end();
 							for(i =0;i<24;i++){
 								var hourData = [i.toString()];
@@ -460,7 +458,6 @@ router.post('/History2', function(req, res){
 							}
 					
 							var energyDataString = JSON.stringify(energyData);
-							console.log(energyDataString);
 			
 							res.render('history', {
 								title: 'Oring Solar Demo - History',
