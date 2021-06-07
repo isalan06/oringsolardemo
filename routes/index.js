@@ -414,7 +414,7 @@ router.post('/History2', function(req, res){
 	
 				var titleData= ['Hour'];
 				for(var i=0;i<inverternumbver;i++){
-					var inverter_title = 'INV-' + checkInverter[i];
+					var inverter_title = 'INV-' + checkInverter[i] + '  ';
 					titleData.push(inverter_title);
 				}
 				energyData.push(titleData);
