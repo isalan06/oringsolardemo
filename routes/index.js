@@ -395,7 +395,66 @@ router.post('/History2', function(req, res){
 				console.log('No Inverter Selected');
 				res.redirect('history');
 			}else{
+				var inverternumbver = checkInverter.length;
+				subtitle += (' - ' + pickDateTime + ' by hour for selected inverters');
+				var pickDateTimeArray = pickDateTime.split("-");
+				var _year = pickDateTimeArray[0];
+				var _month = pickDateTimeArray[1];
+				var _day = pickDateTimeArray[2];
+				var commandString='SELECT inverter_id, r_hour, (energy_end-energy_start) AS energy_hour FROM (';
+				commandString += 'SELECT inverter_id, r_hour, energy_start, energy_end FROM table_solar_hist2_hour WHERE r_year=' + _year + ' AND r_month=' + _month + ' AND r_day=' + _day;
+				commandString += ') AS A ORDER BY inverter_id, r_hour;';
+				console.log(commandString);
+				var data = [0, 0, 0, 0, 0, 
+					0, 0, 0, 0, 0,
+					0, 0, 0, 0, 0,
+					0, 0, 0, 0, 0,
+					0, 0, 0, 0];
+	
+				var titleData= ['Hour', 'Energy'];
+				energyData.push(titleData);
 
+				const conn = new mysql.createConnection(config);
+				conn.connect(  function(err){
+	  			if(err){
+					conn.end();
+					res.send('Connect DB Error');
+				}
+				else
+				{
+		  			conn.query(commandString, function(err, rows){
+			  			if(err) res.send('Get Data Error');
+						else{
+							rows[0].forEach( (row) => {
+								var index = row['r_hour'];
+								data[index] = row['total_energy_hour'];
+								}
+					
+							);
+							//console.log(data);
+							conn.end();
+							for(i =0;i<data.length;i++){
+								var hourData = [i.toString(), data[i]];
+								energyData.push(hourData);
+							}
+					
+							var energyDataString = JSON.stringify(energyData)
+			
+							res.render('history', {
+								title: 'Oring Solar Demo - History',
+								setcalcTotal: caltotalenergy,
+								setchartdata: energyDataString,
+								setcharttitle: 'Total Energy Chart',
+								setchartsubtitle: subtitle,
+								setInverterList: checkInverter,
+								setSelectDate: pickDateTime,
+								setSelectType: selectType
+							});
+						}
+			  		});
+				
+				}
+	    	});
 			}
 		}
 	}
