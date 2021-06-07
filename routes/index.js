@@ -404,7 +404,6 @@ router.post('/History2', function(req, res){
 				var commandString='SELECT inverter_id, r_hour, (energy_end-energy_start) AS energy_hour FROM (';
 				commandString += 'SELECT inverter_id, r_hour, energy_start, energy_end FROM table_solar_hist2_hour WHERE r_year=' + _year + ' AND r_month=' + _month + ' AND r_day=' + _day;
 				commandString += ') AS A ORDER BY inverter_id, r_hour;';
-				console.log(commandString);
 				var data = [0, 0, 0, 0, 0, 
 					0, 0, 0, 0, 0,
 					0, 0, 0, 0, 0,
@@ -428,12 +427,10 @@ router.post('/History2', function(req, res){
 				else
 				{
 					var inverter_no = -1;
-					var debug_id = 0;
 		  			conn.query(commandString, function(err, rows){
 			  			if(err) res.send('Get Data Error');
 						else{
 							rows.forEach( (row) => {
-								console.log(debug_id++);
 								var _inverter_id = row['inverter_id'];
 								if(_inverter_id != inverter_no){
 									if(inverter_no != -1) datas.push(data);
