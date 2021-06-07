@@ -69,7 +69,26 @@ router.get('/History', function(req, res){
 	conn.connect(  function(err){
 	  	if(err){
 			conn.end();
-			res.send('Connect DB Error');
+			for(i =0;i<data.length;i++){
+				var hourData = [i.toString(), data[i]];
+				//console.log(hourData);
+				energyData.push(hourData);
+			}
+		
+			var energyDataString = JSON.stringify(energyData)
+		
+			console.log(energyDataString);
+		
+			res.render('history', {
+				title: 'Oring Solar Demo - History',
+				setcalcTotal: 1,
+				setchartdata: energyDataString,
+				setcharttitle: 'Total Energy Chart',
+				setchartsubtitle: 'Calculated on ' + currentDate,
+				setInverterList: ['1', '2', '3', '4'],
+				setSelectDate: currentDate,
+				setSelectType: 'Hour'
+			});
 			}
 		else
 		{
@@ -84,32 +103,34 @@ router.get('/History', function(req, res){
 					);
 					conn.end();
 
+					for(i =0;i<data.length;i++){
+						var hourData = [i.toString(), data[i]];
+						//console.log(hourData);
+						energyData.push(hourData);
+					}
+				
+					var energyDataString = JSON.stringify(energyData)
+				
+					console.log(energyDataString);
+				
+					res.render('history', {
+						title: 'Oring Solar Demo - History',
+						setcalcTotal: 1,
+						setchartdata: energyDataString,
+						setcharttitle: 'Total Energy Chart',
+						setchartsubtitle: 'Calculated on ' + currentDate,
+						setInverterList: ['1', '2', '3', '4'],
+						setSelectDate: currentDate,
+						setSelectType: 'Hour'
+					});
+
 					}
 			  	});
 			}
 	    }
   	);
 
-	for(i =0;i<data.length;i++){
-		var hourData = [i.toString(), data[i]];
-		//console.log(hourData);
-		energyData.push(hourData);
-	}
-
-	var energyDataString = JSON.stringify(energyData)
-
-	console.log(energyDataString);
-
-	res.render('history', {
-		title: 'Oring Solar Demo - History',
-		setcalcTotal: 1,
-		setchartdata: energyDataString,
-		setcharttitle: 'Total Energy Chart',
-		setchartsubtitle: 'Calculated on ' + currentDate,
-		setInverterList: ['1', '2', '3', '4'],
-		setSelectDate: currentDate,
-		setSelectType: 'Hour'
-	});
+	
 });
 router.post('/History2', function(req, res){
 	var selectType = req.body.selectType;
