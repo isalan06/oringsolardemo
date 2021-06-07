@@ -53,6 +53,8 @@ router.get('/History', function(req, res){
 	"-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString();
 	var commandString='CALL pro_get_totalenergy_hour(\'' + currentDate + '\');' 
 
+	console.log(commandString);
+
 	var data = [0, 0, 0, 0, 0, 
 				0, 0, 0, 0, 0,
 				0, 0, 0, 0, 0,
