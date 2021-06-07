@@ -127,10 +127,10 @@ router.post('/History2', function(req, res){
 		console.log('Get Total Energy');
 		caltotalenergy = 1;
 		if(selectType == 'Hour'){
-			console.log('Get Hour Data');
+			//console.log('Get Hour Data');
 			subtitle += (' - ' + pickDateTime + ' by hour');
 			var commandString='CALL pro_get_totalenergy_hour(\'' + pickDateTime + '\');';
-			console.log(commandString);
+			//console.log(commandString);
 			var data = [0, 0, 0, 0, 0, 
 				0, 0, 0, 0, 0,
 				0, 0, 0, 0, 0,
@@ -157,7 +157,7 @@ router.post('/History2', function(req, res){
 							}
 					
 						);
-						console.log(data);
+						//console.log(data);
 						conn.end();
 						for(i =0;i<data.length;i++){
 							var hourData = [i.toString(), data[i]];
@@ -166,7 +166,6 @@ router.post('/History2', function(req, res){
 					
 						var energyDataString = JSON.stringify(energyData)
 			
-						console.log(caltotalenergy + " - " + subtitle + " - " + checkInverter + " - " + energyDataString);
 						res.render('history', {
 							title: 'Oring Solar Demo - History',
 							setcalcTotal: caltotalenergy,
@@ -183,6 +182,181 @@ router.post('/History2', function(req, res){
 	    	});
 			
 
+		}
+		else if(selectType == 'Day'){
+			console.log('Get Day Data');
+			var pickDateTimeArray = pickDateTime.split("-");
+			var newPickDateTime = pickDateTimeArray[0] + "-" + pickDateTimeArray[1];
+			subtitle += (' - ' + newPickDateTime + ' by Day');
+			var commandString='CALL pro_get_totalenergy_day(\'' + pickDateTime + '\');';
+			console.log(commandString);
+			var data = [0, 0, 0, 0, 0, 
+				0, 0, 0, 0, 0,
+				0, 0, 0, 0, 0,
+				0, 0, 0, 0, 0,
+				0, 0, 0, 0, 0,
+				0, 0, 0, 0, 0,
+				0];
+	
+			var titleData= ['Day', 'Energy'];
+			energyData.push(titleData);
+
+			const conn = new mysql.createConnection(config);
+			conn.connect(  function(err){
+	  		if(err){
+				conn.end();
+				res.send('Connect DB Error');
+			}
+			else
+			{
+		  		conn.query(commandString, function(err, rows){
+			  		if(err) res.send('Get Data Error');
+					else{
+						rows[0].forEach( (row) => {
+							var index = row['r_day'] - 1;
+							data[index] = row['total_energy_day'];
+							}
+					
+						);
+						console.log(data);
+						conn.end();
+						for(i =0;i<data.length;i++){
+							var dayData = [(i+1).toString(), data[i]];
+							energyData.push(dayData);
+						}
+					
+						var energyDataString = JSON.stringify(energyData)
+			
+						res.render('history', {
+							title: 'Oring Solar Demo - History',
+							setcalcTotal: caltotalenergy,
+							setchartdata: energyDataString,
+							setcharttitle: 'Total Energy Chart',
+							setchartsubtitle: subtitle,
+							setInverterList: checkInverter,
+							setSelectDate: pickDateTime
+						});
+					}
+			  	});
+				
+			}
+	    	});
+			
+
+		}
+		else if(selectType == 'Month'){
+			console.log('Get Month Data');
+			var pickDateTimeArray = pickDateTime.split("-");
+			var newPickDateTime = pickDateTimeArray[0];
+			subtitle += (' - ' + newPickDateTime + ' by Month');
+			var commandString='CALL pro_get_totalenergy_month(\'' + pickDateTime + '\');';
+			console.log(commandString);
+			var data = [0, 0, 0, 0, 0, 
+				0, 0, 0, 0, 0,
+				0, 0];
+	
+			var titleData= ['Month', 'Energy'];
+			energyData.push(titleData);
+
+			const conn = new mysql.createConnection(config);
+			conn.connect(  function(err){
+	  		if(err){
+				conn.end();
+				res.send('Connect DB Error');
+			}
+			else
+			{
+		  		conn.query(commandString, function(err, rows){
+			  		if(err) res.send('Get Data Error');
+					else{
+						rows[0].forEach( (row) => {
+							var index = row['r_month'] - 1;
+							data[index] = row['total_energy_month'];
+							}
+					
+						);
+						console.log(data);
+						conn.end();
+						for(i =0;i<data.length;i++){
+							var monthData = [(i+1).toString(), data[i]];
+							energyData.push(monthData);
+						}
+					
+						var energyDataString = JSON.stringify(energyData)
+			
+						res.render('history', {
+							title: 'Oring Solar Demo - History',
+							setcalcTotal: caltotalenergy,
+							setchartdata: energyDataString,
+							setcharttitle: 'Total Energy Chart',
+							setchartsubtitle: subtitle,
+							setInverterList: checkInverter,
+							setSelectDate: pickDateTime
+						});
+					}
+			  	});
+				
+			}
+	    	});
+			
+
+		}
+		else if(selectType == 'Year'){
+			console.log('Get Year Data');
+			subtitle += (' - all date by Year');
+			var commandString='CALL pro_get_totalenergy_year();';
+			console.log(commandString);
+			var data = [0];
+	
+			var titleData= ['Year', 'Energy'];
+			energyData.push(titleData);
+
+			const conn = new mysql.createConnection(config);
+			conn.connect(  function(err){
+	  		if(err){
+				conn.end();
+				res.send('Connect DB Error');
+			}
+			else
+			{
+		  		conn.query(commandString, function(err, rows){
+					var yearTitle = [2000]
+			  		if(err) res.send('Get Data Error');
+					else{
+						rows[0].forEach( (row) => {
+							yearTitle[0] = row['r_year'];
+							data[0] = row['total_energy_year'];
+							}
+					
+						);
+						console.log(data);
+						conn.end();
+						for(i =0;i<data.length;i++){
+							var yearData = [yearTitle[i].toString(), data[i]];
+							energyData.push(yearData);
+						}
+					
+						var energyDataString = JSON.stringify(energyData)
+			
+						res.render('history', {
+							title: 'Oring Solar Demo - History',
+							setcalcTotal: caltotalenergy,
+							setchartdata: energyDataString,
+							setcharttitle: 'Total Energy Chart',
+							setchartsubtitle: subtitle,
+							setInverterList: checkInverter,
+							setSelectDate: pickDateTime
+						});
+					}
+			  	});
+				
+			}
+	    	});
+			
+
+		}
+		else{
+			res.send('Select Type Error!!');
 		}
 	}else{
 		console.log('Get Each Energy');
