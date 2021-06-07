@@ -432,8 +432,8 @@ router.post('/History2', function(req, res){
 		  			conn.query(commandString, function(err, rows){
 			  			if(err) res.send('Get Data Error');
 						else{
-							console.log(rows[0]);
-							rows[0].forEach( (row) => {
+							console.log(rows);
+							rows.forEach( (row) => {
 								console.log(debug_id++);
 								var _inverter_id = row['inverter_id'];
 								if(_inverter_id != inverter_no){
