@@ -83,8 +83,8 @@
         <div class="SelectOption">
         <div class="SelectBox">
             <p class="p1">選擇顯示類別</p>
-            <p class="p1"><input class="RadioCheck" type="radio" name="selectType" value="Year">年<input class="RadioCheck" type="radio" name="selectType" value="Day">日</p>
-            <p class="p1"><input class="RadioCheck" type="radio" name="selectType" value="Month">月<input class="RadioCheck" type="radio" name="selectType" value="Hour" checked>小時</p>
+            <p class="p1"><input class="RadioCheck" type="radio" name="selectType" value="Year" <% if (setSelectType == 'Year') { %> checked <% } %>>年<input class="RadioCheck" type="radio" name="selectType" value="Day" <% if (setSelectType == 'Day') { %> checked <% } %>>日</p>
+            <p class="p1"><input class="RadioCheck" type="radio" name="selectType" value="Month" <% if (setSelectType == 'Month') { %> checked <% } %>>月<input class="RadioCheck" type="radio" name="selectType" value="Hour" <% if (setSelectType == 'Hour') { %> checked <% } %>>小時</p>
         </div>
         <div class="SelectBox">
             <p class="p1">選擇日期</p>
