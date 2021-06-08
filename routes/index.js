@@ -698,6 +698,105 @@ router.post('/History2', function(req, res){
 	    	});
 			}
 		}
+		else if(selectType == 'Year'){
+			if(checkInverter == undefined){
+				console.log('No Inverter Selected');
+				res.redirect('history');
+			}else{
+				var inverternumbver = checkInverter.length;
+				subtitle += (' - ' + pickDateTime + ' by year for selected inverters');
+				var pickDateTimeArray = pickDateTime.split("-");
+				var _year = pickDateTimeArray[0];
+				var _month = pickDateTimeArray[1];
+				var _day = pickDateTimeArray[2];
+				var commandString='SELECT inverter_id, r_year, SUM(energy_day) AS energy_year FROM (';
+				commandString += 'SELECT inverter_id, r_year, energy_day FROM table_solar_hist2_day';
+				commandString += ' WHERE inverter_id=' + checkInverter[0];
+				for(var k=1;k<inverternumbver;k++){
+					commandString += ' OR inverter_id=' + checkInverter[k];
+				}
+				commandString += ') AS A GROUP BY r_year, inverter_id ORDER BY inverter_id, r_year;';
+				var data = [0];
+				var datas = [];
+				var getInverter = [];
+	
+				var titleData= ['Year'];
+
+				const conn = new mysql.createConnection(config);
+				conn.connect(  function(err){
+	  			if(err){
+					conn.end();
+					res.send('Connect DB Error');
+				}
+				else
+				{
+					var inverter_no = -1;
+					var inverter_getid = -1;
+		  			conn.query(commandString, function(err, rows){
+			  			if(err) res.send('Get Data Error');
+						else{
+							if(rows.length == 0){ res.redirect('history'); }
+							else{
+								rows.forEach( (row) => {
+									var _inverter_id = row['inverter_id'];
+									if(inverter_getid != _inverter_id){
+										inverter_getid = _inverter_id;
+										getInverter.push(_inverter_id);
+									}
+								});
+								inverternumbver = getInverter.length;
+								for(var i=0;i<inverternumbver;i++){
+									var inverter_title = getInverter[i] + '-INV';
+									titleData.push(inverter_title);
+								}
+								energyData.push(titleData);
+
+								rows.forEach( (row) => {
+									var _inverter_id = row['inverter_id'];
+									if(_inverter_id != inverter_no){
+										if(inverter_no != -1) datas.push(data);
+										inverter_no = _inverter_id;
+										data = [0];
+									}
+
+									var index = row['r_year'] - 1;
+									data[0] = row['energy_year'];
+									}
+								
+					
+								);
+								datas.push(data);
+								console.log(datas.length);
+								console.log(datas);
+								conn.end();
+								for(i =0;i<1;i++){
+									var yearData = [(i+2021).toString()];
+									for(var j=0; j<inverternumbver;j++){
+										yearData.push(datas[j][i]);
+									}
+									energyData.push(yearData);
+								}
+					
+								var energyDataString = JSON.stringify(energyData);
+			
+								res.render('history', {
+									title: 'Oring Solar Demo - History',
+									setcalcTotal: caltotalenergy,
+									setchartdata: energyDataString,
+									setcharttitle: 'Selected Inverters Energy Chart',
+									setchartsubtitle: subtitle,
+									setInverterList: checkInverter,
+									setSelectDate: pickDateTime,
+									setSelectType: selectType
+								});
+							}
+						}
+			  		});
+				
+				}
+	    	});
+			}
+		}
 	}
 
 	//res.send('History2-' + selectType + '-' + pickDateTime + ' - ' + calcAllEnergy + ' - ')
