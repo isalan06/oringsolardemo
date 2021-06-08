@@ -422,6 +422,7 @@ router.post('/History2', function(req, res){
 				
 
 				const conn = new mysql.createConnection(config);
+				res.send(commandString);
 				conn.connect(  function(err){
 	  			if(err){
 					conn.end();
