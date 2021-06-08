@@ -507,6 +507,10 @@ router.post('/History2', function(req, res){
 				var _day = pickDateTimeArray[2];
 				var commandString='SELECT inverter_id, r_day, energy_day FROM (';
 				commandString += 'SELECT inverter_id, r_day, energy_day FROM table_solar_hist2_day WHERE r_year=' + _year + ' AND r_month=' + _month;
+				commandString += ' AND ( inverter_id=' + checkInverter[0];
+				for(var k=1;k<inverternumbver;k++){
+					commandString += ' OR inverter_id=' + checkInverter[k];
+				}
 				commandString += ') AS A ORDER BY inverter_id, r_day;';
 				var data = [0, 0, 0, 0, 0, 
 					0, 0, 0, 0, 0,
@@ -516,13 +520,9 @@ router.post('/History2', function(req, res){
 					0, 0, 0, 0, 0,
 					0];
 				var datas = [];
+				var getInverter = [];
 	
 				var titleData= ['Day'];
-				for(var i=0;i<inverternumbver;i++){
-					var inverter_title = checkInverter[i] + '-INV';
-					titleData.push(inverter_title);
-				}
-				energyData.push(titleData);
 
 				const conn = new mysql.createConnection(config);
 				conn.connect(  function(err){
@@ -533,11 +533,26 @@ router.post('/History2', function(req, res){
 				else
 				{
 					var inverter_no = -1;
+					var inverter_getid = -1;
 		  			conn.query(commandString, function(err, rows){
 			  			if(err) res.send('Get Data Error');
 						else{
 							if(rows.length == 0){ res.redirect('history'); }
 							else{
+								rows.forEach( (row) => {
+									var _inverter_id = row['inverter_id'];
+									if(inverter_getid != _inverter_id){
+										inverter_getid = _inverter_id;
+										getInverter.push(_inverter_id);
+									}
+								});
+								inverternumbver = getInverter.length;
+								for(var i=0;i<inverternumbver;i++){
+									var inverter_title = getInverter[i] + '-INV';
+									titleData.push(inverter_title);
+								}
+								energyData.push(titleData);
+
 								rows.forEach( (row) => {
 									var _inverter_id = row['inverter_id'];
 									if(_inverter_id != inverter_no){
@@ -595,18 +610,18 @@ router.post('/History2', function(req, res){
 				var _day = pickDateTimeArray[2];
 				var commandString='SELECT inverter_id, r_month, SUM(energy_day) AS energy_month FROM (';
 				commandString += 'SELECT inverter_id, r_month, energy_day FROM table_solar_hist2_day WHERE r_year=' + _year;
+				commandString += ' AND ( inverter_id=' + checkInverter[0];
+				for(var k=1;k<inverternumbver;k++){
+					commandString += ' OR inverter_id=' + checkInverter[k];
+				}
 				commandString += ') AS A GROUP BY r_month, inverter_id ORDER BY inverter_id, r_month;';
 				var data = [0, 0, 0, 0, 0, 
 					0, 0, 0, 0, 0,
 					0, 0];
 				var datas = [];
+				var getInverter = [];
 	
 				var titleData= ['Month'];
-				for(var i=0;i<inverternumbver;i++){
-					var inverter_title = checkInverter[i] + '-INV';
-					titleData.push(inverter_title);
-				}
-				energyData.push(titleData);
 
 				const conn = new mysql.createConnection(config);
 				conn.connect(  function(err){
@@ -617,11 +632,26 @@ router.post('/History2', function(req, res){
 				else
 				{
 					var inverter_no = -1;
+					var inverter_getid = -1;
 		  			conn.query(commandString, function(err, rows){
 			  			if(err) res.send('Get Data Error');
 						else{
 							if(rows.length == 0){ res.redirect('history'); }
 							else{
+								rows.forEach( (row) => {
+									var _inverter_id = row['inverter_id'];
+									if(inverter_getid != _inverter_id){
+										inverter_getid = _inverter_id;
+										getInverter.push(_inverter_id);
+									}
+								});
+								inverternumbver = getInverter.length;
+								for(var i=0;i<inverternumbver;i++){
+									var inverter_title = getInverter[i] + '-INV';
+									titleData.push(inverter_title);
+								}
+								energyData.push(titleData);
+
 								rows.forEach( (row) => {
 									var _inverter_id = row['inverter_id'];
 									if(_inverter_id != inverter_no){
