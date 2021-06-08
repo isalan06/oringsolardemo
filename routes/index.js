@@ -579,7 +579,7 @@ router.post('/History2', function(req, res){
 				var _day = pickDateTimeArray[2];
 				var commandString='SELECT inverter_id, r_month, SUM(energy_day) AS energy_month FROM (';
 				commandString += 'SELECT inverter_id, r_month, energy_day FROM table_solar_hist2_day WHERE r_year=' + _year;
-				commandString += ') AS A GROUP BY r_month ORDER BY inverter_id, r_month;';
+				commandString += ') AS A GROUP BY r_month, inverter_id ORDER BY inverter_id, r_month;';
 				var data = [0, 0, 0, 0, 0, 
 					0, 0, 0, 0, 0,
 					0, 0];
