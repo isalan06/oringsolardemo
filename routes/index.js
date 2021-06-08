@@ -452,7 +452,7 @@ router.post('/History2', function(req, res){
 								conn.end();
 								for(i =0;i<24;i++){
 									var hourData = [i.toString()];
-									for(var j=0; j<datas.length;j++){
+									for(var j=0; j<inverternumbver;j++){
 										hourData.push(datas[j][i]);
 									}
 									energyData.push(hourData);
@@ -540,7 +540,7 @@ router.post('/History2', function(req, res){
 								conn.end();
 								for(i =0;i<31;i++){
 									var dayData = [(i+1).toString()];
-									for(var j=0; j<datas.length;j++){
+									for(var j=0; j<inverternumbver;j++){
 										dayData.push(datas[j][i]);
 									}
 									energyData.push(dayData);
@@ -626,7 +626,7 @@ router.post('/History2', function(req, res){
 								conn.end();
 								for(i =0;i<12;i++){
 									var monthData = [(i+1).toString()];
-									for(var j=0; j<datas.length;j++){
+									for(var j=0; j<inverternumbver;j++){
 										monthData.push(datas[j][i]);
 									}
 									energyData.push(monthData);
