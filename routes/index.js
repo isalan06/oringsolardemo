@@ -578,7 +578,7 @@ router.post('/History2', function(req, res){
 				var _month = pickDateTimeArray[1];
 				var _day = pickDateTimeArray[2];
 				var commandString='SELECT inverter_id, r_month, SUM(energy_day) AS energy_month FROM (';
-				commandString += 'SELECT inverter_id, r_month, energy_day WHERE r_year=' + _year;
+				commandString += 'SELECT inverter_id, r_month, energy_day FROM table_solar_hist2_day WHERE r_year=' + _year;
 				commandString += ') AS A GROUP BY r_month ORDER BY inverter_id, r_month;';
 				var data = [0, 0, 0, 0, 0, 
 					0, 0, 0, 0, 0,
@@ -602,7 +602,7 @@ router.post('/History2', function(req, res){
 				{
 					var inverter_no = -1;
 		  			conn.query(commandString, function(err, rows){
-			  			if(err) res.send(commandString); //'Get Data Error');
+			  			if(err) res.send('Get Data Error');
 						else{
 							if(rows.length == 0){ res.redirect('history'); }
 							else{
