@@ -530,7 +530,7 @@ router.post('/History2', function(req, res){
 										data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 									}
 
-									var index = row['r_day'];
+									var index = row['r_day'] - 1;
 									data[index] = row['energy_day'];
 									}
 								
@@ -614,13 +614,14 @@ router.post('/History2', function(req, res){
 										data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
 									}
 
-									var index = row['r_month'];
+									var index = row['r_month'] - 1;
 									data[index] = row['energy_month'];
 									}
 								
 					
 								);
 								datas.push(data);
+								console.log(datas.length);
 								console.log(datas);
 								conn.end();
 								for(i =0;i<12;i++){
