@@ -606,8 +606,10 @@ router.post('/History2', function(req, res){
 						else{
 							if(rows.length == 0){ res.redirect('history'); }
 							else{
-								console.log('Test1');
+								console.log(rows);
+								var debug_index = 0;
 								rows.forEach( (row) => {
+									console.log(debug_index++);
 									var _inverter_id = row['inverter_id'];
 									if(_inverter_id != inverter_no){
 										if(inverter_no != -1) datas.push(data);
