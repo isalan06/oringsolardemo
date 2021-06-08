@@ -624,6 +624,7 @@ router.post('/History2', function(req, res){
 					
 								);
 								datas.push(data);
+								console.log('Test2');
 								conn.end();
 								for(i =0;i<12;i++){
 									var monthData = [i.toString()];
