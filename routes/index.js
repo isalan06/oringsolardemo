@@ -539,7 +539,7 @@ router.post('/History2', function(req, res){
 								datas.push(data);
 								conn.end();
 								for(i =0;i<31;i++){
-									var dayData = [i.toString()];
+									var dayData = [(i+1).toString()];
 									for(var j=0; j<inverternumbver;j++){
 										dayData.push(datas[j][i]);
 									}
@@ -606,10 +606,7 @@ router.post('/History2', function(req, res){
 						else{
 							if(rows.length == 0){ res.redirect('history'); }
 							else{
-								console.log(rows);
-								var debug_index = 0;
 								rows.forEach( (row) => {
-									console.log(debug_index++);
 									var _inverter_id = row['inverter_id'];
 									if(_inverter_id != inverter_no){
 										if(inverter_no != -1) datas.push(data);
@@ -624,10 +621,10 @@ router.post('/History2', function(req, res){
 					
 								);
 								datas.push(data);
-								console.log('Test2');
+								console.log(datas);
 								conn.end();
 								for(i =0;i<12;i++){
-									var monthData = [i.toString()];
+									var monthData = [(i+1).toString()];
 									for(var j=0; j<inverternumbver;j++){
 										monthData.push(datas[j][i]);
 									}
