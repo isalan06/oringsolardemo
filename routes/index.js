@@ -602,7 +602,7 @@ router.post('/History2', function(req, res){
 				{
 					var inverter_no = -1;
 		  			conn.query(commandString, function(err, rows){
-			  			if(err) res.send('Get Data Error');
+			  			if(err) res.send(commandString); //'Get Data Error');
 						else{
 							if(rows.length == 0){ res.redirect('history'); }
 							else{
