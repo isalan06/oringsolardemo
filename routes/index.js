@@ -405,7 +405,7 @@ router.post('/History2', function(req, res){
 				
 				var commandString='SELECT inverter_id, r_hour, (energy_end-energy_start) AS energy_hour FROM (';
 				commandString += 'SELECT inverter_id, r_hour, energy_start, energy_end FROM table_solar_hist2_hour WHERE r_year=' + _year + ' AND r_month=' + _month + ' AND r_day=' + _day;
-				commandString += 'AND ( inverter_id=' + checkInverter[0];
+				commandString += ' AND ( inverter_id=' + checkInverter[0];
 				for(var k=1;k<inverternumbver;k++){
 					commandString += ' OR inverter_id=' + checkInverter[k];
 				}
@@ -422,7 +422,6 @@ router.post('/History2', function(req, res){
 				
 
 				const conn = new mysql.createConnection(config);
-				res.send(commandString);
 				conn.connect(  function(err){
 	  			if(err){
 					conn.end();
