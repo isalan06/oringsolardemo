@@ -77,6 +77,8 @@ router.get('/History', function(req, res){
 		commandString += ' OR inverter_id=' + checkInverter[k];
 	}
 	commandString += ')) AS A ORDER BY inverter_id, r_hour;';
+
+	res.send(commandString);
 	var data = [0, 0, 0, 0, 0, 
 		0, 0, 0, 0, 0,
 		0, 0, 0, 0, 0,
