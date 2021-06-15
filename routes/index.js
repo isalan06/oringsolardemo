@@ -78,7 +78,6 @@ router.get('/History', function(req, res){
 	}
 	commandString += ')) AS A ORDER BY inverter_id, r_hour;';
 
-	res.send(commandString);
 	var data = [0, 0, 0, 0, 0, 
 		0, 0, 0, 0, 0,
 		0, 0, 0, 0, 0,
@@ -143,6 +142,8 @@ router.get('/History', function(req, res){
 								}
 					
 								var energyDataString = JSON.stringify(energyData);
+
+								res.send(energyDataString);
 			
 								res.render('history', {
 									title: 'Oring Solar Demo - History',
