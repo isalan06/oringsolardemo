@@ -150,7 +150,7 @@ router.get('/History', function(req, res){
 									setchartsubtitle: subtitle,
 									setInverterList: checkInverter,
 									setSelectDate: currentDate,
-									setSelectType: selectType
+									setSelectType: 'Hour'
 							});
 							}
 						}
