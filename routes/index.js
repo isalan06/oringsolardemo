@@ -131,7 +131,8 @@ router.get('/History', function(req, res){
 								
 					
 								);
-								datas.push(data);
+								if(data != null)
+									datas.push(data);
 								conn.end();
 								for(i =0;i<24;i++){
 									var hourData = [i.toString()];
@@ -507,8 +508,6 @@ router.post('/History2', function(req, res){
 								}
 					
 								var energyDataString = JSON.stringify(energyData);
-
-								res.send(energyDataString);
 			
 								res.render('history', {
 									title: 'Oring Solar Demo - History',
