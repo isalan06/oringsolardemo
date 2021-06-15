@@ -59,7 +59,7 @@ router.get('/History', function(req, res){
 	var caltotalenergy = 0;
 	var energyData = []
 	//var titleData= ['Hour', 'Energy']
-	energyData.push(titleData)
+	//energyData.push(titleData)
 	var subtitle = 'Calculated on';
 
 	var inverternumbver = checkInverter.length;
@@ -103,7 +103,7 @@ router.get('/History', function(req, res){
 						else{
 							if(rows.length == 0){ res.redirect('history'); }
 							else{
-								datas = [];
+								//datas = [];
 								rows.forEach( (row) => {
 									var _inverter_id = row['inverter_id'];
 									if(inverter_getid != _inverter_id){
