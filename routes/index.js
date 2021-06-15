@@ -103,6 +103,7 @@ router.get('/History', function(req, res){
 						else{
 							if(rows.length == 0){ res.redirect('history'); }
 							else{
+								datas = [];
 								rows.forEach( (row) => {
 									var _inverter_id = row['inverter_id'];
 									if(inverter_getid != _inverter_id){
