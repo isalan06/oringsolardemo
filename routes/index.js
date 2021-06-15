@@ -142,8 +142,6 @@ router.get('/History', function(req, res){
 								}
 					
 								var energyDataString = JSON.stringify(energyData);
-
-								res.send(energyDataString);
 			
 								res.render('history', {
 									title: 'Oring Solar Demo - History',
@@ -509,6 +507,8 @@ router.post('/History2', function(req, res){
 								}
 					
 								var energyDataString = JSON.stringify(energyData);
+
+								res.send(energyDataString);
 			
 								res.render('history', {
 									title: 'Oring Solar Demo - History',
