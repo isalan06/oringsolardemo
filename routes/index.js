@@ -51,84 +51,114 @@ router.post('/Information', function(req, res){
 router.get('/History', function(req, res){
 	var currentDate = new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
 	"-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString();
-	var commandString='CALL pro_get_totalenergy_hour(\'' + currentDate + '\');' 
+	//var commandString='CALL pro_get_totalenergy_hour(\'' + currentDate + '\');' 
 
 	//console.log(commandString);
 
-	var data = [0, 0, 0, 0, 0, 
-				0, 0, 0, 0, 0,
-				0, 0, 0, 0, 0,
-				0, 0, 0, 0, 0,
-				0, 0, 0, 0];
+	var checkInverter = [1,2,3,4];
 	
 	var energyData = []
-	var titleData= ['Hour', 'Energy']
+	//var titleData= ['Hour', 'Energy']
 	energyData.push(titleData)
+	var subtitle = 'Calculated on';
+
+	var inverternumbver = checkInverter.length;
+	var pickDateTimeArray = currentDate.split("-");
+	var newPickDateTime = pickDateTimeArray[0] + "-" + pickDateTimeArray[1];
+	subtitle += (' - ' + newPickDateTime + ' by hour for selected inverters');
+	var _year = pickDateTimeArray[0];
+	var _month = pickDateTimeArray[1];
+	var _day = pickDateTimeArray[2];
+				
+	var commandString='SELECT inverter_id, r_hour, (energy_end-energy_start) AS energy_hour FROM (';
+	commandString += 'SELECT inverter_id, r_hour, energy_start, energy_end FROM table_solar_hist2_hour WHERE r_year=' + _year + ' AND r_month=' + _month + ' AND r_day=' + _day;
+	commandString += ' AND ( inverter_id=' + checkInverter[0];
+	for(var k=1;k<inverternumbver;k++){
+		commandString += ' OR inverter_id=' + checkInverter[k];
+	}
+	commandString += ')) AS A ORDER BY inverter_id, r_hour;';
+	var data = [0, 0, 0, 0, 0, 
+		0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0,
+		0, 0, 0, 0, 0,
+		0, 0, 0, 0];
+	var datas = [];
+	var getInverter = [];
+	
+	var titleData= ['Hour'];
 
 	const conn = new mysql.createConnection(config);
-	conn.connect(  function(err){
-	  	if(err){
-			conn.end();
-			for(i =0;i<data.length;i++){
-				var hourData = [i.toString(), data[i]];
-				//console.log(hourData);
-				energyData.push(hourData);
-			}
-		
-			var energyDataString = JSON.stringify(energyData)
-		
-			//console.log(energyDataString);
-		
-			res.render('history', {
-				title: 'Oring Solar Demo - History',
-				setcalcTotal: 1,
-				setchartdata: energyDataString,
-				setcharttitle: 'Total Energy Chart',
-				setchartsubtitle: 'Calculated on ' + currentDate,
-				setInverterList: ['1', '2', '3', '4'],
-				setSelectDate: currentDate,
-				setSelectType: 'Hour'
-			});
-			}
-		else
-		{
-		  	conn.query(commandString, function(err, rows){
-			  	if(err) res.send('Get Data Error');
-				else{
-					rows[0].forEach( (row) => {
-						var index = row['r_hour'];
-						data[index] = row['total_energy_hour'];
-						}
-					
-					);
+				conn.connect(  function(err){
+	  			if(err){
 					conn.end();
+					res.send('Connect DB Error');
+				}
+				else
+				{
+					var inverter_no = -1;
+					var inverter_getid = -1;
+		  			conn.query(commandString, function(err, rows){
+			  			if(err) res.send('Get Data Error');
+						else{
+							if(rows.length == 0){ res.redirect('history'); }
+							else{
+								rows.forEach( (row) => {
+									var _inverter_id = row['inverter_id'];
+									if(inverter_getid != _inverter_id){
+										inverter_getid = _inverter_id;
+										getInverter.push(_inverter_id);
+									}
+								});
+								inverternumbver = getInverter.length;
+								for(var i=0;i<inverternumbver;i++){
+									var inverter_title = getInverter[i] + '-INV';
+									titleData.push(inverter_title);
+								}
+								energyData.push(titleData);
 
-					for(i =0;i<data.length;i++){
-						var hourData = [i.toString(), data[i]];
-						//console.log(hourData);
-						energyData.push(hourData);
-					}
-				
-					var energyDataString = JSON.stringify(energyData)
-				
-					//console.log(energyDataString);
-				
-					res.render('history', {
-						title: 'Oring Solar Demo - History',
-						setcalcTotal: 1,
-						setchartdata: energyDataString,
-						setcharttitle: 'Total Energy Chart',
-						setchartsubtitle: 'Calculated on ' + currentDate,
-						setInverterList: ['1', '2', '3', '4'],
-						setSelectDate: currentDate,
-						setSelectType: 'Hour'
-					});
+								rows.forEach( (row) => {
+									var _inverter_id = row['inverter_id'];
+									if(_inverter_id != inverter_no){
+										if(inverter_no != -1) datas.push(data);
+										inverter_no = _inverter_id;
+										data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+									}
 
-					}
-			  	});
-			}
-	    }
-  	);
+									var index = row['r_hour'];
+									data[index] = row['energy_hour'];
+									}
+								
+					
+								);
+								datas.push(data);
+								conn.end();
+								for(i =0;i<24;i++){
+									var hourData = [i.toString()];
+									for(var j=0; j<inverternumbver;j++){
+										hourData.push(datas[j][i]);
+									}
+									energyData.push(hourData);
+								}
+					
+								var energyDataString = JSON.stringify(energyData);
+			
+								res.render('history', {
+									title: 'Oring Solar Demo - History',
+									setcalcTotal: caltotalenergy,
+									setchartdata: energyDataString,
+									setcharttitle: 'Selected Inverters Energy Chart',
+									setchartsubtitle: subtitle,
+									setInverterList: checkInverter,
+									setSelectDate: currentDate,
+									setSelectType: selectType
+							});
+							}
+						}
+			  		});
+				
+				}
+
+	
 
 	
 });
