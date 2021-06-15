@@ -157,6 +157,7 @@ router.get('/History', function(req, res){
 			  		});
 				
 				}
+			});
 
 	
 
