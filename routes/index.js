@@ -56,7 +56,7 @@ router.get('/History', function(req, res){
 	//console.log(commandString);
 
 	var checkInverter = [1,2,3,4];
-	
+	var caltotalenergy = 0;
 	var energyData = []
 	//var titleData= ['Hour', 'Energy']
 	energyData.push(titleData)
