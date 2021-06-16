@@ -1,3 +1,7 @@
+body{
+    overflow: auto;
+}
+
 .LeftWindows{
     position:fixed;
     top: 120px;
