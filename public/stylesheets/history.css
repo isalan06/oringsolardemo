@@ -1,4 +1,7 @@
-html {overflow:auto;}
+html {
+    position: sticky;
+    overflow:auto;
+}
 
 body{overflow: auto;}
 
