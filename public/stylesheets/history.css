@@ -18,6 +18,7 @@
     width: 1900px;
     height: 1000px;
     background-color: rgb(196, 212, 223);
+    scroll-behavior: auto;
 }
 .SelectOption{
     position:fixed;
