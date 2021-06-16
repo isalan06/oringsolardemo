@@ -66,6 +66,12 @@ body{overflow: auto;}
     height: 20px;
 
 }
+
+.DisplayChart{
+    position: absolute;
+    top:auto;
+    left: auto;
+}
 .p1{
     width:280px;
 }
@@ -73,8 +79,4 @@ p{
     margin: 0px;
 }
 
-.ChartBox{
-    position: absolute;
-    top:auto;
-    left: auto;
-}
+
