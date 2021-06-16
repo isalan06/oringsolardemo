@@ -1,7 +1,3 @@
-body{
-    overflow: auto;
-}
-
 .LeftWindows{
     position:fixed;
     top: 120px;
@@ -22,9 +18,8 @@ body{
     width: 1900px;
     height: 1000px;
     background-color: rgb(196, 212, 223);
-    overflow: scroll;
-    overflow-x: scroll;
-    overflow-y: scroll;
+    overflow-x: visible;
+    overflow-y: visible;
 }
 .SelectOption{
     position:fixed;
