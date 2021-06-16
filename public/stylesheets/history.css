@@ -19,7 +19,6 @@ body{overflow: auto;}
     font-size: 14pt;
 }
 .MainWindows{
-    bottom: 0px;
     top: 120px;
     left: 208px;
     width: 1900px;
@@ -41,8 +40,6 @@ body{overflow: auto;}
 }
 .InverterOption{
     position:absolute;
-    top: 125px;
-    left: 208px;
     width: 200px;
     height: 990px;
     color: black;
@@ -72,4 +69,10 @@ body{overflow: auto;}
 }
 p{
     margin: 0px;
+}
+
+.ChartBox{
+    position: absolute;
+    top:auto;
+    left: auto;
 }
