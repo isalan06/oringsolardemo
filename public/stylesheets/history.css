@@ -19,13 +19,15 @@ body{overflow: auto;}
     font-size: 14pt;
 }
 .MainWindows{
-    
+    bottom: 0px;
     top: 120px;
     left: 208px;
     width: 1900px;
     height: 1000px;
     background-color: rgb(196, 212, 223);
     position: fixed;
+    overflow-x: scroll;
+    overflow-y: scroll;
 }
 .SelectOption{
     position:fixed;
@@ -69,10 +71,4 @@ body{overflow: auto;}
 }
 p{
     margin: 0px;
-}
-
-.piechart{
-    position: relative;
-    overflow-x: scroll;
-    overflow-y: scroll;
 }
