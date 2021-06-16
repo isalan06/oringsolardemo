@@ -12,14 +12,14 @@
     font-size: 14pt;
 }
 .MainWindows{
-    position: fixed;
+    position: relative;
     top: 120px;
     left: 208px;
     width: 1900px;
     height: 1000px;
     background-color: rgb(196, 212, 223);
-    overflow-x: visible;
-    overflow-y: visible;
+    overflow-x: scroll;
+    overflow-y: scroll;
 }
 .SelectOption{
     position:fixed;
