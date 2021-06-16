@@ -1,5 +1,12 @@
+html {
+    position: sticky;
+    overflow:auto;
+}
+
+body{overflow: auto;}
+
 .LeftWindows{
-    position:fixed;
+    position:absolute;
     top: 120px;
     width: 200px;
     height:1000px;
@@ -12,7 +19,7 @@
     font-size: 14pt;
 }
 .MainWindows{
-    position: fixed;
+    position: absolute;
     top: 120px;
     left: 208px;
     width: 1700px;
