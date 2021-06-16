@@ -23,6 +23,8 @@ body{
     height: 1000px;
     background-color: rgb(196, 212, 223);
     overflow: scroll;
+    overflow-x: scroll;
+    overflow-y: scroll;
 }
 .SelectOption{
     position:fixed;
