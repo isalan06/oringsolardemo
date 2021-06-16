@@ -1,7 +1,6 @@
-body{
-    overflow-x: scroll;
-    overflow-y: scroll;
-}
+html {overflow:auto;}
+
+body{overflow: auto;}
 
 .LeftWindows{
     position:fixed;
