@@ -21,7 +21,7 @@ body{overflow: auto;}
 .MainWindows{
     top: 120px;
     left: 208px;
-    width: 1900px;
+    width: 1650px;
     height: 1000px;
     background-color: rgb(196, 212, 223);
     position: absolute;
@@ -30,7 +30,6 @@ body{overflow: auto;}
 }
 .SelectOption{
     position:absolute;
-
     left: 200px;
     width: 1400px;
     height: 300px;
@@ -47,6 +46,19 @@ body{overflow: auto;}
     background-color: cornsilk;
 }
 .SelectBox{
+    position: absolute;
+    display: inline-block;
+    margin-left: 10px;
+    margin-top: 10px;
+    top: auto;
+    left: 0px;
+    width: 300px;
+    height: 180px;
+    color: black;
+    font-size: 16pt;
+    background-color: cornsilk;
+}
+.SelectBox2{
     position: absolute;
     display: inline-block;
     margin-left: 10px;
@@ -69,7 +81,7 @@ body{overflow: auto;}
 
 .DisplayChart{
     position: absolute;
-    top:auto;
+    top:200px;
     left: auto;
 }
 .p1{
