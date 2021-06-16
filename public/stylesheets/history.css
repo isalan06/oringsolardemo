@@ -30,7 +30,7 @@ body{overflow: auto;}
     overflow-y: scroll;
 }
 .SelectOption{
-    position:fixed;
+    position:-webkit-sticky;
     top: 125px;
     left: 410px;
     width: 1400px;
@@ -40,7 +40,7 @@ body{overflow: auto;}
     background-color: cornsilk;
 }
 .InverterOption{
-    position:fixed;
+    position:-webkit-sticky;
     top: 125px;
     left: 208px;
     width: 200px;
@@ -50,6 +50,7 @@ body{overflow: auto;}
     background-color: cornsilk;
 }
 .SelectBox{
+    position: -webkit-sticky;
     display: inline-block;
     margin-left: 10px;
     margin-top: 10px;
