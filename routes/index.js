@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const mysql = require('mysql');
 var Chart = require('chart.js');
+var fs=require('fs');
 
 var config =
 	{
@@ -960,9 +961,9 @@ router.get('/GetAPPFile', function(req, res){
 
 		console.log(error);
 	}
-	//res.set('Content-Type', 'application/json');
-    //res.status(200).send(aasa);
-	res.send('Test')
+	res.set('Content-Type', 'application/json');
+    res.status(200).send(aasa);
+	//res.send('Test')
 })
 
 router.get('/TestDB', function(req, res){
