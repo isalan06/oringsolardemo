@@ -954,7 +954,7 @@ router.post('/CheckUser', function(req, res){
 
 router.get('/GetAPPFile', function(req, res){
 	try{
-		var aasa = fs.readFileSync(__dirname + '/static/apple-app-site-association');
+		var aasa = fs.readFileSync(__dirname + '\\apple-app-site-association');
 	}
 	catch(error)
 	{
