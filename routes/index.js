@@ -952,7 +952,14 @@ router.post('/CheckUser', function(req, res){
 });
 
 router.get('/GetAPPFile', function(req, res){
-	var aasa = fs.readFileSync('./static/apple-app-site-association');
+	try{
+		var aasa = fs.readFileSync('./static/apple-app-site-association');
+	}
+	catch(error)
+	{
+
+		console.log(error);
+	}
 	//res.set('Content-Type', 'application/json');
     //res.status(200).send(aasa);
 	res.send('Test')
