@@ -28,6 +28,12 @@ router.get('/', function(req, res) { //, next) {
   });
 });
 
+router.get('/SolarSummary', function(req, res) {
+	res.render('solarsummary', {
+		title: 'Oring Solar Systen Demo'
+	})
+});
+
 router.get('/Test', function(req, res){
   res.send('API Test 2');
 });
