@@ -148,8 +148,8 @@
   .Rect-Main-1 {
     width: 268px;
     height: 118px;
-    margin: 15.5px 16px 16px 24px;
-    padding: 16px 135px 22px 20px;
+    margin-left: 16px;
+    margin-top: 16px;
     box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
     background-color: #f8f8f8;
     display: inline-flex;
@@ -158,8 +158,8 @@
   .Rect-Main-2 {
     width: 268px;
     height: 118px;
-    margin: 15.5px 16px 16px;
-    padding: 16px 46px 22px 28px;
+    margin-left: 16px;
+    margin-top: 16px;
     box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
     background-color: #f8f8f8;
     display: inline-flex;
@@ -168,8 +168,8 @@
   .Rect-Main-3 {
     width: 268px;
     height: 118px;
-    margin: 15.5px 16px 16px;
-    padding: 16px 46px 1622x 28px;
+    margin-left: 16px;
+    margin-top: 16px;
     box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
     background-color: #f8f8f8;
     display: inline-flex;
@@ -178,8 +178,38 @@
   .Rect-Main-4 {
     width: 268px;
     height: 118px;
-    margin: 15.5px 32px 16px 16px;
-    padding: 16px 46px 22px 28px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+  }
+
+  .Rect-Main-5 {
+    width: 268px;
+    height: 267px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+  }
+
+  .Rect-Main-6 {
+    width: 268px;
+    height: 267px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+  }
+
+  .Rect-Main-7 {
+    width: 552px;
+    height: 267px;
+    margin-left: 16px;
+    margin-top: 16px;
     box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
     background-color: #f8f8f8;
     display: inline-flex;
