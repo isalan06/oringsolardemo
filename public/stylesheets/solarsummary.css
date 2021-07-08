@@ -234,4 +234,433 @@
     background-color: #f8f8f8;
     display: inline-flex;
   }
+
+  .Title-1  {
+    margin-top: 16px;
+    margin-left: 20px;
+    width: 98px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position:absolute;
+  }
+  
+  .Value-1  {
+    margin-top: 46px;
+    margin-left: 20px;
+    width: 176px;
+    height: 56px;
+    font-family: SegoeUI;
+    font-size: 42px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    color: #1f2578;
+    position:absolute;
+    text-align: end;
+  }
+  
+  .Unit-1 {
+    margin-top: 68px;
+    margin-left: 200px;
+    width: 33px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position:absolute;
+  }
+  
+  .car-solid {
+    margin-top: 35px;
+    margin-left: 28px;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    position: absolute;
+  }
+  
+  .Value-2{
+    margin-top: 16px;
+    margin-left: 108px;
+    width: 88px;
+    height: 56px;
+    font-family: SegoeUI;
+    font-size: 42px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    color: #1f2578;
+    position: absolute;
+    text-align: end;
+  }
+  
+  .Unit-2{
+    margin-top: 38px;
+    margin-left: 204px;
+    width: 17px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Title-2  {
+    margin-top: 74px;
+    margin-left: 108px;
+    width: 114px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .house-door-fill {
+    margin-left: 28px;
+    width: 48px;
+    object-fit: contain;
+  }
+  
+  .Value-3 {
+    margin-top: 16px;
+    margin-left: 108px;
+    width: 88px;
+    height: 56px;
+    font-family: SegoeUI;
+    font-size: 42px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    color: #1f2578;
+    position: absolute;
+    text-align: end;
+  }
+  
+  .Unit-3 {
+    margin-top: 38px;
+    margin-left: 204px;
+    width: 17px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Title-3  {
+    margin-top: 74px;
+    margin-left: 108px;
+    width: 114px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .tree-fill {
+    margin-top: 35px;
+    margin-left: 28px;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    position: absolute;
+  }
+  
+  .Value-4 {
+    margin-top: 16px;
+    margin-left: 108px;
+    width: 88px;
+    height: 56px;
+    font-family: SegoeUI;
+    font-size: 42px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    color: #1f2578;
+    position: absolute;
+    text-align: end;
+  }
+  
+  .Unit-4 {
+    margin-top: 38px;
+    margin-left: 204px;
+    width: 17px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Title-4  {
+    margin-top: 74px;
+    margin-left: 108px;
+    width: 114px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Title-5 {
+    margin-top: 16px;
+    margin-left: 20px;
+    width: 102px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.1;
+    letter-spacing: 0.23px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Value-5 {
+    margin-top: 47px;
+    margin-left: 108px;
+    width: 88px;
+    height: 56px;
+    font-family: SegoeUI;
+    font-size: 42px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    color: #1f2578;
+    position: absolute;
+    text-align: end;
+  }
+  
+  .Unit-5 {
+    margin-top: 67px;
+    margin-left: 204px;
+    width: 17px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .LineTitle-2 {
+    top:250px;
+    left:30px;
+    width: 228px;
+    height: 1px;
+    background-color: #d3d3d3;
+    position: absolute;
+  }
+  
+  .Title-6 {
+    width: 114px;
+    height: 20px;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Value-6 {
+    width: 62px;
+    height: 20px;
+    font-family: SegoeUI;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    text-align: right;
+    color: #1f2578;
+    position: absolute;
+  }
+  
+  .Unit-6 {
+    width: 35px;
+    height: 20px;
+    opacity: 0.8;
+    font-family: SegoeUI;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Oval {
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 172px;
+    height: 172px;
+    background-color: #e6e7f3;
+    position:absolute;
+  }
+  
+  .Oval-2 {
+    margin-top: 238px;
+    margin-left: 46px;
+    width: 12px;
+    height: 12px;
+    border: solid 1px #1f2678;
+    background-color: #1f2678;
+    border-radius:999em;
+    position: absolute;
+  }
+  
+  .Title-7 {
+    width: 29px;
+    height: 20px;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    color: #333333;
+    position:absolute;
+  }
+  
+  .Oval-3 {
+    margin-top: 238px;
+    margin-left: 148px;
+    width: 12px;
+    height: 12px;
+    border: solid 1px #d3d3d3;
+    background-color: #ffffff;
+    border-radius:999em;
+    position: absolute;
+  }
+  
+  .Value-7  {
+    width: 45px;
+    height: 20px;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    color: #1f2578;
+    position: absolute;
+  }
+  
+  .Title-8  {
+    margin-top: 16px;
+    margin-left: 20px;
+    width: 122px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.1;
+    letter-spacing: 0.23px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Unit-8 {
+    margin-top: 18px;
+    margin-left: 146px;
+    width: 30px;
+    height: 20px;
+    font-family: SegoeUI;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    color: #333333;
+    position:absolute;
+  }
+  
+  .Title-9 {
+    margin-top: 16px;
+    margin-left: 20px;
+    width: 142px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.1;
+    letter-spacing: 0.23px;
+    color: #333333;
+    position: absolute;
+  }
   
