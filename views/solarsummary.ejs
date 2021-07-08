@@ -12,13 +12,13 @@
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-          ['Effort', 'Amount given'],
-          ['My all',     88],
-          ['Other',      12]
+          ['Effort', 'Amount given', { role: 'style'}],
+          ['My all',     88 , 'color: #1f2678'],
+          ['Other',      12 , 'color: #ffffff']
         ]);
 
         var options = {
-          pieHole: 0.5,
+          pieHole: 0.7,
           pieSliceTextStyle: {
             color: 'black',
           },
