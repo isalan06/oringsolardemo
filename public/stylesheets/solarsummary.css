@@ -665,12 +665,12 @@
   }
 
   .DonutChartValue  {
-    margin-top: 104px;
-    margin-left: 112px;
+    margin-top: 124px;
+    margin-left: 102px;
     width: 45px;
     height: 56px;
     font-family: SegoeUI;
-    font-size: 42px;
+    font-size: 24px;
     font-weight: 300;
     font-stretch: normal;
     font-style: normal;
@@ -678,6 +678,23 @@
     letter-spacing: 0.48px;
     color: #1f2578;
     text-align: end;
+    position:absolute;
+  }
+
+  .DonutChartUnit{
+    margin-top: 131px;
+    margin-left: 161px;
+    width: 12px;
+    height: 20px;
+    font-family: SegoeUI;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    text-align: right;
+    color: #1f2578;
     position:absolute;
   }
   
