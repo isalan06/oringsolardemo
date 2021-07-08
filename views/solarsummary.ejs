@@ -12,9 +12,9 @@
       function drawChart() {
 
         var data = google.visualization.arrayToDataTable([
-          ['Effort', 'Amount given', { role: 'style'}],
-          ['My all',     88 , 'color: #1f2678'],
-          ['Other',      12 , 'color: #ffffff']
+          ['Effort', 'Amount given'],
+          ['My all',     88],
+          ['Other',      12]
         ]);
 
         var options = {
@@ -22,7 +22,11 @@
           pieSliceTextStyle: {
             color: 'black',
           },
-          legend: 'none'
+          legend: 'none',
+          slices: {
+            0: { color: '#1f2678' },
+            1: { color: '#ffffff' }
+          }
         };
 
         var chart = new google.visualization.PieChart(document.getElementById('myCanvas'));
