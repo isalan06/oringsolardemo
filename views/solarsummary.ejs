@@ -13,12 +13,13 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Effort', 'Amount given'],
-          ['Online',     697],
-          ['Offline',      96]
+          ['上線',     697],
+          ['離線',      96]
         ]);
 
         var options = {
           backgroundColor: '#f8f8f8',
+          pieSliceText: 'none',
           pieHole: 0.5,
           pieSliceTextStyle: {
             color: 'black',
