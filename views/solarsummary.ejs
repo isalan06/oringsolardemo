@@ -4,6 +4,30 @@
     <meta charset="utf-8">
     <title>Solar Demo Summary</title>
     <link rel="stylesheet" href="stylesheets/solarsummary.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['corechart']});
+      google.charts.setOnLoadCallback(drawChart);
+
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Effort', 'Amount given'],
+          ['My all',     100],
+        ]);
+
+        var options = {
+          pieHole: 0.5,
+          pieSliceTextStyle: {
+            color: 'black',
+          },
+          legend: 'none'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('myCanvas'));
+        chart.draw(data, options);
+      }
+    </script>
   </head>
   <body>
     <div class="dashboardadmin">
@@ -75,7 +99,7 @@
           </div>
           <div class="Rect-Main-6">
             <label class="Title-5">設備連線率</label>
-            <canvas id="myCanvas" class="Oval"></canvas>
+            <div id="myCanvas" class="Oval"></div>
             <label class="Oval-2"></label>
             <label class="Title-7" style="margin-top: 234px;margin-left: 66px;">上線</label>
             <label class="Value-7" style="margin-top: 234px;margin-left: 103px;">697</label>
