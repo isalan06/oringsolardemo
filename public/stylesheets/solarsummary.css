@@ -697,4 +697,13 @@
     color: #1f2578;
     position:absolute;
   }
+
+  .BarChartDisplay {
+    margin-top: 50px;
+    margin-left: 20px;
+    width: 510px;
+    height: 200px;
+    background-color: #e6e7f3;
+    position:absolute;
+  }
   
