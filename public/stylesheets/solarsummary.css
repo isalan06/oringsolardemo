@@ -737,5 +737,6 @@
   }
 
   .Column-1 {
-      line-height: 16px;
+    vertical-align: baseline;
   }
+  
