@@ -152,6 +152,8 @@ router.get('/History', function(req, res){
 					
 								var energyDataString = JSON.stringify(energyData);
 			
+								console.log(energyDataString);
+
 								res.render('history', {
 									title: 'Oring Solar Demo - History',
 									setcalcTotal: caltotalenergy,
