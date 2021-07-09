@@ -30,7 +30,13 @@ router.get('/', function(req, res) { //, next) {
 
 router.get('/SolarSummary', function(req, res) {
 	res.render('solarsummary', {
-		title: 'Oring Solar Systen Demo'
+		title: 'Oring Solar Systen Demo - Summary'
+	})
+});
+
+router.get('/SolarLocation', function(req, res) {
+	res.render('solarlocation', {
+		title: 'Oring Solar System Demo - Location'
 	})
 });
 

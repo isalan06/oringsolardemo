@@ -1,0 +1,759 @@
+:root{
+    --primary-theme-dark: #161d44
+  }
+
+  html {
+    overflow:auto;
+  }
+
+  body{overflow: auto;}
+  
+  .dashboardadmin {
+    width: 1440px;
+    height: 1080px;
+  }
+  
+  .LeftItemList {
+    position: absolute;
+    top: 0px;
+    width: 264px;
+    height: 894px;
+    margin: 0 24px 0 0;
+    padding: 16px 0 200px;
+    background-color: var(--primary-theme-dark);
+  }
+  
+  .IconLWhite100 {
+    width: 24px;
+    height: 24px;
+    transform: rotate(-360deg);
+    font-family: FabricExternalMDL2Assets;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.27px;
+    color: #ffffff;
+  }
+  
+  .PVTitle {
+    width: 171px;
+    height: 40px;
+    margin: 0 29px 28px 16px;
+    font-family: PingFangTC;
+    font-size: 32px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.37px;
+    color: #ffffff;
+  }
+  
+  .LineTitle {
+    width: 1440px;
+    height: 1px;
+    margin: 22.5px 0 15.5px;
+    opacity: 0.5;
+    border: solid 1px #d3d3d3;
+  }
+  
+  .RectangleSelected {
+    width: 264px;
+    height: 46px;
+    background-color: #0c1331;
+  }
+  
+  .NotRectangleSelected {
+    width: 264px;
+    height: 46px;
+    background-color: var(--primary-theme-dark);
+  }
+  
+  .currentLeftTitle {
+    width: 81px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #ffffff;
+    position: relative;
+    top: 12px;
+    margin-left: 12px;
+  }
+  
+  .notCurrentLeftTitle {
+    width: 65px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #ffffff;
+  }
+  
+  .Hi-Admin {
+    width: 72px;
+    height: 22px;
+    margin: 25px 8px 24.5px 180px;
+    font-family: SegoeUI;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    text-align: right;
+    color: #333333;
+    position: relative;
+    left: 830px;
+    top: 20px;
+  }
+  
+  .UpperTitle {
+    position: absolute;
+    top: 0px;
+    left: 264px;
+    height: 70px;
+    width: 1176px;
+  }
+  
+  .UpperContainer {
+    position: relative;
+  }
+  
+  .dropdown {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    top: 27px;
+    left: 1120px;
+    object-fit: contain;
+  }
+  
+  .MainContainer {
+    position: relative;
+    left: 264px;
+    top: 80px;
+    width: 1176px;
+    height: 1000px;  
+  }
+  
+  .TestTest{
+    width:268px;
+  }
+  
+  .Rect-Main-1 {
+    width: 268px;
+    height: 118px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+  }
+  
+  .Rect-Main-2 {
+    width: 268px;
+    height: 118px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+  }
+  
+  .Rect-Main-3 {
+    width: 268px;
+    height: 118px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+  }
+  
+  .Rect-Main-4 {
+    width: 268px;
+    height: 118px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+  }
+
+  .Rect-Main-5 {
+    width: 268px;
+    height: 267px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+  }
+
+  .Rect-Main-6 {
+    width: 268px;
+    height: 267px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+  }
+
+  .Rect-Main-7 {
+    width: 552px;
+    height: 267px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+  }
+
+  .Rect-Main-8 {
+    width: 552px;
+    height: 372px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+  }
+
+  .Rect-Main-9 {
+    width: 552px;
+    height: 372px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+  }
+
+  .Title-1  {
+    margin-top: 16px;
+    margin-left: 20px;
+    width: 98px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position:absolute;
+  }
+  
+  .Value-1  {
+    margin-top: 46px;
+    margin-left: 20px;
+    width: 176px;
+    height: 56px;
+    font-family: SegoeUI;
+    font-size: 42px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    color: #1f2578;
+    position:absolute;
+    text-align: end;
+  }
+  
+  .Unit-1 {
+    margin-top: 68px;
+    margin-left: 200px;
+    width: 33px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position:absolute;
+  }
+  
+  .car-solid {
+    margin-top: 35px;
+    margin-left: 28px;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    position: absolute;
+  }
+  
+  .Value-2{
+    margin-top: 16px;
+    margin-left: 108px;
+    width: 88px;
+    height: 56px;
+    font-family: SegoeUI;
+    font-size: 42px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    color: #1f2578;
+    position: absolute;
+    text-align: end;
+  }
+  
+  .Unit-2{
+    margin-top: 38px;
+    margin-left: 204px;
+    width: 17px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Title-2  {
+    margin-top: 74px;
+    margin-left: 108px;
+    width: 114px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .house-door-fill {
+    margin-left: 28px;
+    width: 48px;
+    object-fit: contain;
+  }
+  
+  .Value-3 {
+    margin-top: 16px;
+    margin-left: 108px;
+    width: 88px;
+    height: 56px;
+    font-family: SegoeUI;
+    font-size: 42px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    color: #1f2578;
+    position: absolute;
+    text-align: end;
+  }
+  
+  .Unit-3 {
+    margin-top: 38px;
+    margin-left: 204px;
+    width: 17px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Title-3  {
+    margin-top: 74px;
+    margin-left: 108px;
+    width: 114px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .tree-fill {
+    margin-top: 35px;
+    margin-left: 28px;
+    width: 48px;
+    height: 48px;
+    object-fit: contain;
+    position: absolute;
+  }
+  
+  .Value-4 {
+    margin-top: 16px;
+    margin-left: 108px;
+    width: 88px;
+    height: 56px;
+    font-family: SegoeUI;
+    font-size: 42px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    color: #1f2578;
+    position: absolute;
+    text-align: end;
+  }
+  
+  .Unit-4 {
+    margin-top: 38px;
+    margin-left: 204px;
+    width: 17px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Title-4  {
+    margin-top: 74px;
+    margin-left: 108px;
+    width: 114px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Title-5 {
+    margin-top: 16px;
+    margin-left: 20px;
+    width: 102px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.1;
+    letter-spacing: 0.23px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Value-5 {
+    margin-top: 47px;
+    margin-left: 108px;
+    width: 88px;
+    height: 56px;
+    font-family: SegoeUI;
+    font-size: 42px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    color: #1f2578;
+    position: absolute;
+    text-align: end;
+  }
+  
+  .Unit-5 {
+    margin-top: 67px;
+    margin-left: 204px;
+    width: 17px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .LineTitle-2 {
+    top:250px;
+    left:30px;
+    width: 228px;
+    height: 1px;
+    background-color: #d3d3d3;
+    position: absolute;
+  }
+  
+  .Title-6 {
+    width: 114px;
+    height: 20px;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Value-6 {
+    width: 62px;
+    height: 20px;
+    font-family: SegoeUI;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    text-align: right;
+    color: #1f2578;
+    position: absolute;
+  }
+  
+  .Unit-6 {
+    width: 35px;
+    height: 20px;
+    opacity: 0.8;
+    font-family: SegoeUI;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Oval {
+    margin-top: 50px;
+    margin-left: 50px;
+    width: 172px;
+    height: 172px;
+    background-color: #e6e7f3;
+    position:absolute;
+  }
+  
+  .Oval-2 {
+    margin-top: 238px;
+    margin-left: 46px;
+    width: 12px;
+    height: 12px;
+    border: solid 1px #1f2678;
+    background-color: #1f2678;
+    border-radius:999em;
+    position: absolute;
+  }
+  
+  .Title-7 {
+    width: 29px;
+    height: 20px;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    color: #333333;
+    position:absolute;
+  }
+  
+  .Oval-3 {
+    margin-top: 238px;
+    margin-left: 148px;
+    width: 12px;
+    height: 12px;
+    border: solid 1px #d3d3d3;
+    background-color: #ffffff;
+    border-radius:999em;
+    position: absolute;
+  }
+  
+  .Value-7  {
+    width: 45px;
+    height: 20px;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    color: #1f2578;
+    position: absolute;
+  }
+  
+  .Title-8  {
+    margin-top: 16px;
+    margin-left: 20px;
+    width: 122px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.1;
+    letter-spacing: 0.23px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Unit-8 {
+    margin-top: 18px;
+    margin-left: 146px;
+    width: 30px;
+    height: 20px;
+    font-family: SegoeUI;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    color: #333333;
+    position:absolute;
+  }
+  
+  .Title-9 {
+    margin-top: 16px;
+    margin-left: 20px;
+    width: 142px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.1;
+    letter-spacing: 0.23px;
+    color: #333333;
+    position: absolute;
+  }
+
+  .DonutChartValue  {
+    margin-top: 124px;
+    margin-left: 102px;
+    width: 45px;
+    height: 56px;
+    font-family: SegoeUI;
+    font-size: 24px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.48px;
+    color: #1f2578;
+    text-align: end;
+    position:absolute;
+  }
+
+  .DonutChartUnit{
+    margin-top: 131px;
+    margin-left: 150px;
+    width: 12px;
+    height: 20px;
+    font-family: SegoeUI;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    text-align: right;
+    color: #1f2578;
+    position:absolute;
+  }
+
+  .BarChartDisplay {
+    margin-top: 50px;
+    margin-left: 20px;
+    width: 510px;
+    height: 200px;
+    background-color: #e6e7f3;
+    position:absolute;
+  }
+
+  .Combo-1 {
+    margin-top: 12px;
+    margin-left: 457px;
+    width: 75px;
+    height: 28px;
+    padding: 4px 8px;
+    border-radius: 1px;
+    border: solid 1px #b5b5b5;
+    background-color: #ffffff;
+    position:absolute;
+  }
+
+  .Table-1  {
+    margin-top: 46px;
+    margin-left: 20px;
+    width: 520px;
+    height: 310px;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    color: #333333;
+    position: absolute;
+    overflow: auto;
+  }
+  
+  .Table-2 {
+      position:relative
+  }
+
+  .Table-3{
+    overflow: auto;
+  }
+
+  .Column-1 {
+    vertical-align: baseline;
+  }
+
+  .Column-2 {
+    vertical-align: baseline;
+  }
