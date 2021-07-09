@@ -733,4 +733,5 @@
     letter-spacing: 0.16px;
     color: #333333;
     position: absolute;
+    overflow: auto;
   }
