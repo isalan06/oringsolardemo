@@ -95,7 +95,7 @@ router.get('/History', function(req, res){
 	
 	var titleData= ['Hour'];
 
-	console.log("Start to connect DB");
+	console.log("1");
 
 	const conn = new mysql.createConnection(config);
 				conn.connect(  function(err){
@@ -105,6 +105,8 @@ router.get('/History', function(req, res){
 				}
 				else
 				{
+					console.log(commandString);
+
 					var inverter_no = -1;
 					var inverter_getid = -1;
 		  			conn.query(commandString, function(err, rows){
