@@ -112,7 +112,7 @@ router.get('/History', function(req, res){
 		  			conn.query(commandString, function(err, rows){
 			  			if(err) res.send('Get Data Error');
 						else{
-							if(rows.length == 0){ res.redirect('history'); }
+							if(rows.length < 0){ res.redirect('history'); }
 							else{
 								//datas = [];
 								rows.forEach( (row) => {
