@@ -706,4 +706,16 @@
     background-color: #e6e7f3;
     position:absolute;
   }
+
+  .Combo-1 {
+    margin-top: 50px;
+    margin-left: 20px;
+    width: 75px;
+    height: 28px;
+    padding: 4px 8px;
+    border-radius: 1px;
+    border: solid 1px #b5b5b5;
+    background-color: #ffffff;
+    position:absolute;
+  }
   
