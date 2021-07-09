@@ -735,3 +735,7 @@
     position: absolute;
     overflow: auto;
   }
+
+  .Column-1 {
+      line-height: 16px;
+  }
