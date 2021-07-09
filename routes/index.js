@@ -95,6 +95,8 @@ router.get('/History', function(req, res){
 	
 	var titleData= ['Hour'];
 
+	console.log("Start to connect DB");
+
 	const conn = new mysql.createConnection(config);
 				conn.connect(  function(err){
 	  			if(err){
