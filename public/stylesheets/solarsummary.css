@@ -1,6 +1,12 @@
 :root{
     --primary-theme-dark: #161d44
   }
+
+  html {
+    overflow:auto;
+  }
+
+  body{overflow: auto;}
   
   .dashboardadmin {
     width: 1440px;
