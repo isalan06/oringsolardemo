@@ -10,7 +10,7 @@
   
   .dashboardadmin {
     width: 1440px;
-    height: 894px;
+    height: 1080px;
   }
   
   .LeftItemList {
@@ -739,6 +739,14 @@
     letter-spacing: 0.16px;
     color: #333333;
     position: absolute;
+    overflow: auto;
+  }
+  
+  .Table-2 {
+      position:relative
+  }
+
+  .Table-3{
     overflow: auto;
   }
 
