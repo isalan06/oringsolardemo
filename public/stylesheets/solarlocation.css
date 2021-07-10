@@ -757,3 +757,33 @@
   .Column-2 {
     vertical-align: baseline;
   }
+
+  .Rect-Main-10 {
+    width: 268px;
+    height: 84px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+  }
+
+  .Rect-Main-11 {
+    width: 268px;
+    height: 84px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+  }
+
+  .Rect-Main-12 {
+    width: 552px;
+    height: 84px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+  }
