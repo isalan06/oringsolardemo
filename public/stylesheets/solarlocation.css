@@ -807,7 +807,6 @@
   .Title-11 {
     width: 49px;
     height: 22px;
-    margin: 0 46px 8px 0;
     font-family: PingFangTC;
     font-size: 16px;
     font-weight: 600;
@@ -822,7 +821,6 @@
   .Value-11 {
     width: 142px;
     height: 22px;
-    margin: 0 0 8px 30px;
     font-family: PingFangTC;
     font-size: 16px;
     font-weight: normal;
@@ -832,4 +830,15 @@
     letter-spacing: 0.18px;
     color: #333333;
     position: absolute;
+  }
+
+  .sun-fill {
+    margin-top: 18px;
+    margin-left: 29px;
+    width: 48px;
+    height: 48px;
+    margin: 4px 32px 4px 0;
+    object-fit: contain;
+    background-color: #ffcd41;
+    position:absolute;
   }
