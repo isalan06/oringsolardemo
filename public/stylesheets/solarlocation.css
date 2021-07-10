@@ -787,3 +787,49 @@
     background-color: #f8f8f8;
     display: inline-flex;
   }
+
+  .Title-10 {
+    margin-top: 22px;
+    margin-left: 20px;
+    width: 130px;
+    height: 40px;
+    font-family: PingFangTC;
+    font-size: 32px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.37px;
+    color: #333333;
+    position:absolute;
+  }
+
+  .Title-11 {
+    width: 49px;
+    height: 22px;
+    margin: 0 46px 8px 0;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
+
+  .Value-11 {
+    width: 142px;
+    height: 22px;
+    margin: 0 0 8px 30px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position: absolute;
+  }
