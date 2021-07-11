@@ -843,7 +843,7 @@
 
   .Value-Main-12  {
     margin-top: 20px;
-    margin-left:20px;
+    margin-left:109px;
     width: 45px;
     height: 56px;
     font-family: SegoeUI;
@@ -855,4 +855,48 @@
     letter-spacing: 0.48px;
     color: #1f2578;
     position:absolute
+  }
+
+  .Unit-Main-12 {
+    margin-top: 42px;
+    margin-left:162px;
+    width: 18px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position:absolute;
+  }
+
+  .Title-12  {
+    width: 33px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #333333;
+    position:absolute;
+  }
+
+  .Value-12 {
+    width: 34px;
+    height: 22px;
+    font-family: SegoeUI;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #1f2578;
+    position: absolute;
   }
