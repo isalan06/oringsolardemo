@@ -2,9 +2,6 @@
     --primary-theme-dark: #161d44
   }
 
-  html {
-    overflow:auto;
-  }
 
   body{overflow: auto;}
   
