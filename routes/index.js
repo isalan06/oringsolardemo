@@ -96,22 +96,53 @@ router.get('/SolarSummary', function(req, res) {
 										online_data.push(offline_value);
 										var onlineDataString = JSON.stringify(online_data);
 
-										conn.end();
-										res.render('solarsummary', {
-											title: 'Oring Solar Systen Demo - Summary',
-											setTotalEnergy: totalenergy,
-											setTodayTotalEnergy: today_total_energy,
-											setTodayUnitEnergy: today_unit_energy,
-											setTodayHourEnergy: today_hour_energy,
-											setTodayOnlineCount: today_online_count,
-											setTodayOfflineCount: today_offline_count,
-											setTodayOnlinePrec: today_online_prec,
-											setOnlineChart: onlineDataString
-										});
+										
 									}
 									else{
 										
 									}
+
+									conn.query('SELECT * FROM view_today_hourenergy;', function(err, rows){
+										if(err) res.send('Get Data Error 4');
+										else{
+											if(rows.length > 0){
+												var hourdata = [0, 0, 0, 0, 0, 
+													0, 0, 0, 0, 0,
+													0, 0, 0, 0, 0,
+													0, 0, 0, 0, 0,
+													0, 0, 0, 0];
+												var hourdatas = [];
+												hourdates.push(['Hour', 'Energy']);
+												rows.forEach( (row) => {
+													var _hour_index = row['r_hour'];
+													hourdata[_hour_index] = row['Total_Hour_Energy'];
+												});
+
+												for(i=0;i<24;i++){
+													hourdatas.push([i, hourdata[i]]);
+												}
+
+												var hourDataString = JSON.stringify(hourdatas);
+
+												conn.end();
+												res.render('solarsummary', {
+													title: 'Oring Solar Systen Demo - Summary',
+													setTotalEnergy: totalenergy,
+													setTodayTotalEnergy: today_total_energy,
+													etTodayUnitEnergy: today_unit_energy,
+													setTodayHourEnergy: today_hour_energy,
+													setTodayOnlineCount: today_online_count,
+													setTodayOfflineCount: today_offline_count,
+													setTodayOnlinePrec: today_online_prec,
+													setOnlineChart: onlineDataString,
+													setHourChart: hourDataString
+												});
+											}
+											else{
+
+											}
+										}
+									});
 								}
 							});
 						}
