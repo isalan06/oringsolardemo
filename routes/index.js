@@ -32,6 +32,9 @@ router.get('/SolarSummary', function(req, res) {
 
 	var commandString = 'SELECT SUM(energy)/1000 AS TotalEnergy FROM table_solar_hist3_month WHERE r_year=2021 GROUP BY r_year';
 	var totalenergy = 0;
+	var today_total_energy = 0;
+	var today_unit_energy = 0;
+	var today_hour_energy = 0;
 
 	const conn = new mysql.createConnection(config);
 	conn.connect(  function(err){
@@ -45,28 +48,27 @@ router.get('/SolarSummary', function(req, res) {
 			  	else{
 				  	if(rows.length > 0){
 						totalenergy = rows[0]['TotalEnergy'];
-						console.log(totalenergy);
-
-						conn.end();
-						res.render('solarsummary', {
-							title: 'Oring Solar Systen Demo - Summary',
-							setTotalEnergy: totalenergy
-						})
 				  	}
 					else{
-						conn.end();
-						res.render('solarsummary', {
-							title: 'Oring Solar Systen Demo - Summary',
-							setTotalEnergy: totalenergy
-						})
+						
 					}
 				}
-				
-			  });
-		}
-	});
 
-	
+
+
+				
+			});
+		}
+
+		conn.end();
+				res.render('solarsummary', {
+					title: 'Oring Solar Systen Demo - Summary',
+					setTotalEnergy: totalenergy,
+					setTodayTotalEnergy: today_total_energy,
+					setTodayUnitEnergy: today_unit_energy,
+					setTodayHourEnergy: today_hour_energy
+				});
+	});
 });
 
 router.get('/SolarLocation', function(req, res) {
