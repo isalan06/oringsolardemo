@@ -40,6 +40,9 @@ router.get('/SolarSummary', function(req, res) {
 		var today_total_energy = 0;
 		var today_unit_energy = 0;
 		var today_hour_energy = 0;
+		var today_online_count = 0;
+		var today_offline_count = 0;
+		var today_online_prec = 0;
 
 		if(err){
 			conn.end();
@@ -63,20 +66,36 @@ router.get('/SolarSummary', function(req, res) {
 								today_total_energy = rows[0]['Total_Energy'];
 								today_unit_energy = rows[0]['Unit_Energy'];
 								today_hour_energy = rows[0]['Hour_Energy'];
-
-								conn.end();
-								res.render('solarsummary', {
-									title: 'Oring Solar Systen Demo - Summary',
-									setTotalEnergy: totalenergy,
-									setTodayTotalEnergy: today_total_energy,
-									setTodayUnitEnergy: today_unit_energy,
-									setTodayHourEnergy: today_hour_energy
-								});
 							}
 							else
 							{
-
+								today_total_energy = 0;
+								today_unit_energy = 0;
+								today_hour_energy = 0;
 							}
+
+							conn.query('SELECT * FROM view_today_information;', function(err, rows){
+								if(err) res.send('Get Data Error 3');
+								else{
+									if(rows.length > 0){
+										today_online_count = rows[0]['OnlineCount'];
+										today_offline_count = rows[0]['OfflineCount'];
+										today_online_prec = rows[0]['OnlinePrec'];
+
+										conn.end();
+										res.render('solarsummary', {
+											title: 'Oring Solar Systen Demo - Summary',
+											setTotalEnergy: totalenergy,
+											setTodayTotalEnergy: today_total_energy,
+											setTodayUnitEnergy: today_unit_energy,
+											setTodayHourEnergy: today_hour_energy,
+											setTodayOnlineCount: today_online_count,
+											setTodayOfflineCount: today_offline_count,
+											setTodayOnlinePrec: today_online_prec
+										});
+									}
+								}
+							});
 						}
 					})
 				}
