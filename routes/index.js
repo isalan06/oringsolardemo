@@ -43,14 +43,21 @@ router.get('/SolarSummary', function(req, res) {
 			conn.query(commandString, function(err, rows){
 				if(err) res.send('Get Data Error');
 			  	else{
-				  	if(rows.length < 0){
+				  	if(rows.length > 0){
 						totalenergy = rows[0]['TotalEnergy'];
 						console.log(totalenergy);
 
+						conn.end();
 						res.render('solarsummary', {
 							title: 'Oring Solar Systen Demo - Summary'
 						})
 				  	}
+					else{
+						conn.end();
+						res.render('solarsummary', {
+							title: 'Oring Solar Systen Demo - Summary'
+						})
+					}
 				}
 				
 			  });
