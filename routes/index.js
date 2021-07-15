@@ -60,14 +60,18 @@ router.get('/SolarSummary', function(req, res) {
 						if(err) res.send('Get Data Error 2');
 						else{
 							if(rows.length > 0){
+								today_total_energy = rows[0]['Total_Energy'];
+								today_unit_energy = rows[0]['Unit_Energy'];
+								today_hour_energy = rows[0]['Hour_Energy'];
+
 								conn.end();
-				res.render('solarsummary', {
-			title: 'Oring Solar Systen Demo - Summary',
-			setTotalEnergy: totalenergy,
-			setTodayTotalEnergy: today_total_energy,
-			setTodayUnitEnergy: today_unit_energy,
-			setTodayHourEnergy: today_hour_energy
-		});
+								res.render('solarsummary', {
+									title: 'Oring Solar Systen Demo - Summary',
+									setTotalEnergy: totalenergy,
+									setTodayTotalEnergy: today_total_energy,
+									setTodayUnitEnergy: today_unit_energy,
+									setTodayHourEnergy: today_hour_energy
+								});
 							}
 							else
 							{

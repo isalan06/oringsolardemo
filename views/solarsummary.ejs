@@ -129,7 +129,7 @@
           </div>
           <div class="Rect-Main-5">
             <label class="Title-5">今日發電量</label>
-            <label class="Value-5">312</label>
+            <label class="Value-5"><%= (setTodayTotalEnergy / 100) | 0 %></label>
             <label class="Unit-5">kWh</label>
             <hr class="LineTitle-2" />
             <label class="Title-6" style="margin-top: 119px;margin-left: 20px;">今日單位發電量</label>
@@ -137,8 +137,8 @@
             <label class="Title-6" style="margin-top: 175px;margin-left: 20px;">平均日照量</label>
             <label class="Title-6" style="margin-top: 203px;margin-left: 20px;">裝置容量</label>
             <label class="Title-6" style="margin-top: 231px;margin-left: 20px;">案場總數</label>
-            <label class="Value-6" style="margin-top: 119px;margin-left: 144px;">1349.2</label>
-            <label class="Value-6" style="margin-top: 147px;margin-left: 144px;">231</label>
+            <label class="Value-6" style="margin-top: 119px;margin-left: 144px;"><%= (setTodayUnitEnergy / 100) | 0 %></label>
+            <label class="Value-6" style="margin-top: 147px;margin-left: 144px;"><%= (setTodayHourEnergy / 100) | 0 %></label>
             <label class="Value-6" style="margin-top: 175px;margin-left: 144px;">6.2</label>
             <label class="Value-6" style="margin-top: 203px;margin-left: 144px;">3.2</label>
             <label class="Value-6" style="margin-top: 231px;margin-left: 144px;">25</label>
