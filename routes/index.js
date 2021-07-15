@@ -31,13 +31,16 @@ router.get('/', function(req, res) { //, next) {
 router.get('/SolarSummary', function(req, res) {
 
 	var commandString = 'SELECT SUM(energy)/1000 AS TotalEnergy FROM table_solar_hist3_month WHERE r_year=2021 GROUP BY r_year';
-	var totalenergy = 0;
-	var today_total_energy = 0;
-	var today_unit_energy = 0;
-	var today_hour_energy = 0;
+	
 
 	const conn = new mysql.createConnection(config);
-	conn.connect(  function(err, totalenergy){
+	conn.connect(  function(err){
+
+		var totalenergy = 0;
+		var today_total_energy = 0;
+		var today_unit_energy = 0;
+		var today_hour_energy = 0;
+
 		if(err){
 			conn.end();
 			res.send('Connect DB Error');
