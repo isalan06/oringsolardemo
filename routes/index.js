@@ -50,8 +50,17 @@ router.get('/SolarSummary', function(req, res) {
 						totalenergy = rows[0]['TotalEnergy'];
 				  	}
 					else{
-						
+						totalenergy = 0;
 					}
+
+					conn.end();
+				res.render('solarsummary', {
+					title: 'Oring Solar Systen Demo - Summary',
+					setTotalEnergy: totalenergy,
+					setTodayTotalEnergy: today_total_energy,
+					setTodayUnitEnergy: today_unit_energy,
+					setTodayHourEnergy: today_hour_energy
+				});
 				}
 
 
@@ -60,14 +69,7 @@ router.get('/SolarSummary', function(req, res) {
 			});
 		}
 
-		conn.end();
-				res.render('solarsummary', {
-					title: 'Oring Solar Systen Demo - Summary',
-					setTotalEnergy: totalenergy,
-					setTodayTotalEnergy: today_total_energy,
-					setTodayUnitEnergy: today_unit_energy,
-					setTodayHourEnergy: today_hour_energy
-				});
+		
 	});
 });
 
