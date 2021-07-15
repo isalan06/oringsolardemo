@@ -117,13 +117,13 @@
           </div>
           <div class="Rect-Main-3">
             <img src="img/house-door-fill.svg" class="house-door-fill">
-            <label class="Value-2">110</label>
+            <label class="Value-2"><%= (setTotalEnergy / 3504) | 0 %></label>
             <label class="Unit-2">個</label>
             <label class="Title-2">家庭一年用電量</label>
           </div>
           <div class="Rect-Main-4">
             <img src="img/tree-fill.svg" class="tree-fill">
-            <label class="Value-2">52</label>
+            <label class="Value-2"><%= (setTotalEnergy * 0.0000554) | 0 %></label>
             <label class="Unit-2">棵</label>
             <label class="Title-2">樹一年碳吸附量</label>
           </div>
