@@ -106,6 +106,7 @@ router.get('/SolarSummary', function(req, res) {
 										if(err) res.send('Get Data Error 4');
 										else{
 											if(rows.length > 0){
+												console.log('A1');
 												var hourdata = [0, 0, 0, 0, 0, 
 													0, 0, 0, 0, 0,
 													0, 0, 0, 0, 0,
@@ -113,10 +114,13 @@ router.get('/SolarSummary', function(req, res) {
 													0, 0, 0, 0];
 												var hourdatas = [];
 												hourdatas.push(['Hour', 'Energy']);
+												
 												rows.forEach( (row) => {
 													var _hour_index = row['r_hour'];
 													hourdata[_hour_index] = row['Total_Hour_Energy'];
 												});
+
+												console.log('A2');
 
 												for(i=0;i<24;i++){
 													var _hourdata = [];
@@ -126,7 +130,11 @@ router.get('/SolarSummary', function(req, res) {
 													hourdatas.push(_hourdata);
 												}
 
+												console.log('A3');
+
 												var hourDataString = JSON.stringify(hourdatas);
+
+												console.log('hourDataString');
 
 												conn.end();
 												res.render('solarsummary', {
