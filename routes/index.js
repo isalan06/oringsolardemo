@@ -37,7 +37,7 @@ router.get('/SolarSummary', function(req, res) {
 	var today_hour_energy = 0;
 
 	const conn = new mysql.createConnection(config);
-	conn.connect(  function(err){
+	conn.connect(  function(err, totalenergy){
 		if(err){
 			conn.end();
 			res.send('Connect DB Error');
