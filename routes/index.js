@@ -56,7 +56,7 @@ router.get('/SolarSummary', function(req, res) {
 						totalenergy = 0;
 					}
 
-					conn.query('', function(err, rows){
+					conn.query('SELECT * FROM view_today_information;', function(err, rows){
 						if(err) res.send('Get Data Error 2');
 						else{
 							if(rows.length > 0){
