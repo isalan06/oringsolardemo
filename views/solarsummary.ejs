@@ -42,7 +42,9 @@
       function drawChart2() {
         var data_chart = JSON.parse('<%- setHourChart %>');
 
-        var data = google.visualization.arrayToDataTable(data_chart);
+        var data = google.visualization.arrayToDataTable(
+          data_chart
+          );
 
         var options = {
           width: 510,
