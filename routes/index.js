@@ -46,7 +46,7 @@ router.get('/SolarSummary', function(req, res) {
 			res.send('Connect DB Error');
 	  	}
 	  	else {
-			conn.query(commandString, function(err, rows, totalenergy){
+			conn.query(commandString, function(err, rows){
 				if(err) res.send('Get Data Error');
 			  	else{
 				  	if(rows.length > 0){
@@ -56,7 +56,25 @@ router.get('/SolarSummary', function(req, res) {
 						totalenergy = 0;
 					}
 
-					
+					conn.query('', function(err, rows){
+						if(err) res.send('Get Data Error 2');
+						else{
+							if(rows.length > 0){
+								conn.end();
+				res.render('solarsummary', {
+			title: 'Oring Solar Systen Demo - Summary',
+			setTotalEnergy: totalenergy,
+			setTodayTotalEnergy: today_total_energy,
+			setTodayUnitEnergy: today_unit_energy,
+			setTodayHourEnergy: today_hour_energy
+		});
+							}
+							else
+							{
+
+							}
+						}
+					})
 				}
 
 
@@ -65,14 +83,7 @@ router.get('/SolarSummary', function(req, res) {
 			});
 		}
 
-		conn.end();
-		res.render('solarsummary', {
-			title: 'Oring Solar Systen Demo - Summary',
-			setTotalEnergy: totalenergy,
-			setTodayTotalEnergy: today_total_energy,
-			setTodayUnitEnergy: today_unit_energy,
-			setTodayHourEnergy: today_hour_energy
-		});
+		
 
 		
 	});
