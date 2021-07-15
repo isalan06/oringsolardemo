@@ -11,11 +11,11 @@
 
       function drawChart() {
 
-        var data = google.visualization.arrayToDataTable([
-          ['Effort', 'Amount given'],
-          ['上線',     26],
-          ['離線',     1]
-        ]);
+        var data_chart = JSON.parse('<%- setOnlineChart %>');
+
+        var data = google.visualization.arrayToDataTable(
+          data_chart
+          );
 
         var options = {
           chartArea: { width: '90%', height: '90%'},

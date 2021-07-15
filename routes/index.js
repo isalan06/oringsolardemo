@@ -59,6 +59,7 @@ router.get('/SolarSummary', function(req, res) {
 						totalenergy = 0;
 					}
 
+
 					conn.query('SELECT * FROM view_today_information;', function(err, rows){
 						if(err) res.send('Get Data Error 2');
 						else{
@@ -82,6 +83,19 @@ router.get('/SolarSummary', function(req, res) {
 										today_offline_count = rows[0]['OfflineCount'];
 										today_online_prec = rows[0]['OnlinePrec'];
 
+										var online_data = [];
+										var online_title = ['Effort', 'Amount given'];
+										online_data.push(online_title);
+										var online_value = [];
+										online_value.push('上線');
+										online_value.push(today_online_count);
+										online_data.push(online_value);
+										var offline_value = [];
+										offline_value.push('離線');
+										offline_value.push(today_offline_count);
+										online_data.push(offline_value);
+										var onlineDataString = JSON.stringify(online_data);
+
 										conn.end();
 										res.render('solarsummary', {
 											title: 'Oring Solar Systen Demo - Summary',
@@ -91,7 +105,8 @@ router.get('/SolarSummary', function(req, res) {
 											setTodayHourEnergy: today_hour_energy,
 											setTodayOnlineCount: today_online_count,
 											setTodayOfflineCount: today_offline_count,
-											setTodayOnlinePrec: today_online_prec
+											setTodayOnlinePrec: today_online_prec,
+											setOnlineChart: onlineDataString
 										});
 									}
 									else{
