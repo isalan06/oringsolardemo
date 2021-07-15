@@ -119,7 +119,11 @@ router.get('/SolarSummary', function(req, res) {
 												});
 
 												for(i=0;i<24;i++){
-													hourdatas.push([i, hourdata[i]]);
+													var _hourdata = [];
+													_hourdata.push(i);
+													_hourdata.push(hourdata[i]);
+
+													hourdatas.push(_hourdata);
 												}
 
 												var hourDataString = JSON.stringify(hourdatas);
