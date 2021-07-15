@@ -141,7 +141,7 @@ router.get('/SolarSummary', function(req, res) {
 													title: 'Oring Solar Systen Demo - Summary',
 													setTotalEnergy: totalenergy,
 													setTodayTotalEnergy: today_total_energy,
-													etTodayUnitEnergy: today_unit_energy,
+													setTodayUnitEnergy: today_unit_energy,
 													setTodayHourEnergy: today_hour_energy,
 													setTodayOnlineCount: today_online_count,
 													setTodayOfflineCount: today_offline_count,
