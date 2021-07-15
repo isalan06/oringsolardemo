@@ -29,9 +29,35 @@ router.get('/', function(req, res) { //, next) {
 });
 
 router.get('/SolarSummary', function(req, res) {
-	res.render('solarsummary', {
-		title: 'Oring Solar Systen Demo - Summary'
-	})
+
+	var commandString = 'SELECT SUM(energy)/1000 AS TotalEnergy FROM table_solar_hist3_month WHERE r_year=2021 GROUP BY r_year';
+	var totalenergy = 0;
+
+	const conn = new mysql.createConnection(config);
+	conn.connect(  function(err){
+		if(err){
+			conn.end();
+			res.send('Connect DB Error');
+	  	}
+	  	else {
+			conn.query(commandString, function(err, rows){
+				if(err) res.send('Get Data Error');
+			  	else{
+				  	if(rows.length < 0){
+						totalenergy = rows[0]['TotalEnergy'];
+						console.log(totalenergy);
+
+						res.render('solarsummary', {
+							title: 'Oring Solar Systen Demo - Summary'
+						})
+				  	}
+				}
+				
+			  });
+		}
+	});
+
+	
 });
 
 router.get('/SolarLocation', function(req, res) {
