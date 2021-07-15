@@ -42,14 +42,9 @@
       function drawChart2() {
         var data_chart = JSON.parse('<%- setHourChart %>');
 
-        var data = google.visualization.arrayToDataTable([
-          ['Hour', 'Energy'],
-          [0, 0], [1, 0], [2, 0], [3, 0], [4, 0],
-          [5, 0], [6, 12.5], [7, 22.2], [8, 31.7], [9, 35.2],
-          [10, 38.9], [11, 42.2], [12, 45.2], [13, 40.8], [14, 38.6],
-          [15, 32.4], [16, 27.5], [17, 24.0], [18, 15.2], [19, 0],
-          [20, 0], [21, 0], [22, 0], [23, 0]
-        ]);
+        var data = google.visualization.arrayToDataTable(
+          data_chart
+        );
 
         var options = {
           width: 510,
