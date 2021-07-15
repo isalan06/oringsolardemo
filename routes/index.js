@@ -112,7 +112,7 @@ router.get('/SolarSummary', function(req, res) {
 													0, 0, 0, 0, 0,
 													0, 0, 0, 0];
 												var hourdatas = [];
-												hourdates.push(['Hour', 'Energy']);
+												hourdatas.push(['Hour', 'Energy']);
 												rows.forEach( (row) => {
 													var _hour_index = row['r_hour'];
 													hourdata[_hour_index] = row['Total_Hour_Energy'];
