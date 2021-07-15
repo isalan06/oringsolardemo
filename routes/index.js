@@ -74,7 +74,7 @@ router.get('/SolarSummary', function(req, res) {
 								today_hour_energy = 0;
 							}
 
-							conn.query('SELECT * FROM view_today_information;', function(err, rows){
+							conn.query('SELECT * FROM view_today_inverter_onlineinformation;', function(err, rows){
 								if(err) res.send('Get Data Error 3');
 								else{
 									if(rows.length > 0){
@@ -93,6 +93,9 @@ router.get('/SolarSummary', function(req, res) {
 											setTodayOfflineCount: today_offline_count,
 											setTodayOnlinePrec: today_online_prec
 										});
+									}
+									else{
+										
 									}
 								}
 							});
