@@ -49,13 +49,15 @@ router.get('/SolarSummary', function(req, res) {
 
 						conn.end();
 						res.render('solarsummary', {
-							title: 'Oring Solar Systen Demo - Summary'
+							title: 'Oring Solar Systen Demo - Summary',
+							setTotalEnergy: totalenergy
 						})
 				  	}
 					else{
 						conn.end();
 						res.render('solarsummary', {
-							title: 'Oring Solar Systen Demo - Summary'
+							title: 'Oring Solar Systen Demo - Summary',
+							setTotalEnergy: totalenergy
 						})
 					}
 				}
