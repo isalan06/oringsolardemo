@@ -13,8 +13,8 @@
 
         var data = google.visualization.arrayToDataTable([
           ['Effort', 'Amount given'],
-          ['上線',     692],
-          ['離線',      98]
+          ['上線',     '<%- setTodayOnlineCount %>'],
+          ['離線',      '<%- setTodayOfflineCount %>']
         ]);
 
         var options = {
