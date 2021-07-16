@@ -185,11 +185,20 @@ router.get('/SolarSummary', function(req, res) {
 router.get('/SolarLocation', function(req, res) {
 	urlData = url.parse(req.url,true);
 	action = urlData.pathname;
-	location = urlData.query;
-	console.log(action);
-	console.log(location.AreaLocation);
+	transfer_param = urlData.query;
+	area_location_index = transfer_param.AreaLocation
+	
+	var area_name="未知"
+	if(area_location_index == 1) area_name="大義倉庫";
+	else if(area_location_index == 2) area_name="誠品";
+	else if(area_location_index == 3) area_name="兔將創意";
+
+	//console.log(action);
+	//console.log(location.AreaLocation);
 	res.render('solarlocation', {
-		title: 'Oring Solar System Demo - Location'
+		title: 'Oring Solar System Demo - Location',
+		setAreaLocation: location.area_location_index,
+		setAreaName: area_name
 	})
 });
 
