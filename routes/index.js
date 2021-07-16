@@ -187,7 +187,7 @@ router.get('/SolarLocation', function(req, res) {
 	action = urlData.pathname;
 	location = urlData.query;
 	console.log(action);
-	console.log(location);
+	console.log(location.AreaLocation);
 	res.render('solarlocation', {
 		title: 'Oring Solar System Demo - Location'
 	})
