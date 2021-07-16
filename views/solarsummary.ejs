@@ -175,14 +175,14 @@
                     <tr class="Column-1">
                         <th>案場</th>
                         <th>發電量(kWh)</th>
-                        <th>單位發電量(kWh)</th>
+                        <th>每小時發電量(kWh)</th>
                         <th>日照量(W/㎡)</th>
                   </tr>
                 </thead>
                 <tbody>
                     <tr class="Column-2">
                         <th><a href='/SolarLocation?AreaLocation=1'>高雄駁二-大義倉庫</a></th>
-                        <th>2234.4</th>
+                        <th><%= setAreaInformation[0]['Total_Energy'].toFixed(1) %></th>
                         <th>234.4</th>
                         <th>234.4</th>
                     </tr>
@@ -200,7 +200,7 @@
                     </tr>
                     <tr class="Column-2">
                         <th><a>新店</a></th>
-                        <th>1895.4/th>
+                        <th>1895.4</th>
                         <th>895.4</th>
                         <th>895.4</th>
                     </tr>
