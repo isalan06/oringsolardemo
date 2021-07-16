@@ -129,24 +129,39 @@ router.get('/SolarSummary', function(req, res) {
 
 												var hourDataString = JSON.stringify(hourdatas);
 
-												conn.end();
-												res.render('solarsummary', {
-													title: 'Oring Solar Systen Demo - Summary',
-													setTotalEnergy: totalenergy,
-													setTodayTotalEnergy: today_total_energy,
-													setTodayUnitEnergy: today_unit_energy,
-													setTodayHourEnergy: today_hour_energy,
-													setTodayOnlineCount: today_online_count,
-													setTodayOfflineCount: today_offline_count,
-													setTodayOnlinePrec: today_online_prec,
-													setOnlineChart: onlineDataString,
-													setHourChart: hourDataString
-												});
+												
 											}
 											else{
-
+												
 											}
 										}
+
+										conn.query('SELECT * FROM view_today_area_information;', function(err, rows){
+											if(err) res.send('Get Data Error 5');
+											else{
+												if(rows.length > 0){
+													var areainformationdata = rows;
+
+													conn.end();
+													res.render('solarsummary', {
+														title: 'Oring Solar Systen Demo - Summary',
+														setTotalEnergy: totalenergy,
+														setTodayTotalEnergy: today_total_energy,
+														setTodayUnitEnergy: today_unit_energy,
+														setTodayHourEnergy: today_hour_energy,
+														setTodayOnlineCount: today_online_count,
+														setTodayOfflineCount: today_offline_count,
+														setTodayOnlinePrec: today_online_prec,
+														setOnlineChart: onlineDataString,
+														setHourChart: hourDataString,
+														setAreaInformation: areainformationdata
+													});
+												}
+												else{
+
+												}
+											}
+										});
 									});
 								}
 							});
