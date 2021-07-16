@@ -3,6 +3,7 @@ var router = express.Router();
 const mysql = require('mysql');
 var Chart = require('chart.js');
 var fs=require('fs');
+var url  = require('url');
 
 var config =
 	{
@@ -182,6 +183,11 @@ router.get('/SolarSummary', function(req, res) {
 });
 
 router.get('/SolarLocation', function(req, res) {
+	urlData = url.parse(req.url,true);
+	action = urlData.pathname;
+	location = urlData.query;
+	console.log(action);
+	console.log(location);
 	res.render('solarlocation', {
 		title: 'Oring Solar System Demo - Location'
 	})
