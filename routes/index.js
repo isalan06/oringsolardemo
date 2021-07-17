@@ -300,21 +300,39 @@ router.get('/SolarLocation', function(req, res) {
 												
 											}
 
-											conn.end();
-											res.render('solarlocation', {
-												title: 'Oring Solar System Demo - Location',
-												setAreaLocation: area_location_index,
-												setAreaName: area_name,
-												setTotalEnergy: totalenergy,
-																		setTodayTotalEnergy: today_total_energy,
-																		setTodayUnitEnergy: today_unit_energy,
-																		setTodayHourEnergy: today_hour_energy,
-																		setTodayOnlineCount: today_online_count,
-																		setTodayOfflineCount: today_offline_count,
-																		setTodayOnlinePrec: today_online_prec,
-																		setOnlineChart: onlineDataString,
-																		setHourChart: hourDataString
+											commandString = 'CALL pro_get_today_area_information(' + area_location_index + ');';
+											conn.query(commandString, function(err, rows){
+												if(err) res.send('Get Data Error 5');
+												else{
+													if(rows.length > 0){
+														var areainformationdata = rows;
+
+														console.log(areainformationdata);
+
+														conn.end();
+														res.render('solarlocation', {
+															title: 'Oring Solar System Demo - Location',
+															setAreaLocation: area_location_index,
+															setAreaName: area_name,
+															setTotalEnergy: totalenergy,
+															setTodayTotalEnergy: today_total_energy,
+															setTodayUnitEnergy: today_unit_energy,
+															setTodayHourEnergy: today_hour_energy,
+															setTodayOnlineCount: today_online_count,
+															setTodayOfflineCount: today_offline_count,
+															setTodayOnlinePrec: today_online_prec,
+															setOnlineChart: onlineDataString,
+															setHourChart: hourDataString,
+															setAreaInformation: areainformationdata
+														});
+													}
+													else{
+
+													}
+												}
 											});
+
+											
 										}
 									});
 
