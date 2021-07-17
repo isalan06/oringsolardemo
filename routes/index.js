@@ -222,6 +222,7 @@ router.get('/SolarLocation', function(req, res) {
 					}
 
 					commandString = 'CALL pro_get_today_information(' + area_location_index + ');'
+					console.log(commandString);
 					conn.query(commandString, function(err, rows){
 						if(err) res.send('Get Data Error 2');
 						else{
