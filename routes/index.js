@@ -193,13 +193,52 @@ router.get('/SolarLocation', function(req, res) {
 	else if(area_location_index == 2) area_name='誠品';
 	else if(area_location_index == 3) area_name='兔將創意';
 
-	//console.log(action);
-	//console.log(location.AreaLocation);
-	res.render('solarlocation', {
-		title: 'Oring Solar System Demo - Location',
-		setAreaLocation: area_location_index,
-		setAreaName: area_name
-	})
+	var commandString = 'SELECT SUM(energy)/1000 AS TotalEnergy FROM table_solar_hist3_month WHERE r_year=2021 AND area_location=' + area_location_index + ' GROUP BY r_year';
+
+	const conn = new mysql.createConnection(config);
+	conn.connect(  function(err){
+
+		var totalenergy = 0;
+		var today_total_energy = 0;
+		var today_unit_energy = 0;
+		var today_hour_energy = 0;
+		var today_online_count = 0;
+		var today_offline_count = 0;
+		var today_online_prec = 0;
+
+		if(err){
+			conn.end();
+			res.send('Connect DB Error');
+	  	}
+	  	else {
+			conn.query(commandString, function(err, rows){
+				if(err) res.send('Get Data Error');
+			  	else{
+				  	if(rows.length > 0){
+						totalenergy = rows[0]['TotalEnergy'];
+				  	}
+					else{
+						totalenergy = 0;
+					}
+					conn.end();
+					res.render('solarlocation', {
+						title: 'Oring Solar System Demo - Location',
+						setAreaLocation: area_location_index,
+						setAreaName: area_name,
+						setTotalEnergy: totalenergy,
+																		setTodayTotalEnergy: today_total_energy,
+																		setTodayUnitEnergy: today_unit_energy,
+																		setTodayHourEnergy: today_hour_energy,
+																		setTodayOnlineCount: today_online_count,
+																		setTodayOfflineCount: today_offline_count,
+																		setTodayOnlinePrec: today_online_prec
+					})
+				}
+			});	
+		}
+	});
+
+	
 });
 
 router.get('/Test', function(req, res){
