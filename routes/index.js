@@ -239,7 +239,7 @@ router.get('/SolarLocation', function(req, res) {
 								today_unit_energy = 0;
 								today_hour_energy = 0;
 							}
-
+							console.log(rows);
 							console.log(rows[0]['Total_Energy']);
 							console.log(rows[1]['Total_Energy']);
 
