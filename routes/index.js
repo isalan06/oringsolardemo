@@ -238,7 +238,7 @@ router.get('/SolarLocation', function(req, res) {
 								today_hour_energy = 0;
 							}
 
-							commandString = 'CALL pro_get_today_inverter_onlineinformation(' + area_location_index + ');'
+							commandString = 'CALL pro_get_today_inverter_onlineinformation(' + area_location_index + ');';
 							conn.query(commandString, function(err, rows){
 								if(err) res.send('Get Data Error 3');
 								else{
@@ -266,22 +266,59 @@ router.get('/SolarLocation', function(req, res) {
 										
 									}
 
-									console.log(onlineDataString);
-									conn.end();
-									res.render('solarlocation', {
-										title: 'Oring Solar System Demo - Location',
-										setAreaLocation: area_location_index,
-										setAreaName: area_name,
-										setTotalEnergy: totalenergy,
+									commandString = 'CALL pro_get_today_hourenergy(' + area_location_index + ');';
+									conn.query(commandString, function(err, rows){
+										if(err) res.send('Get Data Error 4');
+										else{
+											if(rows.length > 1){
+												var hourdata = [0, 0, 0, 0, 0, 
+													0, 0, 0, 0, 0,
+													0, 0, 0, 0, 0,
+													0, 0, 0, 0, 0,
+													0, 0, 0, 0];
+												var hourdatas = [];
+												hourdatas.push(['Hour', 'Energy']);
+												
+												rows[0].forEach( (row) => {
+													var _hour_index = row['r_hour'];
+													hourdata[_hour_index] = row['Total_Hour_Energy'];
+												});
+
+												for(i=0;i<24;i++){
+													var _hourdata = [];
+													_hourdata.push(i);
+													_hourdata.push(hourdata[i]);
+
+													hourdatas.push(_hourdata);
+												}
+
+												var hourDataString = JSON.stringify(hourdatas);
+
+												
+											}
+											else{
+												
+											}
+
+											conn.end();
+											res.render('solarlocation', {
+												title: 'Oring Solar System Demo - Location',
+												setAreaLocation: area_location_index,
+												setAreaName: area_name,
+												setTotalEnergy: totalenergy,
 																		setTodayTotalEnergy: today_total_energy,
 																		setTodayUnitEnergy: today_unit_energy,
 																		setTodayHourEnergy: today_hour_energy,
 																		setTodayOnlineCount: today_online_count,
 																		setTodayOfflineCount: today_offline_count,
 																		setTodayOnlinePrec: today_online_prec,
-																		setOnlineChart: onlineDataString
+																		setOnlineChart: onlineDataString,
+																		setHourChart: hourDataString
+											});
+										}
 									});
-								}
+
+ 								}
 							});
 
 							
