@@ -220,19 +220,39 @@ router.get('/SolarLocation', function(req, res) {
 					else{
 						totalenergy = 0;
 					}
-					conn.end();
-					res.render('solarlocation', {
-						title: 'Oring Solar System Demo - Location',
-						setAreaLocation: area_location_index,
-						setAreaName: area_name,
-						setTotalEnergy: totalenergy,
+
+					commandString = 'CALL pro_get_today_information(' + area_location_index + ');'
+					conn.query(commandString, function(err, rows){
+						if(err) res.send('Get Data Error 2');
+						else{
+							if(rows.length > 0){
+								today_total_energy = rows[0]['Total_Energy'];
+								today_unit_energy = rows[0]['Unit_Energy'];
+								today_hour_energy = rows[0]['Hour_Energy'];
+							}
+							else
+							{
+								today_total_energy = 0;
+								today_unit_energy = 0;
+								today_hour_energy = 0;
+							}
+
+							conn.end();
+							res.render('solarlocation', {
+								title: 'Oring Solar System Demo - Location',
+								setAreaLocation: area_location_index,
+								setAreaName: area_name,
+								setTotalEnergy: totalenergy,
 																		setTodayTotalEnergy: today_total_energy,
 																		setTodayUnitEnergy: today_unit_energy,
 																		setTodayHourEnergy: today_hour_energy,
 																		setTodayOnlineCount: today_online_count,
 																		setTodayOfflineCount: today_offline_count,
 																		setTodayOnlinePrec: today_online_prec
-					})
+							});
+						}
+					});
+					
 				}
 			});	
 		}
