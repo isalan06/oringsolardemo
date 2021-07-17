@@ -178,14 +178,14 @@
           <div class="Rect-Main-6">
             <label class="Title-5">設備連線率</label>
             <div id="myCanvas" class="Oval"></div>
-            <lable class="DonutChartValue">88</lable>
+            <lable class="DonutChartValue"><%= (setTodayOnlinePrec * 100) | 0 %></lable>
             <label class="DonutChartUnit">%</label>
             <label class="Oval-2"></label>
             <label class="Title-7" style="margin-top: 234px;margin-left: 66px;">上線</label>
-            <label class="Value-7" style="margin-top: 234px;margin-left: 103px;">697</label>
+            <label class="Value-7" style="margin-top: 234px;margin-left: 103px;"><%= setTodayOnlineCount %></label>
             <label class="Oval-3"></label>
             <label class="Title-7" style="margin-top: 234px;margin-left: 168px;">離線</label>
-            <label class="Value-7" style="margin-top: 234px;margin-left: 205px;">96</label>
+            <label class="Value-7" style="margin-top: 234px;margin-left: 205px;"><%= setTodayOfflineCount %></label>
           </div>
           <div class="Rect-Main-7">
             <label class="Title-8">每小時發電量</label>
