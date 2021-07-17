@@ -266,7 +266,7 @@ router.get('/SolarLocation', function(req, res) {
 										
 									}
 
-									
+									console.log(onlineDataString);
 									conn.end();
 									res.render('solarlocation', {
 										title: 'Oring Solar System Demo - Location',
