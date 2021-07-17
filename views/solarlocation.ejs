@@ -209,6 +209,13 @@
                   </tr>
                 </thead>
                 <tbody>
+                  <% setAreaInformation.forEach( (row) => { %>
+                    <tr class="Column-2">
+                      <th><a>INV-<%= row['inverter_id'] %></a></th>
+                      <th>99.5</th>
+                      <th><%= row['Total_Energy'].toFixed(1) %></th>
+                    </tr>
+                  <% }); %>
                     <tr class="Column-2">
                         <th><a>INV-1</a></th>
                         <th>78.5</th>
