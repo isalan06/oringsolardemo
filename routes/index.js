@@ -221,11 +221,13 @@ router.get('/SolarLocation', function(req, res) {
 						totalenergy = 0;
 					}
 
-					commandString = 'CALL pro_get_today_information(' + area_location_index + ');'
+					commandString = 'CALL pro_get_today_information(' + area_location_index + ');';
 					console.log(commandString);
 					conn.query(commandString, function(err, rows){
 						if(err) res.send('Get Data Error 2');
 						else{
+
+							console.log(rows.length);
 							if(rows.length > 0){
 								today_total_energy = rows[0]['Total_Energy'];
 								today_unit_energy = rows[0]['Unit_Energy'];
@@ -237,6 +239,8 @@ router.get('/SolarLocation', function(req, res) {
 								today_unit_energy = 0;
 								today_hour_energy = 0;
 							}
+
+							console.log(today_total_energy);
 
 							conn.end();
 							res.render('solarlocation', {
