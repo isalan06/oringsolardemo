@@ -305,7 +305,7 @@ router.get('/SolarLocation', function(req, res) {
 												if(err) res.send('Get Data Error 5');
 												else{
 													if(rows.length > 0){
-														var areainformationdata = rows;
+														var areainformationdata = rows[0];
 
 														console.log(areainformationdata);
 
