@@ -222,13 +222,11 @@ router.get('/SolarLocation', function(req, res) {
 					}
 
 					commandString = 'CALL pro_get_today_information(' + area_location_index + ');';
-					console.log(commandString);
 					conn.query(commandString, function(err, rows){
 						if(err) res.send('Get Data Error 2');
 						else{
 
-							console.log(rows.length);
-							if(rows.length > 0){
+							if(rows.length > 1){
 								today_total_energy = rows[0][0]['Total_Energy'];
 								today_unit_energy = rows[0][0]['Unit_Energy'];
 								today_hour_energy = rows[0][0]['Hour_Energy'];
@@ -239,23 +237,53 @@ router.get('/SolarLocation', function(req, res) {
 								today_unit_energy = 0;
 								today_hour_energy = 0;
 							}
-							console.log(rows);
-							console.log(rows[0][0]['Total_Energy']);
-							console.log(rows[1]['Total_Energy']);
 
-							conn.end();
-							res.render('solarlocation', {
-								title: 'Oring Solar System Demo - Location',
-								setAreaLocation: area_location_index,
-								setAreaName: area_name,
-								setTotalEnergy: totalenergy,
+							commandString = 'CALL pro_get_today_inverter_onlineinformation(' + area_location_index + ');'
+							conn.query(commandString, function(err, rows){
+								if(err) res.send('Get Data Error 3');
+								else{
+									if(rows.length > 1){
+										today_online_count = rows[0][0]['OnlineCount'];
+										today_offline_count = rows[0][0]['OfflineCount'];
+										today_online_prec = rows[0][0]['OnlinePrec'];
+
+										var online_data = [];
+										var online_title = ['Effort', 'Amount given'];
+										online_data.push(online_title);
+										var online_value = [];
+										online_value.push('上線');
+										online_value.push(today_online_count);
+										online_data.push(online_value);
+										var offline_value = [];
+										offline_value.push('離線');
+										offline_value.push(today_offline_count);
+										online_data.push(offline_value);
+										var onlineDataString = JSON.stringify(online_data);
+
+										
+									}
+									else{
+										
+									}
+
+									conn.end();
+									res.render('solarlocation', {
+										title: 'Oring Solar System Demo - Location',
+										setAreaLocation: area_location_index,
+										setAreaName: area_name,
+										setTotalEnergy: totalenergy,
 																		setTodayTotalEnergy: today_total_energy,
 																		setTodayUnitEnergy: today_unit_energy,
 																		setTodayHourEnergy: today_hour_energy,
 																		setTodayOnlineCount: today_online_count,
 																		setTodayOfflineCount: today_offline_count,
-																		setTodayOnlinePrec: today_online_prec
+																		setTodayOnlinePrec: today_online_prec,
+																		setOnlineChart: onlineDataString,
+									});
+								}
 							});
+
+							
 						}
 					});
 					
