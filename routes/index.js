@@ -229,9 +229,9 @@ router.get('/SolarLocation', function(req, res) {
 
 							console.log(rows.length);
 							if(rows.length > 0){
-								today_total_energy = rows[0]['Total_Energy'];
-								today_unit_energy = rows[0]['Unit_Energy'];
-								today_hour_energy = rows[0]['Hour_Energy'];
+								today_total_energy = rows[0][0]['Total_Energy'];
+								today_unit_energy = rows[0][0]['Unit_Energy'];
+								today_hour_energy = rows[0][0]['Hour_Energy'];
 							}
 							else
 							{
