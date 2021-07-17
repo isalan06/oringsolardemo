@@ -266,6 +266,7 @@ router.get('/SolarLocation', function(req, res) {
 										
 									}
 
+									
 									conn.end();
 									res.render('solarlocation', {
 										title: 'Oring Solar System Demo - Location',
@@ -278,7 +279,7 @@ router.get('/SolarLocation', function(req, res) {
 																		setTodayOnlineCount: today_online_count,
 																		setTodayOfflineCount: today_offline_count,
 																		setTodayOnlinePrec: today_online_prec,
-																		setOnlineChart: onlineDataString,
+																		setOnlineChart: onlineDataString
 									});
 								}
 							});
