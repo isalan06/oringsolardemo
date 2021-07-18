@@ -78,13 +78,6 @@
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
-    <script>
-      function selectOnChange(){
-        console.log('Select OnChange!!');
-      }
-      var comboxArea = document.getElementById("myComboboxArea");
-      comboxArea.addEventListener('change', selectOnChange, true);
-    </script>
   </head>
   <body>
     <div class="dashboardadmin">
@@ -111,7 +104,12 @@
             <option value="Day">日</option>
             <option value="Month" selected>月</option>
             <option value="Year">年</option>
-        </select>
+          </select>
+          <script>
+            let myComboboxAreaComp = document.querySelector('#myComboboxArea');
+            myComboboxAreaComp.addEventListener('change',()=> {
+            console.log('Change area location');});
+          </script>
         </div>
         
       </div>
