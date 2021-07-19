@@ -874,6 +874,7 @@ router.post('/History2', function(req, res){
 					commandString += ' OR inverter_id=' + checkInverter[k];
 				}
 				commandString += ')) AS A ORDER BY inverter_id, r_day;';
+				console.log(commandString);
 				var data = [0, 0, 0, 0, 0, 
 					0, 0, 0, 0, 0,
 					0, 0, 0, 0, 0,
