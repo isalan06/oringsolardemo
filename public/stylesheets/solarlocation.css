@@ -907,3 +907,16 @@
     background-color: #ffffff;
     position:absolute;
   }
+
+  .linkPath:link {
+    text-decoration:none;
+  }
+
+  .linkPath:hover { 
+    text-decoration:underline;
+  }
+
+  .linkPath:visited {
+    text-decoration:none;
+    color: #ffffff;
+  }
