@@ -970,8 +970,8 @@ router.post('/History2', function(req, res){
 				var _year = pickDateTimeArray[0];
 				var _month = pickDateTimeArray[1];
 				var _day = pickDateTimeArray[2];
-				var commandString='SELECT inverter_id, r_month, (SUM(energy_day)/100.0) AS energy_month FROM (';
-				commandString += 'SELECT inverter_id, r_month, energy_day FROM table_solar_hist2_day WHERE r_year=' + _year;
+				var commandString='SELECT inverter_id, r_month, (SUM(energy)/1000.0) AS energy_month FROM (';
+				commandString += 'SELECT inverter_id, r_month, energy FROM table_solar_hist3_month WHERE area_location=1 AND r_year=' + _year;
 				commandString += ' AND ( inverter_id=' + checkInverter[0];
 				for(var k=1;k<inverternumbver;k++){
 					commandString += ' OR inverter_id=' + checkInverter[k];
