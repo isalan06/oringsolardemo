@@ -868,13 +868,12 @@ router.post('/History2', function(req, res){
 				var _month = pickDateTimeArray[1];
 				var _day = pickDateTimeArray[2];
 				var commandString='SELECT inverter_id, r_day, (energy/1000.0) AS energy_day FROM (';
-				commandString += 'SELECT inverter_id, r_day, energy FROM table_solar_hist3_day WHERE r_year=' + _year + ' AND r_month=' + _month;
+				commandString += 'SELECT inverter_id, r_day, energy FROM table_solar_hist3_day WHERE area_location=1 AND r_year=' + _year + ' AND r_month=' + _month;
 				commandString += ' AND ( inverter_id=' + checkInverter[0];
 				for(var k=1;k<inverternumbver;k++){
 					commandString += ' OR inverter_id=' + checkInverter[k];
 				}
 				commandString += ')) AS A ORDER BY inverter_id, r_day;';
-				console.log(commandString);
 				var data = [0, 0, 0, 0, 0, 
 					0, 0, 0, 0, 0,
 					0, 0, 0, 0, 0,
