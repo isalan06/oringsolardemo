@@ -214,7 +214,7 @@
                     <tr class="Column-2">
                       <th><a>INV-<%= row['inverter_id'] %></a></th>
 
-                      <% if(row[inverter_online] === 1) { %>
+                      <% if(row['inverter_online'] === 1) { %>
                         <% if(row['inverter_state'] === 0) { %>
                           <th>Standby</th>
                         <% } else if(row['inverter_state'] === 1) { %>
@@ -230,43 +230,43 @@
                         <th><font color="red">離線</font></th>
                       <% } %>
 
-                      <% if(row[inverter_online] === 1) { %>
+                      <% if(row['inverter_online'] === 1) { %>
                         <th><%= row['today_energy_2'].toFixed(1) %></th>
                       <% } else { %>
                         <th>0.0</th>
                       <% } %>
 
-                      <% if(row[inverter_online] === 1) { %>
+                      <% if(row['inverter_online'] === 1) { %>
                         <th><%= row['today_runtime'] | 0 %></th>
                       <% } else { %>
                         <th>0</th>
                       <% } %>
 
-                      <% if(row[inverter_online] === 1) { %>
+                      <% if(row['inverter_online'] === 1) { %>
                         <th><%= row['life_energy_2'].toFixed(1) %></th>
                       <% } else { %>
                         <th>0.0</th>
                       <% } %>
 
-                      <% if(row[inverter_online] === 1) { %>
+                      <% if(row['inverter_online'] === 1) { %>
                         <th><%= row['life_runtime_2'] | 0 %></th>
                       <% } else { %>
                         <th>0</th>
                       <% } %>
 
-                      <% if(row[inverter_online] === 1) { %>
+                      <% if(row['inverter_online'] === 1) { %>
                         <th><%= row['temperature_ambient'].toFixed(1) %></th>
                       <% } else { %>
                         <th>0.0</th>
                       <% } %>
 
-                      <% if(row[inverter_online] === 1) { %>
+                      <% if(row['inverter_online'] === 1) { %>
                         <th><%= row['temperature_boost'].toFixed(1) %></th>
                       <% } else { %>
                         <th>0.0</th>
                       <% } %>
 
-                      <% if(row[inverter_online] === 1) { %>
+                      <% if(row['inverter_online'] === 1) { %>
                         <th><%= row['temperature_inverter'].toFixed(1) %></th>
                       <% } else { %>
                         <th>0.0</th>
