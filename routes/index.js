@@ -308,6 +308,8 @@ router.get('/SolarLocation', function(req, res) {
 													if(rows.length > 0){
 														var areainformationdata = rows[0];
 
+														console.log(areainformationdata);
+
 														conn.end();
 														res.render('solarlocation', {
 															title: 'Oring Solar System Demo - Location',
