@@ -209,7 +209,7 @@
                         <th>設備溫度(°C)</th>
                   </tr>
                 </thead>
-                <tbody>
+                <tbody style="overflow: auto;">
                   <% setAreaInformation.forEach( (row) => { %>
                     <tr class="Column-2">
                       <th><a><%= row['inverter_id'] %></a></th>
