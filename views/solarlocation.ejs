@@ -212,7 +212,7 @@
                 <tbody>
                   <% setAreaInformation.forEach( (row) => { %>
                     <tr class="Column-2">
-                      <th><a>INV-<%= row['inverter_id'] %></a></th>
+                      <th><a><%= row['inverter_id'] %></a></th>
 
                       <% if(row['inverter_online'] === 1) { %>
                         <% if(row['inverter_state'] === 0) { %>
