@@ -300,7 +300,8 @@ router.get('/SolarLocation', function(req, res) {
 												
 											}
 
-											commandString = 'CALL pro_get_today_area_information(' + area_location_index + ');';
+											//commandString = 'CALL pro_get_today_area_information(' + area_location_index + ');';
+											commandString = 'CALL pro_get_current_area_inverter(' + area_location_index + ');';
 											conn.query(commandString, function(err, rows){
 												if(err) res.send('Get Data Error 5');
 												else{

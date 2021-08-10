@@ -199,16 +199,79 @@
                 <thead>
                     <tr class="Column-1">
                         <th>設備</th>
-                        <th>效率(%)</th>
-                        <th>總發電量(kWh)</th>
+                        <th>狀態</th>
+                        <th>今日發電量(kWh)</th>
+                        <th>今日運作時間(秒)</th>
+                        <th>總發電量(MWh)</th>
+                        <th>總運作時間(天)</th>
+                        <th>周圍溫度(°C)</th>
+                        <th>上升溫度(°C)</th>
+                        <th>設備溫度(°C)</th>
                   </tr>
                 </thead>
                 <tbody>
                   <% setAreaInformation.forEach( (row) => { %>
                     <tr class="Column-2">
                       <th><a>INV-<%= row['inverter_id'] %></a></th>
-                      <th>99.5</th>
-                      <th><%= row['Total_Energy'].toFixed(1) %></th>
+
+                      <% if(row[inverter_online] === 1) { %>
+                        <% if(row['inverter_state'] === 0) { %>
+                          <th>Standby</th>
+                        <% } else if(row['inverter_state'] === 1) { %>
+                          <th>Countdown</th>
+                        <% } else if(row['inverter_state'] === 2) { %>
+                          <th>On</th>
+                        <% } else if(row['inverter_state'] === 3) { %>
+                          <th>No DC</th>
+                        <% } else { %>
+                          <th><font color="red">Alarm</font></th>
+                        <% } %>
+                      <% } else { %>
+                        <th><font color="red">離線</font></th>
+                      <% } %>
+
+                      <% if(row[inverter_online] === 1) { %>
+                        <th><%= row['today_energy2'].toFixed(1) %></th>
+                      <% } else { %>
+                        <th>0.0</th>
+                      <% } %>
+
+                      <% if(row[inverter_online] === 1) { %>
+                        <th><%= row['today_runtime'] | 0 %></th>
+                      <% } else { %>
+                        <th>0</th>
+                      <% } %>
+
+                      <% if(row[inverter_online] === 1) { %>
+                        <th><%= row['life_energy2'].toFixed(1) %></th>
+                      <% } else { %>
+                        <th>0.0</th>
+                      <% } %>
+
+                      <% if(row[inverter_online] === 1) { %>
+                        <th><%= row['life_runtime2'] | 0 %></th>
+                      <% } else { %>
+                        <th>0</th>
+                      <% } %>
+
+                      <% if(row[inverter_online] === 1) { %>
+                        <th><%= row['temperature_ambient'].toFixed(1) %></th>
+                      <% } else { %>
+                        <th>0.0</th>
+                      <% } %>
+
+                      <% if(row[inverter_online] === 1) { %>
+                        <th><%= row['temperature_boost'].toFixed(1) %></th>
+                      <% } else { %>
+                        <th>0.0</th>
+                      <% } %>
+
+                      <% if(row[inverter_online] === 1) { %>
+                        <th><%= row['temperature_inverter'].toFixed(1) %></th>
+                      <% } else { %>
+                        <th>0.0</th>
+                      <% } %>
+
                     </tr>
                   <% }); %>
                 </tbody>
