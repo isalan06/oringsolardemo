@@ -231,7 +231,7 @@
                       <% } %>
 
                       <% if(row[inverter_online] === 1) { %>
-                        <th><%= row['today_energy2'].toFixed(1) %></th>
+                        <th><%= row['today_energy_2'].toFixed(1) %></th>
                       <% } else { %>
                         <th>0.0</th>
                       <% } %>
@@ -243,13 +243,13 @@
                       <% } %>
 
                       <% if(row[inverter_online] === 1) { %>
-                        <th><%= row['life_energy2'].toFixed(1) %></th>
+                        <th><%= row['life_energy_2'].toFixed(1) %></th>
                       <% } else { %>
                         <th>0.0</th>
                       <% } %>
 
                       <% if(row[inverter_online] === 1) { %>
-                        <th><%= row['life_runtime2'] | 0 %></th>
+                        <th><%= row['life_runtime_2'] | 0 %></th>
                       <% } else { %>
                         <th>0</th>
                       <% } %>
