@@ -193,7 +193,7 @@
                         <th>設備</th>
                         <th>狀態</th>
                         <th>今日發電量(kWh)</th>
-                        <th>今日運作時間(秒)</th>
+                        <th>今日運作時間(小時)</th>
                         <th>總發電量(MWh)</th>
                         <th>總運作時間(天)</th>
                         <th>周圍溫度(°C)</th>
@@ -229,9 +229,9 @@
                       <% } %>
 
                       <% if(row['inverter_online'] === 1) { %>
-                        <th><%= row['today_runtime'] | 0 %></th>
+                        <th><%= (row['today_runtime'] / 3600).toFixed(1) %></th>
                       <% } else { %>
-                        <th>0</th>
+                        <th>0.0</th>
                       <% } %>
 
                       <% if(row['inverter_online'] === 1) { %>
