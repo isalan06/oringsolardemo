@@ -35,23 +35,25 @@
                 <label>List</label>
                 <div id="treeview_container" class="hummingbird-treeview">
                     <ul id="myUL">
-                        <li><span class="caret">Beverages</span>
+                        <li><span class="caret">高雄駁二</span>
                           <ul class="nested">
-                            <li>Water</li>
-                            <li>Coffee</li>
-                            <li><span class="caret">Tea</span>
-                              <ul class="nested">
-                                <li>Black Tea</li>
-                                <li>White Tea</li>
-                                <li><span class="caret">Green Tea</span>
-                                  <ul class="nested">
-                                    <li>Sencha</li>
-                                    <li>Gyokuro</li>
-                                    <li>Matcha</li>
-                                    <li>Pi Lo Chun</li>
-                                  </ul>
-                                </li>
-                              </ul>
+                            <li><span class="caret">大義倉庫</span>
+                                <ul class="nested">
+                                    <li>Inverter-01</li>
+                                    <li>Inverter-02</li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">誠品</span>
+                                <ul class="nested">
+                                    <li>Inverter-01</li>
+                                    <li>Inverter-02</li>
+                                </ul>
+                            </li>
+                            <li><span class="caret">兔將創意</span>
+                                <ul class="nested">
+                                    <li>Inverter-01</li>
+                                    <li>Inverter-02</li>
+                                </ul>
                             </li>
                           </ul>
                         </li>
@@ -59,13 +61,13 @@
                 </div>
                 <script>
                     var toggler = document.getElementsByClassName("caret");
-var i;
+                    var i;
 
-for (i = 0; i < toggler.length; i++) {
-  toggler[i].addEventListener("click", function() {
-    this.parentElement.querySelector(".nested").classList.toggle("active");
-    this.classList.toggle("caret-down");
-  });
+                    for (i = 0; i < toggler.length; i++) {
+                        toggler[i].addEventListener("click", function() {
+                        this.parentElement.querySelector(".nested").classList.toggle("active");
+                        this.classList.toggle("caret-down");
+                    });
 }
                 </script>
             </div>
