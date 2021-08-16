@@ -753,3 +753,16 @@
   .Column-2 {
     vertical-align: baseline;
   }
+
+  .linkPath:link {
+    text-decoration:none;
+  }
+
+  .linkPath:hover { 
+    text-decoration:underline;
+  }
+
+  .linkPath:visited {
+    text-decoration:none;
+    color: #ffffff;
+  }

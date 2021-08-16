@@ -352,6 +352,18 @@ router.get('/SolarLocation', function(req, res) {
 	
 });
 
+router.get('/SolarInverterList', function(req, res){
+	urlData = url.parse(req.url,true);
+	action = urlData.pathname;
+	transfer_param = urlData.query;
+	area_location_index = transfer_param.AreaLocation;
+	inverter_id_index = transfer_param.InverterID;
+
+	res.render('solarinverterlist', {
+		title: 'Oring Solar System Demo - Inverter List'
+	});
+});
+
 router.get('/Test', function(req, res){
   res.send('API Test 2');
 });
