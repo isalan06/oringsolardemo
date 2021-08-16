@@ -32,26 +32,28 @@
             <div class="Rect-Main-20">
                 <label>List</label>
                 <div id="treeview_container" class="hummingbird-treeview">
-                    <ul>
-                        <li data-id="0">
-                            <i class="fa fa-plus"></i>
-                            <label>node-1</label>
-                            <ul>
-                                <li data-id="1">
-                                    <i class="fa fa-plus"></i>
-                                    <label>node-1-1</label>
-                                    <lu>
-                                        <li>
-                                            <label>node-1-1-1</label>
-                                        </li>
-                                        <li>
-                                            <label>node-1-1-2</label>
-                                        </li>
-                                    </lu>
+                    <ul id="myUL">
+                        <li><span class="caret">Beverages</span>
+                          <ul class="nested">
+                            <li>Water</li>
+                            <li>Coffee</li>
+                            <li><span class="caret">Tea</span>
+                              <ul class="nested">
+                                <li>Black Tea</li>
+                                <li>White Tea</li>
+                                <li><span class="caret">Green Tea</span>
+                                  <ul class="nested">
+                                    <li>Sencha</li>
+                                    <li>Gyokuro</li>
+                                    <li>Matcha</li>
+                                    <li>Pi Lo Chun</li>
+                                  </ul>
                                 </li>
-                            </ul>
+                              </ul>
+                            </li>
+                          </ul>
                         </li>
-                    </ul>
+                      </ul>
                 </div>
             </div>
         </div>
