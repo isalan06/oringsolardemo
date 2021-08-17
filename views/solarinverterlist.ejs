@@ -89,8 +89,14 @@
                     <% var get_online_status = setinverterlistdata[0]['AreaList'][setarealocationindex-1]['InverterList'][setinverteridindex-1]['online_status']; %>
                     <% var get_inverter_state = setinverterlistdata[0]['AreaList'][setarealocationindex-1]['InverterList'][setinverteridindex-1]['inverter_state']; %>
                     <% if(get_online_status === 0) { %>
-                        <label class="Label-Style-20" style="margin-top: 10px; margin-left: 10px;"><font color="red">離線</font></label>
+                        <label class="Label-Style-20" style="margin-top: 130px; margin-left: 10px;"><font color="red">離線</font></label>
                     <% } else { %>
+                        <% var get_inverter_state_name = setinverterlistdata[0]['AreaList'][setarealocationindex-1]['InverterList'][setinverteridindex-1]['inverter_state'];
+                        <% if(get_inverter_state === 4) { %>
+                            <label class="Label-Style-20" style="margin-top: 130px; margin-left: 10px;"><font color="red"><%= get_inverter_state_name %></font></label>
+                        <% } else { %>
+                            <label class="Label-Style-20" style="margin-top: 130px; margin-left: 10px;"><%= get_inverter_state_name %></label>
+                        <% } %>
                     <% } %>
                 </div>
                 <div class="Rect-Main-22">
