@@ -359,8 +359,32 @@ router.get('/SolarInverterList', function(req, res){
 	area_location_index = transfer_param.AreaLocation;
 	inverter_id_index = transfer_param.InverterID;
 
-	res.render('solarinverterlist', {
-		title: 'Oring Solar System Demo - Inverter List'
+	var commandString = 'SELECT * FROM view_inverter_list_data;';
+
+	const conn = new mysql.createConnection(config);
+	conn.connect(  function(err){
+
+		if(err){
+			conn.end();
+			res.send('Connect DB Error');
+	  	}
+	  	else {
+			conn.query(commandString, function(err, rows){
+				if(err) res.send('Get Data Error 2');
+				else{
+					console.log(rows);
+
+					res.render('solarinverterlist', {
+						title: 'Oring Solar System Demo - Inverter List',
+						setsublocationindex=1,
+						setarealocationindex=area_location_index,
+						setinverteridindex=inverter_id_index
+					});
+				}
+			});
+
+			
+		}
 	});
 });
 
