@@ -410,7 +410,7 @@ router.get('/SolarInverterList', function(req, res){
 						} else {
 							
 						}
-						
+						inverter_list_inverter={};
 						inverter_list_inverter['inverter_id']=row['inverter_id'];
 						inverter_list_inverter['online_status']=row['online_status'];
 
