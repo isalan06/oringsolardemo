@@ -423,6 +423,8 @@ router.get('/SolarInverterList', function(req, res){
 
 					console.log(inverter_list_data);
 
+					console.log(inverter_list_data[0]['AreaList'][0])
+
 					res.render('solarinverterlist', {
 						title: 'Oring Solar System Demo - Inverter List',
 						setsublocationindex:1,
