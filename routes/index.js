@@ -413,7 +413,15 @@ router.get('/SolarInverterList', function(req, res){
 						inverter_list_inverter={};
 						inverter_list_inverter['inverter_id']=row['inverter_id'];
 						inverter_list_inverter['online_status']=row['online_status'];
-
+						inverter_list_inverter['inverter_state']=row['inverter_state'];
+						inverter_list_inverter['inverter_state_name']=row['inverter_state_name'];
+						inverter_list_inverter['today_energy']=row['today_energy_2'];
+						inverter_list_inverter['today_runtime']=row['today_runtime_2'];
+						inverter_list_inverter['life_energy']=row['life_energy_2'];
+						inverter_list_inverter['life_runtime']=row['life_runtime_2'];
+						inverter_list_inverter['temperature_ambient']=row['temperature_ambient'];
+						inverter_list_inverter['temperature_boost']=row['temperature_boost'];
+						inverter_list_inverter['temperature_inverter']=row['temperature_inverter'];
 						inverter_list_arealocation['InverterList'].push(inverter_list_inverter);
 						
 					});
@@ -423,13 +431,14 @@ router.get('/SolarInverterList', function(req, res){
 
 					console.log(inverter_list_data);
 
-					console.log(inverter_list_data[0]['AreaList'][0])
+					console.log(inverter_list_data[0]['AreaList'])
 
 					res.render('solarinverterlist', {
 						title: 'Oring Solar System Demo - Inverter List',
 						setsublocationindex:1,
 						setarealocationindex:area_location_index,
-						setinverteridindex:inverter_id_index
+						setinverteridindex:inverter_id_index,
+						setinverterlistdata:inverter_list_data
 					});
 				}
 			});
