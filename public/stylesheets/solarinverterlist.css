@@ -213,9 +213,8 @@ ul, #myUL {
   }
 
   .dot {
-    height: 20px;
-    width: 20px;
-    background-color: #bbb;
+    height: 12px;
+    width: 12px;
     border-radius: 50%;
     display: inline-block;
   }
