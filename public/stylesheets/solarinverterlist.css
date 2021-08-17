@@ -80,6 +80,19 @@
     color: #ffffff;
   }
 
+  .linkPath2:link {
+    text-decoration:none;
+  }
+
+  .linkPath2:hover { 
+    text-decoration:underline;
+  }
+
+  .linkPath2:visited {
+    text-decoration:none;
+    color: #0c1331;
+  }
+
   .currentLeftTitle {
     width: 81px;
     height: 22px;
