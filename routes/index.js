@@ -386,7 +386,7 @@ router.get('/SolarInverterList', function(req, res){
 								inverter_list_sublocation['AreaList']=[];
 							}
 							else{
-								inverter_list_data.append(inverter_list_sublocation);
+								inverter_list_data.(inverter_list_sublocation);
 							}
 							cal_index_sublocation=row['sub_location'];
 							inverter_list_sublocation={};
@@ -394,7 +394,7 @@ router.get('/SolarInverterList', function(req, res){
 						}
 					});
 
-					inverter_list_data.append(inverter_list_sublocation);
+					inverter_list_data.push(inverter_list_sublocation);
 
 					console.log(inverter_list_data);
 
