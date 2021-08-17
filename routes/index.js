@@ -356,8 +356,8 @@ router.get('/SolarInverterList', function(req, res){
 	urlData = url.parse(req.url,true);
 	action = urlData.pathname;
 	transfer_param = urlData.query;
-	area_location_index = transfer_param.AreaLocation;
-	inverter_id_index = transfer_param.InverterID;
+	area_location_index = Number(transfer_param.AreaLocation);
+	inverter_id_index = Number(transfer_param.InverterID);
 
 	var commandString = 'SELECT * FROM view_inverter_list_data;';
 
