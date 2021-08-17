@@ -82,10 +82,12 @@
 
   .linkPath2:link {
     text-decoration:none;
+    color: #0c1331;
   }
 
   .linkPath2:hover { 
     text-decoration:underline;
+    color: #0c1331;
   }
 
   .linkPath2:visited {

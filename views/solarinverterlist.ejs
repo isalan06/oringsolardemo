@@ -48,9 +48,13 @@
                                         <% } %>
                                                     <% arearow['InverterList'].forEach((inverterrow) => { %>
                                                         <% var urlString='/SolarInverterList?AreaLocation=' + arearow['Index'].toString() + '&InverterID=' + inverterrow['inverter_id'].toString(); %>
-                                                            <li><span class='dot' style="background-color: aquamarine;"></span>
+                                                            <% if ((inverterrow['online_status'] === 0) || (inverterrow['inverter_state'] === 4)) { %>
+                                                                <li><span class='dot' style="background-color:red;"></span>
+                                                            <% } else { %>
+                                                                <li><span class='dot' style="background-color:lime;"></span>
+                                                            <% } %>
                                                         <% if ((arearow['Index'] === setarealocationindex) && (inverterrow['inverter_id'] === setinverteridindex)) { %>
-                                                            <a class="linkPath2" style='height: 20px; background-color: moccasin;' href=<%= urlString %> >Inverter-01</a></li>
+                                                            <a class="linkPath2" style='height: 20px; background-color: moccasin;' href=<%= urlString %> >Inverter-<%= inverterrow['inverter_id'].toString().padStart(2, "0") %></a></li>
                                                         <% } else { %>
                                                             <a class="linkPath2" style='height: 20px;' href=<%= urlString %> >Inverter-<%= inverterrow['inverter_id'].toString().padStart(2, "0") %></a></li>
                                                         <% } %>
