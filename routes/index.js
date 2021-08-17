@@ -375,8 +375,11 @@ router.get('/SolarInverterList', function(req, res){
 					
 
 					var cal_index_sublocation=-1;
+					var cal_index_arealocation=-1;
 					var inverter_list_data = [];
 					var inverter_list_sublocation={};
+					var inverter_list_arealocation={};
+					var inverter_list_inverter={};
 					
 					rows.forEach(row => {
 						if(row['sub_location'] != cal_index_sublocation){
@@ -385,17 +388,37 @@ router.get('/SolarInverterList', function(req, res){
 							}
 							inverter_list_sublocation={};
 							inverter_list_sublocation['Index']=row['sub_location'];
-							inverter_list_sublocation['Name']=row['sublcoation_name'];
+							inverter_list_sublocation['Name']=row['sublocation_name'];
 							inverter_list_sublocation['AreaList']=[];
 							cal_index_sublocation=row['sub_location'];
-							
-
+							cal_index_arealocation = -1;
 						}
 						else{
 
 						}
+
+						if(row['area_lcoation'] != cal_index_arealocation){
+							if(cal_index_arealocation != -1){
+								inverter_list_sublocation['AreaList'].push(inverter_list_arealocation);
+							}
+
+							inverter_list_arealocation = {};
+							inverter_list_arealocation['Index']=row['area_location'];
+							inverter_list_arealocation['Name']=row['arealocation_name'];
+							inverter_list_arealocation['InverterList']=[];
+							cal_index_arealocation = row['area_location'];
+						} else {
+							
+						}
+						
+						inverter_list_inverter['inverter_id']=row['inverter_id'];
+						inverter_list_inverter['online_status']=row['online_status'];
+
+						inverter_list_arealocation['InverterList'].push(inverter_list_inverter);
+						
 					});
 
+					inverter_list_sublocation['AreaList'].push(inverter_list_arealocation);
 					inverter_list_data.push(inverter_list_sublocation);
 
 					console.log(inverter_list_data);
