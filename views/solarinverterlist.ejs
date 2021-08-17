@@ -50,9 +50,9 @@
                                                         <% var urlString='/SolarInverterList?AreaLocation=' + arearow['Index'].toString() + '&InverterID=' + inverterrow['inverter_id'].toString(); %>
                                                             <li><span class='dot' style="background-color: aquamarine;"></span>
                                                         <% if ((arearow['Index'] === setarealocationindex) && (inverterrow['inverter_id'] === setinverteridindex)) { %>
-                                                            <a style='height: 20px; background-color: moccasin;' href=<%= urlString %> class="linkPath2">Inverter-01</a></li>
+                                                            <a class="linkPath2" style='height: 20px; background-color: moccasin;' href=<%= urlString %> >Inverter-01</a></li>
                                                         <% } else { %>
-                                                            <a style='height: 20px;' href=<%= urlString %> class="linkPath2">Inverter-<%= inverterrow['inverter_id'].toString().padStart(2, "0") %></a></li>
+                                                            <a class="linkPath2" style='height: 20px;' href=<%= urlString %> >Inverter-<%= inverterrow['inverter_id'].toString().padStart(2, "0") %></a></li>
                                                         <% } %>
                                                     <% }); %>
                                                 </ul>
