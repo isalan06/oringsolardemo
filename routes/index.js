@@ -397,7 +397,7 @@ router.get('/SolarInverterList', function(req, res){
 
 						}
 
-						if(row['area_lcoation'] != cal_index_arealocation){
+						if(row['area_location'] != cal_index_arealocation){
 							if(cal_index_arealocation != -1){
 								inverter_list_sublocation['AreaList'].push(inverter_list_arealocation);
 							}
