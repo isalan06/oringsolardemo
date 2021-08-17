@@ -381,15 +381,17 @@ router.get('/SolarInverterList', function(req, res){
 					rows.forEach(row => {
 						if(row['sub_location'] != cal_index_sublocation){
 							if(cal_index_sublocation != -1){
-								inverter_list_sublocation['Index']=row['sub_location'];
-								inverter_list_sublocation['Name']=row['sublcoation_name'];
-								inverter_list_sublocation['AreaList']=[];
-							}
-							else{
 								inverter_list_data.push(inverter_list_sublocation);
 							}
-							cal_index_sublocation=row['sub_location'];
 							inverter_list_sublocation={};
+							inverter_list_sublocation['Index']=row['sub_location'];
+							inverter_list_sublocation['Name']=row['sublcoation_name'];
+							inverter_list_sublocation['AreaList']=[];
+							cal_index_sublocation=row['sub_location'];
+							
+
+						}
+						else{
 
 						}
 					});
