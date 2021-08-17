@@ -35,6 +35,24 @@
                 <label style="margin-top: 10px; margin-left: 10px;">案場設備列表</label>
                 <div id="treeview_container" class="hummingbird-treeview">
                     <ul id="myUL">
+                        <% setinverterlistdata.forEach( (row) => { %>
+                            <li><span class="caret caret-down" caret-down><%= row['Name'] %></span>
+                                <ul class="nested active">
+                                    <% row['AreaList'].forEach( (arearow) => { %>
+                                        <% if(arearow['Index'] === setarealocationindex) { %>
+                                            <li><span class="caret caret-down"><%= arearow['Name'] %></span>
+                                                <ul class="nested active">
+                                        <% } else { %>
+                                            <li><span class="caret"><%= arearow['Name'] %></span>
+                                                <ul class="nested">
+                                        <% } %>
+                                                </ul>
+                                            </li>
+                                    <% }); %>
+                                </ul>
+                            </li>
+                        <% }); %>
+
                         <li><span class="caret caret-down" caret-down>高雄駁二</span>
                           <ul class="nested active">
                             <li><span class="caret">大義倉庫</span>
