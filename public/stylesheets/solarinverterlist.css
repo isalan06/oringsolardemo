@@ -167,6 +167,7 @@
     box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
     background-color: #f8f8f8;
     display: inline-flex;
+    position:absolute;
   }
 
   /* Remove default bullets */
@@ -222,6 +223,18 @@ ul, #myUL {
   }
 
   .Rect-Main-21 {
+    left: 320px;
+    width: 820px;
+    height: 1000px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+    position: absolute;
+  }
+
+  .Rect-Main-22 {
     width: 268px;
     height: 118px;
     margin-left: 16px;
