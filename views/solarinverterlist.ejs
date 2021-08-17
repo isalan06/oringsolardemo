@@ -47,7 +47,7 @@
                                                 <ul class="nested">
                                         <% } %>
                                                     <% arearow['InverterList'].forEach((inverterrow) > { %>
-                                                        <% var urlString='/SolarInverterList?AreaLocation=' + str(setarealocationindex) + '&InverterID=' + str(setinverteridindex); %>
+                                                        
                                                         <% if ((arearow['Index'] === setarealocationindex) && (inverterrow['Index'] === setinverteridindex)) { %>
                                                             <li><a style='height: 20px; background-color: moccasin;' href='/SolarInverterList?AreaLocation=1&InverterID=1' class="linkPath2">Inverter-01</a></li>
                                                         <% } else { %>
