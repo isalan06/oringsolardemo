@@ -25,6 +25,55 @@
         </div>
 
         <div class="MainContainer">
+            <div class="Rect-Main-30">
+                <label style="margin-top: 10px; margin-left: 10px;">案場設備列表</label>
+                <div id="treeview_container" class="hummingbird-treeview">
+                    <ul id="myUL">
+                        <% setinverterlistdata.forEach( (row) => { %>
+                            <li><span class="caret caret-down" caret-down><%= row['Name'] %></span>
+                                <ul class="nested active">
+                                    <% row['AreaList'].forEach( (arearow) => { %>
+                                        <% if(arearow['Index'] === setarealocationindex) { %>
+                                            <li><span class="caret caret-down"><%= arearow['Name'] %></span>
+                                                <ul class="nested active">
+                                        <% } else { %>
+                                            <li><span class="caret"><%= arearow['Name'] %></span>
+                                                <ul class="nested">
+                                        <% } %>
+                                                    <% arearow['InverterList'].forEach((inverterrow) => { %>
+                                                        <% var urlString='/SolarInverterList?AreaLocation=' + arearow['Index'].toString() + '&InverterID=' + inverterrow['inverter_id'].toString(); %>
+                                                            <% if ((inverterrow['online_status'] === 0) || (inverterrow['inverter_state'] === 4)) { %>
+                                                                <li><span class='dot' style="background-color:red;"></span>
+                                                            <% } else { %>
+                                                                <li><span class='dot' style="background-color:lime;"></span>
+                                                            <% } %>
+                                                        <% if ((arearow['Index'] === setarealocationindex) && (inverterrow['inverter_id'] === setinverteridindex)) { %>
+                                                            <a class="linkPath2" style='height: 20px; background-color: moccasin;' href=<%= urlString %> >Inverter-<%= inverterrow['inverter_id'].toString().padStart(2, "0") %></a></li>
+                                                        <% } else { %>
+                                                            <a class="linkPath2" style='height: 20px;' href=<%= urlString %> >Inverter-<%= inverterrow['inverter_id'].toString().padStart(2, "0") %></a></li>
+                                                        <% } %>
+                                                    <% }); %>
+                                                </ul>
+                                            </li>
+                                    <% }); %>
+                                </ul>
+                            </li>
+                        <% }); %>
+
+                    </ul>
+                </div>
+                <script>
+                    var toggler = document.getElementsByClassName("caret");
+                    var i;
+
+                    for (i = 0; i < toggler.length; i++) {
+                        toggler[i].addEventListener("click", function() {
+                        this.parentElement.querySelector(".nested").classList.toggle("active");
+                        this.classList.toggle("caret-down");
+                        });
+                    }   
+                </script>
+            </div>
         </div>
     </div>
   </body>
