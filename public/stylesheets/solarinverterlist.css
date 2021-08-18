@@ -294,9 +294,25 @@ ul, #myUL {
   .BarChartDisplay {
     margin-top: 50px;
     margin-left: 20px;
-    width: 510px;
-    height: 200px;
+    width: 750px;
+    height: 390px;
     background-color: #e6e7f3;
     position:absolute;
+  }
+
+  .Connect-8  {
+    margin-top: 16px;
+    margin-left: 20px;
+    width: 122px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.1;
+    letter-spacing: 0.23px;
+    color: #333333;
+    position: absolute;
   }
 
