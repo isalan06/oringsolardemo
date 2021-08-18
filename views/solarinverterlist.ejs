@@ -4,7 +4,32 @@
     <meta charset="utf-8">
     <title>Solar Demo - Summary</title>
     <link rel="stylesheet" href="stylesheets/solarinverterlist.css">
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <script type="text/javascript">
+      google.charts.load('current', {'packages':['bar']});
+      google.charts.setOnLoadCallback(drawChart2);
 
+      function drawChart2() {
+        var data_chart = JSON.parse('<%- setHourChart %>');
+
+        var data = google.visualization.arrayToDataTable(
+          data_chart
+        );
+
+        var options = {
+          width: 750,
+          height: 390,
+          legend: 'none',
+          hAxis: {format: '##時', ticks: [0, 3, 6, 9, 12, 15, 18, 21]}
+        };
+
+        var chart = new google.charts.Bar(document.getElementById('myCanvas2'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+      }
+
+      
+    </script>
   </head>
   <body>
     <script src="javascripts/solarinverterlist.js"></script>
