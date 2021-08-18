@@ -429,17 +429,57 @@ router.get('/SolarInverterList', function(req, res){
 					inverter_list_sublocation['AreaList'].push(inverter_list_arealocation);
 					inverter_list_data.push(inverter_list_sublocation);
 
-					console.log(inverter_list_data);
+					//console.log(inverter_list_data);
 
-					console.log(inverter_list_data[0]['AreaList'])
+					//console.log(inverter_list_data[0]['AreaList'])
 
-					res.render('solarinverterlist', {
-						title: 'Oring Solar System Demo - Inverter List',
-						setsublocationindex:1,
-						setarealocationindex:area_location_index,
-						setinverteridindex:inverter_id_index,
-						setinverterlistdata:inverter_list_data
+					commandString = 'CALL pro_get_today_hourenergy_inverter(' + area_location_index + ', ' + inverter_id_index + ');';
+					conn.query(commandString, function(err, rows){
+						if(err) res.send('Get Data Error 4');
+						else{
+							if(rows.length > 1){
+								var hourdata = [0, 0, 0, 0, 0, 
+									0, 0, 0, 0, 0,
+									0, 0, 0, 0, 0,
+									0, 0, 0, 0, 0,
+									0, 0, 0, 0];
+								var hourdatas = [];
+								hourdatas.push(['Hour', 'Energy']);
+								
+								rows[0].forEach( (row) => {
+									var _hour_index = row['r_hour'];
+									hourdata[_hour_index] = row['Total_Hour_Energy'];
+								});
+
+								for(i=0;i<24;i++){
+									var _hourdata = [];
+									_hourdata.push(i);
+									_hourdata.push(hourdata[i]);
+
+									hourdatas.push(_hourdata);
+								}
+
+								var hourDataString = JSON.stringify(hourdatas);
+
+								console.log(hourDataString);
+									
+								res.render('solarinverterlist', {
+									title: 'Oring Solar System Demo - Inverter List',
+									setsublocationindex:1,
+									setarealocationindex:area_location_index,
+									setinverteridindex:inverter_id_index,
+									setinverterlistdata:inverter_list_data,
+									setHourChart: hourDataString
+								});
+								
+							}
+							else{
+								
+							}
+						}
 					});
+
+					
 				}
 			});
 

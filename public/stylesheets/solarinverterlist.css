@@ -301,8 +301,8 @@ ul, #myUL {
   }
 
   .Connect-8  {
-    margin-top: 16px;
-    margin-left: 20px;
+    margin-top: 18px;
+    margin-left: 680px;
     width: 122px;
     height: 22px;
     font-family: PingFangTC;
@@ -312,7 +312,7 @@ ul, #myUL {
     font-style: normal;
     line-height: 1.1;
     letter-spacing: 0.23px;
-    color: #333333;
+    color: blue;
     position: absolute;
   }
 
