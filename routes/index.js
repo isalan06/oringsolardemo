@@ -461,7 +461,7 @@ router.get('/SolarInverterList', function(req, res){
 
 								var hourDataString = JSON.stringify(hourdatas);
 
-								console.log(hourDataString);
+								//console.log(hourDataString);
 									
 								res.render('solarinverterlist', {
 									title: 'Oring Solar System Demo - Inverter List',

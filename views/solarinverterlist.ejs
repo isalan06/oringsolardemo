@@ -146,7 +146,8 @@
                 <div class="Rect-Main-23">
                     <label class="Title-8">今日每小時發電量</label>
                     <lablel class="Unit-8">(kWh)</lablel>
-                    <label class="Connect-8">歷史履歷</label>
+                    <% var historyurlstring = '/SolarHistory?AreaLocation=' + setarealocationindex.toString() + '&InverterID=' + setinverteridindex.toString(); %>
+                    <label class="Connect-8"><a href=<%= historyurlstring %>>歷史履歷</a></label>
                     <div id="myCanvas2" class="BarChartDisplay"></div>
                 </div>
             </div>
