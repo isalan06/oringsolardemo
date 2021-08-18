@@ -67,7 +67,10 @@ router.get('/SolarSummary', function(req, res) {
 							if(rows.length > 0){
 								today_total_energy = rows[0]['Total_Energy'];
 								today_unit_energy = rows[0]['Unit_Energy'];
-								today_hour_energy = rows[0]['Hour_Energy'];
+								if(rows[0]['Hour_Energy']===null)
+									today_hour_energy = 0;
+								else
+									today_hour_energy = rows[0]['Hour_Energy'];
 							}
 							else
 							{
