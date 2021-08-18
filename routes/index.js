@@ -495,7 +495,7 @@ router.get('/SolarHistory', function(req, res){
 	area_location_index = Number(transfer_param.AreaLocation);
 	inverter_id_index = Number(transfer_param.InverterID);
 
-	res.render('solarinverterlist', {
+	res.render('solarhistory', {
 		title: 'Oring Solar System Demo - History',
 		setsublocationindex:1,
 		setarealocationindex:area_location_index,
