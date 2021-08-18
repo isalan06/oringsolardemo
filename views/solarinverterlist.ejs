@@ -40,7 +40,7 @@
             <hr class="LineTitle" />
             <div class="NotRectangleSelected"><label class="currentLeftTitle"><a href='/SolarSummary' class="linkPath">場域儀表板</a></label></div>
             <div class="RectangleSelected"><label class="currentLeftTitle">案場設備列表</label></div>
-            <div class="NotRectangleSelected"><label class="currentLeftTitle">歷史履歷</label></div>
+            <div class="NotRectangleSelected"><label class="currentLeftTitle"><a href='/SolarHistory?AreaLocation=1&InverterID=1' class="linkPath">歷史履歷</a></label></div>
         </div>
         <div class="UpperTitle">
           <div class="UpperContainer">
@@ -144,7 +144,7 @@
                     <label class="Label-Style-20" style="margin-top: 40px; margin-left: 10px;"><%= setinverterlistdata[0]['AreaList'][setarealocationindex-1]['InverterList'][setinverteridindex-1]['temperature_inverter'].toFixed(1) %></label>
                 </div>
                 <div class="Rect-Main-23">
-                    <label class="Title-8">每小時發電量</label>
+                    <label class="Title-8">今日每小時發電量</label>
                     <lablel class="Unit-8">(kWh)</lablel>
                     <label class="Connect-8">歷史履歷</label>
                     <div id="myCanvas2" class="BarChartDisplay"></div>
