@@ -259,3 +259,44 @@ ul, #myUL {
     display: inline-flex;
   }
 
+  .Title-8  {
+    margin-top: 16px;
+    margin-left: 20px;
+    width: 122px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 20px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.1;
+    letter-spacing: 0.23px;
+    color: #333333;
+    position: absolute;
+  }
+  
+  .Unit-8 {
+    margin-top: 18px;
+    margin-left: 146px;
+    width: 30px;
+    height: 20px;
+    font-family: SegoeUI;
+    font-size: 14px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    color: #333333;
+    position:absolute;
+  }
+
+  .BarChartDisplay {
+    margin-top: 50px;
+    margin-left: 20px;
+    width: 510px;
+    height: 200px;
+    background-color: #e6e7f3;
+    position:absolute;
+  }
+
