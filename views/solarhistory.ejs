@@ -47,7 +47,8 @@
                                                             <% } else { %>
                                                                 <li><span class='dot' style="background-color:lime;"></span>
                                                             <% } %>
-                                                            Inverter-<%= inverterrow['inverter_id'].toString().padStart(2, "0") %></li>
+                                                            <input type="checkbox" name="checkInverter" value=1>
+                                                                Inverter-<%= inverterrow['inverter_id'].toString().padStart(2, "0") %></li>
 
                                                     <% }); %>
                                                 </ul>
