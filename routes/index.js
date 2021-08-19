@@ -577,7 +577,8 @@ router.get('/SolarHistory', function(req, res){
 						setinverteridindex:inverter_id_index,
 						setinverterlistdata:inverter_list_data,
 						setSelectDate: currentDate,
-						setSelectType: 0
+						setSelectType: 0,
+						setcalcTotal: 0
 					});
 
 				}
