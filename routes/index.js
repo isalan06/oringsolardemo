@@ -465,7 +465,7 @@ router.get('/SolarInverterList', function(req, res){
 								var hourDataString = JSON.stringify(hourdatas);
 
 								//console.log(hourDataString);
-									
+								conn.end();	
 								res.render('solarinverterlist', {
 									title: 'Oring Solar System Demo - Inverter List',
 									setsublocationindex:1,
@@ -566,6 +566,7 @@ router.get('/SolarHistory', function(req, res){
 					inverter_list_sublocation['AreaList'].push(inverter_list_arealocation);
 					inverter_list_data.push(inverter_list_sublocation);
 
+					conn.end();
 					res.render('solarhistory', {
 						title: 'Oring Solar System Demo - History',
 						setsublocationindex:1,
