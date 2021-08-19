@@ -498,6 +498,9 @@ router.get('/SolarHistory', function(req, res){
 	area_location_index = Number(transfer_param.AreaLocation);
 	inverter_id_index = Number(transfer_param.InverterID);
 
+	var currentDate = new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
+	"-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString();
+
 	var commandString = 'SELECT * FROM view_inverter_list_data;';
 
 	const conn = new mysql.createConnection(config);
@@ -572,7 +575,9 @@ router.get('/SolarHistory', function(req, res){
 						setsublocationindex:1,
 						setarealocationindex:area_location_index,
 						setinverteridindex:inverter_id_index,
-						setinverterlistdata:inverter_list_data
+						setinverterlistdata:inverter_list_data,
+						setSelectDate: currentDate,
+						setSelectType: 0
 					});
 
 				}
