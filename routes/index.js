@@ -512,7 +512,7 @@ router.get('/SolarHistory', function(req, res){
 	  	}
 	  	else {
 			conn.query(commandString, function(err, rows){
-				if(err) res.send('Get Data Error 2');
+				if(err) { conn.end(); res.send('Get Data Error 2');}
 				else{
 					var cal_index_sublocation=-1;
 					var cal_index_arealocation=-1;
@@ -569,17 +569,28 @@ router.get('/SolarHistory', function(req, res){
 					inverter_list_sublocation['AreaList'].push(inverter_list_arealocation);
 					inverter_list_data.push(inverter_list_sublocation);
 
-					conn.end();
-					res.render('solarhistory', {
-						title: 'Oring Solar System Demo - History',
-						setsublocationindex:1,
-						setarealocationindex:area_location_index,
-						setinverteridindex:inverter_id_index,
-						setinverterlistdata:inverter_list_data,
-						setSelectDate: currentDate,
-						setSelectType: 0,
-						setcalcTotal: 0
+					commandString = 'SELECT * FROM view_searchid_list;';
+					conn.query(commandString, function(err, rows){
+						if(err) { conn.end(); res.send('Get Data Error 3');}
+						else{
+							var search_id_list = rows;
+							console.log(search_id_list);
+
+							conn.end();
+							res.render('solarhistory', {
+								title: 'Oring Solar System Demo - History',
+								setsublocationindex:1,
+								setarealocationindex:area_location_index,
+								setinverteridindex:inverter_id_index,
+								setinverterlistdata:inverter_list_data,
+								setSelectDate: currentDate,
+								setSelectType: 0,
+								setcalcTotal: 0
+							});
+						}
 					});
+
+					
 
 				}
 			});
