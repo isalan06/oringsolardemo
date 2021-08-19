@@ -47,11 +47,8 @@
                                                             <% } else { %>
                                                                 <li><span class='dot' style="background-color:lime;"></span>
                                                             <% } %>
-                                                        <% if ((arearow['Index'] === setarealocationindex) && (inverterrow['inverter_id'] === setinverteridindex)) { %>
-                                                            <a class="linkPath2" style='height: 20px; background-color: moccasin;' href=<%= urlString %> >Inverter-<%= inverterrow['inverter_id'].toString().padStart(2, "0") %></a></li>
-                                                        <% } else { %>
-                                                            <a class="linkPath2" style='height: 20px;' href=<%= urlString %> >Inverter-<%= inverterrow['inverter_id'].toString().padStart(2, "0") %></a></li>
-                                                        <% } %>
+                                                            Inverter-<%= inverterrow['inverter_id'].toString().padStart(2, "0") %></li>
+
                                                     <% }); %>
                                                 </ul>
                                             </li>
