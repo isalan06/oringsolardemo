@@ -576,17 +576,29 @@ router.get('/SolarHistory', function(req, res){
 							var search_id_list = rows;
 							console.log(search_id_list);
 
-							conn.end();
-							res.render('solarhistory', {
-								title: 'Oring Solar System Demo - History',
-								setsublocationindex:1,
-								setarealocationindex:area_location_index,
-								setinverteridindex:inverter_id_index,
-								setinverterlistdata:inverter_list_data,
-								setSelectDate: currentDate,
-								setSelectType: 0,
-								setcalcTotal: 0
+							commandString = 'SELECT * FROM view_searchid_list;';
+							conn.query(commandString, function(err, rows){
+								if(err) { conn.end(); res.send('Get Data Error 4');}
+								else{
+									var invlistname = rows;
+
+									conn.end();
+									res.render('solarhistory', {
+									title: 'Oring Solar System Demo - History',
+									setsublocationindex:1,
+									setarealocationindex:area_location_index,
+									setinverteridindex:inverter_id_index,
+									setinverterlistdata:inverter_list_data,
+									setSelectDate: currentDate,
+									setSelectType: 0,
+									setcalcTotal: 0,
+									setSingleData: 1
 							});
+
+								}
+							});
+
+							
 						}
 					});
 
