@@ -242,3 +242,8 @@ ul, #myUL {
     display: inline-flex;
     position:absolute;
   }
+
+  .mychart{
+      width: 870px;
+        height: 780px;
+  }
