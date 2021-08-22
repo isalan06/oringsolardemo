@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="stylesheets/solarhistory.css">
 
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    <% if(setSingleData == 1) { %>
     <script type="text/javascript">
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawChart);
@@ -40,6 +41,8 @@
           chart.draw(data2, google.charts.Bar.convertOptions(options));
         }
       </script>
+      <% } else { %>
+      <% } %>
   </head>
   <body>
     <script src="javascripts/solarhistory.js"></script>
