@@ -501,7 +501,10 @@ router.get('/SolarHistory', function(req, res){
 	var currentDate = new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
 	"-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString();
 
+	var subtitle = 'Calculated on';
+
 	var commandString = 'SELECT * FROM view_inverter_list_data;';
+	var search_id=area_location_index*100 + inverter_id_index;
 
 	const conn = new mysql.createConnection(config);
 	conn.connect(  function(err){
@@ -569,18 +572,35 @@ router.get('/SolarHistory', function(req, res){
 					inverter_list_sublocation['AreaList'].push(inverter_list_arealocation);
 					inverter_list_data.push(inverter_list_sublocation);
 
-					commandString = 'SELECT * FROM view_searchid_list;';
+					var pickDateTimeArray = currentDate.split("-");
+					subtitle += (' - ' + currentDate + ' by hour');
+					var _year = pickDateTimeArray[0];
+					var _month = pickDateTimeArray[1];
+					var _day = pickDateTimeArray[2];
+
+					commandString = 'SELECT list_table.search_id, list_table.search_name, energy_table.r_hour, energy_table.energy_hour FROM ';
+					commandString += '(SELECT * FROM';
+					commandString += '(SELECT (100*area_location+inverter_id) AS search_id, r_hour,  (energy_end-energy_start) AS energy_hour FROM table_solar_hist2_hour WHERE r_year=';
+						commandString += _year.toString() + ' AND r_month=' + _month.toString() + ' AND r_day=' + _day.toString() + ' ) AS raw_table ';
+					commandString += 'WHERE search_id=' + search_id.toString() + ') AS energy_table ';
+					commandString += 'INNER JOIN (SELECT * FROM view_searchid_list) AS list_table ';
+					commandString += 'ON energy_table.search_id=list_table.search_id ';
+					commandString += 'ORDER BY search_id, r_hour ';
+					commandString += ';';
+					console.log(commandString);
 					conn.query(commandString, function(err, rows){
 						if(err) { conn.end(); res.send('Get Data Error 3');}
 						else{
-							var search_id_list = rows;
-							console.log(search_id_list);
+
+							var energy_data = rows;
+							console.log(energy_data);
+						
 
 							commandString = 'SELECT * FROM view_searchid_list;';
 							conn.query(commandString, function(err, rows){
 								if(err) { conn.end(); res.send('Get Data Error 4');}
 								else{
-									var invlistname = rows;
+									
 
 									conn.end();
 									res.render('solarhistory', {
