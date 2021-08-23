@@ -652,6 +652,10 @@ router.post('/SolarHistory', function(req, res){
 	var pickDateTime = req.body.pickDateTime;
 	var calcAllEnergy = req.body.testCheckbox;
 	var checkInverter = req.body.checkInverter;
+	var calcAllEnergy_flag = 0;
+	if(calcAllEnergy != null){
+		if(calcAllEnergy == 'on') calcAllEnergy_flag=1;
+	}
 
 
 	var inv_number = 0;
@@ -670,10 +674,7 @@ router.post('/SolarHistory', function(req, res){
 	console.log(calcAllEnergy);
 	console.log(checkInverter);
 	console.log(inv_number);
-
-	if(inv_number <= 0){
-		http.get('/SolarHistory?AreaLocation=1&InverterID=1');
-	}
+	console.log(calcAllEnergy_flag);
 
 	res.send('Test');
 });
