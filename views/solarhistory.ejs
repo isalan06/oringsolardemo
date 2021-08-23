@@ -166,9 +166,9 @@
                 <div>
                     <label>選擇類型</label>
                     <select id="myComboboxArea" name="myComboboxArea" class="Combobox-1">
-                        <option value="Day" <% if(setSelectType == 0) { %>selected<% } %>>日</option>
-                        <option value="Month" <% if(setSelectType == 1) { %>selected<% } %>>月</option>
-                        <option value="Year" <% if(setSelectType == 2) { %>selected<% } %>>年</option>
+                        <option value="Day" <% if(setSelectType == 'Day') { %>selected<% } %>>日</option>
+                        <option value="Month" <% if(setSelectType == 'Month') { %>selected<% } %>>月</option>
+                        <option value="Year" <% if(setSelectType == 'Year') { %>selected<% } %>>年</option>
                     </select>
                     <label>選擇日期</label>
                     <input type="date" name="pickDateTime" placeholder="Date" value=<%= setSelectDate %>>
