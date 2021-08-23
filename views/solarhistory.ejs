@@ -42,6 +42,40 @@
         }
       </script>
       <% } else { %>
+        <script type="text/javascript">
+            google.charts.load('current', {'packages':['corechart']});
+            google.charts.setOnLoadCallback(drawChart2);
+      
+            function drawChart2() {
+      
+              var data_chart = JSON.parse('<%- setchartdata %>');
+              var data_chart_String = JSON.stringify(data_chart);
+              var data2 = google.visualization.arrayToDataTable(
+                data_chart
+                );
+    
+              
+      
+              var options = {
+                chart: {
+                  title: '<%= setcharttitle %>', //'Company Performance',
+                  subtitle: '<%= setchartsubtitle %>' //'Sales, Expenses, and Profit: 2014-2017',
+                },
+                legend: { position: 'bottom'},
+                width: 870,
+                hight: 740,
+                vAxis: {
+                  title: 'Energy (kWh)',
+                  minValue: 0,
+                  ticks: [0, 20, 40, 60, 80, 100]
+                }
+              };
+      
+              var chart = new google.charts.LineChart(document.getElementById('mychart'));
+      
+              chart.draw(data2, google.charts.LineChart.convertOptions(options));
+            }
+          </script>
       <% } %>
   </head>
   <body>
