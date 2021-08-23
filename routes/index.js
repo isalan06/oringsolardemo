@@ -655,6 +655,8 @@ router.post('/SolarHistory', function(req, res){
 
 	var inv_number = checkInverter.length;
 
+	if(Object.prototype.toString.call(checkInverter)!='[object Array]') inv_number = 1;
+
 	var currentDate = new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
 	"-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString();
 
