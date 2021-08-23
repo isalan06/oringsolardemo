@@ -890,6 +890,9 @@ router.post('/SolarHistory', function(req, res){
 										});
 										datas.push(data);
 										conn.end();
+
+										console.log(datas);
+
 										for(i =0;i<24;i++){
 											var hourData = [i.toString()];
 											for(var j=0; j<cal_inv_number;j++){
