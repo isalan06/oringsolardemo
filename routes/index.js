@@ -935,10 +935,10 @@ router.post('/SolarHistory', function(req, res){
 							commandString += ') AS energy_table ';
 							commandString += 'INNER JOIN (SELECT * FROM view_searchid_list) AS list_table ';
 							commandString += 'ON energy_table.search_id=list_table.search_id ';
-							commandString += 'ORDER BY search_id, r_hour ';
+							commandString += 'ORDER BY search_id, r_day';
 							commandString += ';';
 
-							console.log(commandString);
+							//console.log(commandString);
 
 							var data = [0, 0, 0, 0, 0, 
 								0, 0, 0, 0, 0,
