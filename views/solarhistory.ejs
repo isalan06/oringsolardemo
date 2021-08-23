@@ -5,8 +5,9 @@
     <title>Solar Demo - Summary</title>
     <link rel="stylesheet" href="stylesheets/solarhistory.css">
 
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+    
     <% if(setSingleData == 1) { %>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
     <script type="text/javascript">
         google.charts.load('current', {'packages':['bar']});
         google.charts.setOnLoadCallback(drawChart);
@@ -42,8 +43,9 @@
         }
       </script>
       <% } else { %>
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
-            google.charts.load('current', {'packages':['corechart']});
+            google.charts.load('current', {'packages':['line']});
             google.charts.setOnLoadCallback(drawChart2);
       
             function drawChart2() {
@@ -71,9 +73,9 @@
                 }
               };
       
-              var chart = new google.charts.LineChart(document.getElementById('mychart'));
+              var chart = new google.charts.Line(document.getElementById('mychart'));
       
-              chart.draw(data2, google.charts.LineChart.convertOptions(options));
+              chart.draw(data2, google.charts.Line.convertOptions(options));
             }
           </script>
       <% } %>
