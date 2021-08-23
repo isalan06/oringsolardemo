@@ -886,7 +886,7 @@ router.post('/SolarHistory', function(req, res){
 										conn.end();
 										for(i =0;i<24;i++){
 											var hourData = [i.toString()];
-											for(var j=0; j<inverternumbver;j++){
+											for(var j=0; j<inv_number;j++){
 												hourData.push(datas[j][i]);
 											}
 											energyData.push(hourData);
