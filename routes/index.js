@@ -663,7 +663,9 @@ router.post('/SolarHistory', function(req, res){
 
 	var subtitle = 'Calculated on';
 	var pickDateTimeArray = pickDateTime.split("-");
-	subtitle += (' - ' + currentDate + ' by hour');
+	//subtitle += (' - ' + currentDate + ' by hour');
+	var newPickDateTime = pickDateTimeArray[0] + "-" + pickDateTimeArray[1];
+	var newPickDateTime2 = pickDateTimeArray[0];
 	var _year = pickDateTimeArray[0];
 	var _month = pickDateTimeArray[1];
 	var _day = pickDateTimeArray[2];
@@ -822,6 +824,7 @@ router.post('/SolarHistory', function(req, res){
 
 					if(calcAllEnergy_flag == 0){
 						if(selectType == 'Day'){
+							subtitle += (' - ' + pickDateTime + ' by hour for selected inverters');
 							commandString = 'SELECT list_table.search_id, list_table.search_name, energy_table.r_hour, energy_table.energy_hour FROM ';
 							commandString += '(SELECT * FROM';
 							commandString += '(SELECT (100*area_location+inverter_id) AS search_id, r_hour,  (energy_end-energy_start) AS energy_hour FROM table_solar_hist2_hour WHERE r_year=';
@@ -901,9 +904,9 @@ router.post('/SolarHistory', function(req, res){
 											setarealocationindex:1,
 											setinverteridindex:1,
 											setinverterlistdata:inverter_list_data,
-											setSelectDate: currentDate,
-											setSelectType: 0,
-											setcalcTotal: 0,
+											setSelectDate: pickDateTime,
+											setSelectType: selectType,
+											setcalcTotal: calcAllEnergy_flag,
 											setSingleData: hasonedata,
 											setchartdata: energyDataString,
 											setcharttitle: 'Selected Inverters Energy Chart',
@@ -918,6 +921,7 @@ router.post('/SolarHistory', function(req, res){
 								
 						}
 						if(selectType == 'Month'){
+							subtitle += (' - ' + newPickDateTime + ' by day for selected inverters');
 							commandString = 'SELECT list_table.search_id, list_table.search_name, energy_table.r_day, energy_table.energy_day FROM ';
 							commandString += '(SELECT * FROM';
 							commandString += '(SELECT (100*area_location+inverter_id) AS search_id, r_day,  energy AS energy_day FROM table_solar_hist3_day WHERE r_year=';
@@ -1002,9 +1006,9 @@ router.post('/SolarHistory', function(req, res){
 											setarealocationindex:1,
 											setinverteridindex:1,
 											setinverterlistdata:inverter_list_data,
-											setSelectDate: currentDate,
-											setSelectType: 0,
-											setcalcTotal: 0,
+											setSelectDate: pickDateTime,
+											setSelectType: selectType,
+											setcalcTotal: calcAllEnergy_flag,
 											setSingleData: hasonedata,
 											setchartdata: energyDataString,
 											setcharttitle: 'Selected Inverters Energy Chart',
