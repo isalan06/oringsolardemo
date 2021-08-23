@@ -647,6 +647,23 @@ router.get('/SolarHistory', function(req, res){
 	
 });
 
+router.post('/SolarHistory', function(req, res){
+	var selectType = req.body.myComboboxArea;
+	var pickDateTime = req.body.pickDateTime;
+	var calcAllEnergy = req.body.testCheckbox;
+	var checkInverter = req.body.checkInverter;
+
+	var currentDate = new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
+	"-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString();
+
+	console.log(selectType);
+	console.log(pickDateTime);
+	console.log(calcAllEnergy);
+	console.log(checkInverter);
+
+	res.send('Test');
+});
+
 router.get('/Test', function(req, res){
   res.send('API Test 2');
 });
