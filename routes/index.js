@@ -632,7 +632,9 @@ router.get('/SolarHistory', function(req, res){
 								setchartdata: energyDataString,
 								setcharttitle: 'Selected Inverters Energy Chart',
 								setchartsubtitle: subtitle,
-								setInverterList: 0
+								setInverterList: 0,
+								setPosFunction: 0,
+								setCheckInverter: 0
 							});
 						}
 					});
@@ -668,6 +670,7 @@ router.post('/SolarHistory', function(req, res){
 
 
 	var inv_number = 0;
+	var hasonedata = 1;
 
 	if(checkInverter != null)
 	{
@@ -700,13 +703,13 @@ router.post('/SolarHistory', function(req, res){
 	  	else {
 			conn.query(commandString, function(err, rows){
 				var cal_index_sublocation=-1;
-					var cal_index_arealocation=-1;
-					var inverter_list_data = [];
-					var inverter_list_sublocation={};
-					var inverter_list_arealocation={};
-					var inverter_list_inverter={};
+				var cal_index_arealocation=-1;
+				var inverter_list_data = [];
+				var inverter_list_sublocation={};
+				var inverter_list_arealocation={};
+				var inverter_list_inverter={};
 					
-					rows.forEach(row => {
+				rows.forEach(row => {
 						if(row['sub_location'] != cal_index_sublocation){
 							if(cal_index_sublocation != -1){
 								inverter_list_data.push(inverter_list_sublocation);
@@ -749,12 +752,12 @@ router.post('/SolarHistory', function(req, res){
 						inverter_list_inverter['temperature_inverter']=row['temperature_inverter'];
 						inverter_list_arealocation['InverterList'].push(inverter_list_inverter);
 						
-					});
+				});
 
-					inverter_list_sublocation['AreaList'].push(inverter_list_arealocation);
-					inverter_list_data.push(inverter_list_sublocation);
+				inverter_list_sublocation['AreaList'].push(inverter_list_arealocation);
+				inverter_list_data.push(inverter_list_sublocation);
 
-					if(inv_number == 0) {
+				if(inv_number == 0) {
 						commandString = 'SELECT list_table.search_id, list_table.search_name, energy_table.r_hour, energy_table.energy_hour FROM ';
 						commandString += '(SELECT * FROM';
 						commandString += '(SELECT (100*area_location+inverter_id) AS search_id, r_hour,  (energy_end-energy_start) AS energy_hour FROM table_solar_hist2_hour WHERE r_year=';
@@ -806,13 +809,117 @@ router.post('/SolarHistory', function(req, res){
 									setchartdata: energyDataString,
 									setcharttitle: 'Selected Inverters Energy Chart',
 									setchartsubtitle: subtitle,
-									setInverterList: 0
+									setInverterList: 0,
+									setPosFunction: 0,
+									setCheckInverter: 0
 								});
 							}
 						});
 
 						
+				} else {
+					if(inv_number > 1) hasonedata = 0;
+
+					if(calcAllEnergy_flag == 0){
+						if(selectType == 'Day'){
+							commandString = 'SELECT list_table.search_id, list_table.search_name, energy_table.r_hour, energy_table.energy_hour FROM ';
+							commandString += '(SELECT * FROM';
+							commandString += '(SELECT (100*area_location+inverter_id) AS search_id, r_hour,  (energy_end-energy_start) AS energy_hour FROM table_solar_hist2_hour WHERE r_year=';
+								commandString += _year.toString() + ' AND r_month=' + _month.toString() + ' AND r_day=' + _day.toString() + ' ) AS raw_table ';
+							commandString += 'WHERE search_id=';
+								if(inv_number == 1)
+							    	commandString += checkInverter.toString();
+								else{
+									commandString += checkInverter[0].toString();
+									for(var i=1;i<inv_number;i++){
+										commandString += " OR search_id=";
+										commandString += checkInverter[i].toString();
+									}
+								}
+							commandString += ') AS energy_table ';
+							commandString += 'INNER JOIN (SELECT * FROM view_searchid_list) AS list_table ';
+							commandString += 'ON energy_table.search_id=list_table.search_id ';
+							commandString += 'ORDER BY search_id, r_hour ';
+							commandString += ';';
+
+							var data = [0, 0, 0, 0, 0, 
+								0, 0, 0, 0, 0,
+								0, 0, 0, 0, 0,
+								0, 0, 0, 0, 0,
+								0, 0, 0, 0];
+							var datas = [];
+							var getInverter = [];
+					
+							var titleData= ['Hour'];
+
+							var inverter_no = -1;
+							var inverter_getid = -1;
+	  						conn.query(commandString, function(err, rows){
+					  			if(err) res.send('Get Data Error');
+								else{
+									if(rows.length == 0){ res.redirect('solarhistory'); }
+									else{
+										rows.forEach( (row) => {
+											var _inverter_id = row['search_id'];
+											var inverter_title = row['search_name']
+											if(inverter_getid != _inverter_id){
+												inverter_getid = _inverter_id;
+												getInverter.push(_inverter_id);
+												titleData.push(inverter_title);
+											}
+										});
+
+										energyData.push(titleData);
+
+										rows.forEach( (row) => {
+											var _inverter_id = row['search_id'];
+											if(_inverter_id != inverter_no){
+												if(inverter_no != -1) datas.push(data);
+												inverter_no = _inverter_id;
+												data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+											}
+
+											var index = row['r_hour'];
+											data[index] = row['energy_hour'];
+										});
+										datas.push(data);
+										conn.end();
+										for(i =0;i<24;i++){
+											var hourData = [i.toString()];
+											for(var j=0; j<inverternumbver;j++){
+												hourData.push(datas[j][i]);
+											}
+											energyData.push(hourData);
+										}
+					
+										var energyDataString = JSON.stringify(energyData);
+
+										res.render('solarhistory', {
+											title: 'Oring Solar System Demo - History',
+											setsublocationindex:1,
+											setarealocationindex:1,
+											setinverteridindex:1,
+											setinverterlistdata:inverter_list_data,
+											setSelectDate: currentDate,
+											setSelectType: 0,
+											setcalcTotal: 0,
+											setSingleData: hasonedata,
+											setchartdata: energyDataString,
+											setcharttitle: 'Selected Inverters Energy Chart',
+											setchartsubtitle: subtitle,
+											setInverterList: 0,
+											setPosFunction: 1,
+											setCheckInverter: checkInverter
+										});
+									}
+								}
+							});
+								
+						}
+					} else {
+
 					}
+				}
 			});
 		}
 	});
