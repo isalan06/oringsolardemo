@@ -683,7 +683,97 @@ router.post('/SolarHistory', function(req, res){
 	console.log(inv_number);
 	console.log(calcAllEnergy_flag);
 
-	if(inv_number == 0) {res.redirect('/SolarHistory?Area_Location=1&Inverter_ID=1');}
+	var energyData = [];
+
+	var commandString = 'SELECT * FROM view_inverter_list_data;';
+	var search_id=101;
+
+	const conn = new mysql.createConnection(config);
+	conn.connect(  function(err){
+
+		if(err){
+			conn.end();
+			res.send('Connect DB Error');
+	  	}
+	  	else {
+			conn.query(commandString, function(err, rows){
+				var cal_index_sublocation=-1;
+					var cal_index_arealocation=-1;
+					var inverter_list_data = [];
+					var inverter_list_sublocation={};
+					var inverter_list_arealocation={};
+					var inverter_list_inverter={};
+					
+					rows.forEach(row => {
+						if(row['sub_location'] != cal_index_sublocation){
+							if(cal_index_sublocation != -1){
+								inverter_list_data.push(inverter_list_sublocation);
+							}
+							inverter_list_sublocation={};
+							inverter_list_sublocation['Index']=row['sub_location'];
+							inverter_list_sublocation['Name']=row['sublocation_name'];
+							inverter_list_sublocation['AreaList']=[];
+							cal_index_sublocation=row['sub_location'];
+							cal_index_arealocation = -1;
+						}
+						else{
+
+						}
+
+						if(row['area_location'] != cal_index_arealocation){
+							if(cal_index_arealocation != -1){
+								inverter_list_sublocation['AreaList'].push(inverter_list_arealocation);
+							}
+
+							inverter_list_arealocation = {};
+							inverter_list_arealocation['Index']=row['area_location'];
+							inverter_list_arealocation['Name']=row['arealocation_name'];
+							inverter_list_arealocation['InverterList']=[];
+							cal_index_arealocation = row['area_location'];
+						} else {
+							
+						}
+						inverter_list_inverter={};
+						inverter_list_inverter['inverter_id']=row['inverter_id'];
+						inverter_list_inverter['online_status']=row['online_status'];
+						inverter_list_inverter['inverter_state']=row['inverter_state'];
+						inverter_list_inverter['inverter_state_name']=row['inverter_state_name'];
+						inverter_list_inverter['today_energy']=row['today_energy_2'];
+						inverter_list_inverter['today_runtime']=row['today_runtime_2'];
+						inverter_list_inverter['life_energy']=row['life_energy_2'];
+						inverter_list_inverter['life_runtime']=row['life_runtime_2'];
+						inverter_list_inverter['temperature_ambient']=row['temperature_ambient'];
+						inverter_list_inverter['temperature_boost']=row['temperature_boost'];
+						inverter_list_inverter['temperature_inverter']=row['temperature_inverter'];
+						inverter_list_arealocation['InverterList'].push(inverter_list_inverter);
+						
+					});
+
+					inverter_list_sublocation['AreaList'].push(inverter_list_arealocation);
+					inverter_list_data.push(inverter_list_sublocation);
+
+					if(inv_number == 0) {
+						res.render('solarhistory', {
+							title: 'Oring Solar System Demo - History',
+							setsublocationindex:1,
+							setarealocationindex:1,
+							setinverteridindex:1,
+							setinverterlistdata:inverter_list_data,
+							setSelectDate: currentDate,
+							setSelectType: 0,
+							setcalcTotal: 0,
+							setSingleData: 1,
+							setchartdata: '[]',
+							setcharttitle: 'Selected Inverters Energy Chart',
+							setchartsubtitle: subtitle,
+							setInverterList: 0
+						});
+					}
+			});
+		}
+	});
+
+	
 
 	res.send('Test');
 });
