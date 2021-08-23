@@ -81,10 +81,20 @@
                                                 <ul class="nested">
                                         <% } %>
                                                     <% arearow['InverterList'].forEach((inverterrow) => { %>
+                                                        <% var checkvalue = 100 * arearow['Index'] + inverterrow['inverter_id']; %> 
                                                         <% var urlString='/SolarInverterList?AreaLocation=' + arearow['Index'].toString() + '&InverterID=' + inverterrow['inverter_id'].toString(); %>
                                                         <% var checkflag=0; %>
-                                                        <% if((arearow['Index'] === setarealocationindex) && (inverterrow['inverter_id'] === setinverteridindex)) { checkflag = 1;} %>
-                                                        <% var checkvalue = 100 * arearow['Index'] + inverterrow['inverter_id']; %> 
+                                                        <% if(setPosFunction == 0){ %>
+                                                            <% if((arearow['Index'] === setarealocationindex) && (inverterrow['inverter_id'] === setinverteridindex)) { checkflag = 1;} %>
+                                                        <% } else { %>
+                                                            <% if(setSingleData == 1) { %>
+                                                                <% if(checkvalue == setCheckInverter) checkflag=1; %>
+                                                            <% } else { %>
+                                                                <% for(var i=0;i<setCheckInverter.length;i++) { %>
+                                                                    <% if(checkvalue == setCheckInverter[i]) { checkflag=1; break; } %>
+                                                                <% } %>
+                                                            <% } %> 
+                                                        <% } %>
                                                         <li><input type="checkbox" name="checkInverter" value=<%= checkvalue %> <% if(checkflag == 1) { %>checked<% } %>>
                                                             <% if ((inverterrow['online_status'] === 0) || (inverterrow['inverter_state'] === 4)) { %>
                                                                 <span class='dot' style="background-color:red;"></span>
