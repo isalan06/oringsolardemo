@@ -657,6 +657,8 @@ router.post('/SolarHistory', function(req, res){
 		if(calcAllEnergy == 'on') calcAllEnergy_flag=1;
 	}
 
+	console.log(calcAllEnergy_flag);
+
 	var subtitle = 'Calculated on';
 	var pickDateTimeArray = pickDateTime.split("-");
 	subtitle += (' - ' + newPickDateTime + ' by hour for selected inverters');
@@ -681,7 +683,7 @@ router.post('/SolarHistory', function(req, res){
 	console.log(calcAllEnergy);
 	console.log(checkInverter);
 	console.log(inv_number);
-	console.log(calcAllEnergy_flag);
+	
 
 	var energyData = [];
 
