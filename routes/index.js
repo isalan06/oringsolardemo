@@ -874,9 +874,12 @@ router.post('/SolarHistory', function(req, res){
 
 										energyData.push(titleData);
 
+										var cal_inv_number = 0;
+
 										rows.forEach( (row) => {
 											var _inverter_id = row['search_id'];
 											if(_inverter_id != inverter_no){
+												cal_inv_number++;
 												if(inverter_no != -1) datas.push(data);
 												inverter_no = _inverter_id;
 												data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -889,7 +892,7 @@ router.post('/SolarHistory', function(req, res){
 										conn.end();
 										for(i =0;i<24;i++){
 											var hourData = [i.toString()];
-											for(var j=0; j<inv_number;j++){
+											for(var j=0; j<cal_inv_number;j++){
 												hourData.push(datas[j][i]);
 											}
 											energyData.push(hourData);
@@ -975,10 +978,11 @@ router.post('/SolarHistory', function(req, res){
 
 										energyData.push(titleData);
 
-
+										var cal_inv_number = 0;
 										rows.forEach( (row) => {
 											var _inverter_id = row['search_id'];
 											if(_inverter_id != inverter_no){
+												cal_inv_number++;
 												if(inverter_no != -1) datas.push(data);
 												inverter_no = _inverter_id;
 												data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
@@ -991,7 +995,7 @@ router.post('/SolarHistory', function(req, res){
 										conn.end();
 										for(i =0;i<31;i++){
 											var dayData = [(i+1).toString()];
-											for(var j=0; j<inv_number;j++){
+											for(var j=0; j<cal_inv_number;j++){
 												dayData.push(datas[j][i]);
 											}
 											energyData.push(dayData);
@@ -1022,6 +1026,36 @@ router.post('/SolarHistory', function(req, res){
 								
 							});
 							
+						}
+						if(selectType == 'Year'){
+							subtitle += (' - ' + newPickDateTime2 + ' by month for selected inverters');
+							commandString = 'SELECT list_table.search_id, list_table.search_name, energy_table.r_month, energy_table.energy_month FROM ';
+							commandString += '(SELECT * FROM';
+							commandString += '(SELECT (100*area_location+inverter_id) AS search_id, r_month,  energy AS energy_month FROM table_solar_hist3_month WHERE r_year=';
+								commandString += _year.toString() + ' ) AS raw_table ';
+							commandString += 'WHERE search_id=';
+								if(inv_number == 1)
+							    	commandString += checkInverter.toString();
+								else{
+									commandString += checkInverter[0].toString();
+									for(var i=1;i<inv_number;i++){
+										commandString += " OR search_id=";
+										commandString += checkInverter[i].toString();
+									}
+								}
+							commandString += ') AS energy_table ';
+							commandString += 'INNER JOIN (SELECT * FROM view_searchid_list) AS list_table ';
+							commandString += 'ON energy_table.search_id=list_table.search_id ';
+							commandString += 'ORDER BY search_id, r_month';
+							commandString += ';';
+
+							var data = [0, 0, 0, 0, 0, 
+								0, 0, 0, 0, 0,
+								0, 0];
+							var datas = [];
+							var getInverter = [];
+				
+							var titleData= ['Month'];
 						}
 					} else {
 
