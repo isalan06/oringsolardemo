@@ -891,7 +891,7 @@ router.post('/SolarHistory', function(req, res){
 										datas.push(data);
 										conn.end();
 
-										console.log(datas);
+										//console.log(datas);
 
 										for(i =0;i<24;i++){
 											var hourData = [i.toString()];
@@ -1059,6 +1059,76 @@ router.post('/SolarHistory', function(req, res){
 							var getInverter = [];
 				
 							var titleData= ['Month'];
+
+							var inverter_no = -1;
+							var inverter_getid = -1;
+		  					conn.query(commandString, function(err, rows){
+			  					if(err) res.send('Get Data Error');
+								else{
+									if(rows.length == 0){ conn.end(); res.redirect('solarhistory'); }
+									else{
+										rows.forEach( (row) => {
+											var _inverter_id = row['search_id'];
+											var inverter_title = row['search_name'];
+											if(inverter_getid != _inverter_id){
+												inverter_getid = _inverter_id;
+												getInverter.push(_inverter_id);
+												titleData.push(inverter_title);
+											}
+										});
+
+										energyData.push(titleData);
+
+										var cal_inv_number = 0;
+										rows.forEach( (row) => {
+											var _inverter_id = row['search_id'];
+											if(_inverter_id != inverter_no){
+												cal_inv_number++;
+												if(inverter_no != -1) datas.push(data);
+												inverter_no = _inverter_id;
+												data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+											}
+
+											var index = row['r_month'] - 1;
+											data[index] = row['energy_month'];
+											}
+								
+					
+										);
+										datas.push(data);
+										console.log(datas.length);
+										console.log(datas);
+										conn.end();
+										for(i =0;i<12;i++){
+											var monthData = [(i+1).toString()];
+											for(var j=0; j<cal_inv_number;j++){
+												monthData.push(datas[j][i]);
+											}
+											energyData.push(monthData);
+										}
+					
+										var energyDataString = JSON.stringify(energyData);
+			
+										res.render('solarhistory', {
+											title: 'Oring Solar System Demo - History',
+											setsublocationindex:1,
+											setarealocationindex:1,
+											setinverteridindex:1,
+											setinverterlistdata:inverter_list_data,
+											setSelectDate: pickDateTime,
+											setSelectType: selectType,
+											setcalcTotal: calcAllEnergy_flag,
+											setSingleData: hasonedata,
+											setchartdata: energyDataString,
+											setcharttitle: 'Selected Inverters Energy Chart',
+											setchartsubtitle: subtitle,
+											setInverterList: 0,
+											setPosFunction: 1,
+											setCheckInverter: checkInverter
+										});
+									}
+								}
+							});
 						}
 					} else {
 
