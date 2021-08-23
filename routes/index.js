@@ -819,7 +819,7 @@ router.post('/SolarHistory', function(req, res){
 
 	
 
-	res.send('Test');
+	//res.send('Test');
 });
 
 router.get('/Test', function(req, res){
