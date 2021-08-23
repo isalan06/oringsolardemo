@@ -659,7 +659,7 @@ router.post('/SolarHistory', function(req, res){
 		if(calcAllEnergy == 'on') calcAllEnergy_flag=1;
 	}
 
-	console.log(calcAllEnergy_flag);
+	//console.log(calcAllEnergy_flag);
 
 	var subtitle = 'Calculated on';
 	var pickDateTimeArray = pickDateTime.split("-");
@@ -681,11 +681,11 @@ router.post('/SolarHistory', function(req, res){
 	var currentDate = new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
 	"-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString();
 
-	console.log(selectType);
-	console.log(pickDateTime);
-	console.log(calcAllEnergy);
-	console.log(checkInverter);
-	console.log(inv_number);
+	//console.log(selectType);
+	//console.log(pickDateTime);
+	//console.log(calcAllEnergy);
+	//console.log(checkInverter);
+	//console.log(inv_number);
 	
 
 	var energyData = [];
@@ -937,6 +937,8 @@ router.post('/SolarHistory', function(req, res){
 							commandString += 'ON energy_table.search_id=list_table.search_id ';
 							commandString += 'ORDER BY search_id, r_hour ';
 							commandString += ';';
+
+							console.log(commandString);
 
 							var data = [0, 0, 0, 0, 0, 
 								0, 0, 0, 0, 0,
