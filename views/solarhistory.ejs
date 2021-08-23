@@ -45,7 +45,7 @@
       <% } else { %>
         <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
         <script type="text/javascript">
-            google.charts.load('current', {'packages':['line']});
+            google.charts.load('current', {'packages':['corechart']});
             google.charts.setOnLoadCallback(drawChart2);
       
             function drawChart2() {
@@ -59,11 +59,11 @@
               
       
               var options = {
+                legend: { position: 'bottom'},
                 chart: {
                   title: '<%= setcharttitle %>', //'Company Performance',
                   subtitle: '<%= setchartsubtitle %>' //'Sales, Expenses, and Profit: 2014-2017',
                 },
-                legend: { position: 'bottom'},
                 width: 870,
                 hight: 740,
                 vAxis: {
@@ -73,9 +73,13 @@
                 }
               };
       
-              var chart = new google.charts.Line(document.getElementById('mychart'));
+              //var chart = new google.charts.Line(document.getElementById('mychart'));
       
-              chart.draw(data2, google.charts.Line.convertOptions(options));
+              //chart.draw(data2, google.charts.Line.convertOptions(options));
+
+                var chart = new google.visualization.LineChart(document.getElementById('mychart'));
+
+                chart.draw(data2, options);
             }
           </script>
       <% } %>
