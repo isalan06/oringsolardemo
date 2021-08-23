@@ -894,7 +894,7 @@ router.post('/SolarHistory', function(req, res){
 					
 										var energyDataString = JSON.stringify(energyData);
 
-										console.log(energyDataString);
+										//console.log(energyDataString);
 										res.render('solarhistory', {
 											title: 'Oring Solar System Demo - History',
 											setsublocationindex:1,
@@ -916,6 +916,103 @@ router.post('/SolarHistory', function(req, res){
 								}
 							});
 								
+						}
+						if(selectType == 'Month'){
+							commandString = 'SELECT list_table.search_id, list_table.search_name, energy_table.r_day, energy_table.energy_day FROM ';
+							commandString += '(SELECT * FROM';
+							commandString += '(SELECT (100*area_location+inverter_id) AS search_id, r_day,  energy AS energy_day FROM table_solar_hist3_day WHERE r_year=';
+								commandString += _year.toString() + ' AND r_month=' + _month.toString() + ' ) AS raw_table ';
+							commandString += 'WHERE search_id=';
+								if(inv_number == 1)
+							    	commandString += checkInverter.toString();
+								else{
+									commandString += checkInverter[0].toString();
+									for(var i=1;i<inv_number;i++){
+										commandString += " OR search_id=";
+										commandString += checkInverter[i].toString();
+									}
+								}
+							commandString += ') AS energy_table ';
+							commandString += 'INNER JOIN (SELECT * FROM view_searchid_list) AS list_table ';
+							commandString += 'ON energy_table.search_id=list_table.search_id ';
+							commandString += 'ORDER BY search_id, r_hour ';
+							commandString += ';';
+
+							var data = [0, 0, 0, 0, 0, 
+								0, 0, 0, 0, 0,
+								0, 0, 0, 0, 0,
+								0, 0, 0, 0, 0,
+								0, 0, 0, 0, 0,
+								0, 0, 0, 0, 0,
+								0];
+							var datas = [];
+							var getInverter = [];
+				
+							var titleData= ['Day'];
+							
+							var inverter_no = -1;
+							var inverter_getid = -1;
+		  					conn.query(commandString, function(err, rows){
+			  					if(err) res.send('Get Data Error');
+								else{
+									if(rows.length == 0){ res.redirect('solarhistory'); }
+									else{
+										rows.forEach( (row) => {
+											var _inverter_id = row['search_id'];
+											var inverter_title = row['search_name']
+											if(inverter_getid != _inverter_id){
+												inverter_getid = _inverter_id;
+												getInverter.push(_inverter_id);
+												titleData.push(inverter_title);
+											}
+										});
+
+
+										rows.forEach( (row) => {
+											var _inverter_id = row['search_id'];
+											if(_inverter_id != inverter_no){
+												if(inverter_no != -1) datas.push(data);
+												inverter_no = _inverter_id;
+												data = [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0];
+											}
+
+											var index = row['r_day'] - 1;
+											data[index] = row['energy_day'];
+										});
+										datas.push(data);
+										conn.end();
+										for(i =0;i<31;i++){
+											var dayData = [(i+1).toString()];
+											for(var j=0; j<inv_number;j++){
+												dayData.push(datas[j][i]);
+											}
+											energyData.push(dayData);
+										}
+					
+										var energyDataString = JSON.stringify(energyData);
+			
+										res.render('solarhistory', {
+											title: 'Oring Solar System Demo - History',
+											setsublocationindex:1,
+											setarealocationindex:1,
+											setinverteridindex:1,
+											setinverterlistdata:inverter_list_data,
+											setSelectDate: currentDate,
+											setSelectType: 0,
+											setcalcTotal: 0,
+											setSingleData: hasonedata,
+											setchartdata: energyDataString,
+											setcharttitle: 'Selected Inverters Energy Chart',
+											setchartsubtitle: subtitle,
+											setInverterList: 0,
+											setPosFunction: 1,
+											setCheckInverter: checkInverter
+										});
+									}
+								}
+								
+							});
+							
 						}
 					} else {
 
