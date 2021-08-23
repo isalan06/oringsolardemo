@@ -671,6 +671,10 @@ router.post('/SolarHistory', function(req, res){
 	console.log(checkInverter);
 	console.log(inv_number);
 
+	if(inv_number <= 0){
+		http.get('/SolarHistory?AreaLocation=1&InverterID=1');
+	}
+
 	res.send('Test');
 });
 
