@@ -894,6 +894,7 @@ router.post('/SolarHistory', function(req, res){
 					
 										var energyDataString = JSON.stringify(energyData);
 
+										console.log(energyDataString);
 										res.render('solarhistory', {
 											title: 'Oring Solar System Demo - History',
 											setsublocationindex:1,
