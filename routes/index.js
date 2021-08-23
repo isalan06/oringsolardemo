@@ -822,7 +822,7 @@ router.post('/SolarHistory', function(req, res){
 				} else {
 					if(inv_number > 1) hasonedata = 0;
 
-					if(calcAllEnergy_flag == 0){
+					if(calcAllEnergy_flag >= 0){
 						if(selectType == 'Day'){
 							subtitle += (' - ' + pickDateTime + ' by hour for selected inverters');
 							commandString = 'SELECT list_table.search_id, list_table.search_name, energy_table.r_hour, energy_table.energy_hour FROM ';
@@ -1005,7 +1005,7 @@ router.post('/SolarHistory', function(req, res){
 										}
 					
 										var energyDataString = JSON.stringify(energyData);
-										console.log(energyDataString);
+										//console.log(energyDataString);
 
 										res.render('solarhistory', {
 											title: 'Oring Solar System Demo - History',
