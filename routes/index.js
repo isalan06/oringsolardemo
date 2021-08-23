@@ -969,6 +969,8 @@ router.post('/SolarHistory', function(req, res){
 											}
 										});
 
+										energyData.push(titleData);
+
 
 										rows.forEach( (row) => {
 											var _inverter_id = row['search_id'];
