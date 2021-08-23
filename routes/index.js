@@ -793,7 +793,7 @@ router.post('/SolarHistory', function(req, res){
 
 								console.log(energyDataString);
 
-								res.render('solarhistory', {
+								res.redirect('solarhistory', {
 									title: 'Oring Solar System Demo - History',
 									setsublocationindex:1,
 									setarealocationindex:1,
