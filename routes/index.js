@@ -661,7 +661,6 @@ router.post('/SolarHistory', function(req, res){
 
 	var subtitle = 'Calculated on';
 	var pickDateTimeArray = pickDateTime.split("-");
-	subtitle += (' - ' + newPickDateTime + ' by hour for selected inverters');
 	var _year = pickDateTimeArray[0];
 	var _month = pickDateTimeArray[1];
 	var _day = pickDateTimeArray[2];
