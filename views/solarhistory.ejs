@@ -84,7 +84,7 @@
                                                         <% var urlString='/SolarInverterList?AreaLocation=' + arearow['Index'].toString() + '&InverterID=' + inverterrow['inverter_id'].toString(); %>
                                                         <% var checkflag=0; %>
                                                         <% if((arearow['Index'] === setarealocationindex) && (inverterrow['inverter_id'] === setinverteridindex)) { checkflag = 1;} %>
-                                                        <% var checkvalue = 100 * setarealocationindex + setinverteridindex; %> 
+                                                        <% var checkvalue = 100 * arearow['Index'] + inverterrow['inverter_id']; %> 
                                                         <li><input type="checkbox" name="checkInverter" value=<%= checkvalue %> <% if(checkflag == 1) { %>checked<% } %>>
                                                             <% if ((inverterrow['online_status'] === 0) || (inverterrow['inverter_state'] === 4)) { %>
                                                                 <span class='dot' style="background-color:red;"></span>

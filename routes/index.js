@@ -653,6 +653,8 @@ router.post('/SolarHistory', function(req, res){
 	var calcAllEnergy = req.body.testCheckbox;
 	var checkInverter = req.body.checkInverter;
 
+	var inv_number = checkInverter.length;
+
 	var currentDate = new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
 	"-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString();
 
@@ -660,6 +662,7 @@ router.post('/SolarHistory', function(req, res){
 	console.log(pickDateTime);
 	console.log(calcAllEnergy);
 	console.log(checkInverter);
+	console.log(inv_number);
 
 	res.send('Test');
 });
@@ -786,7 +789,7 @@ router.get('/History', function(req, res){
 					
 								var energyDataString = JSON.stringify(energyData);
 			
-								console.log(energyDataString);
+								//console.log(energyDataString);
 
 								res.render('history', {
 									title: 'Oring Solar Demo - History',
