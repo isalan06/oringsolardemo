@@ -1156,6 +1156,35 @@ router.post('/SolarHistory', function(req, res){
 	//res.send('Test');
 });
 
+router.get('/SolarHistoryData', function(req, res){
+	urlData = url.parse(req.url,true);
+	action = urlData.pathname;
+	transfer_param = urlData.query;
+	area_location_index = Number(transfer_param.AreaLocation);
+	inverter_id_index = Number(transfer_param.InverterID);
+
+	var currentDate = new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
+	"-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString();
+	
+	res.render('solarhistorydata', {
+		title: 'Oring Solar System Demo - History Data',
+		setsublocationindex:1,
+		setarealocationindex:1,
+		setinverteridindex:1,
+		setinverterlistdata:inverter_list_data,
+		setSelectDate: currentDate,
+		setSelectType: 'Day',
+		setcalcTotal: 0,
+		setSingleData: 1,
+		setchartdata: energyDataString,
+		setcharttitle: 'Selected Inverters Energy Chart',
+		setchartsubtitle: subtitle,
+		setInverterList: 0,
+		setPosFunction: 0,
+		setCheckInverter: 0
+	});
+});
+
 router.get('/Test', function(req, res){
   res.send('API Test 2');
 });
