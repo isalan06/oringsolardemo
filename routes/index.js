@@ -1170,18 +1170,7 @@ router.get('/SolarHistoryData', function(req, res){
 		title: 'Oring Solar System Demo - History Data',
 		setsublocationindex:1,
 		setarealocationindex:1,
-		setinverteridindex:1,
-		setinverterlistdata:inverter_list_data,
-		setSelectDate: currentDate,
-		setSelectType: 'Day',
-		setcalcTotal: 0,
-		setSingleData: 1,
-		setchartdata: energyDataString,
-		setcharttitle: 'Selected Inverters Energy Chart',
-		setchartsubtitle: subtitle,
-		setInverterList: 0,
-		setPosFunction: 0,
-		setCheckInverter: 0
+		setinverteridindex:1
 	});
 });
 
