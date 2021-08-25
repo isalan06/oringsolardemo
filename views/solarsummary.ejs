@@ -186,6 +186,7 @@
             </div>
           </div>
           <div id="myMap" class="Rect-Main-9">
+            <label class="Title-9">異常設備列表</label>
             <div class="Table-1">
               <div class="Table-2">
               <table class="Table-3">
@@ -204,8 +205,9 @@
                   <tbody style="overflow: auto;">
                     <% var index_number = 1; %>
                     <% setAbnormalInverter.forEach( (row) => { %>
+                      <% var historyurlstring = '/SolarInverterList?AreaLocation=' + row['area_location'].toString() + '&InverterID=' + row['inverter_id'].toString(); %>
                       <tr class="Column-2">
-                        <th><a><%= index_number %></a></th>
+                        <th><a href=<%= historyurlstring %>><%= index_number %></a></th>
                         <% index_number++; %>
                         <th><%= row['sublocation_name'] %></th>
                         <th><%= row['arealocation_name'] %></th>
