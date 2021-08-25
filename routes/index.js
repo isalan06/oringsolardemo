@@ -1170,7 +1170,8 @@ router.get('/SolarHistoryData', function(req, res){
 		title: 'Oring Solar System Demo - History Data',
 		setsublocationindex:1,
 		setarealocationindex:1,
-		setinverteridindex:1
+		setinverteridindex:1,
+		setSelectDate: currentDate
 	});
 });
 
