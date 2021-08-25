@@ -151,7 +151,7 @@ router.get('/SolarSummary', function(req, res) {
 														else{
 															var abnormal_inverter_list = rows;
 
-															console.log(abnormal_inverter_list);
+															//console.log(abnormal_inverter_list);
 
 															conn.end();
 															res.render('solarsummary', {
@@ -165,7 +165,8 @@ router.get('/SolarSummary', function(req, res) {
 																setTodayOnlinePrec: today_online_prec,
 																setOnlineChart: onlineDataString,
 																setHourChart: hourDataString,
-																setAreaInformation: areainformationdata
+																setAreaInformation: areainformationdata,
+																setAbnormalInverter: abnormal_inverter_list
 															});
 														}
 													});

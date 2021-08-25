@@ -74,7 +74,7 @@
           map: map
         });
       }
-      google.maps.event.addDomListener(window, 'load', initialize);
+      //google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
   <body>
@@ -186,7 +186,40 @@
             </div>
           </div>
           <div id="myMap" class="Rect-Main-9">
-            
+            <div class="Table-1">
+              <div class="Table-2">
+              <table class="Table-3">
+                  <thead style="table-layout: fixed;">
+                      <tr class="Column-1">
+                          <th>序號</th>
+                          <th>地區</th>
+                          <th>場域</th>
+                          <th>設備號碼</th>
+                          <th>連線狀態</th>
+                          <th>設備狀態</th>
+                          <th>今日發電量(kWh)</th>
+                          <th>今日運行時間(hr)</th>
+                    </tr>
+                  </thead>
+                  <tbody style="overflow: auto;">
+                    <% var index_number = 1; %>
+                    <% setAbnormalInverter.forEach( (row) => { %>
+                      <tr class="Column-2">
+                        <th><a><%= index_number %></a></th>
+                        <% index_number++; %>
+                        <th><%= row['sublocation_name'] %></th>
+                        <th><%= row['arealocation_name'] %></th>
+                        <th><%= row['inverter_id'] %></th>
+                        <th><%= row['online_status_name'] %></th>
+                        <th><%= row['inverter_state_name'] %></th>
+                        <th><%= row['today_energy'].toFixed(1) %></th>
+                        <th><%= (row['today_runtime'] / 3600).toFixed(1) %></th>
+                      </tr>
+                    <% }); %>
+                  </tbody>
+              </table>
+              </div>
+              </div>
           </div>
       </div>
       
