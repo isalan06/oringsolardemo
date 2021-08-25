@@ -146,7 +146,7 @@ router.get('/SolarSummary', function(req, res) {
 												if(rows.length > 0){
 													var areainformationdata = rows;
 
-													conn.query('SELECT * FROM view_today_abnormal_inveterl', function(err, rows){
+													conn.query('SELECT * FROM view_today_abnormal_inveter;', function(err, rows){
 														if(err) res.send('Get Data Error 6');
 														else{
 															var abnormal_inverter_list = rows;
