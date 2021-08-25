@@ -2151,7 +2151,7 @@ function readData()
   return returnString;
 };
 
-app.get('/Excel', function(req, res){
+router.get('/Excel', function(req, res){
 	var conf ={};
   conf.stylesXmlFile = "styles.xml";
   conf.name = "mysheet";
