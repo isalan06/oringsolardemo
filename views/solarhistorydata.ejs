@@ -24,6 +24,87 @@
           </div>
           
         </div>
+        <div class="MainContainer">
+            <form action="/SolarHistory" method="POST">
+                <div class="Rect-Main-40">
+                    <label style="margin-top: 10px; margin-left: 10px;">案場設備列表</label>
+                    <div id="treeview_container" class="hummingbird-treeview">
+                        <ul id="myUL">
+                            <% setinverterlistdata.forEach( (row) => { %>
+                                <li><span class="caret caret-down" caret-down><%= row['Name'] %></span>
+                                    <ul class="nested active">
+                                        <% row['AreaList'].forEach( (arearow) => { %>
+                                            <% if(arearow['Index'] === setarealocationindex) { %>
+                                                <li><span class="caret caret-down"><%= arearow['Name'] %></span>
+                                                    <ul class="nested active">
+                                            <% } else { %>
+                                                <li><span class="caret caret-down"><%= arearow['Name'] %></span>
+                                                    <ul class="nested active">
+                                            <% } %>
+                                                        <% arearow['InverterList'].forEach((inverterrow) => { %>
+                                                            <% var checkvalue = 100 * arearow['Index'] + inverterrow['inverter_id']; %> 
+                                                            <% var urlString='/SolarInverterList?AreaLocation=' + arearow['Index'].toString() + '&InverterID=' + inverterrow['inverter_id'].toString(); %>
+                                                            <% var checkflag=0; %>
+                                                            <% if(setPosFunction == 0){ %>
+                                                                <% if((arearow['Index'] === setarealocationindex) && (inverterrow['inverter_id'] === setinverteridindex)) { checkflag = 1;} %>
+                                                            <% } else { %>
+                                                                <% if(setSingleData == 1) { %>
+                                                                    <% if(checkvalue == setCheckInverter) checkflag=1; %>
+                                                                <% } else { %>
+                                                                    <% for(var i=0;i<setCheckInverter.length;i++) { %>
+                                                                        <% if(checkvalue == setCheckInverter[i]) { checkflag=1; break; } %>
+                                                                    <% } %>
+                                                                <% } %> 
+                                                            <% } %>
+                                                            <li><input type="checkbox" name="checkInverter" value=<%= checkvalue %> <% if(checkflag == 1) { %>checked<% } %>>
+                                                                <% if ((inverterrow['online_status'] === 0) || (inverterrow['inverter_state'] === 4)) { %>
+                                                                    <span class='dot' style="background-color:red;"></span>
+                                                                <% } else { %>
+                                                                    <span class='dot' style="background-color:lime;"></span>
+                                                                <% } %>
+                                                                Inverter-<%= inverterrow['inverter_id'].toString().padStart(2, "0") %></li>
+    
+                                                        <% }); %>
+                                                    </ul>
+                                                </li>
+                                        <% }); %>
+                                    </ul>
+                                </li>
+                            <% }); %>
+    
+                        </ul>
+                    </div>
+                    <script>
+                        var toggler = document.getElementsByClassName("caret");
+                        var i;
+    
+                        for (i = 0; i < toggler.length; i++) {
+                            toggler[i].addEventListener("click", function() {
+                            this.parentElement.querySelector(".nested").classList.toggle("active");
+                            this.classList.toggle("caret-down");
+                            });
+                        }   
+                    </script>
+                </div>
+                <div class="Rect-Main-41">
+                    <div>
+                        <label>選擇類型</label>
+                        <select id="myComboboxArea" name="myComboboxArea" class="Combobox-1">
+                            <option value="Day" <% if(setSelectType == 'Day') { %>selected<% } %>>日</option>
+                            <option value="Month" <% if(setSelectType == 'Month') { %>selected<% } %>>月</option>
+                            <option value="Year" <% if(setSelectType == 'Year') { %>selected<% } %>>年</option>
+                        </select>
+                        <label>選擇日期</label>
+                        <input type="date" name="pickDateTime" placeholder="Date" value=<%= setSelectDate %>>
+                        <input type="checkbox" name="testCheckbox" <% if(setcalcTotal==1) { %> checked <% } %>>計算所有發電量
+                        <button>執行</button>
+                    </div>
+                </div>
+            </form>
+            <div class="Rect-Main-42">
+
+            </div>
+        </div>
     </div>
   </body>
 </html>

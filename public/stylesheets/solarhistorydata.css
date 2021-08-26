@@ -157,3 +157,87 @@
     width: 1176px;
     height: 1000px;  
   }
+  .Rect-Main-40 {
+    width: 250px;
+    height: 1000px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+    position:absolute;
+  }
+
+  /* Remove default bullets */
+ul, #myUL {
+    list-style-type: none;
+  }
+  
+  /* Remove margins and padding from the parent ul */
+  #myUL {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style the caret/arrow */
+  .caret {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+  }
+  
+  /* Create the caret/arrow with a unicode, and style it */
+  .caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+  }
+  
+  /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+  .caret-down::before {
+    transform: rotate(90deg);
+  }
+  
+  /* Hide the nested list */
+  .nested {
+    display: none;
+  }
+  
+  /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+  .active {
+    display: block;
+  }
+
+  .hummingbird-treeview{
+    margin-left: -96px;
+    margin-top: 34px;
+  }
+
+  .dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .Rect-Main-41 {
+    width: 870px;
+    height: 200px;
+    margin-left: 286px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+    position:absolute;
+  }
+
+  .Rect-Main-42 {
+    width: 870px;
+    height: 780px;
+    margin-left: 286px;
+    margin-top: 236px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+    position:absolute;
+  }

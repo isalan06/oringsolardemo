@@ -1242,7 +1242,16 @@ router.get('/SolarHistoryData', function(req, res){
 						setarealocationindex:1,
 						setinverteridindex:1,
 						setSelectDate: currentDate,
-						setinverterlistdata:inverter_list_data
+						setinverterlistdata:inverter_list_data,
+						setSelectType: 'Day',
+						setcalcTotal: 0,
+						setSingleData: 1,
+						setchartdata: energyDataString,
+						setcharttitle: 'Selected Inverters Energy Chart',
+						setchartsubtitle: subtitle,
+						setInverterList: 0,
+						setPosFunction: 0,
+						setCheckInverter: 0
 					});
 				}
 			});
