@@ -1235,6 +1235,8 @@ router.get('/SolarHistoryData', function(req, res){
 					inverter_list_sublocation['AreaList'].push(inverter_list_arealocation);
 					inverter_list_data.push(inverter_list_sublocation);
 
+					var energyDataString = '';
+
 					conn.end();
 					res.render('solarhistorydata', {
 						title: 'Oring Solar System Demo - History Data',
