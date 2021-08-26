@@ -153,6 +153,16 @@ router.get('/SolarSummary', function(req, res) {
 															var abnormal_inverter_list = rows;
 
 															//console.log(abnormal_inverter_list);
+															console.log(totalenergy);
+															console.log(today_total_energy);
+															console.log(today_unit_energy);
+															console.log(today_hour_energy);
+															console.log(today_online_count);
+															console.log(today_offline_count);
+															console.log(today_online_prec);
+															console.log(onlineDataString);
+															console.log(hourDataString);
+															console.log(areainformationdata);
 
 															conn.end();
 															res.render('solarsummary', {
