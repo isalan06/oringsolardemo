@@ -112,11 +112,18 @@
                               <th>設備號碼</th>
                               <th><%= setDataIndexString %></th>
                               <th>發電量(kWh)</th>
-
                           </tr>
                       </thead>
                     <tbody style="overflow: auto;">
-
+                        <% setTableData.forEach( (row) => { %>
+                            <tr class="Column-2">
+                                <th><%= row['sublocation_name'] %></th>
+                                <th><%= row['arealocation_name'] %></th>
+                                <th><%= row['inverter_id'] %></th>
+                                <th><%= row['data_index'] %></th>
+                                <th><%= row['energy'] %></th>
+                            </tr>
+                        <% }); %>
                     </tbody>
                   </table>
                   </div>

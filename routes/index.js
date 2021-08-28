@@ -1254,7 +1254,8 @@ router.get('/SolarHistoryData', function(req, res){
 						setInverterList: 0,
 						setPosFunction: 0,
 						setCheckInverter: 0,
-						setDataIndexString: '小時'
+						setDataIndexString: '小時',
+						setTableData:[]
 					});
 				}
 			});
@@ -1385,7 +1386,8 @@ router.post('/SolarHistoryData', function(req, res){
 							setInverterList: 0,
 							setPosFunction: 0,
 							setCheckInverter: 0,
-							setDataIndexString: '小時'
+							setDataIndexString: '小時',
+							setTableData:[]
 						});
 					} else {
 						if(selectType == 'Day'){
@@ -1410,8 +1412,6 @@ router.post('/SolarHistoryData', function(req, res){
 								if(err) { conn.end(); res.send('Get Data Error 3');}
 								else{
 
-									console.log(rows);
-									console.log(rows.length);
 									conn.end();
 									res.render('solarhistorydata', {
 									title: 'Oring Solar System Demo - History Data',
@@ -1429,7 +1429,8 @@ router.post('/SolarHistoryData', function(req, res){
 										setInverterList: 0,
 										setPosFunction: 1,
 										setCheckInverter: checkInverter,
-										setDataIndexString: '小時'
+										setDataIndexString: '小時',
+										setTableData: rows
 									});
 								}
 							});
