@@ -1265,12 +1265,7 @@ router.get('/SolarHistoryData', function(req, res){
 router.post('/SolarHistoryData', function(req, res){
 	var selectType = req.body.myComboboxArea;
 	var pickDateTime = req.body.pickDateTime;
-	var calcAllEnergy = req.body.testCheckbox;
 	var checkInverter = req.body.checkInverter;
-	var calcAllEnergy_flag = 0;
-	if(calcAllEnergy != null){
-		if(calcAllEnergy == 'on') calcAllEnergy_flag=1;
-	}
 
 	//console.log(calcAllEnergy_flag);
 
@@ -1420,17 +1415,17 @@ router.post('/SolarHistoryData', function(req, res){
 										setsublocationindex:1,
 										setarealocationindex:1,
 										setinverteridindex:1,
-										setSelectDate: currentDate,
+										setSelectDate: pickDateTime,
 										setinverterlistdata:inverter_list_data,
-										setSelectType: 'Day',
+										setSelectType: selectType,
 										setcalcTotal: 0,
 										setSingleData: 1,
 										setchartdata: energyDataString,
 										setcharttitle: 'Selected Inverters Energy Chart',
 										setchartsubtitle: subtitle,
 										setInverterList: 0,
-										setPosFunction: 0,
-										setCheckInverter: 0
+										setPosFunction: 1,
+										setCheckInverter: checkInverter
 									});
 								}
 							});
