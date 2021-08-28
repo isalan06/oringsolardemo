@@ -1409,6 +1409,7 @@ router.post('/SolarHistoryData', function(req, res){
 								else{
 
 									console.log(rows);
+									console.log(rows.length);
 									conn.end();
 									res.render('solarhistorydata', {
 									title: 'Oring Solar System Demo - History Data',
