@@ -1480,6 +1480,51 @@ router.post('/SolarHistoryData', function(req, res){
 								}
 							});
 						}
+						if(selectType == 'Year'){
+							commandString = 'SELECT sublocation_name, arealocation_name, inverter_id, r_month  AS data_index, energy FROM ( SELECT * FROM ( SELECT * FROM ( SELECT (area_location * 100 + inverter_id) AS search_id, sub_location, area_location, inverter_id, r_month, energy/100 AS energy from table_solar_hist3_month ';
+							commandString += 'WHERE r_year=' + _year.toString();
+							commandString += ' ) AS raw_table ';
+							commandString += 'WHERE search_id=';
+								if(inv_number == 1)
+								    commandString += checkInverter.toString();
+								else{
+									commandString += checkInverter[0].toString();
+									for(var i=1;i<inv_number;i++){
+										commandString += " OR search_id=";
+										commandString += checkInverter[i].toString();
+									}
+								}
+							commandString += ') AS raw_table_2 INNER JOIN table_arealocation_name ON table_arealocation_name.arealocation_index=raw_table_2.area_location';
+							commandString += ') AS raw_table_3 INNER JOIN table_sublocation_name ON table_sublocation_name.sublocation_Index=raw_table_3.sub_location';
+							commandString += ' ORDER BY search_id, r_month;';
+
+							conn.query(commandString, function(err, rows){
+								if(err) { conn.end(); res.send('Get Data Error 3');}
+								else{
+
+									conn.end();
+									res.render('solarhistorydata', {
+									title: 'Oring Solar System Demo - History Data',
+										setsublocationindex:1,
+										setarealocationindex:1,
+										setinverteridindex:1,
+										setSelectDate: pickDateTime,
+										setinverterlistdata:inverter_list_data,
+										setSelectType: selectType,
+										setcalcTotal: 0,
+										setSingleData: hasonedata,
+										setchartdata: energyDataString,
+										setcharttitle: 'Selected Inverters Energy Chart',
+										setchartsubtitle: subtitle,
+										setInverterList: 0,
+										setPosFunction: 1,
+										setCheckInverter: checkInverter,
+										setDataIndexString: '月',
+										setTableData: rows
+									});
+								}
+							});
+						}
 					}
 				}
 			});
