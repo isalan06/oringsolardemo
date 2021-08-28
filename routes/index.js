@@ -1366,7 +1366,7 @@ router.post('/SolarHistoryData', function(req, res){
 					var energyDataString = '';
 
 					
-
+					if(inv_number > 1) hasonedata = 0;
 					if(inv_number == 0) {
 
 						conn.end();
@@ -1422,7 +1422,7 @@ router.post('/SolarHistoryData', function(req, res){
 										setinverterlistdata:inverter_list_data,
 										setSelectType: selectType,
 										setcalcTotal: 0,
-										setSingleData: 1,
+										setSingleData: hasonedata,
 										setchartdata: energyDataString,
 										setcharttitle: 'Selected Inverters Energy Chart',
 										setchartsubtitle: subtitle,
