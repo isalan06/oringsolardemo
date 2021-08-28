@@ -1253,7 +1253,8 @@ router.get('/SolarHistoryData', function(req, res){
 						setchartsubtitle: subtitle,
 						setInverterList: 0,
 						setPosFunction: 0,
-						setCheckInverter: 0
+						setCheckInverter: 0,
+						setDataIndexString: '小時'
 					});
 				}
 			});
@@ -1383,7 +1384,8 @@ router.post('/SolarHistoryData', function(req, res){
 							setchartsubtitle: subtitle,
 							setInverterList: 0,
 							setPosFunction: 0,
-							setCheckInverter: 0
+							setCheckInverter: 0,
+							setDataIndexString: '小時'
 						});
 					} else {
 						if(selectType == 'Day'){
@@ -1426,7 +1428,8 @@ router.post('/SolarHistoryData', function(req, res){
 										setchartsubtitle: subtitle,
 										setInverterList: 0,
 										setPosFunction: 1,
-										setCheckInverter: checkInverter
+										setCheckInverter: checkInverter,
+										setDataIndexString: '小時'
 									});
 								}
 							});
