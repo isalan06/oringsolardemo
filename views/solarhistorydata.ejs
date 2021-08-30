@@ -103,8 +103,18 @@
             <div class="Rect-Main-42">
                 <label class="Title-9">資料</label>
                 <form action="#" method="POST">
-                    <input  style="margin-top: 16px; margin-left: 100px;" type="submit" id="triggerTest" value="TriggerTest"/>Trigger Test
+                    <input  style="margin-top: 16px; margin-left: 100px;" type="submit" id="triggerTest" value="Trigger Test"/>
                 </form>
+                <script type="text/javascript">
+                    $('triggerTest').bind('click', function() {
+                        $.ajax('/PostTest', {
+                            type: 'POST',
+                            contentType: 'text/json',
+                            data: JSON.stringify({username:'user', password:'pass'}),
+                            complete: function() { /* Do something with the response. */ }
+                        });
+                    });
+                </script>
               <div class="Table-1">
                   <div class="Table-2">
                   <table class="Table-3">
