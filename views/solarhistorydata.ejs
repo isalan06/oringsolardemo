@@ -110,9 +110,10 @@
                     
                     $('#triggerTest').submit(function(e){ //.bind('click', function() {
                         <% console.log('setTableData'); %>
+                        <% console.log(JSON.stringify(setTableData)); %>
                         <% var data = {}; %>
                         <% data['rawdata'] = setTableData %>
-                        <% console.log(data); %>
+                        //<% console.log(data); %>
                         //var data['rawdata'] = <%= setTableData %>;
                         console.log
                         $.ajax('/ExportExcel', {
