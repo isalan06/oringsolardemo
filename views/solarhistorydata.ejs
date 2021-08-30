@@ -108,11 +108,14 @@
                 <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
                 <script type="text/javascript">
                     $('#triggerTest').submit(function(e){ //.bind('click', function() {
-                      $.ajax('/ExportExcel', {
+                        var data={};
+                        data.path='aaaa';
+                        data.ext='bbb';
+                        $.ajax('/ExportExcel', {
                         type: 'POST',
                         dataType:"json",
-                        contentType: "text/json",
-                        data: JSON.stringify({'username':'user', 'password':'pass'}),
+                        contentType: "application/json",
+                        data: JSON.stringify(data),
                         complete: function() { /* Do something with the response. */ }
                       });
                       return false; // Prevent form submit.
