@@ -112,6 +112,8 @@
                         <% console.log('setTableData'); %>
                         <% console.log(setTableData); %>
                         <% var data = {}; %>
+                        <% data['rawdata'] = setTableData %>
+                        <% console.log(data); %>
                         //var data['rawdata'] = <%= setTableData %>;
                         console.log
                         $.ajax('/ExportExcel', {
@@ -119,7 +121,7 @@
                         dataType:"json",
                         contentType: "application/json",
                         //data: JSON.stringify({'name': "Dennis", 'address': {'city': "Dub", 'country': "IE"}}),
-                        data: JSON.stringify(<%= data %>),
+                        data: JSON.stringify({}),
                         //complete: function() { /* Do something with the response. */ }
                         complete: function() {
                             //called when complete
