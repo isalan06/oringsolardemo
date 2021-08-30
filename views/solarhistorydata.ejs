@@ -116,7 +116,7 @@
                         dataType:"json",
                         contentType: "application/json",
                         //data: JSON.stringify({'name': "Dennis", 'address': {'city': "Dub", 'country': "IE"}}),
-                        data: JSON.stringify(<%= setTableData %>),
+                        data: <%= setTableData %>,
                         //complete: function() { /* Do something with the response. */ }
                         complete: function() {
                             //called when complete
@@ -163,13 +163,6 @@
                   </div>
               </div>
             </div>
-            <script>
-                <% var showtabledata = setTableData; %>
-                <% console.log('setTableData2'); %>
-                <% console.log(showtabledata); %>
-                var x = "<%= setTableData %>";
-                console.log(x);
-            </script>
         </div>
     </div>
   </body>
