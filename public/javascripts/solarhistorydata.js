@@ -1,7 +1,7 @@
 $(function() {
     $("button").on("click", function () {
         $.ajax('/ExportExcel', {
-            type: 'Post',
+            type: 'POST',
             contentType: 'text/json',
             data: setTableData,
             complete: function() { /* Do something with the response. */ }
