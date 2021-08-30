@@ -108,14 +108,11 @@
                 <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
                 <script type="text/javascript">
                     $('#triggerTest').submit(function(e){ //.bind('click', function() {
-                        var data={};
-                        data['path']='aaaa';
-                        data['ext']='bbb';
                         $.ajax('/ExportExcel', {
                         type: 'POST',
                         dataType:"json",
                         contentType: "application/json",
-                        data: {name: "Dennis", address: {city: "Dub", country: "IE"}},
+                        data: {'name': "Dennis", 'address': {'city': "Dub", 'country': "IE"}},
                         //complete: function() { /* Do something with the response. */ }
                         complete: function() {
                             //called when complete
