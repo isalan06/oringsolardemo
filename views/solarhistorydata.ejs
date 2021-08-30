@@ -110,7 +110,6 @@
                     
                     $('#triggerTest').submit(function(e){ //.bind('click', function() {
                         <% console.log('setTableData'); %>
-                        <% console.log(setTableData); %>
                         <% var data = {}; %>
                         <% data['rawdata'] = setTableData %>
                         <% console.log(data); %>
@@ -121,7 +120,7 @@
                         dataType:"json",
                         contentType: "application/json",
                         //data: JSON.stringify({'name': "Dennis", 'address': {'city': "Dub", 'country': "IE"}}),
-                        data: JSON.stringify({}),
+                        data: JSON.stringify(<%= data %>),
                         //complete: function() { /* Do something with the response. */ }
                         complete: function() {
                             //called when complete
