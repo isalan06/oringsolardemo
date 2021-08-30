@@ -106,16 +106,8 @@
                     <button style="margin-top: 16px; margin-left: 100px; height: 26px;" id="triggerTest">Trigger Test</button>
 
                 <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
-                <script type="text/javascript">
-                    $('triggerTest').bind('click', function() {
-                        $.ajax('/ExportExcel', {
-                            type: 'Post',
-                            contentType: 'text/json',
-                            data: setTableData,
-                            complete: function() { /* Do something with the response. */ }
-                        });
-                    });
-                </script>
+                <script type="text/javascript" src="javascripts/solarhistorydata.js"></script>>
+                 
               <div class="Table-1">
                   <div class="Table-2">
                   <table class="Table-3">
