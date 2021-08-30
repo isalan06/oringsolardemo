@@ -112,7 +112,7 @@
                         type: 'POST',
                         dataType:"json",
                         contentType: "application/json",
-                        data: {'name': "Dennis", 'address': {'city': "Dub", 'country': "IE"}},
+                        data: JSON.stringify({'name': "Dennis", 'address': {'city': "Dub", 'country': "IE"}}),
                         //complete: function() { /* Do something with the response. */ }
                         complete: function() {
                             //called when complete
