@@ -109,7 +109,7 @@
                 <script type="text/javascript">
                     $('button').bind('click', function() {
                         $.ajax('/Excel2', {
-                            type: 'POST',
+                            type: 'Get',
                             contentType: 'text/json',
                             data: JSON.stringify({username:'user', password:'pass'}),
                             complete: function() { /* Do something with the response. */ }
