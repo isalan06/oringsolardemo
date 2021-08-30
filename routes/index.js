@@ -2565,6 +2565,11 @@ router.post('/ExportExcel', function(req, req){
 	console.log(req.contentType);
 	console.log(req.data);
 
+	req.on('data', function(data){
+		obj=JSON.parse(data);
+		console.log(obj);
+	});
+
 	//res.send('Test');
 });
 
