@@ -111,7 +111,7 @@
                       $.ajax('/ExportExcel', {
                         type: 'POST',
                         dataType:"json",
-                        contentType: "application/json",
+                        contentType: "text/json",
                         data: JSON.stringify({'username':'user', 'password':'pass'}),
                         complete: function() { /* Do something with the response. */ }
                       });
