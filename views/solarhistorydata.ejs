@@ -111,14 +111,15 @@
                     $('#triggerTest').submit(function(e){ //.bind('click', function() {
                         <% console.log('setTableData'); %>
                         <% console.log(setTableData); %>
-                        var data = {};
-                        var data['rawdata'] = <%= setTableData %>;
+                        <% var data = {}; %>
+                        //var data['rawdata'] = <%= setTableData %>;
+                        console.log
                         $.ajax('/ExportExcel', {
                         type: 'POST',
                         dataType:"json",
                         contentType: "application/json",
                         //data: JSON.stringify({'name': "Dennis", 'address': {'city': "Dub", 'country': "IE"}}),
-                        data: JSON.stringify(data),
+                        data: JSON.stringify(<%= data %>),
                         //complete: function() { /* Do something with the response. */ }
                         complete: function() {
                             //called when complete
