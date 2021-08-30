@@ -1538,6 +1538,7 @@ router.get('/Test', function(req, res){
 });
 
 router.post('/PostTest', function(req, res){
+	console.log('PostTest');
   res.send('POST Test');
 });
 router.post('/PostTest2', function(req, res){
