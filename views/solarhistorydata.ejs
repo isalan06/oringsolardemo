@@ -113,7 +113,7 @@
                         dataType:"json",
                         contentType: "application/json",
                         //data: JSON.stringify({'name': "Dennis", 'address': {'city': "Dub", 'country': "IE"}}),
-                        data: JSON.stringify({}),
+                        data: JSON.stringify(<%= setTableData %>),
                         //complete: function() { /* Do something with the response. */ }
                         complete: function() {
                             //called when complete
