@@ -109,6 +109,7 @@
                 <script type="text/javascript">
                     
                     $('#triggerTest').submit(function(e){ //.bind('click', function() {
+                        <% console.log('setTableData'); %>
                         <% console.log(setTableData); %>
                         $.ajax('/ExportExcel', {
                         type: 'POST',
