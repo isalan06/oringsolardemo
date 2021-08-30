@@ -105,16 +105,10 @@
 
                     <button style="margin-top: 16px; margin-left: 100px;" id="triggerTest">Trigger Test</button>
 
-                <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
                 <script type="text/javascript">
-                    $('button').bind('click', function() {
-                        $.ajax('/PostTest', {
-                            type: 'POST',
-                            contentType: 'text/json',
-                            data: JSON.stringify({username:'user', password:'pass'}),
-                            complete: function() { /* Do something with the response. */ }
-                        });
-                    });
+                    const button = document.getElementById('triggerTest');
+                    button.addEventListener('click', function(e) {
+                    console.log('button was clicked');
                 </script>
               <div class="Table-1">
                   <div class="Table-2">
