@@ -21,6 +21,8 @@ var today_energy = 0.0;
 
 //const conn = new mysql.createConnection(config);
 
+router.use(express.bodyParser());
+
 /* GET home page. */
 router.get('/', function(req, res) { //, next) {
   //res.render('index', { title: 'Express' });
