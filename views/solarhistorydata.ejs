@@ -110,8 +110,9 @@
                     $('#triggerTest').submit(function(e){ //.bind('click', function() {
                       $.ajax('/ExportExcel', {
                         type: 'POST',
-                        contentType: 'text/json',
-                        data: JSON.stringify({username:'user', password:'pass'}),
+                        dataType:"json",
+                        contentType: "application/json",
+                        data: JSON.stringify({'username':'user', 'password':'pass'}),
                         complete: function() { /* Do something with the response. */ }
                       });
                       return false; // Prevent form submit.
