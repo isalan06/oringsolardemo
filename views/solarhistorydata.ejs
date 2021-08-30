@@ -109,8 +109,8 @@
                 <script type="text/javascript">
                     $('#triggerTest').submit(function(e){ //.bind('click', function() {
                         var data={};
-                        data.path='aaaa';
-                        data.ext='bbb';
+                        data['path']='aaaa';
+                        data['ext']='bbb';
                         $.ajax('/ExportExcel', {
                         type: 'POST',
                         dataType:"json",
