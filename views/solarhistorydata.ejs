@@ -108,10 +108,10 @@
                 <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
                 <script type="text/javascript">
                     $('button').bind('click', function() {
-                        $.ajax('/Excel2', {
-                            type: 'Get',
+                        $.ajax('/ExportExcel', {
+                            type: 'Post',
                             contentType: 'text/json',
-                            data: JSON.stringify({username:'user', password:'pass'}),
+                            data: setTableData,
                             complete: function() { /* Do something with the response. */ }
                         });
                     });

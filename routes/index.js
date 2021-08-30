@@ -2560,4 +2560,9 @@ router.get('/Excel2', function(req, res){
 	console.log("A");
 });
 
+router.post('/ExportExce', function(req, req){
+	console.log('Export Excel');
+	console.log(req.body.data);
+});
+
 module.exports = router;
