@@ -101,12 +101,13 @@
             </form>
             <div class="Rect-Main-42">
                 <label class="Title-9">資料</label>
-
-                <button style="margin-top: 16px; margin-left: 100px; height: 26px;" id="triggerTest">Trigger Test</button>
+                <form method='post' id='triggerTest'>
+                <button style="margin-top: 16px; margin-left: 100px; height: 26px;" id="triggerTest2" type="submit">Trigger Test</button>
+                </form>
 
                 <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
                 <script type="text/javascript">
-                    $('#triggerTest').bind('click', function() {
+                    $('#triggerTest').submit(function(e){ //.bind('click', function() {
                       $.ajax('/ExportExcel', {
                         type: 'POST',
                         contentType: 'text/json',
