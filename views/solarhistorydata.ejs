@@ -109,11 +109,17 @@
                 <script type="text/javascript">
                     
                     $('#triggerTest').submit(function(e){ //.bind('click', function() {
-                        <% console.log('setTableData'); %>
-                        <% console.log(JSON.stringify(setTableData)); %>
+                        //<% console.log('setTableData'); %>
+                        //<% console.log(JSON.stringify(setTableData)); %>
                         <% var data = {}; %>
-                        <% data['rawdata'] = setTableData %>
-                        //<% console.log(data); %>
+                        <% var titledata = {}; %>
+                        <% titledata['area']='地區'; %>
+                        <% titledata['location']='場域'; %>
+                        <% titledata['inverterid']='設備號碼'; %>
+                        <% titledata['dataindex']=setDataIndexString; %>
+                        <% titledata['energy']='發電量(kWh)'; %>
+                        <% data['title'] = titledata %>
+                        <% console.log(data); %>
                         //var data['rawdata'] = <%= setTableData %>;
                         console.log
                         $.ajax('/ExportExcel', {
@@ -123,7 +129,7 @@
                         //data: JSON.stringify({'name': "Dennis", 'address': {'city': "Dub", 'country': "IE"}}),
                         data: JSON.stringify({ A: [{A1: 123, A2: 234 }, {A1: 888, A2: 333 }]}),
                         //complete: function() { /* Do something with the response. */ }
-                        /*complete: function() {
+                        complete: function() {
                             //called when complete
                             console.log('process complete');
                         },
@@ -135,7 +141,7 @@
 
                         error: function() {
                             console.log('process error');
-                        },*/
+                        },
                       });
                       return false; // Prevent form submit.
                     });
