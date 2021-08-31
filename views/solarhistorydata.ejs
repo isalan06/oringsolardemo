@@ -113,13 +113,14 @@
                     <% titledata['inverterid']='設備號碼'; %>
                     <% titledata['dataindex']=setDataIndexString; %>
                     <% titledata['energy']='發電量(kWh)'; %>
-                    <% console.log(titledata); %>
+                    <% var titledatastring = JSON.stringify(titledata); %>
+                    <% console.log(titledatastring); %>
                     $('#triggerTest').submit(function(e){
                         $.ajax('/ExportExcel', {
                             type: 'POST',
                             dataType:"json",
                             contentType: "application/json",
-                            data: JSON.stringify(<% titledata %>),
+                            data: <%= titledatastring %>,
                             complete: function(){
 
                             }
