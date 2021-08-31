@@ -105,14 +105,18 @@
                     <% var setTableDataString = JSON.stringify(setTableData); %>
                     <% var setFileNameString = ''; %>
                     <% var setTitleColumn = {}; %>
-                    <% var setTitleColumn['Column_1']='地區'; %>
-                    <% var setTitleColumn['Column_2']='場域'; %>
-                    <% var setTitleColumn['Column_3']='設備號碼'; %>
-                    <% var setTitleColumn['Column_4']=setDataIndexString; %>
-                    <% var setTitleColumn['Column_5']='發電量(kWh)'; %>
-                    
+                    <% setTitleColumn['Column_1']='地區'; %>
+                    <% setTitleColumn['Column_2']='場域'; %>
+                    <% setTitleColumn['Column_3']='設備號碼'; %>
+                    <% setTitleColumn['Column_4']=setDataIndexString; %>
+                    <% setTitleColumn['Column_5']='發電量(kWh)'; %>
+                    <% var setTitleColumnString = JSON.stringify(setTitleColumn); %>
+                    <% setFileNameString += setSelectType; %>
+                    <% setFileNameString += ' - Report_'; %>
+                    <% setFileNameString += setSelectDate.toString(); %>
+                    <% setFileNameString += '.xlsx'; %>
                     <input name="filenamepath" type="text" value=<%= setFileNameString %> hidden>
-                    <input name="titlecolumn" type="text" value=<%= setTitleColumn %> hidden>
+                    <input name="titlecolumn" type="text" value=<%= setTitleColumnString %> hidden>
                     <input name="tabledata" type="text" value=<%= setTableDataString %> hidden>
                     <button style="margin-top: 16px; margin-left: 100px; height: 26px;" id="triggerTest2" type="submit">Trigger Test</button>
                 </form>
