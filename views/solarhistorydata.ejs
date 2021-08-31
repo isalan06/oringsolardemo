@@ -104,6 +104,7 @@
                 <form method='post' action="/ExportExcel">
                     <% var setTableDataString = JSON.stringify(setTableData); %>
                     <% var setFileNameString = (setSelectType.toString() + " - Report_" + setSelectDate.toString() + ".xlsx"); %>
+                    <% console.log(setFileNameString); %>
                     <% var setTitleColumn = {}; %>
                     <% setTitleColumn['Column_1']='地區'; %>
                     <% setTitleColumn['Column_2']='場域'; %>
