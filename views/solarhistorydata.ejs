@@ -106,6 +106,13 @@
                 </form>
                 <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
                 <script type="text/javascript">
+                    <% var tabledata = {}; %>
+                    <% var titledata = {}; %>
+                    <% titledata['area']='地區'; %>
+                    <% titledata['location']='場域'; %>
+                    <% titledata['inverterid']='設備號碼'; %>
+                    <% titledata['dataindex']=setDataIndexString; %>
+                    <% titledata['energy']='發電量(kWh)'; %>
                     $('#triggerTest').submit(function(e){
                         $.ajax('/ExportExcel', {
                             type: 'POST',
