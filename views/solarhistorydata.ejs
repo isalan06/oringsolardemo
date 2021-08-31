@@ -108,11 +108,8 @@
                 <script type="text/javascript">
                     <% var tabledata = {}; %>
                     <% var titledata = {}; %>
-                    <% titledata['area']='地區'; %>
-                    <% titledata['location']='場域'; %>
-                    <% titledata['inverterid']='設備號碼'; %>
-                    <% titledata['dataindex']=setDataIndexString; %>
-                    <% titledata['energy']='發電量(kWh)'; %>
+                    <% titledata['area']='aa'; %>
+                    <% titledata['location']='bb'; %>
                     <% var titledatastring = JSON.stringify(titledata); %>
                     <% console.log(titledatastring); %>
                     let payload = JSON.parse('<%= titledatastring %>');
