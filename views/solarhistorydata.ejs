@@ -109,19 +109,7 @@
                 <script type="text/javascript">
                     
                     $('#triggerTest').submit(function(e){ //.bind('click', function() {
-                        //<% console.log('setTableData'); %>
-                        //<% console.log(JSON.stringify(setTableData)); %>
-                        <% var data = {}; %>
-                        <% var titledata = {}; %>
-                        <% titledata['area']='地區'; %>
-                        <% titledata['location']='場域'; %>
-                        <% titledata['inverterid']='設備號碼'; %>
-                        <% titledata['dataindex']=setDataIndexString; %>
-                        <% titledata['energy']='發電量(kWh)'; %>
-                        <% data['title'] = titledata; %>
-                        <% var dataString = JSON.stringify(data); %>
-                        <% console.log(dataString); %>
-                        //var data['rawdata'] = <%= setTableData %>;
+
                         $.ajax('/ExportExcel', {
                         type: 'POST',
                         dataType:"json",
