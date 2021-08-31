@@ -2580,13 +2580,13 @@ router.post('/ExportExcel', function(req, res){
         type:'string',
 	},{
 		caption:exportdata_titlecolumn['Column_3'],
-        type:'string',
+        type:'number',
 	},{
 		caption:exportdata_titlecolumn['Column_4'],
-        type:'string',
+        type:'number',
 	},{
 		caption:exportdata_titlecolumn['Column_5'],
-        type:'string',				
+        type:'number',				
   	}];
 
 	conf.rows = [];
