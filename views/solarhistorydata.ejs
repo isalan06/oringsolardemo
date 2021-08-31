@@ -108,10 +108,8 @@
                 <script type="text/javascript">
                     $('#triggerTest').submit(function(e){
                         var _inverter = $(this).find("#checkInverter").val();
-                        <% console.log(_inverter); %>
                         $.ajax('/ExportExcel', {
                             type: 'POST',
-                            dataType:"json",
                             contentType: "text/content",
                             data: JSON.stringify(_inverter),
                             complete: function(){
