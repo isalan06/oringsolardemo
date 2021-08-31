@@ -110,10 +110,7 @@
                     <% var setTitleColumn['Column_3']='設備號碼'; %>
                     <% var setTitleColumn['Column_4']=setDataIndexString; %>
                     <% var setTitleColumn['Column_5']='發電量(kWh)'; %>
-                    <% setFileNameString += setSelectType; %>
-                    <% setFileNameString += ' - Report_'; %>
-                    <% setFileNameString += setSelectDate.toString(); %>
-                    <% setFileNameString += '.xlsx'; %>
+                    
                     <input name="filenamepath" type="text" value=<%= setFileNameString %> hidden>
                     <input name="titlecolumn" type="text" value=<%= setTitleColumn %> hidden>
                     <input name="tabledata" type="text" value=<%= setTableDataString %> hidden>
