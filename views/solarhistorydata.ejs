@@ -115,7 +115,7 @@
                     <% titledata['energy']='發電量(kWh)'; %>
                     <% var titledatastring = JSON.stringify(titledata); %>
                     <% console.log(titledatastring); %>
-                    let payload = <%= titledatastring %>;
+                    let payload = '<%= titledatastring %>';
                     $('#triggerTest').submit(function(e){
                         $.ajax('/ExportExcel', {
                             type: 'POST',
