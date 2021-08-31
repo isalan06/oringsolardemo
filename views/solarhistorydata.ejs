@@ -118,16 +118,16 @@
                         <% titledata['inverterid']='設備號碼'; %>
                         <% titledata['dataindex']=setDataIndexString; %>
                         <% titledata['energy']='發電量(kWh)'; %>
-                        <% data['title'] = titledata %>
+                        <% data['title'] = titledata; %>
+                        <% var dataString = JSON.stringify(data); %>
                         //<% console.log(data); %>
                         //var data['rawdata'] = <%= setTableData %>;
-                        //console.log
                         $.ajax('/ExportExcel', {
                         type: 'POST',
                         dataType:"json",
                         contentType: "application/json",
                         //data: JSON.stringify({'name': "Dennis", 'address': {'city': "Dub", 'country': "IE"}}),
-                        data: JSON.stringify(<%= data %>),//{ A: [{A1: 123, A2: 234 }, {A1: 888, A2: 333 }]}),
+                        data: <%= dataString %>,//{ A: [{A1: 123, A2: 234 }, {A1: 888, A2: 333 }]}),
                         //complete: function() { /* Do something with the response. */ }
                         complete: function() {
                             //called when complete
