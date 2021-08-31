@@ -2566,10 +2566,10 @@ router.get('/Excel2', function(req, res){
 router.post('/ExportExcel', function(req, res){
 	console.log('Export Excel');
 	var exportdata_titlecolumn = JSON.parse(req.body.titlecolumn);
-	console.log(req.body.filenamepath);
-	console.log(req.body.titlecolumn);
-	console.log(req.body.tabledata);
+	var exportdata_rawdata = JSON.parse(req.body.tabledata);
 	console.log(exportdata_titlecolumn);
+	console.log(exportdata_rawdata);
+	
 	var conf = {};
 	conf.anme = "Report";
 	conf.cols = [{
@@ -2588,6 +2588,17 @@ router.post('/ExportExcel', function(req, res){
 		caption:exportdata_titlecolumn['Column_5'],
         type:'string',				
   	}];
+
+	conf.rows = [];
+	exportdata_rawdata.forEach((row) => {
+		var rowdata = [];
+		rowdata.push(row['sublocation_name']);
+		rowdata.push(row['arealocation_name']);
+		rowdata.push(row['inverter_id']);
+		rowdata.push(row['data_index']);
+		rowdata.push(row['energy']);
+		conf.rows.push(rowdata);
+	});
 
 	console.log(conf);
 
