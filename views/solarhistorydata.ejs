@@ -106,14 +106,6 @@
                 </form>
                 <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
                 <script type="text/javascript">
-                    <% var tabledata = {}; %>
-                    <% var titledata = {}; %>
-                    <% titledata['area']='aa'; %>
-                    <% titledata['location']='bb'; %>
-                    <% var titledatastring = JSON.stringify(titledata); %>
-                    <% console.log(titledatastring); %>
-                    let payload = JSON.parse('<%= titledatastring %>');
-                    console.log(payload);
                     $('#triggerTest').submit(function(e){
                         <% console.log('AJAX'); %>
                         $.ajax('/ExportExcel', {
