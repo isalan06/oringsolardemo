@@ -119,8 +119,8 @@
                         $.ajax('/ExportExcel', {
                             type: 'POST',
                             dataType:"json",
-                            contentType: "application/json",
-                            data: JSON.stringify(JSON.parse('<%= titledatastring %>')),
+                            contentType: "text/json",
+                            data: '<%= titledatastring %>',
                             complete: function(){
 
                             }
