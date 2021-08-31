@@ -103,7 +103,7 @@
                 <label class="Title-9">資料</label>
                 <form method='post' action="/ExportExcel">
                     <% var setTableDataString = JSON.stringify(setTableData); %>
-                    <% var setFileNameString = ''; %>
+                    <% var setFileNameString = setSelectType.toString() + " - Report_" + setSelectDate.toString() + ".xlsx"; %>
                     <% var setTitleColumn = {}; %>
                     <% setTitleColumn['Column_1']='地區'; %>
                     <% setTitleColumn['Column_2']='場域'; %>
@@ -111,7 +111,6 @@
                     <% setTitleColumn['Column_4']=setDataIndexString; %>
                     <% setTitleColumn['Column_5']='發電量(kWh)'; %>
                     <% var setTitleColumnString = JSON.stringify(setTitleColumn); %>
-                    <% setFileNameString = setSelectType.toString() + " - Report_" + setSelectDate.toString() + ".xlsx"; %>
                     <input name="filenamepath" type="text" value=<%= setFileNameString %> hidden>
                     <input name="titlecolumn" type="text" value=<%= setTitleColumnString %> hidden>
                     <input name="tabledata" type="text" value=<%= setTableDataString %> hidden>
