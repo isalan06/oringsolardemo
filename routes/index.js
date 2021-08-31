@@ -2565,10 +2565,28 @@ router.get('/Excel2', function(req, res){
 
 router.post('/ExportExcel', function(req, res){
 	console.log('Export Excel');
-	console.log(req.body);
 	console.log(req.body.filenamepath);
-	console.log(req.body.titlecolumn);
 	console.log(req.body.tabledata);
+	var conf = {};
+	conf.anme = "Report";
+	conf.cols = [{
+		caption:req.body.titlecolumn['Column_1'],
+        type:'string',
+	},{
+		caption:req.body.titlecolumn['Column_2'],
+        type:'string',
+	},{
+		caption:req.body.titlecolumn['Column_3'],
+        type:'string',
+	},{
+		caption:req.body.titlecolumn['Column_4'],
+        type:'string',
+	},{
+		caption:req.body.titlecolumn['Column_5'],
+        type:'string',				
+  	}];
+
+	console.log(conf);
 
 	res.send('Test');
 });
