@@ -104,7 +104,7 @@
                     <button style="margin-top: 16px; margin-left: 100px; height: 26px;" id="triggerTest2" type="submit">Trigger Test</button>
                 <script src="https://code.jquery.com/jquery-3.1.1.js" integrity="sha256-16cdPddA6VdVInumRGo6IbivbERE8p7CQR3HzTBuELA=" crossorigin="anonymous"></script>
                 <script type="text/javascript">
-                    $('#triggerTest').bind('click', function(){
+                    $('#triggerTest').click(function(){
                         var _inverter = $(this).find("#checkInverter").val();
                         $.ajax('/ExportExcel', {
                             type: 'POST',
