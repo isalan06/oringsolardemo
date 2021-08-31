@@ -1265,6 +1265,7 @@ router.get('/SolarHistoryData', function(req, res){
 });
 
 router.post('/SolarHistoryData', function(req, res){
+	console.log('[POST]Solar History Data');
 	var selectType = req.body.myComboboxArea;
 	var pickDateTime = req.body.pickDateTime;
 	var checkInverter = req.body.checkInverter;
