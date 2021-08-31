@@ -1238,6 +1238,7 @@ router.get('/SolarHistoryData', function(req, res){
 
 					var energyDataString = '';
 
+					console.log('[Get] Finished');
 					conn.end();
 					res.render('solarhistorydata', {
 						title: 'Oring Solar System Demo - History Data',
