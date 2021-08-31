@@ -103,7 +103,7 @@
                 <label class="Title-9">資料</label>
                 <form method='post' action="/ExportExcel">
                     <% var setTableDataString = JSON.stringify(setTableData); %>
-                    <% var setFileNameString = (setSelectType.toString() + " - Report_" + setSelectDate.toString() + ".xlsx"); %>
+                    <% var setFileNameString = (setSelectType.toString() + "_Report_" + setSelectDate.toString() + ".xlsx"); %>
                     <% console.log(setFileNameString); %>
                     <% var setTitleColumn = {}; %>
                     <% setTitleColumn['Column_1']='地區'; %>
