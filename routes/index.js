@@ -2565,8 +2565,9 @@ router.get('/Excel2', function(req, res){
 
 router.post('/ExportExcel', function(req, res){
 	console.log('Export Excel');
+	console.log(req.body.filenamepath);
+	console.log(req.body.titlecolumn);
 	console.log(req.body.tabledata);
-
 
 	res.send('Test');
 });

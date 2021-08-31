@@ -102,7 +102,20 @@
             <div class="Rect-Main-42">
                 <label class="Title-9">資料</label>
                 <form method='post' action="/ExportExcel">
-                    <% var setTableDataString = JSON.stringify(setTableData) %>
+                    <% var setTableDataString = JSON.stringify(setTableData); %>
+                    <% var setFileNameString = ''; %>
+                    <% var setTitleColumn = {}; %>
+                    <% var setTitleColumn['Column_1']='地區'; %>
+                    <% var setTitleColumn['Column_2']='場域'; %>
+                    <% var setTitleColumn['Column_3']='設備號碼'; %>
+                    <% var setTitleColumn['Column_4']=setDataIndexString; %>
+                    <% var setTitleColumn['Column_5']='發電量(kWh)'; %>
+                    <% setFileNameString += setSelectType; %>
+                    <% setFileNameString += ' - Report_'; %>
+                    <% setFileNameString += setSelectDate; %>
+                    <% setFileNameString += '.xlsx'; %>
+                    <input name="filenamepath" type="text" value=<%= setFileNameString %> hidden>
+                    <input name="titlecolumn" type="text" value=<%= setTitleColumn %> hidden>
                     <input name="tabledata" type="text" value=<%= setTableDataString %> hidden>
                     <button style="margin-top: 16px; margin-left: 100px; height: 26px;" id="triggerTest2" type="submit">Trigger Test</button>
                 </form>
