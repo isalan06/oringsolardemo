@@ -116,6 +116,7 @@
                     <% var titledatastring = JSON.stringify(titledata); %>
                     <% console.log(titledatastring); %>
                     let payload = JSON.parse('<%= titledatastring %>');
+                    console.log(payload);
                     $('#triggerTest').submit(function(e){
                         $.ajax('/ExportExcel', {
                             type: 'POST',
