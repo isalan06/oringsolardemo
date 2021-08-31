@@ -2570,7 +2570,7 @@ router.post('/ExportExcel', function(req, res){
 	var conf = {};
 	conf.anme = "Report";
 	conf.cols = [{
-		caption:req.body.titlecolumn['Column_1'],
+		caption:req.body.titlecolumn['Column_1'].toString(),
         type:'string',
 	},{
 		caption:req.body.titlecolumn['Column_2'],
