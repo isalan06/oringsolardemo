@@ -102,7 +102,8 @@
             <div class="Rect-Main-42">
                 <label class="Title-9">資料</label>
                 <form method='post' action="/ExportExcel">
-                    <input name="data" type="text" value=<% JSON.stringify(setTableData) %>>
+                    <% var setTableDataString = JSON.stringify(setTableData) %>
+                    <input name="tabledata" type="text" value=<%= setTableDataString %>>
                     <button style="margin-top: 16px; margin-left: 100px; height: 26px;" id="triggerTest2" type="submit">Trigger Test</button>
                 </form>
 
