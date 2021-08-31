@@ -1155,6 +1155,7 @@ router.post('/SolarHistory', function(req, res){
 });
 
 router.get('/SolarHistoryData', function(req, res){
+	console.log('[Get]Solar History Data');
 	urlData = url.parse(req.url,true);
 	action = urlData.pathname;
 	transfer_param = urlData.query;
