@@ -115,11 +115,12 @@
                     let payload = JSON.parse('<%= titledatastring %>');
                     console.log(payload);
                     $('#triggerTest').submit(function(e){
+                        <% console.log('AJAX'); %>
                         $.ajax('/ExportExcel', {
                             type: 'POST',
                             dataType:"json",
                             contentType: "text/content",
-                            data: JSON.stringify(payload),
+                            data: JSON.stringify({}),
                             complete: function(){
 
                             }
