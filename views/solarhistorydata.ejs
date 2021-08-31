@@ -111,10 +111,7 @@
                     <% setTitleColumn['Column_4']=setDataIndexString; %>
                     <% setTitleColumn['Column_5']='發電量(kWh)'; %>
                     <% var setTitleColumnString = JSON.stringify(setTitleColumn); %>
-                    <% setFileNameString += setSelectType; %>
-                    <% setFileNameString += ' - Report_'; %>
-                    <% setFileNameString += setSelectDate.toString(); %>
-                    <% setFileNameString += '.xlsx'; %>
+                    <% setFileNameString = setSelectType + ' - Report_' + setSelectDate.toString() +'.xlsx' %>
                     <input name="filenamepath" type="text" value=<%= setFileNameString %> hidden>
                     <input name="titlecolumn" type="text" value=<%= setTitleColumnString %> hidden>
                     <input name="tabledata" type="text" value=<%= setTableDataString %> hidden>
