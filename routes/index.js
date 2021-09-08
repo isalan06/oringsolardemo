@@ -52,7 +52,7 @@ router.get('/SolarSummary', function(req, res) {
 	  	}
 	  	else {
 			conn.query(commandString, function(err, rows){
-				if(err) res.send('Get Data Error');
+				if(err) {conn.end(); res.send('Get Data Error'); }
 			  	else{
 				  	if(rows.length > 0){
 						totalenergy = rows[0]['TotalEnergy'];
@@ -63,7 +63,7 @@ router.get('/SolarSummary', function(req, res) {
 
 
 					conn.query('SELECT * FROM view_today_information;', function(err, rows){
-						if(err) res.send('Get Data Error 2');
+						if(err) { conn.end(); res.send('Get Data Error 2'); }
 						else{
 							if(rows.length > 0){
 								today_total_energy = rows[0]['Total_Energy'];
@@ -81,7 +81,7 @@ router.get('/SolarSummary', function(req, res) {
 							}
 
 							conn.query('SELECT * FROM view_today_inverter_onlineinformation;', function(err, rows){
-								if(err) res.send('Get Data Error 3');
+								if(err) {conn.end(); res.send('Get Data Error 3'); }
 								else{
 									if(rows.length > 0){
 										today_online_count = rows[0]['OnlineCount'];
@@ -108,7 +108,7 @@ router.get('/SolarSummary', function(req, res) {
 									}
 
 									conn.query('SELECT * FROM view_today_hourenergy;', function(err, rows){
-										if(err) res.send('Get Data Error 4');
+										if(err) {conn.end(); res.send('Get Data Error 4'); }
 										else{
 											if(rows.length > 0){
 												var hourdata = [0, 0, 0, 0, 0, 
@@ -142,7 +142,7 @@ router.get('/SolarSummary', function(req, res) {
 										}
 
 										conn.query('SELECT * FROM view_today_area_information;', function(err, rows){
-											if(err) res.send('Get Data Error 5');
+											if(err) {conn.end(); res.send('Get Data Error 5'); }
 											else{
 												if(rows.length > 0){
 													var areainformationdata = rows;
@@ -226,7 +226,7 @@ router.get('/SolarLocation', function(req, res) {
 	  	}
 	  	else {
 			conn.query(commandString, function(err, rows){
-				if(err) res.send('Get Data Error');
+				if(err){conn.end(); res.send('Get Data Error'); }
 			  	else{
 				  	if(rows.length > 0){
 						totalenergy = rows[0]['TotalEnergy'];
@@ -237,7 +237,7 @@ router.get('/SolarLocation', function(req, res) {
 
 					commandString = 'CALL pro_get_today_information(' + area_location_index + ');';
 					conn.query(commandString, function(err, rows){
-						if(err) res.send('Get Data Error 2');
+						if(err) {conn.end(); res.send('Get Data Error 2'); }
 						else{
 
 							if(rows.length > 1){
@@ -254,7 +254,7 @@ router.get('/SolarLocation', function(req, res) {
 
 							commandString = 'CALL pro_get_today_inverter_onlineinformation(' + area_location_index + ');';
 							conn.query(commandString, function(err, rows){
-								if(err) res.send('Get Data Error 3');
+								if(err) {conn.end(); res.send('Get Data Error 3'); }
 								else{
 									if(rows.length > 1){
 										today_online_count = rows[0][0]['OnlineCount'];
@@ -282,7 +282,7 @@ router.get('/SolarLocation', function(req, res) {
 
 									commandString = 'CALL pro_get_today_hourenergy(' + area_location_index + ');';
 									conn.query(commandString, function(err, rows){
-										if(err) res.send('Get Data Error 4');
+										if(err) {conn.end(); res.send('Get Data Error 4'); }
 										else{
 											if(rows.length > 1){
 												var hourdata = [0, 0, 0, 0, 0, 
@@ -317,7 +317,7 @@ router.get('/SolarLocation', function(req, res) {
 											//commandString = 'CALL pro_get_today_area_information(' + area_location_index + ');';
 											commandString = 'CALL pro_get_current_area_inverter(' + area_location_index + ');';
 											conn.query(commandString, function(err, rows){
-												if(err) res.send('Get Data Error 5');
+												if(err) {conn.end(); res.send('Get Data Error 5'); }
 												else{
 													if(rows.length > 0){
 														var areainformationdata = rows[0];
@@ -384,7 +384,7 @@ router.get('/SolarInverterList', function(req, res){
 	  	}
 	  	else {
 			conn.query(commandString, function(err, rows){
-				if(err) res.send('Get Data Error 2');
+				if(err){conn.end(); res.send('Get Data Error 2'); }
 				else{
 					
 
@@ -449,7 +449,7 @@ router.get('/SolarInverterList', function(req, res){
 
 					commandString = 'CALL pro_get_today_hourenergy_inverter(' + area_location_index + ', ' + inverter_id_index + ');';
 					conn.query(commandString, function(err, rows){
-						if(err) res.send('Get Data Error 4');
+						if(err) {conn.end(); res.send('Get Data Error 4');}
 						else{
 							if(rows.length > 1){
 								var hourdata = [0, 0, 0, 0, 0, 
@@ -869,9 +869,9 @@ router.post('/SolarHistory', function(req, res){
 							var inverter_no = -1;
 							var inverter_getid = -1;
 	  						conn.query(commandString, function(err, rows){
-					  			if(err) res.send('Get Data Error');
+					  			if(err) {conn.end(); res.send('Get Data Error'); }
 								else{
-									if(rows.length == 0){ res.redirect('solarhistory'); }
+									if(rows.length == 0){ conn.end(); res.redirect('solarhistory'); }
 									else{
 										rows.forEach( (row) => {
 											var _inverter_id = row['search_id'];
@@ -976,9 +976,9 @@ router.post('/SolarHistory', function(req, res){
 							var inverter_no = -1;
 							var inverter_getid = -1;
 		  					conn.query(commandString, function(err, rows){
-			  					if(err) res.send('Get Data Error');
+			  					if(err){ conn.end(); res.send('Get Data Error'); }
 								else{
-									if(rows.length == 0){ res.redirect('solarhistory'); }
+									if(rows.length == 0){ conn.end(); res.redirect('solarhistory'); }
 									else{
 										rows.forEach( (row) => {
 											var _inverter_id = row['search_id'];
@@ -1074,7 +1074,7 @@ router.post('/SolarHistory', function(req, res){
 							var inverter_no = -1;
 							var inverter_getid = -1;
 		  					conn.query(commandString, function(err, rows){
-			  					if(err) res.send('Get Data Error');
+			  					if(err){ conn.end(); res.send('Get Data Error');}
 								else{
 									if(rows.length == 0){ conn.end(); res.redirect('solarhistory'); }
 									else{
@@ -2600,7 +2600,7 @@ router.post('/ExportExcel', function(req, res){
 		conf.rows.push(rowdata);
 	});
 
-	console.log(conf);
+	//console.log(conf);
 
 	var result = nodeExcel.execute(conf);
   	res.setHeader('Content-Type', 'application/vnd.openxmlformats');
