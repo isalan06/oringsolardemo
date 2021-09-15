@@ -441,17 +441,17 @@ router.get('/SolarInverterList', function(req, res){
 						inverter_list_inverter['output_ac_total_power']=row['output_ac_total_power'];
 						inverter_list_inverter['transferefficiency']=row['transferefficiency'] * 100.0;
 						inverter_list_inverter['output_ac_voltage1']=row['output_ac_voltage1'];
-						inverter_list_inverter['output_ac_current1']=row['output_ac_current1'];
+						inverter_list_inverter['output_ac_current1']=row['output_ac_current1'] / 1000.0;
 						inverter_list_inverter['output_ac_wattage1']=row['output_ac_wattage1'];
-						inverter_list_inverter['output_ac_frequency1']=row['output_ac_frequency1'];
+						inverter_list_inverter['output_ac_frequency1']=row['output_ac_frequency1'] / 100.0;
 						inverter_list_inverter['output_ac_voltage2']=row['output_ac_voltage2'];
-						inverter_list_inverter['output_ac_current2']=row['output_ac_current2'];
+						inverter_list_inverter['output_ac_current2']=row['output_ac_current2'] / 1000.0;
 						inverter_list_inverter['output_ac_wattage2']=row['output_ac_wattage2'];
-						inverter_list_inverter['output_ac_frequency2']=row['output_ac_frequency2'];
+						inverter_list_inverter['output_ac_frequency2']=row['output_ac_frequency2'] / 100.0;
 						inverter_list_inverter['output_ac_voltage3']=row['output_ac_voltage3'];
-						inverter_list_inverter['output_ac_current3']=row['output_ac_current3'];
+						inverter_list_inverter['output_ac_current3']=row['output_ac_current3'] / 1000.0;
 						inverter_list_inverter['output_ac_wattage3']=row['output_ac_wattage3'];
-						inverter_list_inverter['output_ac_frequency3']=row['output_ac_frequency3'];
+						inverter_list_inverter['output_ac_frequency3']=row['output_ac_frequency3'] / 100.0;
 						inverter_list_arealocation['InverterList'].push(inverter_list_inverter);
 						
 					});
