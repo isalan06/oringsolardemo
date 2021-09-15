@@ -168,7 +168,6 @@
     background-color: #f8f8f8;
     display: inline-flex;
     position:absolute;
-    overflow: auto;
   }
 
   /* Remove default bullets */
@@ -242,6 +241,7 @@ ul, #myUL {
     box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
     background-color: #f8f8f8;
     display: inline-flex;
+    overflow: auto;
   }
 
   .Label-Style-20 {
