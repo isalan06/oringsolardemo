@@ -436,6 +436,21 @@ router.get('/SolarInverterList', function(req, res){
 						inverter_list_inverter['temperature_ambient']=row['temperature_ambient'];
 						inverter_list_inverter['temperature_boost']=row['temperature_boost'];
 						inverter_list_inverter['temperature_inverter']=row['temperature_inverter'];
+						inverter_list_inverter['temperature_boost2']=row['temperature_boost2'];
+						inverter_list_inverter['input_dc_total_power']=row['input_dc_total_power'];
+						inverter_list_inverter['output_ac_total_power']=row['output_ac_total_power'];
+						inverter_list_inverter['output_ac_voltage1']=row['output_ac_voltage1'];
+						inverter_list_inverter['output_ac_current1']=row['output_ac_current1'];
+						inverter_list_inverter['output_ac_wattage1']=row['output_ac_wattage1'];
+						inverter_list_inverter['output_ac_frequency1']=row['output_ac_frequency1'];
+						inverter_list_inverter['output_ac_voltage2']=row['output_ac_voltage2'];
+						inverter_list_inverter['output_ac_current2']=row['output_ac_current2'];
+						inverter_list_inverter['output_ac_wattage2']=row['output_ac_wattage2'];
+						inverter_list_inverter['output_ac_frequency2']=row['output_ac_frequency2'];
+						inverter_list_inverter['output_ac_voltage3']=row['output_ac_voltage3'];
+						inverter_list_inverter['output_ac_current3']=row['output_ac_current3'];
+						inverter_list_inverter['output_ac_wattage3']=row['output_ac_wattage3'];
+						inverter_list_inverter['output_ac_frequency3']=row['output_ac_frequency3'];
 						inverter_list_arealocation['InverterList'].push(inverter_list_inverter);
 						
 					});
