@@ -177,7 +177,30 @@
                     <label class="Label-Style-20" style="margin-top: 510px; margin-left: 30px;"><%= setinverterlistdata[0]['AreaList'][setarealocationindex-1]['InverterList'][setinverteridindex-1]['output_ac_frequency3'].toFixed(2) %></label>
                 </div>
                 <div class="Rect-Main-22" style="position:absolute; left: 540px; width: 400px;">
-
+                    <label class="Title-9">設備事件列表</label>
+            <div class="Table-1">
+              <div class="Table-2">
+              <table class="Table-3">
+                  <thead style="table-layout: fixed;">
+                      <tr class="Column-1">
+                          <th>代碼</th>
+                          <th>號碼</th>
+                          <th>描述</th>
+                    </tr>
+                  </thead>
+                  <tbody style="overflow: auto;">
+                    <% var index_number = 1; %>
+                    <% setEventList.forEach( (row) => { %>
+                      <tr class="Column-2">
+                        <th><%= row['_item'] %></th>
+                        <th><%= row['_value'] %></th>
+                        <th><%= row['_description'] %></th>
+                      </tr>
+                    <% }); %>
+                  </tbody>
+              </table>
+              </div>
+            </div>
                 </div>
                 <div class="Rect-Main-23">
                     <label class="Title-8">今日每小時發電量</label>
