@@ -495,7 +495,7 @@ router.get('/SolarInverterList', function(req, res){
 								conn.query(commandString, function(err, rows){
 									if(err) {conn.end(); res.send('Get Data Error 4');}
 									else{
-										var eventlist = rows;
+										var eventlist = rows[0];
 										console.log(eventlist);
 
 										conn.end();	
