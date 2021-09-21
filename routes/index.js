@@ -491,16 +491,27 @@ router.get('/SolarInverterList', function(req, res){
 
 								var hourDataString = JSON.stringify(hourdatas);
 
-								//console.log(hourDataString);
-								conn.end();	
-								res.render('solarinverterlist', {
-									title: 'Oring Solar System Demo - Inverter List',
-									setsublocationindex:1,
-									setarealocationindex:area_location_index,
-									setinverteridindex:inverter_id_index,
-									setinverterlistdata:inverter_list_data,
-									setHourChart: hourDataString
+								commandString = 'CALL pro_get_event(' + area_location_index + ', ' + inverter_id_index + ', 20);';
+								conn.query(commandString, function(err, rows){
+									if(err) {conn.end(); res.send('Get Data Error 4');}
+									else{
+										var eventlist = rows;
+										console.log(eventlist);
+
+										conn.end();	
+										res.render('solarinverterlist', {
+											title: 'Oring Solar System Demo - Inverter List',
+											setsublocationindex:1,
+											setarealocationindex:area_location_index,
+											setinverteridindex:inverter_id_index,
+											setinverterlistdata:inverter_list_data,
+											setHourChart: hourDataString,
+											setEventList: eventlist
+										});
+									}
 								});
+
+								
 								
 							}
 							else{
