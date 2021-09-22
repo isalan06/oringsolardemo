@@ -180,11 +180,11 @@
                     <label class="Title-9">設備事件列表</label>
             <div class="Table-1">
               <div class="Table-2">
-              <table class="Table-3">
+              <table class="Table-3" style="border: 2px #000000 solid;" rules="all">
                   <thead style="table-layout: fixed;">
                       <tr class="Column-1">
-                          <th>代碼</th>
-                          <th>號碼</th>
+                          <th style="width: 50px;">代碼</th>
+                          <th style="width: 50px;">號碼</th>
                           <th>描述</th>
                     </tr>
                   </thead>
@@ -192,8 +192,8 @@
                     <% var index_number = 1; %>
                     <% setEventList.forEach( (row) => { %>
                       <tr class="Column-2">
-                        <th><%= row['_item'] %></th>
-                        <th><%= row['_value'] %></th>
+                        <th style="width: 50px;"><%= row['_item'] %></th>
+                        <th style="width: 50px;"><%= row['_value'] %></th>
                         <th><%= row['_description'] %></th>
                       </tr>
                     <% }); %>
