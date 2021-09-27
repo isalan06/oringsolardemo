@@ -81,7 +81,7 @@ router.get('/SolarSummary', function(req, res) {
 							}
 
 							conn.query('SELECT * FROM view_today_inverter_onlineinformation;', function(err, rows){
-								if(err) {conn.end(); res.send('Get Data Error 3'); }
+								if(err) {conn.end(); res.send('Get Data Error 3 - Summary'); }
 								else{
 									if(rows.length > 0){
 										today_online_count = rows[0]['OnlineCount'];
@@ -254,7 +254,7 @@ router.get('/SolarLocation', function(req, res) {
 
 							commandString = 'CALL pro_get_today_inverter_onlineinformation(' + area_location_index + ');';
 							conn.query(commandString, function(err, rows){
-								if(err) {conn.end(); res.send('Get Data Error 3'); }
+								if(err) {conn.end(); res.send('Get Data Error 3 - Solar Location'); }
 								else{
 									if(rows.length > 1){
 										today_online_count = rows[0][0]['OnlineCount'];
@@ -628,7 +628,7 @@ router.get('/SolarHistory', function(req, res){
 					commandString += ';';
 					//console.log(commandString);
 					conn.query(commandString, function(err, rows){
-						if(err) { conn.end(); res.send('Get Data Error 3');}
+						if(err) { conn.end(); res.send('Get Data Error 3 - Solar History Get');}
 						else{
 
 							var energy_data = rows;
@@ -808,7 +808,7 @@ router.post('/SolarHistory', function(req, res){
 						commandString += 'ORDER BY search_id, r_hour ';
 						commandString += ';';
 						conn.query(commandString, function(err, rows){
-							if(err) { conn.end(); console.log(err); res.send('Get Data Error 3');}
+							if(err) { conn.end(); console.log(err); res.send('Get Data Error 3 - Solar History Post');}
 							else{
 
 								var energy_data = rows;
@@ -1439,7 +1439,7 @@ router.post('/SolarHistoryData', function(req, res){
 							commandString += ' ORDER BY search_id, r_hour;';
 
 							conn.query(commandString, function(err, rows){
-								if(err) { conn.end(); res.send('Get Data Error 3');}
+								if(err) { conn.end(); res.send('Get Data Error 3 - Solar History Data Post');}
 								else{
 
 									conn.end();
@@ -1484,7 +1484,7 @@ router.post('/SolarHistoryData', function(req, res){
 							commandString += ' ORDER BY search_id, r_day;';
 
 							conn.query(commandString, function(err, rows){
-								if(err) { conn.end(); res.send('Get Data Error 3');}
+								if(err) { conn.end(); res.send('Get Data Error 3-2 - Solar History Data Post');}
 								else{
 
 									conn.end();
@@ -1529,7 +1529,7 @@ router.post('/SolarHistoryData', function(req, res){
 							commandString += ' ORDER BY search_id, r_month;';
 
 							conn.query(commandString, function(err, rows){
-								if(err) { conn.end(); res.send('Get Data Error 3');}
+								if(err) { conn.end(); res.send('Get Data Error 3-3 - Solar History Data Post');}
 								else{
 
 									conn.end();
