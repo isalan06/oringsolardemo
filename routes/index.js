@@ -628,7 +628,7 @@ router.get('/SolarHistory', function(req, res){
 					commandString += ';';
 					//console.log(commandString);
 					conn.query(commandString, function(err, rows){
-						if(err) { conn.end(); console.log(err) res.send('Get Data Error 3 - Solar History Get');}
+						if(err) { conn.end(); console.log(err); res.send('Get Data Error 3 - Solar History Get');}
 						else{
 
 							var energy_data = rows;
