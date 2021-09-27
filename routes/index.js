@@ -808,7 +808,7 @@ router.post('/SolarHistory', function(req, res){
 						commandString += 'ORDER BY search_id, r_hour ';
 						commandString += ';';
 						conn.query(commandString, function(err, rows){
-							if(err) { conn.end(); res.send('Get Data Error 3');}
+							if(err) { conn.end(); console.log(err); res.send('Get Data Error 3');}
 							else{
 
 								var energy_data = rows;
