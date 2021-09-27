@@ -545,6 +545,8 @@ router.get('/SolarHistory', function(req, res){
 	var commandString = 'SELECT * FROM view_inverter_list_data;';
 	var search_id=area_location_index*100 + inverter_id_index;
 
+	if (search_id=null) search_id = 1; 
+
 	const conn = new mysql.createConnection(config);
 	conn.connect(  function(err){
 
