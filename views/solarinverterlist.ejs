@@ -120,7 +120,11 @@
                         <% } %>
                     <% } %>
                     <% var fw1versionstring = 'FW1 Version: ' + setinverterlistdata[0]['AreaList'][setarealocationindex-1]['InverterList'][setinverteridindex-1]['fw_version']; %>
+                    <% var fw2versionstring = 'FW2 Version: ' + setinverterlistdata[0]['AreaList'][setarealocationindex-1]['InverterList'][setinverteridindex-1]['fw_version2']; %>
+                    <% var fw3versionstring = 'FW3 Version: ' + setinverterlistdata[0]['AreaList'][setarealocationindex-1]['InverterList'][setinverteridindex-1]['fw_version3']; %>
                     <label class="Label-Style-20" style="margin-top: 130px; margin-left: 10px;"><%= fw1versionstring %></label>
+                    <label class="Label-Style-20" style="margin-top: 150px; margin-left: 10px;"><%= fw2versionstring %></label>
+                    <label class="Label-Style-20" style="margin-top: 170px; margin-left: 10px;"><%= fw3versionstring %></label>
                 </div>
                 <div class="Rect-Main-22">
                     <label class="Label-Style-20" style="margin-top: 10px; margin-left: 10px;">Today Energy (kWh)</label>
