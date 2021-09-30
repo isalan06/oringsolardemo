@@ -452,6 +452,11 @@ router.get('/SolarInverterList', function(req, res){
 						inverter_list_inverter['output_ac_current3']=row['output_ac_current3'] / 1000.0;
 						inverter_list_inverter['output_ac_wattage3']=row['output_ac_wattage3'];
 						inverter_list_inverter['output_ac_frequency3']=row['output_ac_frequency3'] / 100.0;
+						inverter_list_inverter['fw_version']=row['fw_version'];
+						inverter_list_inverter['fw_version2']=row['fw_version2'];
+						inverter_list_inverter['fw_version3']=row['fw_version3'];
+						inverter_list_inverter['fw_version4']=row['fw_version4'];
+						inverter_list_inverter['fw_version5']=row['fw_version5'];
 						inverter_list_arealocation['InverterList'].push(inverter_list_inverter);
 						
 					});

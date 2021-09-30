@@ -104,21 +104,22 @@
             <div class="Rect-Main-21">
                 <div class="Rect-Main-22">
                     <label class="Label-Style-20" style="margin-top: 10px; margin-left: 10px;"><%= setinverterlistdata[0]['Name'] %></label>
-                    <label class="Label-Style-20" style="margin-top: 40px; margin-left: 10px;"><%= setinverterlistdata[0]['AreaList'][setarealocationindex-1]['Name'] %></label>
-                    <label class="Label-Style-20" style="margin-top: 70px; margin-left: 10px;">Inverter-<%= (setinverteridindex).toString().padStart(2, "0") %></label>
-                    <label class="Label-Style-20" style="margin-top: 100px; margin-left: 10px;">狀態</label>
+                    <label class="Label-Style-20" style="margin-top: 30px; margin-left: 10px;"><%= setinverterlistdata[0]['AreaList'][setarealocationindex-1]['Name'] %></label>
+                    <label class="Label-Style-20" style="margin-top: 50px; margin-left: 10px;">Inverter-<%= (setinverteridindex).toString().padStart(2, "0") %></label>
+                    <label class="Label-Style-20" style="margin-top: 70px; margin-left: 10px;">狀態</label>
                     <% var get_online_status = setinverterlistdata[0]['AreaList'][setarealocationindex-1]['InverterList'][setinverteridindex-1]['online_status']; %>
                     <% var get_inverter_state = setinverterlistdata[0]['AreaList'][setarealocationindex-1]['InverterList'][setinverteridindex-1]['inverter_state']; %>
                     <% if(get_online_status === 0) { %>
-                        <label class="Label-Style-20" style="margin-top: 130px; margin-left: 10px;"><font color="red">離線</font></label>
+                        <label class="Label-Style-20" style="margin-top: 90px; margin-left: 10px;"><font color="red">離線</font></label>
                     <% } else { %>
                         <% var get_inverter_state_name = setinverterlistdata[0]['AreaList'][setarealocationindex-1]['InverterList'][setinverteridindex-1]['inverter_state_name']; %>
                         <% if(get_inverter_state === 4) { %>
-                            <label class="Label-Style-20" style="margin-top: 130px; margin-left: 10px;"><font color="red"><%= get_inverter_state_name %></font></label>
+                            <label class="Label-Style-20" style="margin-top: 90px; margin-left: 10px;"><font color="red"><%= get_inverter_state_name %></font></label>
                         <% } else { %>
-                            <label class="Label-Style-20" style="margin-top: 130px; margin-left: 10px;"><%= get_inverter_state_name %></label>
+                            <label class="Label-Style-20" style="margin-top: 90px; margin-left: 10px;"><%= get_inverter_state_name %></label>
                         <% } %>
                     <% } %>
+                    <label class="Label-Style-20" style="margin-top: 110px; margin-left: 10px;">FW1 Version: <%= setinverterlistdata[0]['fw_version'] %></label>
                 </div>
                 <div class="Rect-Main-22">
                     <label class="Label-Style-20" style="margin-top: 10px; margin-left: 10px;">Today Energy (kWh)</label>
