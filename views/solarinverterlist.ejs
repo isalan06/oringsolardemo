@@ -119,7 +119,8 @@
                             <label class="Label-Style-20" style="margin-top: 90px; margin-left: 10px;"><%= get_inverter_state_name %></label>
                         <% } %>
                     <% } %>
-                    <label class="Label-Style-20" style="margin-top: 110px; margin-left: 10px;">FW1 Version: <%= setinverterlistdata[0]['fw_version'] %></label>
+                    <% var fw1versionstring = 'FW1 Version: ' + str(setinverterlistdata[0]['fw_version']) %>
+                    <label class="Label-Style-20" style="margin-top: 130px; margin-left: 10px;"><%= fw1versionstring %></label>
                 </div>
                 <div class="Rect-Main-22">
                     <label class="Label-Style-20" style="margin-top: 10px; margin-left: 10px;">Today Energy (kWh)</label>
