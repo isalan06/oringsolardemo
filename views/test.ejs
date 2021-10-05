@@ -16,6 +16,11 @@
         _a.title = 'B';
       }
     </script>
+
+    <% for(var i=0;i<10;i++){ %>
+      <% var indexString = 'Test' + i.toString(); %>
+        <input type="checkbox" name="checkInverter" value=<%= indexString %>
+    <% } %>
     
   </body>
 </html>
