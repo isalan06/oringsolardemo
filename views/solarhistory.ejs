@@ -140,14 +140,16 @@
             <div class="Rect-Main-30">
                 <label style="margin-top: 10px; margin-left: 10px;">案場設備列表</label>
                 <div id="treeview_container" class="hummingbird-treeview">
-                  <button id="change">Select All</button>
+                  <button class="change">Select All</button>
                   <script>
-                    $('#change').addEventListener('add', function() {
+                    var toggler2 = document.getElementsByClassName("change");
+
+                    toggler2.addEventListener('click', function() {
                       var getInverter = document.getElementsByName("checkInverter");
                       for(var i=0;i<getInverter.length;i++){
                         getInverter[i].checked = true;
                       }
-                    };
+                    });
                   </script>
                   
                     <form action="/SolarHistory" method="POST">
