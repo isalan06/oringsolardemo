@@ -142,7 +142,7 @@
                 <div id="treeview_container" class="hummingbird-treeview">
                   <button id="change">Select All</button>
                   <script>
-                    $('#change').click(function() {
+                    $('#change').addEventListener('add', function() {
                       var getInverter = document.getElementsByName("checkInverter");
                       for(var i=0;i<getInverter.length;i++){
                         getInverter[i].checked = true;
