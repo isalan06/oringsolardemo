@@ -143,13 +143,13 @@
                   <script>
                     function SelectAll(){
                       var getInverter = document.getElementsByName("checkInverter");
-                      console.log(getInverter);
+                      <% console.log(getInverter); %>
                       for(var i=0;i<getInverter.length;i++){
                         getInverter[i].checked = true;
                       }
                     }
                   </script>
-                  <a onclick="SelectAll">Select All</a>
+                  <button onclick="SelectAll">Select All</button>
                   
                     <form action="/SolarHistory" method="POST">
                     <ul id="myUL">
