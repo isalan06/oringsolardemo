@@ -114,11 +114,6 @@
             }
           </script>
       <% } %>
-      <script>
-        function test(){
-          console.log('AAAAA');
-        }
-      </script>
   </head>
   <body>
     <script src="javascripts/solarhistory.js"></script>
@@ -144,23 +139,6 @@
             
             <div class="Rect-Main-30">
                 <label style="margin-top: 10px; margin-left: 10px;">案場設備列表</label>
-                <label id='test_label'>AAAA</label>
-                <div id="treeview_container" class="hummingbird-treeview">
-                  <form onSubmit="test()"><button>Test</button></form>
-                  <input type="button" class="change" value='Select All'>
-                  <script>
-                    var toggler2 = document.getElementsByClassName("change");
-
-                    toggler2.addEventListener('click', function() {
-                      var aaa = document.getElementById('test_label');
-                      aaa.textContent = 'BBBBB';
-                      var getInverter = document.getElementsByName("checkInverter");
-                      for(var i=0;i<getInverter.length;i++){
-                        getInverter[i].checked = true;
-                      }
-                    });
-                  </script>
-                  
                     <form action="/SolarHistory" method="POST">
                     <ul id="myUL">
                         <% setinverterlistdata.forEach( (row) => { %>
