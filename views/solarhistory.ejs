@@ -140,7 +140,6 @@
             <div class="Rect-Main-30">
                 <label style="margin-top: 10px; margin-left: 10px;">案場設備列表</label>
                 <div id="treeview_container" class="hummingbird-treeview">
-                  <button onclick="<%= doSelectAll %>">Select All</button>
                   <script>
                     function SelectAll(){
                       var getInverter = document.getElementsByName("checkInverter");
@@ -150,6 +149,8 @@
                       }
                     }
                   </script>
+                  <a onclick="SelectAll">Select All</a>
+                  
                     <form action="/SolarHistory" method="POST">
                     <ul id="myUL">
                         <% setinverterlistdata.forEach( (row) => { %>
