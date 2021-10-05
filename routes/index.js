@@ -516,7 +516,7 @@ router.get('/SolarInverterList', function(req, res){
 											setinverterlistdata:inverter_list_data,
 											setHourChart: hourDataString,
 											setEventList: eventlist,
-											doSelectAll: selectAll
+											doSelectAll: "SelectAll();"
 										});
 									}
 								});
