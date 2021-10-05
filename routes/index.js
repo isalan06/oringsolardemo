@@ -366,6 +366,10 @@ router.get('/SolarLocation', function(req, res) {
 	
 });
 
+function selectAll(){
+	console.log("Select All");
+}
+
 router.get('/SolarInverterList', function(req, res){
 	urlData = url.parse(req.url,true);
 	action = urlData.pathname;
@@ -511,7 +515,8 @@ router.get('/SolarInverterList', function(req, res){
 											setinverteridindex:inverter_id_index,
 											setinverterlistdata:inverter_list_data,
 											setHourChart: hourDataString,
-											setEventList: eventlist
+											setEventList: eventlist,
+											doSelectAll: selectAll()
 										});
 									}
 								});
@@ -693,6 +698,8 @@ router.get('/SolarHistory', function(req, res){
 
 	
 });
+
+
 
 router.post('/SolarHistory', function(req, res){
 	var selectType = req.body.myComboboxArea;
