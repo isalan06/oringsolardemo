@@ -17,9 +17,11 @@
       }
     </script>
 
+    <input type="checkbox" name="checkInverter" value='Select ALL'>
+
     <% for(var i=0;i<10;i++){ %>
       <% var indexString = 'Test' + i.toString(); %>
-        <input type="checkbox" name="checkInverter" value=<%= indexString %>
+        <input type="checkbox" name="checkInverter" value=<%= indexString %>>
     <% } %>
     
   </body>
