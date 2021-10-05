@@ -145,12 +145,14 @@
             <div class="Rect-Main-30">
                 <label style="margin-top: 10px; margin-left: 10px;">案場設備列表</label>
                 <div id="treeview_container" class="hummingbird-treeview">
-                  <input type='checkbox' onchange="changetest()" id='checkboxtest'>Select All
+                  <input type='checkbox' onchange="changetest()" id='checkboxselectall'>Select All
                   <script>
                     function changetest(){
-                      var a = document.getElementById('abc');
-                      var b = document.getElementsByName('checkInverter');
-                      a.textContent = b.length.toString();
+                      var getCheck = document.getElementById('checkboxselectall');
+                      var getInverterCheckbox = document.getElementsByName('checkInverter');
+                      getInverterCheckbox.forEach( singleInverter => {
+                        singleInverter.checked = getCheck.checked;
+                      });
                     }
                   </script>
                   
