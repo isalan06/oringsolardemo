@@ -114,6 +114,11 @@
             }
           </script>
       <% } %>
+      <script>
+        function test(){
+          console.log('AAAAA');
+        }
+      </script>
   </head>
   <body>
     <script src="javascripts/solarhistory.js"></script>
@@ -141,6 +146,7 @@
                 <label style="margin-top: 10px; margin-left: 10px;">案場設備列表</label>
                 <label id='test_label'>AAAA</label>
                 <div id="treeview_container" class="hummingbird-treeview">
+                  <form onSubmit="test()"><button>Test</button></form>
                   <input type="button" class="change" value='Select All'>
                   <script>
                     var toggler2 = document.getElementsByClassName("change");
