@@ -25,7 +25,10 @@
         _a.textContent = 'C';
         var ccc = document.getElementsByName('checkInverter');
         var ddd= document.getElementById('c');
-        ddd.textContent = ccc.toString();
+        ddd.textContent = ccc.length.toString();
+        ccc.forEach( eee => {
+          eee.checked = bbb.checked;
+        });
       }
     </script>
     <p></p>
