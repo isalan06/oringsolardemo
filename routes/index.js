@@ -368,7 +368,7 @@ router.get('/SolarLocation', function(req, res) {
 
 function selectAll(){
 	console.log("Select All");
-}
+};
 
 router.get('/SolarInverterList', function(req, res){
 	urlData = url.parse(req.url,true);
