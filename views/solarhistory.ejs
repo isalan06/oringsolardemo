@@ -142,7 +142,7 @@
                 <label id='test_label'>AAAA</label>
                 <div id="treeview_container" class="hummingbird-treeview">
                   <input type="button" class="change" value='Select All'>
-                  <%
+                  <script>
                     var toggler2 = document.getElementsByClassName("change");
 
                     toggler2.addEventListener('click', function() {
@@ -153,7 +153,7 @@
                         getInverter[i].checked = true;
                       }
                     });
-                  %>
+                  </script>
                   
                     <form action="/SolarHistory" method="POST">
                     <ul id="myUL">
