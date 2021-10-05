@@ -141,13 +141,13 @@
         </div>
 
         <div class="MainContainer">
-            
+            <form action="/SolarHistory" method="POST">
             <div class="Rect-Main-30">
                 <label style="margin-top: 10px; margin-left: 10px;">案場設備列表</label>
                 <div id="treeview_container" class="hummingbird-treeview">
 
                   
-                    <form action="/SolarHistory" method="POST">
+                    
                     <ul id="myUL">
                         <% setinverterlistdata.forEach( (row) => { %>
                             <li><span class="caret caret-down" caret-down><%= row['Name'] %></span>
@@ -192,7 +192,7 @@
                         <% }); %>
 
                     </ul>
-                    </form>
+                    
                 </div>
                 <script>
                     var toggler = document.getElementsByClassName("caret");
@@ -220,7 +220,7 @@
                     <button>執行</button>
                 </div>
             </div>
-            
+            </form>
             <div class="Rect-Main-32">
                 <div class="mychart" id="mychart"></div>
             </div>
