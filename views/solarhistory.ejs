@@ -139,12 +139,15 @@
             
             <div class="Rect-Main-30">
                 <label style="margin-top: 10px; margin-left: 10px;">案場設備列表</label>
+                <label id='test_label'>AAAA</label>
                 <div id="treeview_container" class="hummingbird-treeview">
                   <button class="change">Select All</button>
                   <script>
                     var toggler2 = document.getElementsByClassName("change");
 
                     toggler2.addEventListener('click', function() {
+                      var aaa = document.getElementById('test_label');
+                      aaa.textContent = 'BBBBB';
                       var getInverter = document.getElementsByName("checkInverter");
                       for(var i=0;i<getInverter.length;i++){
                         getInverter[i].checked = true;
