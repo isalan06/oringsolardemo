@@ -8,7 +8,7 @@
   </head>
   <body>
     <label id="a">Test</label>
-    <p onclick="ShowTest()">Show Test</p>
+    <p type="button" onclick="ShowTest()">Show Test</p>
     <script>
       function ShowTest(){
         var _a = document.getElementById('a');
@@ -17,7 +17,10 @@
       }
     </script>
 
-    <input type="checkbox" name="checkInverter" value='Select ALL'>
+    <input type="checkbox" name="checkInverter" value='Select ALL'>Select All
+    <script>
+
+    </script>
     <p></p>
     <% for(var i=0;i<10;i++){ %>
       <% var indexString = 'Test' + i.toString(); %>
