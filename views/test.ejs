@@ -17,9 +17,13 @@
       }
     </script>
 
-    <input type="checkbox" name="checkInverter" value='Select ALL'>Select All
+    <input type="checkbox" onchange="ChangeSelect()" id='b' name="checkInverter" value='Select ALL'>Select All
     <script>
-
+      function ChangeSelect(){
+        var bbb = document.getElementById('b');
+        var _a = document.getElementById('a');
+        _a.textContent = 'C';
+      }
     </script>
     <p></p>
     <% for(var i=0;i<10;i++){ %>
