@@ -1581,6 +1581,12 @@ router.get('/Test', function(req, res){
   res.send('API Test 2');
 });
 
+router.get('/TestComponent', function(req, res){
+	res.render('test', {
+		title: 'Test'
+	});
+});
+
 router.post('/PostTest', function(req, res){
 	console.log('PostTest');
   res.send('POST Test');
