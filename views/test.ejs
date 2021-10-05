@@ -7,7 +7,15 @@
 
   </head>
   <body>
-    
+    <label id="a">Test</label>
+    <button onclick="ShowTest">Show Test</button>
+    <script>
+      function ShowTest(){
+        var _a = document.getElementById('a');
+        _a.textContent = 'A';
+        _a.title = 'B';
+      }
+    </script>
     
   </body>
 </html>
