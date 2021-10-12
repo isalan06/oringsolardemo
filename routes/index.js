@@ -1664,7 +1664,7 @@ router.get('/SolarHistoryData2', function(req, res){
 					console.log('[Get] Finished');
 					conn.end();
 					res.render('solarhistorydata2', {
-						title: 'Oring Solar System Demo - History Data',
+						title: 'Oring Solar System Demo - History Data 2',
 						setsublocationindex:1,
 						setarealocationindex:1,
 						setinverteridindex:1,
@@ -1682,6 +1682,193 @@ router.get('/SolarHistoryData2', function(req, res){
 						setDataIndexString: '小時',
 						setTableData:[]
 					});
+				}
+			});
+		}
+	});
+	
+});
+
+router.post('/SolarHistoryData2', function(req, res){
+	console.log('[POST]Solar History Data 2');
+	var pickDateTime = req.body.pickDateTime;
+	var checkInverter = req.body.checkInverter;
+
+	//console.log(calcAllEnergy_flag);
+
+	var subtitle = 'Calculated on';
+	var pickDateTimeArray = pickDateTime.split("-");
+	//subtitle += (' - ' + currentDate + ' by hour');
+	var newPickDateTime = pickDateTimeArray[0] + "-" + pickDateTimeArray[1];
+	var newPickDateTime2 = pickDateTimeArray[0];
+	var _year = pickDateTimeArray[0];
+	var _month = pickDateTimeArray[1];
+	var _day = pickDateTimeArray[2];
+
+	var currentDate = new Date().getFullYear() + '-' + (((new Date().getMonth() + 1) < 10) ? "0" : "") + (new Date().getMonth() + 1).toString() + 
+	"-" + (((new Date().getDate()) < 10) ? "0" : "") + (new Date().getDate()).toString();
+
+	var subtitle = 'Calculated on';
+	var energyData = [];
+
+	var commandString = 'SELECT * FROM view_inverter_list_data;';
+	var search_id=101;
+
+	var inv_number = 0;
+	var hasonedata = 1;
+
+	if(checkInverter != null)
+	{
+		if(Object.prototype.toString.call(checkInverter)!='[object Array]') inv_number = 1;
+		else inv_number = checkInverter.length;
+	}
+
+	const conn = new mysql.createConnection(config);
+	conn.connect(  function(err){
+		if(err){
+			conn.end();
+			res.send('Connect DB Error');
+	  	}
+	  	else {
+			conn.query(commandString, function(err, rows){
+				if(err) { conn.end(); res.send('Get Data Error 2');}
+				else{
+					var cal_index_sublocation=-1;
+					var cal_index_arealocation=-1;
+					var inverter_list_data = [];
+					var inverter_list_sublocation={};
+					var inverter_list_arealocation={};
+					var inverter_list_inverter={};
+					
+					rows.forEach(row => {
+						if(row['sub_location'] != cal_index_sublocation){
+							if(cal_index_sublocation != -1){
+								inverter_list_data.push(inverter_list_sublocation);
+							}
+							inverter_list_sublocation={};
+							inverter_list_sublocation['Index']=row['sub_location'];
+							inverter_list_sublocation['Name']=row['sublocation_name'];
+							inverter_list_sublocation['AreaList']=[];
+							cal_index_sublocation=row['sub_location'];
+							cal_index_arealocation = -1;
+						}
+						else{
+
+						}
+
+						if(row['area_location'] != cal_index_arealocation){
+							if(cal_index_arealocation != -1){
+								inverter_list_sublocation['AreaList'].push(inverter_list_arealocation);
+							}
+
+							inverter_list_arealocation = {};
+							inverter_list_arealocation['Index']=row['area_location'];
+							inverter_list_arealocation['Name']=row['arealocation_name'];
+							inverter_list_arealocation['InverterList']=[];
+							cal_index_arealocation = row['area_location'];
+						} else {
+							
+						}
+						inverter_list_inverter={};
+						inverter_list_inverter['inverter_id']=row['inverter_id'];
+						inverter_list_inverter['online_status']=row['online_status'];
+						inverter_list_inverter['inverter_state']=row['inverter_state'];
+						inverter_list_inverter['inverter_state_name']=row['inverter_state_name'];
+						inverter_list_inverter['today_energy']=row['today_energy_2'];
+						inverter_list_inverter['today_runtime']=row['today_runtime_2'];
+						inverter_list_inverter['life_energy']=row['life_energy_2'];
+						inverter_list_inverter['life_runtime']=row['life_runtime_2'];
+						inverter_list_inverter['temperature_ambient']=row['temperature_ambient'];
+						inverter_list_inverter['temperature_boost']=row['temperature_boost'];
+						inverter_list_inverter['temperature_inverter']=row['temperature_inverter'];
+						inverter_list_arealocation['InverterList'].push(inverter_list_inverter);
+						
+					});
+
+					inverter_list_sublocation['AreaList'].push(inverter_list_arealocation);
+					inverter_list_data.push(inverter_list_sublocation);
+
+					var energyDataString = '';
+
+					
+					if(inv_number > 1) hasonedata = 0;
+					if(inv_number == 0) {
+
+						conn.end();
+						res.render('solarhistorydata2', {
+							title: 'Oring Solar System Demo - History Data 2',
+							setsublocationindex:1,
+							setarealocationindex:1,
+							setinverteridindex:1,
+							setSelectDate: currentDate,
+							setinverterlistdata:inverter_list_data,
+							setSelectType: 'Day',
+							setcalcTotal: 0,
+							setSingleData: 1,
+							setchartdata: energyDataString,
+							setcharttitle: 'Selected Inverters Energy Chart',
+							setchartsubtitle: subtitle,
+							setInverterList: 0,
+							setPosFunction: 0,
+							setCheckInverter: 0,
+							setDataIndexString: '小時',
+							setTableData:[]
+						});
+					} else {
+						
+							commandString = 'SELECT ';
+							commandString += 'sublocation_name, arealocation_name, inverter_id,record_time, ';
+							commandString += 'inputdcvoltage1, inputdccurrent1, inputdcwattage1, inputdcvoltage2, inputdccurrent2, inputdcwattage2,inputdcvoltage3, inputdccurrent3, inputdcwattage3, ';
+							commandString += 'inputdcvoltage4, inputdccurrent4, inputdcwattage4, inputdcvoltage5, inputdccurrent5, inputdcwattage5,inputdcvoltage6, inputdccurrent6, inputdcwattage6 ';
+							commandString += 'FROM(SELECT * FROM(SELECT * FROM(';
+							commandString += 'SELECT (area_location * 100 + inverter_id) AS search_id, sub_location, area_location, inverter_id, table_solar_dcinput_temp.timestamp AS record_time, ';
+							commandString += 'inputdcvoltage1, inputdccurrent1, inputdcwattage1, inputdcvoltage2, inputdccurrent2, inputdcwattage2,inputdcvoltage3, inputdccurrent3, inputdcwattage3, ';
+							commandString += 'inputdcvoltage4, inputdccurrent4, inputdcwattage4, inputdcvoltage5, inputdccurrent5, inputdcwattage5,inputdcvoltage6, inputdccurrent6, inputdcwattage6 ';
+							commandString += 'FROM table_solar_dcinput_temp ';
+							commandString += 'WHERE r_year=' + _year.toString() + ' AND r_month=' + _month.toString() + ' AND r_day=' + _day.toString();
+							commandString += ' ) AS raw_table ';
+							commandString += 'WHERE search_id=';
+								if(inv_number == 1)
+								    commandString += checkInverter.toString();
+								else{
+									commandString += checkInverter[0].toString();
+									for(var i=1;i<inv_number;i++){
+										commandString += " OR search_id=";
+										commandString += checkInverter[i].toString();
+									}
+								}
+							commandString += ') AS raw_table_2 INNER JOIN table_arealocation_name ON table_arealocation_name.arealocation_index=raw_table_2.area_location';
+							commandString += ') AS raw_table_3 INNER JOIN table_sublocation_name ON table_sublocation_name.sublocation_Index=raw_table_3.sub_location';
+							commandString += ' ORDER BY search_id, r_hour;';
+
+							conn.query(commandString, function(err, rows){
+								if(err) { conn.end(); res.send('Get Data Error 3 - Solar History Data 2 Post');}
+								else{
+
+									conn.end();
+									res.render('solarhistorydata', {
+									title: 'Oring Solar System Demo - History Data 2',
+										setsublocationindex:1,
+										setarealocationindex:1,
+										setinverteridindex:1,
+										setSelectDate: pickDateTime,
+										setinverterlistdata:inverter_list_data,
+										setSelectType: selectType,
+										setcalcTotal: 0,
+										setSingleData: hasonedata,
+										setchartdata: energyDataString,
+										setcharttitle: 'Selected Inverters DC Input Chart Chart',
+										setchartsubtitle: subtitle,
+										setInverterList: 0,
+										setPosFunction: 1,
+										setCheckInverter: checkInverter,
+										setDataIndexString: '小時',
+										setTableData: rows
+									});
+								}
+							});
+						
+					}
 				}
 			});
 		}

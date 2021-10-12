@@ -122,7 +122,7 @@
                     <input name="titlecolumn" type="text" value=<%= setTitleColumnString %> hidden>
                     <input name="tabledata" type="text" value=<%= setTableDataString %> hidden>
                     <button style="top: 16px; left: 100px; height: 26px; position:absolute" id="triggerTest2" type="submit">Download</button>
-                    <a style="position: absolute; left: 350px; top:16px;" href='SolarHistoryData?AreaLocation=1&InverterID=1'>DC Input History</a>
+                    <a style="position: absolute; left: 350px; top:16px;" href='SolarHistoryData?AreaLocation=1&InverterID=1'>Energy History</a>
                 </form>
 
 
@@ -135,8 +135,8 @@
                               <th>地區</th>
                               <th>場域</th>
                               <th>設備號碼</th>
-                              <th><%= setDataIndexString %></th>
-                              <th>發電量(kWh)</th>
+                              <th>時間</th>
+                              <th>輸入電壓(V)</th>
                           </tr>
                       </thead>
                     <tbody style="overflow: auto;">
@@ -145,8 +145,8 @@
                                 <th><%= row['sublocation_name'] %></th>
                                 <th><%= row['arealocation_name'] %></th>
                                 <th><%= row['inverter_id'] %></th>
-                                <th><%= row['data_index'] %></th>
-                                <th><%= row['energy'] %></th>
+                                <th><%= row['record_time'] %></th>
+                                <th><%= row['inputdcvoltage1'] %></th>
                             </tr>
                         <% }); %>
                     </tbody>
