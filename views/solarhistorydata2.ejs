@@ -107,16 +107,21 @@
             </form>
             <div class="Rect-Main-42">
                 <label class="Title-9">資料</label>
-                <form method='post' action="/ExportExcel">
+                <form method='post' action="/ExportExcel2">
                     <% var setTableDataString = JSON.stringify(setTableData); %>
-                    <% var setFileNameString = (setSelectType.toString() + "_Report_" + setSelectDate.toString() + ".xlsx"); %>
+                    <% var setFileNameString = ("DC Input_Report_" + setSelectDate.toString() + ".xlsx"); %>
                     <% console.log(setFileNameString); %>
                     <% var setTitleColumn = {}; %>
                     <% setTitleColumn['Column_1']='地區'; %>
                     <% setTitleColumn['Column_2']='場域'; %>
                     <% setTitleColumn['Column_3']='設備號碼'; %>
-                    <% setTitleColumn['Column_4']=setDataIndexString; %>
-                    <% setTitleColumn['Column_5']='發電量(kWh)'; %>
+                    <% setTitleColumn['Column_4']='時間'; %>
+                    <% setTitleColumn['Column_5']='輸入電壓1(V)'; %>
+                    <% setTitleColumn['Column_6']='輸入電流1(A)'; %>
+                    <% setTitleColumn['Column_7']='輸入功率1(W)'; %>
+                    <% setTitleColumn['Column_8']='輸入電壓2(V)'; %>
+                    <% setTitleColumn['Column_9']='輸入電流2(A)'; %>
+                    <% setTitleColumn['Column_10']='輸入功率2(W)'; %>
                     <% var setTitleColumnString = JSON.stringify(setTitleColumn); %>
                     <input name="filenamepath" type="text" value=<%= setFileNameString %> hidden>
                     <input name="titlecolumn" type="text" value=<%= setTitleColumnString %> hidden>

@@ -1841,7 +1841,7 @@ router.post('/SolarHistoryData2', function(req, res){
 							commandString += ') AS raw_table_3 INNER JOIN table_sublocation_name ON table_sublocation_name.sublocation_Index=raw_table_3.sub_location';
 							commandString += ' ORDER BY area_location, inverter_id, record_time;';
 
-							console.log(commandString);
+							//console.log(commandString);
 
 							conn.query(commandString, function(err, rows){
 								if(err) { conn.end(); res.send('Get Data Error 3 - Solar History Data 2 Post');}
@@ -2945,6 +2945,73 @@ router.post('/ExportExcel', function(req, res){
 		rowdata.push(row['inverter_id']);
 		rowdata.push(row['data_index']);
 		rowdata.push(row['energy']);
+		conf.rows.push(rowdata);
+	});
+
+	//console.log(conf);
+
+	var result = nodeExcel.execute(conf);
+  	res.setHeader('Content-Type', 'application/vnd.openxmlformats');
+  	res.setHeader("Content-Disposition", "attachment; filename=" + req.body.filenamepath);
+  	res.end(result, 'binary');
+
+	//res.send('Test');
+});
+
+router.post('/ExportExcel2', function(req, res){
+	console.log('Export Excel 2');
+	var exportdata_titlecolumn = JSON.parse(req.body.titlecolumn);
+	var exportdata_rawdata = JSON.parse(req.body.tabledata);
+	//console.log(exportdata_titlecolumn);
+	//console.log(exportdata_rawdata);
+	
+	var conf = {};
+	conf.anme = "Report";
+	conf.cols = [{
+		caption:exportdata_titlecolumn['Column_1'],
+        type:'string',
+	},{
+		caption:exportdata_titlecolumn['Column_2'],
+        type:'string',
+	},{
+		caption:exportdata_titlecolumn['Column_3'],
+        type:'number',
+	},{
+		caption:exportdata_titlecolumn['Column_4'],
+        type:'string',
+	},{
+		caption:exportdata_titlecolumn['Column_5'],
+        type:'number',
+	},{
+		caption:exportdata_titlecolumn['Column_6'],
+        type:'number',
+	},{
+		caption:exportdata_titlecolumn['Column_7'],
+        type:'number',
+	},{
+		caption:exportdata_titlecolumn['Column_8'],
+        type:'number',
+	},{
+		caption:exportdata_titlecolumn['Column_9'],
+        type:'number',
+	},{
+		caption:exportdata_titlecolumn['Column_10'],
+        type:'number',				
+  	}];
+
+	conf.rows = [];
+	exportdata_rawdata.forEach((row) => {
+		var rowdata = [];
+		rowdata.push(row['sublocation_name']);
+		rowdata.push(row['arealocation_name']);
+		rowdata.push(row['inverter_id']);
+		rowdata.push(row['record_time']);
+		rowdata.push(row['inputdcvoltage1']);
+		rowdata.push(row['inputdccurrent1']);
+		rowdata.push(row['inputdcwattage1']);
+		rowdata.push(row['inputdcvoltage2']);
+		rowdata.push(row['inputdccurrent2']);
+		rowdata.push(row['inputdcwattage2']);
 		conf.rows.push(rowdata);
 	});
 
