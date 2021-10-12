@@ -1841,12 +1841,14 @@ router.post('/SolarHistoryData2', function(req, res){
 							commandString += ') AS raw_table_3 INNER JOIN table_sublocation_name ON table_sublocation_name.sublocation_Index=raw_table_3.sub_location';
 							commandString += ' ORDER BY search_id, r_hour;';
 
+							console.log(commandString);
+
 							conn.query(commandString, function(err, rows){
 								if(err) { conn.end(); res.send('Get Data Error 3 - Solar History Data 2 Post');}
 								else{
 
 									conn.end();
-									res.render('solarhistorydata', {
+									res.render('solarhistorydata2', {
 									title: 'Oring Solar System Demo - History Data 2',
 										setsublocationindex:1,
 										setarealocationindex:1,
