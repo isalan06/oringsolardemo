@@ -2962,8 +2962,8 @@ router.post('/ExportExcel2', function(req, res){
 	console.log('Export Excel 2');
 	var exportdata_titlecolumn = JSON.parse(req.body.titlecolumn);
 	var exportdata_rawdata = JSON.parse(req.body.tabledata);
-	//console.log(exportdata_titlecolumn);
-	//console.log(exportdata_rawdata);
+	console.log(exportdata_titlecolumn);
+	console.log(exportdata_rawdata);
 	
 	var conf = {};
 	conf.anme = "Report";
