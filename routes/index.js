@@ -2999,6 +2999,8 @@ router.post('/ExportExcel2', function(req, res){
         type:'number',				
   	}];
 
+	console.log('Export Excel 2 - 1');
+
 	conf.rows = [];
 	exportdata_rawdata.forEach((row) => {
 		var rowdata = [];
@@ -3015,7 +3017,7 @@ router.post('/ExportExcel2', function(req, res){
 		conf.rows.push(rowdata);
 	});
 
-	//console.log(conf);
+	console.log(conf);
 
 	var result = nodeExcel.execute(conf);
   	res.setHeader('Content-Type', 'application/vnd.openxmlformats');
