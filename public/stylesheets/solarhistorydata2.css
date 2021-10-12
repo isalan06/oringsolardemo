@@ -1,0 +1,309 @@
+:root{
+    --primary-theme-dark: #161d44
+  }
+
+  body{overflow: auto;}
+  
+  .dashboardadmin {
+    width: 1440px;
+    height: 1080px;
+  }
+  
+  .LeftItemList {
+    position: absolute;
+    top: 0px;
+    width: 264px;
+    height: 894px;
+    margin: 0 24px 0 0;
+    padding: 16px 0 200px;
+    background-color: var(--primary-theme-dark);
+  }
+
+  .IconLWhite100 {
+    width: 24px;
+    height: 24px;
+    transform: rotate(-360deg);
+    font-family: FabricExternalMDL2Assets;
+    font-size: 24px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: 0.27px;
+    color: #ffffff;
+  }
+  
+  .PVTitle {
+    width: 171px;
+    height: 40px;
+    margin: 0 29px 28px 16px;
+    font-family: PingFangTC;
+    font-size: 32px;
+    font-weight: 300;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.25;
+    letter-spacing: 0.37px;
+    color: #ffffff;
+  }
+  
+  .LineTitle {
+    width: 1440px;
+    height: 1px;
+    margin: 22.5px 0 15.5px;
+    opacity: 0.5;
+    border: solid 1px #d3d3d3;
+  }
+  
+  .RectangleSelected {
+    width: 264px;
+    height: 46px;
+    background-color: #0c1331;
+  }
+  
+  .NotRectangleSelected {
+    width: 264px;
+    height: 46px;
+    background-color: var(--primary-theme-dark);
+  }
+
+  .linkPath:link {
+    text-decoration:none;
+  }
+
+  .linkPath:hover { 
+    text-decoration:underline;
+  }
+
+  .linkPath:visited {
+    text-decoration:none;
+    color: #ffffff;
+  }
+
+  .linkPath2:link {
+    text-decoration:none;
+    color: #0c1331;
+  }
+
+  .linkPath2:hover { 
+    text-decoration:underline;
+    color: #0c1331;
+  }
+
+  .linkPath2:visited {
+    text-decoration:none;
+    color: #0c1331;
+  }
+
+  .currentLeftTitle {
+    width: 81px;
+    height: 22px;
+    font-family: PingFangTC;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    color: #ffffff;
+    position: relative;
+    top: 12px;
+    margin-left: 12px;
+  }
+
+  .Hi-Admin {
+    width: 72px;
+    height: 22px;
+    margin: 25px 8px 24.5px 180px;
+    font-family: SegoeUI;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.38;
+    letter-spacing: 0.18px;
+    text-align: right;
+    color: #333333;
+    position: relative;
+    left: 830px;
+    top: 20px;
+  }
+  
+  .UpperTitle {
+    position: absolute;
+    top: 0px;
+    left: 264px;
+    height: 70px;
+    width: 1176px;
+  }
+  
+  .UpperContainer {
+    position: relative;
+  }
+  
+  .dropdown {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    top: 27px;
+    left: 1120px;
+    object-fit: contain;
+  }
+
+  .MainContainer {
+    position: relative;
+    left: 264px;
+    top: 80px;
+    width: 1176px;
+    height: 1000px;  
+  }
+  .Rect-Main-40 {
+    width: 250px;
+    height: 1000px;
+    margin-left: 16px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+    position:absolute;
+  }
+
+  /* Remove default bullets */
+ul, #myUL {
+    list-style-type: none;
+  }
+  
+  /* Remove margins and padding from the parent ul */
+  #myUL {
+    margin: 0;
+    padding: 0;
+  }
+  
+  /* Style the caret/arrow */
+  .caret {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+  }
+  
+  /* Create the caret/arrow with a unicode, and style it */
+  .caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+  }
+  
+  /* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+  .caret-down::before {
+    transform: rotate(90deg);
+  }
+  
+  /* Hide the nested list */
+  .nested {
+    display: none;
+  }
+  
+  /* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+  .active {
+    display: block;
+  }
+
+  .hummingbird-treeview{
+    margin-left: -96px;
+    margin-top: 34px;
+  }
+
+  .dot {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    display: inline-block;
+  }
+
+  .Rect-Main-41 {
+    width: 870px;
+    height: 200px;
+    margin-left: 286px;
+    margin-top: 16px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+    position:absolute;
+  }
+
+  .Rect-Main-42 {
+    width: 870px;
+    height: 780px;
+    margin-left: 286px;
+    margin-top: 236px;
+    box-shadow: 0 1.6px 3.6px 0 rgba(31, 38, 120, 0.13), 0 0.3px 0.9px 0 rgba(31, 38, 120, 0.1);
+    background-color: #f8f8f8;
+    display: inline-flex;
+    position:absolute;
+  }
+
+  .Table-1  {
+    margin-top: 46px;
+    margin-left: 20px;
+    width: 850px;
+    height: 720px;
+    font-family: PingFangTC;
+    font-size: 14px;
+    font-weight: 600;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: 1.43;
+    letter-spacing: 0.16px;
+    color: #333333;
+    position: absolute;
+    overflow: auto;
+  }
+  
+  .Table-2 {
+      position:relative
+  }
+
+  .Table-3{
+    overflow: auto;
+  }
+
+  .Column-1 {
+    vertical-align: baseline;
+  }
+
+  .Column-2 {
+    vertical-align: baseline;
+  }
+
+  table tbody {
+    display:block;
+    height:690px;
+    overflow-y:scroll;
+    }
+    
+    table thead, tbody tr {
+    display:table;
+    width:100%;
+    table-layout:fixed;
+    }
+    
+    table thead {
+    width: calc( 100% - 1em )
+    }
+    
+  .Title-9 {
+      margin-top: 16px;
+      margin-left: 20px;
+      width: 142px;
+      height: 22px;
+      font-family: PingFangTC;
+      font-size: 20px;
+      font-weight: 600;
+      font-stretch: normal;
+      font-style: normal;
+      line-height: 1.1;
+      letter-spacing: 0.23px;
+      color: #333333;
+      position: absolute;
+  }
+

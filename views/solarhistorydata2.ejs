@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title>Solar Demo - Summary</title>
-    <link rel="stylesheet" href="stylesheets/solarhistorydata.css">
+    <link rel="stylesheet" href="stylesheets/solarhistorydata2.css">
   </head>
   <body>
     <div class="dashboardadmin">
@@ -97,12 +97,8 @@
                 </div>
                 <div class="Rect-Main-41">
                     <div>
-                        <label>選擇類型</label>
-                        <select id="myComboboxArea" name="myComboboxArea" class="Combobox-1">
-                            <option value="Day" <% if(setSelectType == 'Day') { %>selected<% } %>>日</option>
-                            <option value="Month" <% if(setSelectType == 'Month') { %>selected<% } %>>月</option>
-                            <option value="Year" <% if(setSelectType == 'Year') { %>selected<% } %>>年</option>
-                        </select>
+                        <label>Inverter DC Input Information</label>
+
                         <label>選擇日期</label>
                         <input type="date" name="pickDateTime" placeholder="Date" value=<%= setSelectDate %>>
                         <button>執行</button>
@@ -126,7 +122,6 @@
                     <input name="titlecolumn" type="text" value=<%= setTitleColumnString %> hidden>
                     <input name="tabledata" type="text" value=<%= setTableDataString %> hidden>
                     <button style="top: 16px; left: 100px; height: 26px; position:absolute" id="triggerTest2" type="submit">Download</button>
-                    <a>DC Input History</a>
                 </form>
 
 
