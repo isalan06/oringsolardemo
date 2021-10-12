@@ -1855,7 +1855,7 @@ router.post('/SolarHistoryData2', function(req, res){
 										setinverteridindex:1,
 										setSelectDate: pickDateTime,
 										setinverterlistdata:inverter_list_data,
-										setSelectType: selectType,
+										setSelectType: 'Day',
 										setcalcTotal: 0,
 										setSingleData: hasonedata,
 										setchartdata: energyDataString,
