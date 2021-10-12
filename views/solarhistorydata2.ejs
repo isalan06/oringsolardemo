@@ -139,6 +139,9 @@
                               <th>輸入電壓1(V)</th>
                               <th>輸入電流1(A)</th>
                               <th>輸入功率1(W)</th>
+                              <th>輸入電壓2(V)</th>
+                              <th>輸入電流2(A)</th>
+                              <th>輸入功率2(W)</th>
                           </tr>
                       </thead>
                     <tbody style="overflow: auto;">
@@ -148,9 +151,12 @@
                                 <th><%= row['arealocation_name'] %></th>
                                 <th><%= row['inverter_id'] %></th>
                                 <th><%= row['record_time'] %></th>
-                                <th><%= row['inputdcvoltage1']/100 %></th>
+                                <th><%= row['inputdcvoltage1']/10 %></th>
                                 <th><%= row['inputdccurrent1']/100 %></th>
                                 <th><%= row['inputdcwattage1'] %></th>
+                                <th><%= row['inputdcvoltage2']/10 %></th>
+                                <th><%= row['inputdccurrent2']/100 %></th>
+                                <th><%= row['inputdcwattage2'] %></th>
                             </tr>
                         <% }); %>
                     </tbody>
