@@ -1839,7 +1839,7 @@ router.post('/SolarHistoryData2', function(req, res){
 								}
 							commandString += ') AS raw_table_2 INNER JOIN table_arealocation_name ON table_arealocation_name.arealocation_index=raw_table_2.area_location';
 							commandString += ') AS raw_table_3 INNER JOIN table_sublocation_name ON table_sublocation_name.sublocation_Index=raw_table_3.sub_location';
-							commandString += ' ORDER BY search_id, r_hour;';
+							commandString += ' ORDER BY area_location, inverter_id, record_time;';
 
 							console.log(commandString);
 
