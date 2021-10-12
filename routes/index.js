@@ -1817,7 +1817,7 @@ router.post('/SolarHistoryData2', function(req, res){
 					} else {
 						
 							commandString = 'SELECT ';
-							commandString += 'sublocation_name, arealocation_name, inverter_id,DATE_FORMAT(record_time, "%Y-%m-%d %H:%i:%s") AS record_time, ';
+							commandString += 'sublocation_name, arealocation_name, inverter_id,DATE_FORMAT(record_time, "%Y%m%d%H%i%s") AS record_time, ';
 							commandString += 'inputdcvoltage1, inputdccurrent1, inputdcwattage1, inputdcvoltage2, inputdccurrent2, inputdcwattage2,inputdcvoltage3, inputdccurrent3, inputdcwattage3, ';
 							commandString += 'inputdcvoltage4, inputdccurrent4, inputdcwattage4, inputdcvoltage5, inputdccurrent5, inputdcwattage5,inputdcvoltage6, inputdccurrent6, inputdcwattage6 ';
 							commandString += 'FROM(SELECT * FROM(SELECT * FROM(';
