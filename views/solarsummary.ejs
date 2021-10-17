@@ -99,7 +99,7 @@
       <div class="MainContainer">
         <div class="Rect-Main-1">
             <label class="Title-1">年累積發電量</label>
-            <label class="Value-1"><%= setTotalEnergy.toLocaleString() | 0 %></label>
+            <label class="Value-1"><%= (setTotalEnergy | 0).toLocaleString() %></label>
             <label class="Unit-1">kWh</label>
           </div>
           <div class="Rect-Main-2">
