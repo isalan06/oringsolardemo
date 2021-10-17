@@ -38,7 +38,7 @@
         var bbb = document.getElementById('b');
         var _a = document.getElementById('a');
         _a.textContent = 'Test AC';
-        var ccc = document.getElementById('testA');
+        var ccc = document.getElementsByClassName('testA');
         var ddd= document.getElementById('c');
         ddd.textContent = ccc.length.toString();
         ccc.forEach( eee => {
@@ -50,12 +50,12 @@
     <p></p>
     <% for(var i=0;i<10;i++){ %>
       <% var indexString = 'TestA' + i.toString(); %>
-        <input type="checkbox" id="testA" name="checkInverter" value=<%= indexString %>><%= indexString %>
+        <input type="checkbox" class="testA" name="checkInverter" value=<%= indexString %>><%= indexString %>
         <p></p>
     <% } %>
     <% for(var i=0;i<5;i++){ %>
       <% var indexString = 'TestB' + i.toString(); %>
-        <input type="checkbox" id="testB" name="checkInverter" value=<%= indexString %>><%= indexString %>
+        <input type="checkbox" class="testB" name="checkInverter" value=<%= indexString %>><%= indexString %>
         <p></p>
     <% } %>
 
