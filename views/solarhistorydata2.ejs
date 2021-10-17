@@ -56,7 +56,7 @@
                                                 <script>
                                                     function <%= function_index %>(){
                                                         var showinfo = document.getElementById('showinfo');
-                                                        showinfo.textContent = 'Show A';
+                                                        showinfo.textContent = '<%= function_index %>';
                                                         var sourceTag = document.getElementById('<%= id_index %>');
                                                         var targetTag = document.getElementsByName('checkInverter');
                                                         targetTag.forEach(eachTag => {
