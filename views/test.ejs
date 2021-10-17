@@ -34,9 +34,15 @@
     <p></p>
     <% for(var i=0;i<10;i++){ %>
       <% var indexString = 'Test' + i.toString(); %>
-        <input type="checkbox" name="checkInverter" value=<%= indexString %>><%= indexString %>
+        <input type="checkbox" id="testA" name="checkInverter" value=<%= indexString %>><%= indexString %>
         <p></p>
     <% } %>
+    <% for(var i=0;i<5;i++){ %>
+      <% var indexString = 'Test' + i.toString(); %>
+        <input type="checkbox" id="testB" name="checkInverter" value=<%= indexString %>><%= indexString %>
+        <p></p>
+    <% } %>
+
     <textarea id='c'>NA</textarea>
     
   </body>
