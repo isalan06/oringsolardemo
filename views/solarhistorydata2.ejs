@@ -46,18 +46,20 @@
                                             <% var id_index = 'id' + arearow['Index'].toString(); %>
                                             <% var function_index = 'fun' + arearow['Index'].toString(); %>
                                             <% if(arearow['Index'] === setarealocationindex) { %>
-                                                <li><span class="caret caret-down"><input type="checkbox" name=<%= id_index %>><%= arearow['Name'] %></span>
+                                                <li><span class="caret caret-down"><input type="checkbox" name=<%= id_index %> onchange=<%= function_index %>><%= arearow['Name'] %></span>
                                                     <ul class="nested active">
                                             <% } else { %>
-                                                <li><span class="caret caret-down"><input type="checkbox" name=<%= id_index %>><%= arearow['Name'] %></span>
+                                                <li><span class="caret caret-down"><input type="checkbox" name=<%= id_index %> onchange=<%= function_index %>><%= arearow['Name'] %></span>
                                                     <ul class="nested active">
                                             <% } %>
                                                 <script>
                                                     function <%= function_index %>(){
-                                                        var sourceTag = document.getElementById('<%= id_index %>');
+                                                        var sourceTag = document.getElementById(<%= id_index %>);
                                                         var targetTag = document.getElementsByName('checkInverter');
                                                         targetTag.forEach(eachTag => {
-
+                                                            if(eachTag.className == <%= id_index %>){
+                                                                eachTag.checked = sourceTag.checked;
+                                                            }
                                                         });
                                                     }
 
