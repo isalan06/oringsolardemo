@@ -31,14 +31,29 @@
         });
       }
     </script>
+    <input type="checkbox" onchange="ChangeSelectA()" id='e' name="checkInverterAllA" value='Select A'>Select <A>
+    <script>
+      function ChangeSelect(){
+        var bbb = document.getElementById('b');
+        var _a = document.getElementById('a');
+        _a.textContent = 'Test AC';
+        var ccc = document.getElementById('testA');
+        var ddd= document.getElementById('c');
+        ddd.textContent = ccc.length.toString();
+        ccc.forEach( eee => {
+          eee.checked = bbb.checked;
+        });
+      }
+    </script>
+    </A>
     <p></p>
     <% for(var i=0;i<10;i++){ %>
-      <% var indexString = 'Test' + i.toString(); %>
+      <% var indexString = 'TestA' + i.toString(); %>
         <input type="checkbox" id="testA" name="checkInverter" value=<%= indexString %>><%= indexString %>
         <p></p>
     <% } %>
     <% for(var i=0;i<5;i++){ %>
-      <% var indexString = 'Test' + i.toString(); %>
+      <% var indexString = 'TestB' + i.toString(); %>
         <input type="checkbox" id="testB" name="checkInverter" value=<%= indexString %>><%= indexString %>
         <p></p>
     <% } %>
