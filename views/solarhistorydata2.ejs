@@ -49,10 +49,10 @@
                                             <% var id_index = 'id' + arearow['Index'].toString(); %>
                                             <% var function_index = 'fun' + arearow['Index'].toString(); %>
                                             <% if(arearow['Index'] === setarealocationindex) { %>
-                                                <li><span class="caret caret-down"><input type="checkbox" name='<%= id_index %>' onchange='<%= function_index %>()'><%= arearow['Name'] %></span>
+                                                <li><span class="caret caret-down"><input type="checkbox" id='<%= id_index %>' onchange='<%= function_index %>()'><%= arearow['Name'] %></span>
                                                     <ul class="nested active">
                                             <% } else { %>
-                                                <li><span class="caret caret-down"><input type="checkbox" name='<%= id_index %>' onchange='<%= function_index %>()'><%= arearow['Name'] %></span>
+                                                <li><span class="caret caret-down"><input type="checkbox" id='<%= id_index %>' onchange='<%= function_index %>()'><%= arearow['Name'] %></span>
                                                     <ul class="nested active">
                                             <% } %>
                                                 <script>
