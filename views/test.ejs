@@ -34,6 +34,8 @@
     <p></p>
     <% var commandA = 'commandA'; %>
     <% var id_index = 'id_A'; %>
+    <% var fun_indexA = 'fun_A'; %>
+    <% var fun_indexB = 'fun_B'; %>
     <input type="checkbox" onchange="<%= commandA %>()" id='<%= id_index %>' name="checkInverterAllA" value='Select A'>Select A
     <script>
       function <%= commandA %>(){
@@ -44,7 +46,7 @@
         var ddd= document.getElementById('c');
         ddd.textContent = ccc.length.toString();
         ccc.forEach( eee => {
-          if(eee.className == 'testA')
+          if(eee.className == '<%= fun_indexA %>')
             eee.checked = bbb.checked;
         });
       }
@@ -53,12 +55,12 @@
     <p></p>
     <% for(var i=0;i<10;i++){ %>
       <% var indexString = 'TestA' + i.toString(); %>
-        <input type="checkbox" class="testA" name="checkInverter" value=<%= indexString %>><%= indexString %>
+        <input type="checkbox" class="<%= fun_indexA %>" name="checkInverter" value=<%= indexString %>><%= indexString %>
         <p></p>
     <% } %>
     <% for(var i=0;i<5;i++){ %>
       <% var indexString = 'TestB' + i.toString(); %>
-        <input type="checkbox" class="testB" name="checkInverter" value=<%= indexString %>><%= indexString %>
+        <input type="checkbox" class="<%= fun_indexB %>" name="checkInverter" value=<%= indexString %>><%= indexString %>
         <p></p>
     <% } %>
 
