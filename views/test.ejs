@@ -38,11 +38,12 @@
         var bbb = document.getElementById('e');
         var _a = document.getElementById('a');
         _a.textContent = 'Test AC';
-        var ccc = document.getElementsByClassName('testA');
+        var ccc = document.getElementsByName('checkInverter');
         var ddd= document.getElementById('c');
         ddd.textContent = ccc.length.toString();
         ccc.forEach( eee => {
-          eee.checked = true;
+          if(eee.className == 'testA')
+            eee.checked = bbb.checked;
         });
       }
     </script>
