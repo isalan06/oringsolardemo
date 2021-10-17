@@ -44,12 +44,15 @@
                                     <ul class="nested active">
                                         <% row['AreaList'].forEach( (arearow) => { %>
                                             <% if(arearow['Index'] === setarealocationindex) { %>
-                                                <li><span class="caret caret-down"><%= arearow['Name'] %></span>
+                                                <li><span class="caret caret-down"><input type="checkbox"><%= arearow['Name'] %></span>
                                                     <ul class="nested active">
                                             <% } else { %>
-                                                <li><span class="caret caret-down"><%= arearow['Name'] %></span>
+                                                <li><span class="caret caret-down"><input type="checkbox"><%= arearow['Name'] %></span>
                                                     <ul class="nested active">
                                             <% } %>
+                                                <script>
+
+                                                </script>
                                                         <% arearow['InverterList'].forEach((inverterrow) => { %>
                                                             <% var checkvalue = 100 * arearow['Index'] + inverterrow['inverter_id']; %> 
                                                             <% var urlString='/SolarInverterList?AreaLocation=' + arearow['Index'].toString() + '&InverterID=' + inverterrow['inverter_id'].toString(); %>
