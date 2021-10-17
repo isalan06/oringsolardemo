@@ -30,6 +30,7 @@
                     <div id="treeview_container" class="hummingbird-treeview">
                         <input type='checkbox' onchange="changetest()" id='checkboxselectall'>Select All
                         <label id='showinfo'>NA</label>
+                        <label id='showlength'>NA</label>
                         <script>
                             function changetest(){
                                 var getCheck = document.getElementById('checkboxselectall');
@@ -59,6 +60,8 @@
                                                         showinfo.textContent = '<%= function_index %>';
                                                         var sourceTag = document.getElementById('<%= id_index %>');
                                                         var targetTag = document.getElementsByName('checkInverter');
+                                                        var showlength = document.getElementById('showlength');
+                                                        showlength.textContent = targetTag.length.toString();
                                                         targetTag.forEach(eachTag => {
                                                             if(eachTag.className == '<%= id_index %>'){
                                                                 eachTag.checked = sourceTag.checked;
