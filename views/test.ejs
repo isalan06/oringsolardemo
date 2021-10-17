@@ -33,10 +33,11 @@
     </script>
     <p></p>
     <% var commandA = 'commandA'; %>
-    <input type="checkbox" onchange="<%= commandA %>()" id='e' name="checkInverterAllA" value='Select A'>Select A
+    <% var id_index = 'id_A'; %>
+    <input type="checkbox" onchange="<%= commandA %>()" id='<%= id_index %>' name="checkInverterAllA" value='Select A'>Select A
     <script>
       function <%= commandA %>(){
-        var bbb = document.getElementById('e');
+        var bbb = document.getElementById('<%= id_index %>');
         var _a = document.getElementById('a');
         _a.textContent = 'Test AC';
         var ccc = document.getElementsByName('checkInverter');
