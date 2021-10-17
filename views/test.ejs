@@ -32,9 +32,10 @@
       }
     </script>
     <p></p>
-    <input type="checkbox" onchange="ChangeSelectA()" id='e' name="checkInverterAllA" value='Select A'>Select A
+    <% var commandA = 'commandA'; %>
+    <input type="checkbox" onchange="<%= commandA %>()" id='e' name="checkInverterAllA" value='Select A'>Select A
     <script>
-      function ChangeSelectA(){
+      function <%= commandA %>(){
         var bbb = document.getElementById('e');
         var _a = document.getElementById('a');
         _a.textContent = 'Test AC';
