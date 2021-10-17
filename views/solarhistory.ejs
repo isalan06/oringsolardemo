@@ -162,13 +162,28 @@
                             <li><span class="caret caret-down" caret-down><%= row['Name'] %></span>
                                 <ul class="nested active">
                                     <% row['AreaList'].forEach( (arearow) => { %>
+                                        <% var id_index = 'id' + arearow['Index'].toString(); %>
+                                        <% var function_index = 'fun' + arearow['Index'].toString(); %>
                                         <% if(arearow['Index'] === setarealocationindex) { %>
-                                            <li><span class="caret caret-down"><%= arearow['Name'] %></span>
+                                            <li><span class="caret caret-down"></span><input type="checkbox" id='<%= id_index %>' onchange='<%= function_index %>()'><%= arearow['Name'] %>
                                                 <ul class="nested active">
                                         <% } else { %>
-                                            <li><span class="caret"><%= arearow['Name'] %></span>
+                                            <li><span class="caret"></span><input type="checkbox" id='<%= id_index %>' onchange='<%= function_index %>()'><%= arearow['Name'] %>
                                                 <ul class="nested">
                                         <% } %>
+                                            <script>
+                                              function <%= function_index %>(){
+                                                var sourceTag = document.getElementById('<%= id_index %>');
+                                                var targetTag = document.getElementsByName('checkInverter');
+
+                                                targetTag.forEach(eachTag => {
+                                                  if(eachTag.className == '<%= id_index %>'){
+                                                      eachTag.checked = sourceTag.checked;
+                                                  }
+                                                });
+                                              }
+
+                                            </script>
                                                     <% arearow['InverterList'].forEach((inverterrow) => { %>
                                                         <% var checkvalue = 100 * arearow['Index'] + inverterrow['inverter_id']; %> 
                                                         <% var urlString='/SolarInverterList?AreaLocation=' + arearow['Index'].toString() + '&InverterID=' + inverterrow['inverter_id'].toString(); %>
@@ -184,7 +199,7 @@
                                                                 <% } %>
                                                             <% } %> 
                                                         <% } %>
-                                                        <li><input type="checkbox" name="checkInverter" value=<%= checkvalue %> <% if(checkflag == 1) { %>checked<% } %>>
+                                                        <li><input type="checkbox" name="checkInverter" class='<%= id_index %>' value=<%= checkvalue %> <% if(checkflag == 1) { %>checked<% } %>>
                                                             <% if ((inverterrow['online_status'] === 0) || (inverterrow['inverter_state'] === 4)) { %>
                                                                 <span class='dot' style="background-color:red;"></span>
                                                             <% } else { %>
