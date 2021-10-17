@@ -29,6 +29,7 @@
                     <label style="margin-top: 10px; margin-left: 10px;">案場設備列表</label>
                     <div id="treeview_container" class="hummingbird-treeview">
                         <input type='checkbox' onchange="changetest()" id='checkboxselectall'>Select All
+                        <label id='showinfo'>NA</label>
                         <script>
                             function changetest(){
                                 var getCheck = document.getElementById('checkboxselectall');
@@ -54,6 +55,8 @@
                                             <% } %>
                                                 <script>
                                                     function <%= function_index %>(){
+                                                        var showinfo = document.getElementById('showinfo');
+                                                        showinfo.textContent = 'Show A';
                                                         var sourceTag = document.getElementById('<%= id_index %>');
                                                         var targetTag = document.getElementsByName('checkInverter');
                                                         targetTag.forEach(eachTag => {
