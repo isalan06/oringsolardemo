@@ -129,7 +129,7 @@
         </div>
         <div class="Rect-Main-1">
             <label class="Title-1">年累積發電量</label>
-            <label class="Value-1"><%= setTotalEnergy | 0 %></label>
+            <label class="Value-1"><%= (setTotalEnergy | 0).toLocaleString() %></label>
             <label class="Unit-1">kWh</label>
           </div>
           <div class="Rect-Main-2">
@@ -152,7 +152,7 @@
           </div>
           <div class="Rect-Main-5">
             <label class="Title-5">今日發電量</label>
-            <label class="Value-5"><%= (setTodayTotalEnergy / 100) | 0 %></label>
+            <label class="Value-5"><%= ((setTodayTotalEnergy / 100) | 0).toLocaleString() %></label>
             <label class="Unit-5">kWh</label>
             <hr class="LineTitle-2" />
             <label class="Title-6" style="margin-top: 119px;margin-left: 20px;">今日單位發電量</label>
