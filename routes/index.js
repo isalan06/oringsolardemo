@@ -45,6 +45,8 @@ router.get('/SolarSummary', function(req, res) {
 		var today_online_count = 0;
 		var today_offline_count = 0;
 		var today_online_prec = 0;
+		var today_set_energy = 0;
+		var today_eff_energy = 0;
 
 		if(err){
 			conn.end();
@@ -72,12 +74,16 @@ router.get('/SolarSummary', function(req, res) {
 									today_hour_energy = 0;
 								else
 									today_hour_energy = rows[0]['Hour_Energy'];
+								today_set_energy = rows[0]['SetUp_Energy'];
+								today_eff_energy = rows[0]['Eff_Energy'];
 							}
 							else
 							{
 								today_total_energy = 0;
 								today_unit_energy = 0;
 								today_hour_energy = 0;
+								today_set_energy = 0;
+								today_eff_energy = 0;
 							}
 
 							conn.query('SELECT * FROM view_today_inverter_onlineinformation;', function(err, rows){
@@ -165,7 +171,9 @@ router.get('/SolarSummary', function(req, res) {
 																setOnlineChart: onlineDataString,
 																setHourChart: hourDataString,
 																setAreaInformation: areainformationdata,
-																setAbnormalInverter: abnormal_inverter_list
+																setAbnormalInverter: abnormal_inverter_list,
+																setTodaySetupEnergy: today_set_energy,
+																setTodayEffEnergy: today_eff_energy
 															});
 														}
 													});
