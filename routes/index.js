@@ -139,7 +139,7 @@ router.get('/SolarSummary', function(req, res) {
 												}
 
 												var hourDataString = JSON.stringify(hourdatas);
-
+												console.log(hourDataString)
 												
 											}
 											else{
