@@ -53,27 +53,13 @@
           hAxis: {slantedText: true, showTextEvery: 2, textStyle : { fontSize: 9 }}
         };
 
+        var chart = new google.charts.Bar(document.getElementById('myCanvas2'));
+
+        chart.draw(data, google.charts.Bar.convertOptions(options));
+
       }
 
       
-    </script>
-    <script src="http://maps.googleapis.com/maps/api/js"></script>
-    <script>
-      function initialize(){
-        var mapProp ={
-          center: new google.maps.LatLng(22.62017, 120.28151),
-          zoom: 14,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        
-        var map=new google.maps.Map(document.getElementById("myMap"), mapProp);
-
-        var maker = new google.maps.Marker({
-          position: new google.maps.LatLng(22.62017, 120.28151),
-          map: map
-        });
-      }
-      google.maps.event.addDomListener(window, 'load', initialize);
     </script>
   </head>
   <body>
