@@ -210,10 +210,13 @@ router.get('/SolarLocation', function(req, res) {
 	transfer_param = urlData.query;
 	area_location_index = transfer_param.AreaLocation
 	
-	var area_name='未知';
-	if(area_location_index == 1) area_name='大義倉庫';
-	else if(area_location_index == 2) area_name='誠品';
-	else if(area_location_index == 3) area_name='兔將創意';
+	var area_name='未知'; var image_path='';
+	if(area_location_index == 1) { area_name='大義倉庫';  image_path='img/Loc1.jfif'; }
+	else if(area_location_index == 2) {area_name='誠品';  image_path='img/Loc2.jfif'; }
+	else if(area_location_index == 3) {area_name='兔將創意';  image_path='img/Loc3.jfif'; }
+
+	
+
 
 	var commandString = 'SELECT SUM(energy)/1000 AS TotalEnergy FROM table_solar_hist3_month WHERE r_year=2021 AND area_location=' + area_location_index + ' GROUP BY r_year';
 
@@ -346,7 +349,8 @@ router.get('/SolarLocation', function(req, res) {
 															setTodayOnlinePrec: today_online_prec,
 															setOnlineChart: onlineDataString,
 															setHourChart: hourDataString,
-															setAreaInformation: areainformationdata
+															setAreaInformation: areainformationdata,
+															setImagePath: image_path
 														});
 													}
 													else{
