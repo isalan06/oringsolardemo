@@ -201,7 +201,7 @@
                           <th>地區</th>
                           <th>場域</th>
                           <th>設備號碼</th>
-                          <th>連線狀態</th>
+                          <th>異常狀態</th>
                           <th>設備狀態</th>
                           <th>今日發電量(kWh)</th>
                           <th>今日運行時間(hr)</th>
@@ -217,7 +217,7 @@
                         <th><%= row['sublocation_name'] %></th>
                         <th><%= row['arealocation_name'] %></th>
                         <th><%= row['inverter_id'] %></th>
-                        <th><%= row['online_status_name'] %></th>
+                        <th><font color="red"><%= row['online_status_name'] %></font></th>
                         <th><%= row['inverter_state_name'] %></th>
                         <th><%= row['today_energy'].toFixed(1) %></th>
                         <th><%= (row['today_runtime'] / 3600).toFixed(1) %></th>
