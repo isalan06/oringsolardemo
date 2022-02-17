@@ -72,6 +72,8 @@
                                                         <% var urlString='/SolarInverterList?AreaLocation=' + arearow['Index'].toString() + '&InverterID=' + inverterrow['inverter_id'].toString(); %>
                                                             <% if ((inverterrow['online_status'] === 0) || (inverterrow['inverter_state'] === 4)) { %>
                                                                 <li><span class='dot' style="background-color:red;"></span>
+                                                            <% } else if(inverterrow['today_energy'] <= 0) { %>
+                                                                <li><span class='dot' style="background-color:yellow;"></span>
                                                             <% } else { %>
                                                                 <li><span class='dot' style="background-color:lime;"></span>
                                                             <% } %>
