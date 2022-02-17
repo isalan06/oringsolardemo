@@ -203,6 +203,8 @@
                                                         <li><input type="checkbox" name="checkInverter" class='<%= id_index %>' value=<%= checkvalue %> <% if(checkflag == 1) { %>checked<% } %>>
                                                             <% if ((inverterrow['online_status'] === 0) || (inverterrow['inverter_state'] === 4)) { %>
                                                                 <span class='dot' style="background-color:red;"></span>
+                                                            <% } else if(inverterrow['today_energy'] <= 0) { %>
+                                                                <span class='dot' style="background-color:yellow;"></span>
                                                             <% } else { %>
                                                                 <span class='dot' style="background-color:lime;"></span>
                                                             <% } %>
