@@ -5,15 +5,14 @@ const mysql = require('mysql');
 var Chart = require('chart.js');
 var fs=require('fs');
 var url  = require('url');
+var DBConfig = require('../config/DBConfig');
+var ChargingPileTest = require('./chargingpile/chargingpiletest');
+var ChargingPileOverview = require('./chargingpile/chargingpileoverview'); 
+var ChargingPileManagement = require('./chargingpile/chargingpilemanagement');
+var ChargingPileReport = require('./chargingpile/chargingpilereport');
+var ChargingPileSetting = require('./chargingpile/chargingpilesetting');
 
-var config =
-	{
-		host: '127.0.0.1',
-		user: 'root',
-		password: '12345678',
-		database: 'solar_db',
-		port: 3306
-	};
+var config = DBConfig.DBConfig;
 
 var online_count = 0;
 var total_count = 0;
@@ -3041,5 +3040,15 @@ router.post('/ExportExcel2', function(req, res){
 
 	//res.send('Test');
 });
+
+router.get('/ChargingPileTest', ChargingPileTest);
+
+router.get('/ChargingPileOverview', ChargingPileOverview);
+
+router.get('/ChargingPileManagement', ChargingPileManagement);
+
+router.get('/ChargingPileReport', ChargingPileReport);
+
+router.get('/ChargingPileSetting', ChargingPileSetting);
 
 module.exports = router;

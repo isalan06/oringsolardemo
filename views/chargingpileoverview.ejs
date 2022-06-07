@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Solar Demo - Summary</title>
+    <link rel="stylesheet" href="stylesheets/chargingpileoverview.css">
+  </head>
+  <body>
+    <div class="dashboardadmin">
+      
+      <div class="LeftItemList">
+	      <label class="IconLWhite100"></label>
+	      <label class="PVTitle">EV系統</label>
+	      <hr class="LineTitle" />
+	      <div class="RectangleSelected"><label class="currentLeftTitle">即時監控</label></div>
+	      <div class="NotRectangleSelected"><label class="currentLeftTitle"><a href='/ChargingPileReport' class="linkPath">充電報表</a></label></div>
+	      <div class="NotRectangleSelected"><label class="currentLeftTitle"><a href='/ChargingPileManagement' class="linkPath">充電管理</a></label></div>
+          <div class="NotRectangleSelected"><label class="currentLeftTitle"><a href='/ChargingPileSetting' class="linkPath">設定</a></label></div>
+      </div>
+      <div class="UpperTitle">
+        <div class="UpperContainer">
+          <label style="left:20px;position:absolute;top:25px;font-size:larger"><%= "充電樁總數量 : " + setChargingPileNumber %></label>
+          <label class="UpperStatus"><%= "離線：" + setOfflineNumber %></label>
+          <img src="img/OfflineStatus.png" class="UpperStatusImage">
+          <label class="UpperStatus">充電異常：</label>
+          <img src="img/ErrorStatus.png" class="UpperStatusImage">
+          <label class="UpperStatus">充電完成：</label>
+          <img src="img/FinishedStatus.png" class="UpperStatusImage">
+          <label class="UpperStatus">充電中：</label>
+          <img src="img/ChargingStatus.png" class="UpperStatusImage">
+          <label class="UpperStatus">待機中：</label>
+          <img src="img/WaitStatus.png" class="UpperStatusImage">
+        </div>
+        
+      </div>
+      <div class="MainContainer">
+        
+        <% setChargingPileData['ChargeBox'].forEach( (row) => { %>
+        <div class="ChargingPileModule">
+            
+            <% if (row['ConnectedStatus'] == 0) { %>
+            <img class="ChargingPileModuleImage" src="img/ChargingPile_256_Offline.png">
+            <% } else { %>
+            <img class="ChargingPileModuleImage" src="img/ChargingPile_256_Wait.png">
+            <% } %>
+
+            <label class="ChargingPileModuleLabel"><%= row['charge_box_id'] %></label>
+            <hr class="LineItem2">
+            <div class="MessageContainter">
+                <img class="MessageImage" src="img/high-voltage.png">
+                <label class="MessageLabel">電壓 : 220V</label>
+            </div>
+            <div class="MessageContainter">
+                <img class="MessageImage" src="img/lightning-in-a-circle.png">
+                <label class="MessageLabel">電流 : 0A</label>
+            </div>
+            <div class="MessageContainter">
+                <img class="MessageImage" src="img/price-tag.png">
+                <label class="MessageLabel">卡號 : -</label>
+            </div>
+            <div class="MessageContainter">
+                <img class="MessageImage" src="img/warning.png">
+                <label class="MessageLabel">故障碼 : -</label>
+            </div>
+            
+        </div>
+        <% }); %>
+        
+      </div>
+      
+    </div>
+  </body>
+</html>

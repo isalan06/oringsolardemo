@@ -8,11 +8,16 @@ var app = require('../app');
 var debug = require('debug')('sample:server');
 var http = require('http');
 
+const cron = require('node-cron');
+const dowork = require('../controllers/schedule-capture');
+const testop = require('../models/TestModel');
+const solardataop = require('../models/SolarDataInfo');
+
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '80' || '40080');
+var port = normalizePort(process.env.PORT || '80');
 app.set('port', port);
 
 /**
@@ -87,4 +92,9 @@ function onListening() {
     ? 'pipe ' + addr
     : 'port ' + addr.port;
   debug('Listening on ' + bind);
+  console.log('My Program Start');
+  solardataop.Initialize_Customer1();
+  dowork.CaptureDataByAPI();
+  cron.schedule('*/5 * * * *', dowork.CaptureDataByAPI);
+  cron.schedule('*/2 * * * *', dowork.CheckDataForUpdate);
 }
