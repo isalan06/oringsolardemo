@@ -66,7 +66,7 @@ const UpdateDataToDB = {
                         if(regularData[index].refresh){
                             updateregulardatacount++;
                             let commandString = 'UPDATE table_solar_current SET ';
-                            let timestamprecord = new Date(regularData[index].timestamp)
+                            let timestamprecord = new Date(regularData[index].timestamp);
                             let tiemstampString = date.format(timestamprecord, 'YYYYMMDDHHmmss');
                             let get_year = timestamprecord.getFullYear();
                             let get_month = timestamprecord.getMonth()+1;
