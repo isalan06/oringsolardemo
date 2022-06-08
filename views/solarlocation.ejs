@@ -145,6 +145,12 @@
             <label class="Value-6" style="margin-top: 147px;margin-left: 144px;"><%= (setTodayHourEnergy / 100) | 0 %></label>
             <label class="Unit-6" style="margin-top: 119px;margin-left: 214px;">kWh</label>
             <label class="Unit-6" style="margin-top: 147px;margin-left: 214px;">kWh</label>
+            <label class="Title-6" style="margin-top: 175px;margin-left: 20px;"> 目前日照度</label>
+            <label class="Value-6" style="margin-top: 175px;margin-left: 144px;"><%= setPy %></label>
+            <label class="Unit-6" style="margin-top: 175px;margin-left: 214px;">W/M2</label>
+            <label class="Title-6" style="margin-top: 203px;margin-left: 20px;"> 目前溫度</label>
+            <label class="Value-6" style="margin-top: 203px;margin-left: 144px;"><%= setTemperature %></label>
+            <label class="Unit-6" style="margin-top: 203px;margin-left: 214px;">C</label>
           </div>
           <div class="Rect-Main-6">
             <label class="Title-5">設備連線率</label>
@@ -157,6 +163,7 @@
             <label class="Oval-3"></label>
             <label class="Title-7" style="margin-top: 234px;margin-left: 168px;">離線</label>
             <label class="Value-7" style="margin-top: 234px;margin-left: 205px;"><%= setTodayOfflineCount %></label>
+
           </div>
           <div class="Rect-Main-7">
             <label class="Title-8">每小時發電量</label>

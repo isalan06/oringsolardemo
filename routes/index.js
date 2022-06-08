@@ -341,8 +341,8 @@ router.get('/SolarLocation', function(req, res) {
 																var _get_py = 0;
 																var _get_temperature = 0;
 																if(rows.length > 0){
-																	_get_py = rows[0];
-																	_get_temperature = rows[1];
+																	_get_py = rows[0]['py'];
+																	_get_temperature = rows[0]['temperature'];
 
 																	conn.end();
 																	res.render('solarlocation', {
