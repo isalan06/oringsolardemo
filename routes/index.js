@@ -334,23 +334,62 @@ router.get('/SolarLocation', function(req, res) {
 
 														//console.log(areainformationdata);
 
-														conn.end();
-														res.render('solarlocation', {
-															title: 'Oring Solar System Demo - Location',
-															setAreaLocation: area_location_index,
-															setAreaName: area_name,
-															setTotalEnergy: totalenergy,
-															setTodayTotalEnergy: today_total_energy,
-															setTodayUnitEnergy: today_unit_energy,
-															setTodayHourEnergy: today_hour_energy,
-															setTodayOnlineCount: today_online_count,
-															setTodayOfflineCount: today_offline_count,
-															setTodayOnlinePrec: today_online_prec,
-															setOnlineChart: onlineDataString,
-															setHourChart: hourDataString,
-															setAreaInformation: areainformationdata,
-															setImagePath: image_path
+														commandString = 'SELECT py, temperature FROM table_solar_env WHERE area_location=' + area_location_index + ' AND timestamp > SUBDATE(NOW(), INTERVAL 1 HOUR);';
+														conn.query(commandString, function(err, rows){
+															if(err){conn.end(); res.send('Get Data Error 6');}
+															else{
+																var _get_py = 0;
+																var _get_temperature = 0;
+																if(rows.length > 0){
+																	_get_py = rows[0];
+																	_get_temperature = rows[1];
+
+																	conn.end();
+																	res.render('solarlocation', {
+																		title: 'Oring Solar System Demo - Location',
+																		setAreaLocation: area_location_index,
+																		setAreaName: area_name,
+																		setTotalEnergy: totalenergy,
+																		setTodayTotalEnergy: today_total_energy,
+																		setTodayUnitEnergy: today_unit_energy,
+																		setTodayHourEnergy: today_hour_energy,
+																		setTodayOnlineCount: today_online_count,
+																		setTodayOfflineCount: today_offline_count,
+																		setTodayOnlinePrec: today_online_prec,
+																		setOnlineChart: onlineDataString,
+																		setHourChart: hourDataString,
+																		setAreaInformation: areainformationdata,
+																		setImagePath: image_path,
+																		setPy : _get_py,
+																		setTemperature: _get_temperature,
+																	});
+
+																}
+																else{
+																	conn.end();
+																	res.render('solarlocation', {
+																		title: 'Oring Solar System Demo - Location',
+																		setAreaLocation: area_location_index,
+																		setAreaName: area_name,
+																		setTotalEnergy: totalenergy,
+																		setTodayTotalEnergy: today_total_energy,
+																		setTodayUnitEnergy: today_unit_energy,
+																		setTodayHourEnergy: today_hour_energy,
+																		setTodayOnlineCount: today_online_count,
+																		setTodayOfflineCount: today_offline_count,
+																		setTodayOnlinePrec: today_online_prec,
+																		setOnlineChart: onlineDataString,
+																		setHourChart: hourDataString,
+																		setAreaInformation: areainformationdata,
+																		setImagePath: image_path,
+																		setPy : _get_py,
+																		setTemperature: _get_temperature,
+																	});
+																}
+															}
 														});
+
+														
 													}
 													else{
 
