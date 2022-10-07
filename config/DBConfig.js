@@ -20,6 +20,13 @@ const DBConfig = {
 	    database: 'stevedb',
 	    port:  3306
     },
+	DBConfig_gateway:{
+		host: '211.75.141.1',
+		user: 'root',
+		password: '12345678',
+		database: 'gateway',
+		port: 43306
+	},
     
 }
 

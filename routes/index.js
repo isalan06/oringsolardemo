@@ -12,6 +12,8 @@ var ChargingPileManagement = require('./chargingpile/chargingpilemanagement');
 var ChargingPileReport = require('./chargingpile/chargingpilereport');
 var ChargingPileSetting = require('./chargingpile/chargingpilesetting');
 
+var getTokenByMacAddress = require('./gateway/getTokenByMacAddress')
+
 var config = DBConfig.DBConfig;
 
 var online_count = 0;
@@ -3089,5 +3091,7 @@ router.get('/ChargingPileManagement', ChargingPileManagement);
 router.get('/ChargingPileReport', ChargingPileReport);
 
 router.get('/ChargingPileSetting', ChargingPileSetting);
+
+router.post('/Gateway/GetTokenByMacAddress', getTokenByMacAddress);
 
 module.exports = router;
