@@ -27,6 +27,13 @@ const DBConfig = {
 		database: 'gateway',
 		port: 43306
 	},
+	DBConfig_gateway_local:{
+		host: 'localhost',
+		user: 'root',
+		password: '12345678',
+		database: 'gateway',
+		port: 3306
+	},
     
 }
 

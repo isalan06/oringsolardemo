@@ -6,6 +6,7 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
+    "base64url": "^3.0.1",
     "chart.js": "^3.5.1",
     "cookie-parser": "~1.4.4",
     "date-and-time": "^2.3.0",

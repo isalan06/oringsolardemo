@@ -13,6 +13,7 @@ var ChargingPileReport = require('./chargingpile/chargingpilereport');
 var ChargingPileSetting = require('./chargingpile/chargingpilesetting');
 
 var getTokenByMacAddress = require('./gateway/getTokenByMacAddress')
+var addMacAddress = require('./gateway/addMacAddress');
 
 var config = DBConfig.DBConfig;
 
@@ -3093,5 +3094,7 @@ router.get('/ChargingPileReport', ChargingPileReport);
 router.get('/ChargingPileSetting', ChargingPileSetting);
 
 router.post('/Gateway/GetTokenByMacAddress', getTokenByMacAddress);
+
+router.post('/Gateway/AddMacAddress', addMacAddress);
 
 module.exports = router;

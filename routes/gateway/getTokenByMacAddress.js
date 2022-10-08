@@ -2,10 +2,8 @@ const mysql = require('mysql');
 var DBConfig = require('../../config/DBConfig');
 
 const getTokenByMacAddress=(req, res)=>{
-    console.log(req.body);
     inputData = req.body;
     var macaddress = inputData['MacAddress'];
-    console.log(macaddress);
     var commandString ='SELECT macaddress, token, usecloud, usertoken, cloudurl, cloudtype FROM table_machineinfo WHERE macaddress=\'' + macaddress + '\';';
     const conn = new mysql.createConnection(DBConfig.DBConfig_gateway);
     conn.connect(  function(err){
@@ -23,7 +21,6 @@ const getTokenByMacAddress=(req, res)=>{
                         var usertoken = rows[0]['usertoken'];
                         var cloudurl = rows[0]['cloudurl'];
                         var cloudtype = rows[0]['cloudtype'];
-                        console.log(token);
                         outputData={};
                         outputData['result']=0;
                         outputData['errordescription']='NA';
