@@ -3,6 +3,7 @@ var DBConfig = require('../../config/DBConfig');
 var base64url = require('base64url');
 
 const addMacAddress=(req, res)=>{
+    console.log('start add Mac Address');
     inputData = req.body;
     var macaddress = inputData['MacAddress'];
     //var token = require('crypto').randomBytes(20).toString('hex');
@@ -14,6 +15,8 @@ const addMacAddress=(req, res)=>{
     var usertoken = inputData['UserToken'];
     var longitude = inputData['Longitude'];
     var latitude = inputData['Latitude'];
+
+    console.log('search db');
 
     var commandString ='SELECT COUNT(*) as DataCount FROM table_machineinfo WHERE macaddress=\'' + macaddress + '\';';
     const conn = new mysql.createConnection(DBConfig.DBConfig_gateway);
