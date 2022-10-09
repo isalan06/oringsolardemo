@@ -23,8 +23,12 @@ const updateMachineStatusImplment=(macaddress, count, req, res)=>{
         var camerasmallimage = inputData['CameraSmallImage'];
 
         commandString = 'UPDATE table_machinestatus SET recordtime=NOW(), camerastatus=\'';
-        commandString += camerastatus + '\', camerasmallimage=\'';
-        commandString += camerasmallimage + '\'';
+        commandString += camerastatus + '\'';
+        if(camerastatus === 'Running')
+        {
+            commandString +=  ', camerasmallimage=\'';
+            commandString += camerasmallimage + '\'';
+        }
         commandString += ';';
 
         const conn = new mysql.createConnection(DBConfig.DBConfig_gateway);
