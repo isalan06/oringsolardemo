@@ -1,5 +1,6 @@
 const mysql = require('mysql');
 var DBConfig = require('../../config/DBConfig');
+const UpdateMachineVersion = require('../../controllers/gateway/UpdateMachineVersion');
 
 const getTokenByMacAddress=(req, res)=>{
     inputData = req.body;
@@ -15,23 +16,26 @@ const getTokenByMacAddress=(req, res)=>{
                 }
 			  	else{
                     if(rows.length > 0){
-                        conn.end();
-                        var token = rows[0]['token'];
-                        var usecloud = rows[0]['usecloud'];
-                        var usertoken = rows[0]['usertoken'];
-                        var cloudurl = rows[0]['cloudurl'];
-                        var cloudtype = rows[0]['cloudtype'];
-                        outputData={};
-                        outputData['result']=0;
-                        outputData['errordescription']='NA';
-                        outputData['MacAddress']=macaddress;
-                        outputData['Token']=token;
-                        outputData['UseCloud']=usecloud;
-                        outputData['UserToken']=usertoken;
-                        outputData['CloudUrl']=cloudurl;
-                        outputData['CloudType']=cloudtype;
+                        //conn.end();
+                        UpdateMachineVersion(macaddress, conn, inputData, res, ()=>{
+                            conn.end();
+                            var token = rows[0]['token'];
+                            var usecloud = rows[0]['usecloud'];
+                            var usertoken = rows[0]['usertoken'];
+                            var cloudurl = rows[0]['cloudurl'];
+                            var cloudtype = rows[0]['cloudtype'];
+                            outputData={};
+                            outputData['result']=0;
+                            outputData['errordescription']='NA';
+                            outputData['MacAddress']=macaddress;
+                            outputData['Token']=token;
+                            outputData['UseCloud']=usecloud;
+                            outputData['UserToken']=usertoken;
+                            outputData['CloudUrl']=cloudurl;
+                            outputData['CloudType']=cloudtype;
 
-                        res.send(JSON.stringify(outputData));
+                            res.send(JSON.stringify(outputData));
+                        });
                     }
                     else{
                         

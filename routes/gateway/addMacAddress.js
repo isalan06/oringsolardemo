@@ -1,6 +1,8 @@
 const mysql = require('mysql');
 var DBConfig = require('../../config/DBConfig');
 var base64url = require('base64url');
+const UpdateMachineVersion = require('../../controllers/gateway/UpdateMachineVersion');
+const AddMachineStatusRow = require('../../controllers/gateway/AddMachineStatusRow');
 
 const addMacAddress=(req, res)=>{
     inputData = req.body;
@@ -47,18 +49,22 @@ const addMacAddress=(req, res)=>{
                             if(err) { conn.end(); errordata={}; errordata['result']=2; errordata['errordescription']='Cannot execute command: ' + commandString;  res.send(JSON.stringify(errordata));
                             }
                             else{
-                                conn.end(); 
-                                outputData={};
-                                outputData['result']=0;
-                                outputData['errordescription']='NA';
-                                outputData['MacAddress']=macaddress;
-                                outputData['Token']=token;
-                                outputData['UseCloud']=usecloud;
-                                outputData['UserToken']=usertoken;
-                                outputData['CloudUrl']=cloudurl;
-                                outputData['CloudType']=cloudtype;
+                                UpdateMachineVersion(macaddress, conn, inputData, res, ()=>{
+                                    AddMachineStatusRow(macaddress, conn, inputData, res, ()=>{
+                                        conn.end(); 
+                                        outputData={};
+                                        outputData['result']=0;
+                                        outputData['errordescription']='NA';
+                                        outputData['MacAddress']=macaddress;
+                                        outputData['Token']=token;
+                                        outputData['UseCloud']=usecloud;
+                                        outputData['UserToken']=usertoken;
+                                        outputData['CloudUrl']=cloudurl;
+                                        outputData['CloudType']=cloudtype;
 
-                                res.send(JSON.stringify(outputData));
+                                        res.send(JSON.stringify(outputData));
+                                    });
+                                });
                             }
                         });
                         
