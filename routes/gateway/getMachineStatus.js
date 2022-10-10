@@ -5,7 +5,7 @@ const getMachineStatus=(req, res)=>{
     inputData = req.body;
 
     var macaddress = inputData['MacAddress'];
-    var commandString ='SELECT camerastatus, dht22status, thermalstatus, accelgaugestatus, camerasmallimage, sensordata FROM table_machinestatus WHERE macaddress=\'' + macaddress + '\' LIMIT 1;';
+    var commandString ='SELECT camerastatus, dht22status, thermalstatus, accelgaugestatus, camerasmallimage, sensordata, parameter, cameraparameter, machineoperation, cloudparameter, odparameter FROM table_machinestatus WHERE macaddress=\'' + macaddress + '\' LIMIT 1;';
     const conn = new mysql.createConnection(DBConfig.DBConfig_gateway);
     conn.connect(  function(err){
         if(err){ conn.end(); errordata={}; errordata['result']=1; errordata['errordescription']='Cannot connect to database';  res.send(JSON.stringify(errordata));
