@@ -21,6 +21,10 @@ const updateMachineStatusImplment=(macaddress, count, req, res)=>{
         inputData = req.body;
         var camerastatus = inputData['CameraStatus'];
         var camerasmallimage = inputData['CameraSmallImage'];
+        var dht22status = inputData['DHT22Status'];
+        var thermalstatus = inputData['ThermalStatus'];
+        var accelgaugestatus = inputData['AccelGaugeStatus'];
+        var sensordata = inputData['SensorData'];
 
         commandString = 'UPDATE table_machinestatus SET recordtime=NOW(), camerastatus=\'';
         commandString += camerastatus + '\'';
@@ -29,6 +33,10 @@ const updateMachineStatusImplment=(macaddress, count, req, res)=>{
             commandString +=  ', camerasmallimage=\'';
             commandString += camerasmallimage + '\'';
         }
+        commandString += ', dht22status=\'' + dht22status + '\'';
+        commandString += ', thermalstatus=\'' + thermalstatus + '\'';
+        commandString += ', accelgaugestatus=\'' + accelgaugestatus + '\'';
+        commandString += ', sensordata=\'' + sensordata + '\'';
         commandString += ';';
 
         const conn = new mysql.createConnection(DBConfig.DBConfig_gateway);
