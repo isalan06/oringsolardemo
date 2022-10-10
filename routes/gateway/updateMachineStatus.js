@@ -24,11 +24,11 @@ const updateMachineStatusImplment=(macaddress, count, req, res)=>{
         var dht22status = inputData['DHT22Status'];
         var thermalstatus = inputData['ThermalStatus'];
         var accelgaugestatus = inputData['AccelGaugeStatus'];
-        var sensordata = inputData['SensorData'];
+        var sensordata = JSON.stringify(inputData['SensorData']);
 
         commandString = 'UPDATE table_machinestatus SET recordtime=NOW(), camerastatus=\'';
         commandString += camerastatus + '\'';
-        if(camerastatus === 'Running')
+        if((camerastatus === 'Running') && (camerasmallimage !==''))
         {
             commandString +=  ', camerasmallimage=\'';
             commandString += camerasmallimage + '\'';
