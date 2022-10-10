@@ -16,6 +16,7 @@ var getTokenByMacAddress = require('./gateway/getTokenByMacAddress')
 var addMacAddress = require('./gateway/addMacAddress');
 var updateMachineStatus = require('./gateway/updateMachineStatus');
 var addMachineCommand = require('./gateway/addMachineCommand');
+var getMachineStatus = require('./gateway/getMachineStatus');
 
 var config = DBConfig.DBConfig;
 
@@ -3102,5 +3103,7 @@ router.post('/Gateway/AddMacAddress', addMacAddress);
 router.post('/Gateway/UpdateMachineStatus', updateMachineStatus);
 
 router.post('/Gateway/AddMachineCommand', addMachineCommand);
+
+router.post('/Gateway/GetMachineStatus', getMachineStatus);
 
 module.exports = router;
