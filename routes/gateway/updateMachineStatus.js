@@ -25,6 +25,11 @@ const updateMachineStatusImplment=(macaddress, count, req, res)=>{
         var thermalstatus = inputData['ThermalStatus'];
         var accelgaugestatus = inputData['AccelGaugeStatus'];
         var sensordata = JSON.stringify(inputData['SensorData']);
+        var parameter = JSON.stringify(inputData['Parameter']);
+        var cameraparameter = JSON.stringify(inputData['CameraParameter']);
+        var machineoperation = JSON.stringify(inputData['MachineOperation']);
+        var cloudparameter = JSON.stringify(inputData['CloudParameter']);
+        var odparameter = JSON.stringify(inputData['ODParameter']);
 
         commandString = 'UPDATE table_machinestatus SET recordtime=NOW(), camerastatus=\'';
         commandString += camerastatus + '\'';
@@ -37,6 +42,11 @@ const updateMachineStatusImplment=(macaddress, count, req, res)=>{
         commandString += ', thermalstatus=\'' + thermalstatus + '\'';
         commandString += ', accelgaugestatus=\'' + accelgaugestatus + '\'';
         commandString += ', sensordata=\'' + sensordata + '\'';
+        commandString += ', parameter=\'' + parameter + '\'';
+        commandString += ', cameraparameter=\'' + cameraparameter + '\'';
+        commandString += ', machineoperation=\'' + machineoperation + '\'';
+        commandString += ', cloudparameter=\'' + cloudparameter + '\'';
+        commandString += ', odparameter=\'' + odparameter + '\'';
         commandString += ';';
 
         const conn = new mysql.createConnection(DBConfig.DBConfig_gateway);

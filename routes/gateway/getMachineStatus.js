@@ -24,8 +24,12 @@ const getMachineStatus=(req, res)=>{
                         status['accelgauge']=rows[0]['accelgaugestatus'];
                         outputData['status']=status;
                         outputData['camerasmallimage']=rows[0]['camerasmallimage'];
-                        console.log(rows[0]['sensordata']);
                         outputData['sensordata']=JSON.parse(rows[0]['sensordata']);
+                        outputData['parameter']=JSON.parse(rows[0]['parameter']);
+                        outputData['cameraparameter']=JSON.parse(rows[0]['cameraparameter']);
+                        outputData['machineoperation']=JSON.parse(rows[0]['machineoperation']);
+                        outputData['cloudparameter']=JSON.parse(rows[0]['cloudparameter']);
+                        outputData['odparameter']=JSON.parse(rows[0]['odparameter']);
                         res.send(JSON.stringify(outputData));
                     }
                     else{
