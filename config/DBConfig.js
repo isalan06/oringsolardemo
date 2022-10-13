@@ -13,6 +13,13 @@ const DBConfig = {
 	    database: 'solar_db',
 	    port:  13306
     },
+	DBConfig_solar:{
+		host: '211.75.141.1',
+	    user: 'root',
+	    password: '12345678',
+	    database: 'solar_db',
+	    port:  43306
+	},
     DBConfig_ocpp: {
         host: 'localhost',
 	    user: 'ocpp',

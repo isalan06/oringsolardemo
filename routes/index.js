@@ -6,6 +6,10 @@ var Chart = require('chart.js');
 var fs=require('fs');
 var url  = require('url');
 var DBConfig = require('../config/DBConfig');
+
+var getHistoryEnergy = require('./solar/getHistoryEnergy');
+var getInverterList = require('./solar/getInverterList');
+
 var ChargingPileTest = require('./chargingpile/chargingpiletest');
 var ChargingPileOverview = require('./chargingpile/chargingpileoverview'); 
 var ChargingPileManagement = require('./chargingpile/chargingpilemanagement');
@@ -17,6 +21,7 @@ var addMacAddress = require('./gateway/addMacAddress');
 var updateMachineStatus = require('./gateway/updateMachineStatus');
 var addMachineCommand = require('./gateway/addMachineCommand');
 var getMachineStatus = require('./gateway/getMachineStatus');
+
 
 var config = DBConfig.DBConfig;
 
@@ -3085,6 +3090,10 @@ router.post('/ExportExcel2', function(req, res){
 
 	//res.send('Test');
 });
+
+router.get('/Solar/GetHistoryEnergy', getHistoryEnergy);
+
+router.get('/Solar/GetInverterList', getInverterList);
 
 router.get('/ChargingPileTest', ChargingPileTest);
 
