@@ -12,6 +12,7 @@ const getDayEnergyByAllInverter=(group, searchdate, func)=>{
         commandString += 'WHERE customer_id=' + group['customer_id'];
         commandString += ' AND main_location=' + group['main_location'];
         commandString += ' AND sub_location=' + group['sub_location'];
+        commandString += ' AND area_location=' + group['area_location'];
         commandString += ' AND r_year=' + searchdate.getFullYear();
         commandString += ' AND r_month=' + (searchdate.getMonth() + 1);
         
