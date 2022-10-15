@@ -5,9 +5,11 @@ const getHourEnergyByAllInverter=(group, searchdate, func)=>{
 
     var commandString = 'SELECT ';
     commandString += 'r_hour, SUM(energy) AS totalenergy ';
+    commandString += ',AVG(py) AS py, AVG(temperature) AS temperature ';
     commandString += 'FROM (';
         commandString += 'SELECT ';
         commandString += 'r_hour, (energy_end - energy_start) AS energy ';
+        commandString += ',(py_start+py_end)/2 AS py, (temperature_start+temperature_end)/2 AS temperature ';
         commandString += 'FROM table_solar_hist_hour ';
         commandString += 'WHERE customer_id=' + group['customer_id'];
         commandString += ' AND main_location=' + group['main_location'];
@@ -40,12 +42,16 @@ const getHourEnergyByAllInverter=(group, searchdate, func)=>{
                         outputData['result']=0;
                         outputData['errordescription']='NA';
                         outputData['type']='Hour';
-                        outputData['unit']='kWh';
+                        outputData['energy_unit']='kWh';
+                        outputData['solarmeter_unit']='W/㎡';
+                        outputData['temperature_unit']='°C';
                         valuedata=[];
                         for(var i=0;i<rows.length;i++){
                             energyvalue={};
                             energyvalue['hour']=rows[i]['r_hour'];
                             energyvalue['energy']=rows[i]['totalenergy']/100.0;
+                            energyvalue['avg_solar']=rows[i]['py'];
+                            energyvalue['avg_temperature']=rows[i]['temperature'];
                             valuedata.push(energyvalue);
                         }
                         outputData['data']=valuedata;

@@ -5,9 +5,11 @@ const getMonthEnergyByAllInverter=(group, searchdate, func)=>{
 
     var commandString = 'SELECT ';
     commandString += 'r_month, SUM(energy) AS totalenergy ';
+    commandString += ',AVG(py) AS py, AVG(temperature) AS temperature ';
     commandString += 'FROM (';
         commandString += 'SELECT ';
         commandString += 'r_month, (energy_end - energy_start) AS energy ';
+        commandString += ',(py_start+py_end)/2 AS py, (temperature_start+temperature_end)/2 AS temperature ';
         commandString += 'FROM table_solar_hist_hour ';
         commandString += 'WHERE customer_id=' + group['customer_id'];
         commandString += ' AND main_location=' + group['main_location'];
@@ -16,7 +18,7 @@ const getMonthEnergyByAllInverter=(group, searchdate, func)=>{
         commandString += ' AND r_year=' + searchdate.getFullYear();
         
     commandString += ') AS RawData ' ;
-    commandString += 'WHERE energy >= 0 AND energy <= 10000 ';
+    commandString += 'WHERE energy > 0 AND energy <= 10000 ';
     commandString += 'GROUP BY r_month;';
 
     const conn = new mysql.createConnection(DBConfig.DBConfig_solar);
@@ -38,12 +40,16 @@ const getMonthEnergyByAllInverter=(group, searchdate, func)=>{
                         outputData['result']=0;
                         outputData['errordescription']='NA';
                         outputData['type']='Month';
-                        outputData['unit']='kWh';
+                        outputData['energy_unit']='kWh';
+                        outputData['solarmeter_unit']='W/㎡';
+                        outputData['temperature_unit']='°C';
                         valuedata=[];
                         for(var i=0;i<rows.length;i++){
                             energyvalue={};
                             energyvalue['month']=rows[i]['r_month'];
                             energyvalue['energy']=rows[i]['totalenergy']/100.0;
+                            energyvalue['avg_solar']=rows[i]['py'];
+                            energyvalue['avg_temperature']=rows[i]['temperature'];
                             valuedata.push(energyvalue);
                         }
                         outputData['data']=valuedata;
