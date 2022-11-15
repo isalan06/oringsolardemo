@@ -47,6 +47,7 @@ const updateMachineStatusImplment=(macaddress, count, req, res)=>{
         commandString += ', machineoperation=\'' + machineoperation + '\'';
         commandString += ', cloudparameter=\'' + cloudparameter + '\'';
         commandString += ', odparameter=\'' + odparameter + '\'';
+        commandString += ' WHERE macaddress=\'' + macaddress + '\'';
         commandString += ';';
 
         const conn = new mysql.createConnection(DBConfig.DBConfig_gateway);
